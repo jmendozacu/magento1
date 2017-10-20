@@ -1,0 +1,45 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please 
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_Search
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+
+<tr id="<?php echo $this->element->getId(); ?>">
+    <td class="label"><?php echo $this->element->getLabel(); ?></td>
+    <td colspan="3">        
+        <div class="div-attributes"><?php echo $this->__('All Attributes'); ?></div>
+        <div class="div-searchable"><?php echo $this->__('Priority | Searchable Attributes'); ?></div>
+
+        <div class="psearch-form">
+	        <ul id="sortable-attributes" data-list="off">
+	        <?php foreach ($this->getAttributes() as $attrib) : ?>
+	            <li data-id="<?php echo $attrib->getId(); ?>" data-name="<?php echo $this->escapeHtml($this->prepareLabel($attrib)); ?>">
+                    <span><?php echo $this->escapeHtml($this->prepareLabel($attrib)); ?></span>
+	            </li>
+	        <?php endforeach; ?>
+	        </ul>
+	
+	        <ul id="sortable-searchable" data-list="on">
+	        <?php $priority = 0; $order = array(); foreach ($this->getAttributesSearchable() as $attrib) : $priority++; $order['on'][] = $attrib->getId(); ?>
+	            <li data-id="<?php echo $attrib->getId(); ?>" data-name="<?php echo $this->escapeHtml($this->prepareLabel($attrib)); ?>">
+                    <span><?php echo $priority; ?> | <?php echo $this->escapeHtml($this->prepareLabel($attrib)); ?></span>
+	            </li>
+	        <?php endforeach; ?>
+	        </ul>
+		</div>
+		<input id="psearch-attributes-change" type="hidden" name="psearch-attributes-change" value="<?php echo $this->escapeHtml(urldecode(http_build_query($order))); ?>" />
+    </td>
+</tr>

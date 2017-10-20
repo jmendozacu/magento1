@@ -1,0 +1,186 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+<?php
+/**
+ * One page checkout payment methods
+ *
+ * @see Mage_Checkout_Block_Onepage_Payment_Methods
+ */
+$cant_continue = false;
+$cartItems = $this->getQuote()->getAllVisibleItems();
+foreach ($cartItems as $item) {
+    $cat = $item->getProduct()->getCategoryIds();
+
+    foreach ($cat as $current_catagery_id) {
+        $category_name = Mage::getModel('catalog/category')->load($current_catagery_id)->getName();
+        //echo $category_name ;
+        $m = Mage::getModel('catalog/category')
+                        ->load($current_catagery_id)
+                        ->getParentCategory()->getName();
+        //echo $m . "<br />";
+
+        if (strtolower($category_name) == "prescription" || strtolower($category_name) == "medicines" || strtolower($m) == "medicines") {
+            //$prescription_found = true;
+            $cant_continue = true;
+        }
+    }
+}
+?>
+<?php
+$quote = $this->getQuote();
+$store = $quote ? $quote->getStoreId() : null;
+$methods = array();
+foreach ($this->helper('payment')->getStoreMethods($store, $quote) as $method) {
+    if (!$method) {
+        continue;
+    }
+
+    if ($method->canUseCheckout() && $method->isApplicableToQuote($quote, Mage_Payment_Model_Method_Abstract::CHECK_USE_FOR_CURRENCY | Mage_Payment_Model_Method_Abstract::CHECK_ORDER_TOTAL_MIN_MAX | Mage_Payment_Model_Method_Abstract::CHECK_ZERO_TOTAL
+            )) {
+        $this->_assignMethod($method);
+        $methods[] = $method;
+    }
+}
+
+//$methods = $this->getMethods();
+$oneMethod = count($methods) <= 1;
+$defaultMethod = $this->helper('onestepcheckout')->getConfigGetDefaultPayment();
+$html = array();
+?>
+
+<div id="checkout-payment-method-load">
+
+    <?php if (empty($methods)): ?>
+        <dt>
+            <?php echo $this->__('No Payment Methods') ?>
+        </dt>
+    <?php else: ?>
+
+        <div class="sp-methods">
+            <?php foreach ($methods as $_method): $_code = $_method->getCode(); ?>
+                <?php
+                $disabled_paypal = "";
+                $paypal_text = "";
+                $classname = "";
+                if ($_code == "paypal_express") {
+                    $paypal_text = "<span class='payment-note'>(Paypal not accepted if your order contains a prescription item. Please use alternative payment method.)</span>";
+
+                    if ($cant_continue == true) {
+                        $disabled_paypal = "disabled='disabled'";
+                        $classname = ' tv_paypal_express disabled';
+                    }
+                }
+                ?>
+                <?php $enableMethod = $this->_canUseMethod($_method); ?>
+                <?php if ($enableMethod) { ?>
+                    <?php if (!$oneMethod): ?>
+                        <span class="no-display"><input <?php echo $disabled_paypal ?> class="p_method_radio radio" id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" onclick="payment.switchMethod('<?php echo $_code ?>')"<?php if ($this->getSelectedMethodCode() == $_code): ?> checked="checked"<?php endif; ?> /></span>
+                    <?php else: ?>
+                        <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" class="radio" /></span>
+                    <?php endif; ?>
+                <?php } ?>
+
+                <label code="<?php echo $this->getSelectedMethodCode(); ?>" class="payment-button button-<?php echo $_code ?><?php echo $classname; ?><?php echo (!$enableMethod) ? ' disabled' : ''; ?>" for="p_method_<?php echo $_code ?>" <?php echo (!$enableMethod) ? 'title="' . $this->__('This payment method is not available for the billing address you&apos;ve indicated.') . '"' : ''; ?>>
+                    <span class="icon"></span>
+                    <span class="payment-name"><?php echo $this->escapeHtml($this->getMethodTitle($_method)) ?> <?php echo $this->getMethodLabelAfterHtml($_method) ?></span>
+                    <?php echo $paypal_text ?>
+                </label>
+
+                <?php if (!$defaultMethod || $oneMethod) $defaultMethod = $_code; ?>
+
+                <?php
+                if ($enableMethod) {
+                    $html[] = $this->getPaymentMethodFormHtml($_method);
+                }
+                ?>
+            <?php endforeach; ?>
+        </div>
+        <div class="sp-methods-content">
+            <?php
+            if (!empty($html)) {
+                foreach ($html as $key => $value) {
+                    if ($value) {
+                        echo $value;
+                    }
+                }
+            }
+            ?>
+        </div>
+
+    <?php endif; ?>
+
+    <?php echo $this->getChildChildHtml('additional'); ?>
+    <script type="text/javascript">
+        //<![CDATA[
+<?php echo $this->getChildChildHtml('scripts'); ?>
+        payment.init();
+
+        var paymentTimeout;
+        var paymentLastUpdated;
+        jQuery("#co-payment-form [name^='payment'], #co-payment-form [data-encrypted-name^='payment']").on('keyup', function () {
+            var $this = jQuery(this);
+            clearTimeout(paymentTimeout);
+            paymentTimeout = setTimeout(function () {
+                if (checkout.isFilledForm('#co-payment-form')) {
+                    checkout.preSave(3);
+                }
+                paymentLastUpdated = $this.val();
+            }, 1000);
+        });
+
+        jQuery("#co-payment-form [name^='payment'], #co-payment-form [data-encrypted-name^='payment'], #co-payment-form [data-eway-encrypt-name^='payment']").on('blur', function () {
+            var $this = jQuery(this);
+            if (checkout.isFilledForm('#co-payment-form')) {
+                checkout.preSave(3);
+            }
+            paymentLastUpdated = $this.val();
+        });
+
+        jQuery("#co-payment-form [name^='payment'], #co-payment-form [data-encrypted-name^='payment']").on('change', function () {
+            var $this = jQuery(this);
+            clearTimeout(paymentTimeout);
+            if (paymentLastUpdated != $this.val() && checkout.isFilledForm('#co-payment-form')) {
+                checkout.preSave(3);
+            }
+            paymentLastUpdated = null;
+        });
+
+<?php if ($cant_continue == false) { ?>
+            payment.switchMethod(payment.currentMethod ? payment.currentMethod : '<?php echo $defaultMethod ?>');
+            jQuery('.button-' + (payment.currentMethod ? payment.currentMethod : '<?php echo $defaultMethod ?>')).click();
+<?php } else { ?>
+            jQuery('.p_method_radio').removeAttr('checked');
+            payment.switchMethod('<?php echo $defaultMethod ?>');
+            jQuery('.button-' + '<?php echo $defaultMethod ?>').click();
+<?php } ?>
+        jQuery('.sp-methods .no-display').each(function () {
+            var me = jQuery(this);
+            var radioMethod = me.find('.p_method_radio');
+            if (radioMethod.is(':checked') && !radioMethod.is(':disabled')) {
+                if (typeof me.next('.payment-button')[0] != 'undefined') {
+                    me.next('.payment-button').addClass('active');
+                }
+            } else {
+                if (typeof me.next('.payment-button')[0] != 'undefined') {
+                    me.next('.payment-button').removeClass('active');
+                }
+            }
+        })
+        //]]>
+    </script>
+</div>

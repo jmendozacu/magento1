@@ -1,0 +1,104 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+
+<style>
+    .one-step-checkout h3.section-name,
+    .checkout-onepage-index ol.opc-firststep-widget > li .step-title {
+        background-color: <?php echo $this->helper("onestepcheckout")->getConfigBlockHeadBackgroundColor(); ?>!important;
+        color: <?php echo $this->helper("onestepcheckout")->getConfigBlockHeadTextColor(); ?>!important;
+    }
+
+    .checkout-onepage-index ol.opc-firststep-widget > li .step-title a {
+        color: <?php echo $this->helper("onestepcheckout")->getConfigBlockHeadTextColor(); ?>!important;
+    }
+    .checkout-onepage-index ol.opc-firststep-widget > li .step-title a:hover {
+        color: <?php echo $this->helper("onestepcheckout")->getConfigBlockHeadTextColor(); ?>!important;
+    }
+
+    .one-step-checkout .billing-address .billing-address-forms,
+    .one-step-checkout .shipping-address .shipping-address-forms,
+    .one-step-checkout .payment #co-payment-form,
+    .order-summary-wrap,
+    .one-step-checkout .order-review-column #checkout-review-load,
+    .checkout-onepage-index ol.opc-firststep-widget > li .step,
+    #onestepcheckout-login-form {
+        background-color: <?php echo $this->helper("onestepcheckout")->getConfigBlockBackgroundColor(); ?>!important;
+    }
+
+    a,
+    .one-step-checkout .page-top-row .to-login-page {
+        color: <?php echo $this->helper("onestepcheckout")->getConfigLinkColor(); ?>!important;
+    }
+
+    a:hover,
+    .one-step-checkout .page-top-row .to-login-page:hover {
+        color: <?php echo $this->helper("onestepcheckout")->getConfigLinkHoverColor(); ?>!important;
+    }
+
+    .one-step-checkout .page-top-row .buttons-set button > span,
+    .one-step-checkout .order-review-column button > span,
+    .one-step-checkout .page-top-row #onestepcheckout-login-form button > span,
+    .checkout-onepage-index ol.opc-firststep-widget .buttons-set button > span {
+        background: <?php echo $this->helper("onestepcheckout")->getConfigButtonBackgroundColor(); ?>!important;
+        color: <?php echo $this->helper("onestepcheckout")->getConfigButtonTextColor(); ?>!important;
+        border-color: <?php echo $this->helper("onestepcheckout")->getConfigButtonBorderColor(); ?>!important;
+    }
+
+    .one-step-checkout .page-top-row .buttons-set button:hover > span,
+    .one-step-checkout .order-review-column button:hover > span,
+    .one-step-checkout .page-top-row #onestepcheckout-login-form button:hover > span,
+    .checkout-onepage-index ol.opc-firststep-widget .buttons-set button:hover > span {
+        background: <?php echo $this->helper("onestepcheckout")->getConfigButtonHoverBackgroundColor(); ?>!important;
+        color: <?php echo $this->helper("onestepcheckout")->getConfigButtonHoverTextColor(); ?>!important;
+    }
+
+    .one-step-checkout .section-name .step-number,
+    .checkout-onepage-index ol.opc-firststep-widget > li .step-title .number {
+        background: <?php echo $this->helper("onestepcheckout")->getConfigNumbersBackgroundColor(); ?>!important;
+        color: <?php echo $this->helper("onestepcheckout")->getConfigNumbersTextColor(); ?>!important;
+        border-color: <?php echo $this->helper("onestepcheckout")->getConfigNumbersBorderColor(); ?>!important;
+    }
+</style>
+
+<script type="text/javascript">
+    var BASE_URL = '<?php echo $this->getUrl(); ?>';
+</script>
+<!--<div class="header-container">
+        <div class="header">
+                <div class="cf">
+<?php /*
+  <a href="<?php echo $this->getUrl(); ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" height="63"/></a>
+ */ ?>
+                        <span class="logo"><img src="<?php //echo $this->getLogoSrc() ?>" alt="<?php //echo $this->getLogoAlt() ?>" height="63"/></span>
+                         top main menu
+                        <div class="checkout_links">
+                                <a href="<?php //echo $this->getUrl('checkout/cart'); ?>"><?php// echo $this->helper('checkout')->__('Shopping Cart'); ?></a>
+                                <span class="active-page"><?php //echo $this->__('Secure Checkout'); ?></span>
+                                <span><?php //echo $this->__('Thank you!'); ?></span>
+                        </div>
+                </div>
+<?php //echo $this->getChildHtml('topContainer'); ?>
+        </div>
+</div>-->
+
+<script type="text/javascript">
+    var _CUSTOMER_IS_LOGGED_IN = <?php echo ((Mage::getSingleton('customer/session')->isLoggedIn()) ? '1' : '0') ?>;
+</script>

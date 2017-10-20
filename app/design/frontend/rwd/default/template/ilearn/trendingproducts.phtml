@@ -1,0 +1,82 @@
+<?php
+/*
+  Created on : Nov 17, 2016, 9:36:04 AM
+  Author     : Tran Trong Thang
+  Email      : trantrongthang1207@gmail.com
+  Skype      : trantrongthang1207
+ */
+
+function getCollection() {
+    $storeId = Mage::app()->getStore()->getId();
+    $collection = Mage::getResourceModel('reports/product_collection')
+            ->addOrderedQty()
+            ->setStoreId($storeId)
+            ->addStoreFilter($storeId)
+            ->setOrder('ordered_qty', 'desc');
+    if (Mage::helper('catalog/product_flat')->isEnabled()) {
+        $collection->getSelect()
+                ->joinInner(array('e2' => 'catalog_product_flat_' . $storeId), 'e2.entity_id = e.entity_id');
+    } else {
+        $collection->addAttributeToSelect('*')
+                ->addAttributeToSelect(array('name', 'price', 'small_image'));
+    }
+    Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($collection);
+    Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($collection);
+    /*
+      if ($categoryId = $this->getCategory()) {
+      $category = Mage::getModel('catalog/category')->load($categoryId);
+      $collection->addCategoryFilter($category);
+      }
+      $collection->setPage(1, $this->getLimit());
+     */
+    $collection->setPage(1, 4);
+    return $collection;
+}
+?>
+<?php
+/**
+ * Bestseller Products block template
+ *
+ * @see Mage_Catalog_Block_Product_Bestseller
+ */
+?>
+<div class="block block-list block-viewed">
+    <div class="block-title">
+        <strong><span><?php echo $this->__($this->getHeader()) ?></span></strong>
+    </div>
+    <div class="block-content">
+        <?php $products = getCollection(); ?>
+        <?php if (0 < $products->getSize()) { ?>
+            <table class="bestseller-table">
+                <tr>
+                    <?php foreach ($products as $p) { ?>
+                        <td style="padding: 15px 15px 0px 15px;">
+                            <a href="<?php echo $p->getProductUrl() ?>" title="<?php echo $this->htmlEscape($p->getName()) ?>" class="product-image">
+                                <img src="<?php echo $this->helper('catalog/image')->init($p, 'small_image')->resize(125) ?>" width="125" height="125" alt="<?php echo $this->htmlEscape($p->getName()) ?>" />
+                            </a>
+                            <h3 class="product-name">
+                                <a href="<?php echo $p->getProductUrl() ?>" title="<?php echo $this->htmlEscape($p->getName()) ?>">
+                                    <?php echo $this->htmlEscape($p->getName()) ?>
+                                </a>
+                            </h3>
+                            <?php echo $this->getPriceHtml($p, true) ?>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <?php foreach ($products as $p) { ?>
+                        <td style="padding: 0px 15px 15px;">
+                            <?php if ($p->isSaleable()): ?>
+                                <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($p) ?>')">
+                                    <span><span><?php echo $this->__('Add to Cart') ?></span></span>
+                                </button>
+                            <?php else: ?>
+                                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                                    <?php endif; ?>
+                        </td>
+                    <?php } ?>
+                </tr>
+            </table>
+        <?php } ?>
+    </div>
+</div>

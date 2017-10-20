@@ -1,0 +1,61 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+<?php if ( !$this->helper('onestepcheckout')->getConfigShowDiscountForm() ) return;?>
+<?php $oneActiveClass = (!$this->helper('onestepcheckout')->getConfigEnableRewards())? ' oneActive': ''; ?>
+
+<form id="discount-coupon-form" class="clearfix<?php echo $oneActiveClass; ?>" action="" method="post">
+    <div class="discount">
+        <div class="discount-form">
+            <label for="coupon_code"><?php echo $this->__('Discount Coupon') ?> <span class="show-form">+</span></label>
+            <div class="discount-form-input">
+	            <input type="hidden" name="remove" id="remove-coupone" value="0" />
+	            <div class="input-box">
+	                <input class="input-text validate-coupon" id="coupon_code" name="coupon_code" value="<?php echo $this->escapeHtml($this->getCouponCode()) ?>" />
+	            </div>
+	            <div class="buttons-set">
+	                <button type="button" title="<?php echo $this->__('Apply Coupon') ?>" class="button" onclick="discountForm.submit(false)" value="<?php echo $this->__('Apply') ?>"><span><span><?php echo $this->__('Apply') ?></span></span></button>
+	                <?php //if(strlen($this->getCouponCode())): ?>
+	                    <button type="button" title="<?php echo $this->__('Cancel Coupon') ?>" class="button btn-coupon-cancel" onclick="discountForm.submit(true)" value="<?php echo $this->__('Cancel') ?>"><span><span><?php echo $this->__('Cancel') ?></span></span></button>
+	                <?php //endif;?>
+	            </div>
+			</div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+var couponCode = new CouponCode('discount-coupon-form', "<?php echo $this->getUrl('onestepcheckout/checkout/couponPost') ?>");
+var discountForm = new VarienForm('discount-coupon-form');
+discountForm.submit = function (isRemove) {
+    if ( $('advice-validate-coupon-coupon_code') ) {
+        $('advice-validate-coupon-coupon_code').remove();
+    }
+    $('coupon_code').removeClassName('validation-failed');
+    if (isRemove) {
+        $('coupon_code').removeClassName('required-entry');
+        $('remove-coupone').value = "1";
+        $('coupon_code').setValue('');
+    } else {
+        $('coupon_code').addClassName('required-entry');
+        $('remove-coupone').value = "0";
+    }
+    couponCode.save();
+}
+//]]>
+</script>

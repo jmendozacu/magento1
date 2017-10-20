@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+ */
+-->
+<widgets>
+    <instafeed type="instafeed/widget" translate="name description">
+        <name>Ico Widget Instagram Feed</name>
+        <description>Show photos Instagram Feed</description>
+        <parameters>
+            <widget_title translate="label">
+                <label>Widget Title</label>
+                <visible>1</visible>
+                <type>text</type>
+            </widget_title>
+            <cache translate="label description">
+                <label>Cache Lifetime</label>
+                <visible>1</visible>
+                <value>86400</value>
+                <type>text</type>
+                <description>If set, caching this widget (in seconds)</description>
+            </cache>
+            <classes translate="label description">
+                <label>Widget Classes</label>
+                <visible>1</visible>
+                <type>text</type>
+                <description>Custom classes</description>
+            </classes>
+            <clientid translate="label description">
+                <label>ClientId</label>
+                <visible>1</visible>
+                <type>text</type>
+                <description>Your API client id from Instagram</description>
+            </clientid>
+            <accesstoken translate="label description">
+                <label>AccessToken</label>
+                <visible>1</visible>
+                <type>text</type>
+                <description>A valid oAuth token. Required to use get: 'user'</description>
+            </accesstoken>
+            <show_by translate="label description">
+                <label>Show By</label>
+                <visible>1</visible>
+                <type>select</type>
+                <description>Customize what Instafeed fetches</description>
+                <values>
+                    <popular translate="label">
+                        <value>popular</value>
+                        <label>Popular</label>
+                    </popular>
+                    <tagged translate="label">
+                        <value>tagged</value>
+                        <label>Tagged</label>
+                    </tagged>
+                    <location translate="label">
+                        <value>location</value>
+                        <label>Location</label>
+                    </location>
+                    <user translate="label">
+                        <value>user</value>
+                        <label>User</label>
+                    </user>
+                </values>
+            </show_by>
+            <userid translate="label description">
+                <label>User Id</label>
+                <visible>1</visible>
+                <type>text</type>
+                <depends>
+                    <show_by>
+                        <value>user</value>
+                    </show_by>
+                </depends>
+                <description>Unique id of a user to get.</description>
+            </userid>
+            <tag_name translate="label description">
+                <label>Tag Name</label>
+                <visible>1</visible>
+                <type>text</type>
+                <depends>
+                    <show_by>
+                        <values>
+                            <tagged>tagged</tagged>
+                            <popular>popular</popular>
+                        </values>
+                    </show_by>
+                </depends>
+                <description>Name of the tag to get</description>
+            </tag_name>
+            <location_id translate="label description">
+                <label>Location Id</label>
+                <visible>1</visible>
+                <type>text</type>
+                <depends>
+                    <show_by>
+                        <value>location</value>
+                    </show_by>
+                </depends>
+                <description>Unique id of a location to get</description>
+            </location_id>
+            <sortby translate="label description">
+                <label>Sort By</label>
+                <visible>1</visible>
+                <type>select</type>
+                <description>Sort the images in a set order</description>
+                <values>
+                    <none translate="label">
+                        <value>none</value>
+                        <label>None</label>
+                    </none>
+                    <most-recent translate="label">
+                        <value>most-recent</value>
+                        <label>Most Recent</label>
+                    </most-recent>
+                    <least-recent translate="label">
+                        <value>least-recent</value>
+                        <label>Least Recent</label>
+                    </least-recent>
+                    <most-liked translate="label">
+                        <value>most-liked</value>
+                        <label>Most Liked</label>
+                    </most-liked>
+                    <least-liked translate="label">
+                        <value>least-liked</value>
+                        <label>Least Liked</label>
+                    </least-liked>
+                    <most-commented translate="label">
+                        <value>most-commented</value>
+                        <label>Most Commented</label>
+                    </most-commented>
+                    <least-commented translate="label">
+                        <value>least-commented</value>
+                        <label>Least Commented</label>
+                    </least-commented>
+                    <random translate="label">
+                        <value>random</value>
+                        <label>Random</label>
+                    </random>
+                </values>
+            </sortby>
+            <links translate="label description">
+                <label>Link</label>
+                <visible>1</visible>
+                <type>select</type>
+                <description>Wrap the images with a link to the photo on Instagram.</description>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+            </links>
+            <limit translate="label description">
+                <label>Limit</label>
+                <visible>1</visible>
+                <type>text</type>
+                <description>Maximum number of Images to add. Max of 60.</description>
+            </limit>
+            <resolution translate="label description">
+                <label>Resolution</label>
+                <visible>1</visible>
+                <type>select</type>
+                <description>Size of the images to get</description>
+                <values>
+                    <thumbnail translate="label">
+                        <value>thumbnail</value>
+                        <label>Thumbnail</label>
+                    </thumbnail>
+                    <low_resolution translate="label">
+                        <value>low_resolution</value>
+                        <label>Low Resolution</label>
+                    </low_resolution>
+                    <standard_resolution translate="label">
+                        <value>standard_resolution</value>
+                        <label>Standard Resolution</label>
+                    </standard_resolution>
+                </values>
+            </resolution>
+            <custom_template translate="label description">
+                <label>Custom Template</label>
+                <visible>1</visible>
+                <type>text</type>
+                <value><![CDATA[<a class="animation" href="{{link}}"><img src="{{image}}" /></a>]]></value>
+                <description>Custom HTML template to use for images.</description>
+            </custom_template>
+            <template translate="label">
+                <label>Template</label>
+                <visible>1</visible>
+                <type>select</type>
+                <values>
+                    <default translate="label">
+                        <value>icotheme/instafeed/feed.phtml</value>
+                        <label>Feed</label>
+                    </default>
+                </values>
+            </template>
+        </parameters>
+    </instafeed>
+</widgets>

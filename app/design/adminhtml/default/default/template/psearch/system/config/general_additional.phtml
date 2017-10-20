@@ -1,0 +1,46 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please 
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_Search
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+<tr id="<?php echo $this->element->getId(); ?>">
+    <td colspan="4">        
+        
+	    <table border="1">
+	    	<tbody>
+    		<?php foreach($this->getOptions() as $systemPath => $module) : ?>
+    			<?php foreach ($module as $n => $field) : ?>
+	    		<tr>
+    				<td class="psearch-info-label">
+    					<?php echo $this->escapeHtml($field->label); ?>
+    				</td>
+    				<td class="psearch-info-value">
+    					<?php echo $this->escapeHtml($field->valueText); ?>
+    				</td>
+    				<?php if($n == 0) : ?>
+	    				<td class="psearch-info-path" rowspan="<?php echo count($module); ?>">
+		    				<a href="<?php echo $field->url; ?>" target="_blank"><?php echo $this->__('Edit'); ?></a>
+		    				<div>(<?php echo $systemPath; ?>)</div>
+		    			</td>
+		    		<?php endif; ?>
+    			</tr>
+    			<?php endforeach; ?>
+    		<?php endforeach; ?>
+	    	</tbody>
+	    </table>
+
+    </td>
+</tr>

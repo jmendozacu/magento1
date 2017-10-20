@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	  <tabs>
+		<valution translate="label" module="valution">
+            <label>Valuation request</label>
+            <sort_order>0</sort_order>
+        </valution>
+	  </tabs>
+</config>

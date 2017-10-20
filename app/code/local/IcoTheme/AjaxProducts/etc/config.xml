@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright    Copyright (C) 2015 IcoTheme.com. All Rights Reserved.
+ */
+-->
+<config>
+    <modules>
+        <IcoTheme_AjaxProducts>
+            <version>1.0.0</version>
+        </IcoTheme_AjaxProducts>
+    </modules>
+    <frontend>
+        <routers>
+            <ajaxproducts>
+                <use>standard</use>
+                <args>
+                    <module>IcoTheme_AjaxProducts</module>
+                    <frontName>ajaxproducts</frontName>
+                </args>
+            </ajaxproducts>
+        </routers>
+        <layout>
+            <updates>
+                <ajaxproducts>
+                    <file>icotheme_ajaxproducts.xml</file>
+                </ajaxproducts>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <models>
+            <ajaxproducts>
+                <class>IcoTheme_AjaxProducts_Model</class>
+            </ajaxproducts>
+        </models>
+        <resources>
+            <ajaxproducts_setup>
+                <setup>
+                    <module>IcoTheme_AjaxProducts</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ajaxproducts_setup>
+            <ajaxproducts_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ajaxproducts_write>
+            <ajaxproducts_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ajaxproducts_read>
+        </resources>
+        <blocks>
+            <ajaxproducts>
+                <class>IcoTheme_AjaxProducts_Block</class>
+            </ajaxproducts>
+        </blocks>
+        <helpers>
+            <ajaxproducts>
+                <class>IcoTheme_AjaxProducts_Helper</class>
+            </ajaxproducts>
+        </helpers>
+    </global>
+    <default>
+		<ajaxproducts>
+		    <config>
+		    	<enable>1</enable>
+		    	<enable_quickview>1</enable_quickview>
+		    </config>
+		</ajaxproducts>
+    </default>
+</config>

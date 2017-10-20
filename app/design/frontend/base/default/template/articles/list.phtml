@@ -1,0 +1,155 @@
+<?php
+/*
+  Created on : Jul 24, 2015, 3:03:33 PM
+  Author     : Tran Trong Thang
+  Email      : trantrongthang1207@gmail.com
+ */
+
+/*
+ * Thuc hien load toan bo cac ban ghi
+ */
+
+$collection = Mage::getModel('articles/articles')->getCollection();
+$collection->setPageSize(10);
+$collection->setCurPage(2);
+$size = $collection->getSize();
+$cnt = count($collection);
+?>
+<form class="" method="POST" action="articles/save" id="articleslists">
+    <h1>Hien thi danh sach bai viet</h1>
+    <div class="pull-right form-group">
+        <a href="<?php echo $this->getUrl('articles/index/new'); ?>" class="btn btn-default">New</a>
+    </div>
+    <div class="clearfix"></div>
+    <div class="input-group form-group pull-right col-md-3">
+        <input type="text" name="articlesreach" class="form-control" id="articlesreach"/>
+        <span class="input-group-addon">
+            <i class="glyphicon glyphicon-search"></i>
+        </span>
+    </div>
+    <div class="clearfix"></div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        title
+                    </th>
+                    <th>
+                        Short descriptin
+                    </th>
+                    <th>
+                        Long descriptin
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Create data
+                    </th>
+                    <th>
+                        Update date
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+		<?php
+		foreach ($collection as $item) {
+		    ?>
+    		<tr>
+    		    <td>
+    			<a href="<?php echo $this->getUrl('articles/index/edit/id/' . $item->getId()); ?>">
+				<?php
+				echo $item->getId();
+				?>
+    			</a>
+    		    </td>
+    		    <td>
+    			<a href="<?php echo $this->getUrl('articles/index/view/id/' . $item->getId()); ?>">
+				<?php
+				echo $item->getData('title');
+				?>
+    			</a>
+    		    </td>
+    		    <td>
+			    <?php
+			    echo $item->getData('short_desc');
+			    ?>
+    		    </td>
+    		    <td>
+			    <?php
+			    echo $item->getData('long_desc');
+			    ?>
+    		    </td>
+    		    <td>
+			    <?php
+			    echo $item->getData('status');
+			    ?>
+    		    </td>
+    		    <td>
+			    <?php
+			    echo $item->getData('created_time');
+			    ?>
+    		    </td>
+    		    <td>
+			    <?php
+			    echo $item->getData('update_time');
+			    ?>
+    		    </td>
+    		    <td>
+    			<a href="<?php echo $this->getUrl('articles/index/delete/id/' . $item->getId()); ?>">
+    			    Delete
+    			</a>
+    		    </td>
+    		</tr>
+		<?php }
+		?>
+            </tbody>
+        </table>
+    </div>
+</form>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+
+	//duong dan cua templ cau truc smart de load
+	listCtrlTPL['uploadimages'] = "<?php echo $this->getUrl('js/articles/tmp'); ?>" + "lists.html";
+
+
+	var urlajax = '<?php echo $this->getUrl('articles/index/search'); ?>';
+	var strajax = null;
+	$('#articlesreach').keyup(function () {
+	    var keysearch = $(this).val();
+	    if (strajax != null)
+		strajax.abort();
+	    if (typeof mask == 'function')
+		$("#articleslists").mask({'label': "Proccess...", 'overlayOpacity': 0.1});
+	    strajax = $.ajax({
+		url: urlajax,
+		data: {"keysearch": keysearch},
+		type: "POST",
+		dataType: 'json',
+		success: function (data, textStatus, jqXHR) {
+		    console.log(data);
+		    parent.objJson[k] = data;
+		    temp = 'uploadimages';
+		    if (typeof ListTemContent[temp] == UNF) {
+			ListTemContent[temp] = listCtrlTPL[temp];
+			getTemp(temp);
+			console.log(k + "===" + ListTemContent[temp]);
+		    }
+		    str_main = tpl_jsmart[temp].fetch(parent.objJson[k]);
+		    $('#articleslists table tbody').html("").html(str_main);
+		    if (typeof mask == 'function')
+			$("#articleslists").unmask();
+		}
+	    })
+	})
+    })
+
+</script>

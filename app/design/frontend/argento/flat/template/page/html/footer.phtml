@@ -1,0 +1,14 @@
+<div class="footer-cms-container jumbotron jumbotron-dark">
+    <div class="footer-cms">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer')->toHtml(); ?>
+    </div>
+</div>
+<div class="footer-container">
+    <div class="footer">
+        <?php echo $this->getChildHtml() ?>
+        <img class="payments" src="<?php echo $this->getSkinUrl('images/payments.png') ?>"
+            srcset="<?php echo $this->getSkinUrl('images/payments.png') ?> 1x, <?php echo $this->getSkinUrl('images/payments@2x.png') ?> 2x"
+            alt="Payment methods"/>
+        <address><?php echo $this->getCopyright() ?></address>
+    </div>
+</div>

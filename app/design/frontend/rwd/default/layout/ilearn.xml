@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+ 
+<layout version="0.1.0">
+    <default>
+        <!--Them mot item menu vao menu customer-->
+        <reference name="top.links">
+            <action method="addLink" translate="label title" module="customer">
+                <label>Ilearn</label>
+                <url>ilearn/index</url>
+                <title>Ilearn</title>
+                <prepare>true</prepare>
+                <urlParams/>
+                <position>5</position>
+            </action>
+        </reference>
+        <!--Thuc hien chen css va js tu folder js root-->
+        <reference name="head">
+            <action method="addJs">
+                <script>jquery/jquery-1.10.2.min.js</script>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>fancybox/css/jquery.fancybox.css</name>
+            </action>
+            <action method="addJs">
+                <script>fancybox/js/jquery.mousewheel-3.0.6.pack.js</script>
+            </action>
+            <action method="addJs">
+                <script>fancybox/js/jquery.fancybox.js</script>
+            </action> 
+            
+            <!--webform-->
+            <action method="addCss">
+                <stylesheet>webforms/form.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>webforms/results.css</stylesheet>
+            </action>
+            
+            <action method="addCss">
+                <stylesheet>webforms/npform.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <js>webforms/npform.js</js>
+            </action>
+ 
+            <!--form--> 
+            <action method="addJs">
+                <js>varien/form.js</js>
+            </action>
+            
+            <!--Logic--> 
+            <action method="addJs">
+                <js>webforms/logic.js</js>
+            </action>
+
+            <!--Multistep template--> 
+            <action method="addJs">
+                <js>webforms/multistep.js</js>
+            </action>
+
+            <!--Star Rating--> 
+            <action method="addCss">
+                <stylesheet>webforms/stars.css</stylesheet>
+            </action>
+            <action method="addJs">
+                <js>webforms/stars.js</js>
+            </action>
+
+            <!--Date Picker--> 
+            <action method="addItem">
+                <type>js_css</type>
+                <name>calendar/calendar-blue.css</name>
+            </action>
+            <action method="addJs">
+                <js>calendar/calendar.js</js>
+            </action>
+            <action method="addJs">
+                <js>calendar/calendar-setup.js</js>
+            </action>
+        </reference>
+        
+        <block type="catalog/product_bestseller" name="bestseller" template="catalog/product/bestseller.phtml" before="-">
+            <action method="setLimit">
+                <limit>4</limit>
+            </action>
+            <action method="setHeader">
+                <header>Best Sellers</header>
+            </action>
+            <action method="setCategory">
+                <category>24</category>
+            </action>
+        </block>
+
+    </default>
+    <ilearn_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="ilearn/ilearn" name="ilearn" template="ilearn/ilearn.phtml"/>
+        </reference>
+        <!--        <reference name="before_body_end">
+            <block type="ilearn/ilearn" name="ilearn" template="ilearn/ilearn_footer.phtml"/>
+        </reference>-->
+    </ilearn_index_index>
+    <ilearn_index_view>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="ilearn/ilearn" name="ilearn" template="ilearn/view.phtml"/>
+        </reference>
+    </ilearn_index_view>
+    
+    <ilearn_index_blockpage>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="ilearn/ilearn" name="ilearn_blockpage" template="ilearn/blockpage.phtml"/>
+        </reference>
+    </ilearn_index_blockpage>
+    
+    <ilearn_index_popup>
+        <remove name="header" />
+        <remove name="footer" />  
+        <reference name="root">
+            <action method="setTemplate">
+                <template>ilearn/popup.phtml</template>
+            </action>
+        </reference>  
+    </ilearn_index_popup>
+    
+    <ilearn_index_webform>
+        <remove name="header" />
+        <remove name="footer" />
+        <!-- Mage_Catalog -->
+        <reference name="root">
+            <action method="setTemplate">
+                <template>ilearn/webformpage.phtml</template>
+            </action>
+        </reference>  
+    </ilearn_index_webform>
+    
+    <ilearn_product_index>
+        <remove name="header" />
+        <remove name="footer" />
+        <!-- Mage_Catalog -->
+        <reference name="root">
+            <action method="setTemplate">
+                <template>ilearn/webformpage.phtml</template>
+            </action>
+        </reference>  
+    </ilearn_product_index>
+ 
+</layout>

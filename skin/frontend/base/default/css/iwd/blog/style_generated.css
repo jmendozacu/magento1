@@ -1,0 +1,105 @@
+/* This css file was generate automatically by IWD Blog extension, please don't change it. File regenerated each time admin IWD Blog settings changed */
+@import url("//fonts.googleapis.com/css?family=Oswald"); 
+@import url("//fonts.googleapis.com/css?family=Open+Sans"); 
+
+/* STORE: default */
+    .iwd-blog.default {font-family:"Open Sans";}
+    .iwd-blog.default h1,
+    .iwd-blog.default h2,
+    .iwd-blog.default h3,
+    .iwd-blog.default h4 {font-family:"Oswald";}
+    .iwd-blog.default .blog-post-page .post-content a,
+    .iwd-blog.default .blog-category-post .post-short-description a {color:#0f8a99;}
+    .iwd-blog.default .blog-post-page .post-content a:hover,
+    .iwd-blog.default .blog-category-post .post-short-description a:hover {color:#2cacbc;}
+    .iwd-blog.default .post-date,
+    .iwd-blog.default .post-date-top {color:#B1B1B1;}
+    .iwd-blog.default .blog-category-post .post-buttons .button-continue-read {background-color:#0f8a99 !important; color:#FFFFFF;}
+    .iwd-blog.default .blog-category-post .post-buttons .button-continue-read:hover {background-color:#2cacbc !important;  color:#FFFFFF;}
+    .iwd-blog.default .post-buttons .button-read-comments {background-color:#343434; color:#FFFFFF;}
+    .iwd-blog.default .post-buttons .button-read-comments:hover {background-color:#5e5e5e;  color:#FFFFFF;}
+    .iwd-blog.default .blog-post-page .post-buttons .button-share-post {background-color:#0f8a99; color:#FFFFFF;}
+    .iwd-blog.default .blog-post-page .post-buttons .button-share-post:hover {background-color:#2cacbc; color:#FFFFFF;}
+    .iwd-blog.default .blog-post-page .post-buttons .share-post-links a {color:#0f8a99;}
+    .iwd-blog.default .blog-post-page .post-buttons .share-post-links a:hover {color:#2cacbc;}
+    .iwd-blog.default #post-comment-form #submit-comment-form {background-color:#0f8a99; color:#FFFFFF;}
+    .iwd-blog.default #post-comment-form #submit-comment-form:hover {background-color:#2cacbc; color:#FFFFFF;}
+    .iwd-blog.default #leave-comment a.login-button  {background-color:#2cacbc; color:#FFFFFF;}
+    .iwd-blog.default #leave-comment .login-button:hover {background-color:#2cacbc; color:#FFFFFF;}
+    .iwd-blog.default #leave-comment a.register-button {background-color:#343434; color:#FFFFFF;}
+    .iwd-blog.default #leave-comment .register-button:hover {background-color:#343434; color:#FFFFFF;}
+    .iwd-blog.default .blog-sidebar.featured-posts li .hover-block {border-top-color:#2cacbc; border-bottom-color:#2cacbc;}
+
+/* STORE: french */
+    .iwd-blog.french {font-family:"Open Sans";}
+    .iwd-blog.french h1,
+    .iwd-blog.french h2,
+    .iwd-blog.french h3,
+    .iwd-blog.french h4 {font-family:"Oswald";}
+    .iwd-blog.french .blog-post-page .post-content a,
+    .iwd-blog.french .blog-category-post .post-short-description a {color:#0f8a99;}
+    .iwd-blog.french .blog-post-page .post-content a:hover,
+    .iwd-blog.french .blog-category-post .post-short-description a:hover {color:#2cacbc;}
+    .iwd-blog.french .post-date,
+    .iwd-blog.french .post-date-top {color:#B1B1B1;}
+    .iwd-blog.french .blog-category-post .post-buttons .button-continue-read {background-color:#0f8a99 !important; color:#FFFFFF;}
+    .iwd-blog.french .blog-category-post .post-buttons .button-continue-read:hover {background-color:#2cacbc !important;  color:#FFFFFF;}
+    .iwd-blog.french .post-buttons .button-read-comments {background-color:#343434; color:#FFFFFF;}
+    .iwd-blog.french .post-buttons .button-read-comments:hover {background-color:#5e5e5e;  color:#FFFFFF;}
+    .iwd-blog.french .blog-post-page .post-buttons .button-share-post {background-color:#0f8a99; color:#FFFFFF;}
+    .iwd-blog.french .blog-post-page .post-buttons .button-share-post:hover {background-color:#2cacbc; color:#FFFFFF;}
+    .iwd-blog.french .blog-post-page .post-buttons .share-post-links a {color:#0f8a99;}
+    .iwd-blog.french .blog-post-page .post-buttons .share-post-links a:hover {color:#2cacbc;}
+    .iwd-blog.french #post-comment-form #submit-comment-form {background-color:#0f8a99; color:#FFFFFF;}
+    .iwd-blog.french #post-comment-form #submit-comment-form:hover {background-color:#2cacbc; color:#FFFFFF;}
+    .iwd-blog.french #leave-comment a.login-button  {background-color:#2cacbc; color:#FFFFFF;}
+    .iwd-blog.french #leave-comment .login-button:hover {background-color:#2cacbc; color:#FFFFFF;}
+    .iwd-blog.french #leave-comment a.register-button {background-color:#343434; color:#FFFFFF;}
+    .iwd-blog.french #leave-comment .register-button:hover {background-color:#343434; color:#FFFFFF;}
+    .iwd-blog.french .blog-sidebar.featured-posts li .hover-block {border-top-color:#2cacbc; border-bottom-color:#2cacbc;}
+
+/* STORE: german */
+    .iwd-blog.german {font-family:"Open Sans";}
+    .iwd-blog.german h1,
+    .iwd-blog.german h2,
+    .iwd-blog.german h3,
+    .iwd-blog.german h4 {font-family:"Oswald";}
+    .iwd-blog.german .blog-post-page .post-content a,
+    .iwd-blog.german .blog-category-post .post-short-description a {color:#0f8a99;}
+    .iwd-blog.german .blog-post-page .post-content a:hover,
+    .iwd-blog.german .blog-category-post .post-short-description a:hover {color:#2cacbc;}
+    .iwd-blog.german .post-date,
+    .iwd-blog.german .post-date-top {color:#B1B1B1;}
+    .iwd-blog.german .blog-category-post .post-buttons .button-continue-read {background-color:#0f8a99 !important; color:#FFFFFF;}
+    .iwd-blog.german .blog-category-post .post-buttons .button-continue-read:hover {background-color:#2cacbc !important;  color:#FFFFFF;}
+    .iwd-blog.german .post-buttons .button-read-comments {background-color:#343434; color:#FFFFFF;}
+    .iwd-blog.german .post-buttons .button-read-comments:hover {background-color:#5e5e5e;  color:#FFFFFF;}
+    .iwd-blog.german .blog-post-page .post-buttons .button-share-post {background-color:#0f8a99; color:#FFFFFF;}
+    .iwd-blog.german .blog-post-page .post-buttons .button-share-post:hover {background-color:#2cacbc; color:#FFFFFF;}
+    .iwd-blog.german .blog-post-page .post-buttons .share-post-links a {color:#0f8a99;}
+    .iwd-blog.german .blog-post-page .post-buttons .share-post-links a:hover {color:#2cacbc;}
+    .iwd-blog.german #post-comment-form #submit-comment-form {background-color:#0f8a99; color:#FFFFFF;}
+    .iwd-blog.german #post-comment-form #submit-comment-form:hover {background-color:#2cacbc; color:#FFFFFF;}
+    .iwd-blog.german #leave-comment a.login-button  {background-color:#2cacbc; color:#FFFFFF;}
+    .iwd-blog.german #leave-comment .login-button:hover {background-color:#2cacbc; color:#FFFFFF;}
+    .iwd-blog.german #leave-comment a.register-button {background-color:#343434; color:#FFFFFF;}
+    .iwd-blog.german #leave-comment .register-button:hover {background-color:#343434; color:#FFFFFF;}
+    .iwd-blog.german .blog-sidebar.featured-posts li .hover-block {border-top-color:#2cacbc; border-bottom-color:#2cacbc;}
+/* CUSTOM CSS */
+/*
+GLOBAL:  .iwd-blog .post-content
+STORE VIEW: .iwd-blog.<store-code> .post-content
+ex.: .iwd-blog.default .post-content
+*/
+.iwd-blog .post-content {color:#414141;}
+.iwd-blog .post-content h1 {font-size:31px; line-height:51px; font-weight:normal; font-family:"Oswald";}
+.iwd-blog .post-content h2 {font-size:31px; line-height:51px; font-weight:normal; font-family:"Oswald";}
+.iwd-blog .post-content h3 {font-size:31px; line-height:51px; font-weight:normal; font-family:"Oswald";}
+.iwd-blog .post-content h4 {font-size:31px; line-height:51px; font-weight:normal; font-family:"Oswald";}
+.iwd-blog .post-content h5 {font-size:31px; line-height:51px; font-weight:normal; font-family:"Oswald";}
+.iwd-blog .post-content h6 {font-size:31px; line-height:51px; font-weight:normal; font-family:"Oswald";}
+.iwd-blog .post-content a {color:#1b919f;}
+.iwd-blog .post-content p {font-size:16px; text-align:justify; font-weight:normal;  font-family:"Open Sans";}
+.iwd-blog .post-content ul {list-style-type:disc; padding-left:80px;}
+.iwd-blog .post-content ol {list-style-type:decimal; padding-left:80px;}
+.iwd-blog .post-content img {max-width: 100%;}

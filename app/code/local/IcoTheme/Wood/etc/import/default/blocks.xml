@@ -1,0 +1,160 @@
+<root><blocks><cms_block><title><![CDATA[Footer Links]]></title><identifier>footer_links</identifier><content><![CDATA[
+<ul>
+    <li><a href="{{store direct_url="about-magento-demo-store"}}">About Us</a></li>
+    <li><a href="{{store direct_url="customer-service"}}">Customer Service</a></li>
+<li class="last privacy"><a href="{{store direct_url="privacy-policy-cookie-restriction-mode"}}">Privacy Policy</a></li>
+</ul>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title><![CDATA[Footer Links Company]]></title><identifier>footer_links_company</identifier><content><![CDATA[
+<div class="links">
+    <div class="block-title">
+        <strong><span>Company</span></strong>
+    </div>
+    <ul>
+        <li><a href="{{store url=""}}about-magento-demo-store/">About Us</a></li>
+        <li><a href="{{store url=""}}contacts/">Contact Us</a></li>
+        <li><a href="{{store url=""}}customer-service/">Customer Service</a></li>
+        <li><a href="{{store url=""}}privacy-policy-cookie-restriction-mode/">Privacy Policy</a></li>
+    </ul>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title><![CDATA[Cookie restriction notice]]></title><identifier>cookie_restriction_notice_block</identifier><content><![CDATA[<p>This website requires cookies to provide all of its features. For more information on what data is contained in the cookies, please see our <a href="{{store direct_url="privacy-policy-cookie-restriction-mode"}}">Privacy Policy page</a>. To accept cookies from this site, please click the Allow button below.</p>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title><![CDATA[Home slider 01]]></title><identifier>home-slider-01</identifier><content><![CDATA[<div class="slide-content">
+<div class="slider-image"><img class="images-resposive" alt="slider 01" src="{{media url="wysiwyg/icotheme/slide/slide1.png"}}" /></div>
+<div class="slide-inner-content">
+<div class="container"><span class="text-title"> Check the latest trends </span>
+<h3>TABLE DESIGN</h3>
+<span class="text-inner"> Give your electricals a refined home with this cool media unit. Designed <br />with bold 60s curves and the angled elegance of a ballet dancer. </span> <span class="button"><a href="#">Shop Collection</a> </span></div>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title><![CDATA[Home slider 02]]></title><identifier>home-slider-02</identifier><content><![CDATA[<div class="slide-content">
+<div class="slider-image"><img class="images-resposive" alt="slider 01" src="{{media url="wysiwyg/icotheme/slide/slide-2.jpg"}}" /></div>
+<div class="slide-inner-content">
+<div class="container"><span class="text-title"> Check the latest trends </span>
+<h3>CHAIRS DESIGN</h3>
+<span class="text-inner"> Give your electricals a refined home with this cool media unit. Designed <br />with bold 60s curves and the angled elegance of a ballet dancer. </span> <span class="button"><a href="#">Shop Collection</a> </span></div>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title><![CDATA[Footer]]></title><identifier>footer</identifier><content><![CDATA[<div class="about-social">
+<div class="about"><img alt="" src="{{media url="wysiwyg/icotheme/wood/logo/logo_wood.png"}}" />
+<div class="about-text">
+<p>Multipurpose E-Commerce Theme is suitable for furniture store, fashion shop, accessories, electric shop.</p>
+</div>
+</div>
+</div>
+<div class="list-footer">
+<div class="footer-links">
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 info-footer">
+<div class="footer-block-title">
+<h3>Infomation<span class="mobile-button visible-xs active">accordion-footer</span></h3>
+</div>
+<div class="custom-footer-content">
+<ul class="footer-list">
+<li>{{widget type="cms/widget_page_link" title="About Us" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Contact Us" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Term & Conditions" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Privacy Policy" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Orders and Returns" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Sites Map" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 info-footer">
+<div class="footer-block-title">
+<h3>Why choose<span class="mobile-button visible-xs active">accordion-footer</span></h3>
+</div>
+<div class="custom-footer-content">
+<ul class="footer-list">
+<li>{{widget type="cms/widget_page_link" title="Product Recall" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Gift Vouchers" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Returns and Exchanges" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Shipping Options" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Help & FAQs" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Sale only today" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 info-footer">
+<div class="footer-block-title">
+<h3>My Account<span class="mobile-button visible-xs active">accordion-footer</span></h3>
+</div>
+<div class="custom-footer-content">
+<ul class="footer-list">
+<li>{{widget type="cms/widget_page_link" title="Sign In" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="View Cart" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="My Wishlist" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Check out" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Track my order" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+<li>{{widget type="cms/widget_page_link" title="Help" template="cms/widget/link/link_block.phtml" page_id="3"}}</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 newslettter">{{block type="newsletter/subscribe" template="newsletter/subscribe.phtml"}}</div>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title><![CDATA[Deal of the day]]></title><identifier>deal_of_day</identifier><content><![CDATA[<div class="deal-of-day" style="width: 100%; min-height: 800px; background: url('{{media url="wysiwyg/icotheme/image_deal.jpg"}}') center center no-repeat; background-size: cover;">
+<div class="content container">
+<div class="content-top"><span class="title">Deal of the day</span></div>
+<div class="product-countdown">
+<div><!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+<li class="active" role="presentation"><a role="tab" href="#home" data-toggle="tab">Chairs</a></li>
+<li role="presentation"><a role="tab" href="#profile" data-toggle="tab">chest</a></li>
+<li role="presentation"><a role="tab" href="#messages" data-toggle="tab">lighting</a></li>
+<li role="presentation"><a role="tab" href="#settings" data-toggle="tab">table</a></li>
+<li role="presentation"><a role="tab" href="#messages" data-toggle="tab">beds</a></li>
+<li role="presentation"><a role="tab" href="#settings" data-toggle="tab">Storage</a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+<div id="home" class="tab-pane active" role="tabpanel">
+<div class="deal">{{widget type="widgetproducts/widget" cache="86400" widget_type="product" widget_tab="none" mode="id" countdown="1" product_ids="1" template="icotheme/widgetproducts/deal.phtml" limit="1" column="1"}}</div>
+</div>
+<div id="profile" class="tab-pane" role="tabpanel">
+<div class="deal">{{widget type="widgetproducts/widget" cache="86400" widget_type="product" widget_tab="none" mode="id" countdown="1" product_ids="2" template="icotheme/widgetproducts/deal.phtml" limit="1" column="1"}}</div>
+</div>
+<div id="messages" class="tab-pane" role="tabpanel">
+<div class="deal">{{widget type="widgetproducts/widget" cache="86400" widget_type="product" widget_tab="none" mode="id" countdown="1" product_ids="3" template="icotheme/widgetproducts/deal.phtml" limit="1" column="1"}}</div>
+</div>
+<div id="settings" class="tab-pane" role="tabpanel">
+<div class="deal">{{widget type="widgetproducts/widget" cache="86400" widget_type="product" widget_tab="none" mode="id" countdown="1" product_ids="4" template="icotheme/widgetproducts/deal.phtml" limit="1" column="1"}}</div>
+</div>
+<div id="messages" class="tab-pane" role="tabpanel">
+<div class="deal">{{widget type="widgetproducts/widget" cache="86400" widget_type="product" widget_tab="none" mode="id" countdown="1" product_ids="5" template="icotheme/widgetproducts/deal.phtml" limit="1" column="1"}}</div>
+</div>
+<div id="settings" class="tab-pane" role="tabpanel">
+<div class="deal">{{widget type="widgetproducts/widget" cache="86400" widget_type="product" widget_tab="none" mode="id" countdown="1" product_ids="6" template="icotheme/widgetproducts/deal.phtml" limit="1" column="1"}}</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title><![CDATA[Home banner]]></title><identifier>home_banner</identifier><content><![CDATA[<div class="banner-content">
+<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+<div class="image-inner wow animated bounceInLeft"><img class="img-responsive" alt="" src="{{media url="wysiwyg/icotheme/banner-1.png"}}" />
+<div class="text-content">
+<div class="text-content-inner">
+<h3>Moderm Style</h3>
+<p>Simple style solutions for your home</p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-padding-left">
+<div class="image-top">
+<div class="image-inner wow animated bounceInLeft"><img class="img-responsive" alt="" src="{{media url="wysiwyg/icotheme/banner-2.png"}}" /></div>
+</div>
+<div class="image-bottom">
+<div class="image-inner wow animated bounceInLeft"><img class="img-responsive" alt="" src="{{media url="wysiwyg/icotheme/banner-3.png"}}" /></div>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-padding-right">
+<div class="image-inner wow animated bounceInLeft"><img class="img-responsive" alt="" src="{{media url="wysiwyg/icotheme/banner-4.png"}}" />
+<div class="text-content">
+<div class="text-content-inner">
+<h3>Classic</h3>
+<p>Turn your morning into a great day</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block><cms_block><title><![CDATA[Footer Social]]></title><identifier>footer-social</identifier><content><![CDATA[<div class="footer-static">
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 social odd"><a class="icon-social" href="#"><i class="fa fa-facebook">&nbsp;</i></a></div>
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 social even"><a class="icon-social" href="#"><i class="fa fa-twitter">&nbsp;</i></a></div>
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 social odd"><a class="icon-social" href="#"><i class="fa fa-instagram">&nbsp;</i></a></div>
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 social even"><a class="icon-social" href="#"><i class="fa fa-google-plus">&nbsp;</i></a></div>
+</div>]]></content><is_active>1</is_active><stores><item>0</item></stores></cms_block></blocks></root>

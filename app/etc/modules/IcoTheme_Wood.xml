@@ -1,0 +1,9 @@
+<?xml version="1.0"?> 
+<config>
+    <modules>
+        <IcoTheme_Wood>
+            <active>true</active>
+            <codePool>local</codePool>
+        </IcoTheme_Wood>
+    </modules>
+</config> 

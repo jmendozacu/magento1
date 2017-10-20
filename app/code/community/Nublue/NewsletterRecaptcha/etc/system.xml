@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Nublue_NewsletterRecaptcha
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category    Nublue
+ * @package     Nublue_NewsletterRecaptcha
+ * @copyright   Copyright (c) 2017 Nublue Ltd (http://www.nublue.co.uk)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <tabs>
+        <nublue_config>
+            <label><![CDATA[<div style="position: absolute;"><img id="nublue_block" src="" alt="" border="0" /></div>&nbsp;<script>
+            var n = SKIN_URL.indexOf("adminhtml");
+            $('nublue_block').src = SKIN_URL.substring(0, n) + "adminhtml/default/default/images/nublue/nublue_logo-newsletterrecaptcha.png";
+            </script>]]></label>
+            <sort_order>100</sort_order>
+        </nublue_config>
+    </tabs>
+    <sections>
+        <nublue_newsletter_recaptcha>
+            <label>Invisible reCAPTCHA for Newsletters</label>
+            <tab>nublue_config</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>2</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <instructions>
+                    <label>Integration Instructions</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <comment><![CDATA[
+                    <ol style="list-style: outside decimal;margin-left: 15px;">
+                        <li>Sign-up for an Invisible reCAPTCHA by Google via: <a href="https://www.google.com/recaptcha/admin" target="_new">https://www.google.com/recaptcha/admin</a></li>
+                        <li>Copy the Sitekey and Secret key from Google into the Settings below.</li>
+                        <li>Add the following code snippet within your theme's newsletter template (usually: /app/design/frontend/{YOUR_PACKAGE}/{YOUR_THEME}/template/newsletter/subscribe.phtml) <u>inside the &lt;form&gt; tag</u>:<br/>
+                            <pre style="border: 1px solid #ccc;padding: 4px;font-family: 'Courier New', serif;font-size: 11px;background-color: #F5F5F5;width: auto;display: inline-block;margin-bottom: 10px;">&lt;?php echo $this-&gt;getChildHtml('newsletter_recaptcha'); ?&gt;</pre>
+                        </li>
+                        <li>If you have a custom theme then additional modifications may be required by your Developer in this extension's layout XML: <i>nublue_newsletter_recaptcha.xml</i></li>
+                        <li>If you do not use jQuery Library in your theme then you will need to set "Include jQuery Library" to Yes.</li>
+                    </ol>]]></comment>
+                </instructions>
+                <settings>
+                    <label>Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <enabled>
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <sitekey>
+                            <label>Site key</label>
+                            <comment><![CDATA[Google provide this when you sign up for reCAPTCHA, as detailed above.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sitekey>
+                        <secretkey>
+                            <label>Secret key</label>
+                            <comment><![CDATA[Google provide this when you sign up for reCAPTCHA, as detailed above.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </secretkey>
+                        <jquery_include>
+                            <label>Include jQuery Library</label>
+                            <comment><![CDATA[Set to 'Yes' if your theme does not already include jQuery (v1.6 or higher).]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </jquery_include>
+                        <hide_overlay>
+                            <label>Hide Google reCaptcha Overlay (shown bottom right)</label>
+                            <comment><![CDATA[If set to 'Yes' you may hide possible setup issues, and may be against Google's T&amp;Cs.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hide_overlay>
+                    </fields>
+                </settings>
+            </groups>
+        </nublue_newsletter_recaptcha>
+    </sections>
+</config>

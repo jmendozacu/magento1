@@ -1,0 +1,34 @@
+{foreach $lists as $i => $list}
+<tr>
+    <td>
+        <a href="{$base_url}articles/index/edit/id/{$list.articles_id}">
+            {$list.articles_id}
+        </a>
+    </td>
+    <td>
+        <a href="{$base_url}articles/index/view/id/{$list.articles_id}">
+           {$list.title}
+        </a>
+    </td>
+    <td>
+       {$list.short_desc}
+    </td>
+    <td>
+        {$list.long_desc}
+    </td>
+    <td>
+        {$list.status}
+    </td>
+    <td>
+       {$list.created_time}
+    </td>
+    <td>
+        {$list.update_time}
+    </td>
+    <td>
+        <a href="{$base_url}articles/index/delete/id/{$list.articles_id}">
+            Delete
+        </a>
+    </td>
+</tr>
+{/foreach}

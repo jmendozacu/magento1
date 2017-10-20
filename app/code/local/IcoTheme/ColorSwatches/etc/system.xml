@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+ */
+-->
+<config>
+    <tabs>
+        <ico translate="label" module="colorswatches">
+            <label>ICO EXTENSIONS</label>
+            <sort_order>150</sort_order>
+        </ico>
+    </tabs>
+    <sections>
+        <colorswatches translate="label" module="colorswatches">
+            <label>Color Swatches (v.1.0.0)</label>
+            <tab>ico</tab>
+            <sort_order>45</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+
+            <groups>
+                <general translate="label" module="colorswatches">
+                    <label>General Settings</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <swatch_attributes translate="label">
+                            <label>Product Attributes to Show as Swatches in Product Detail</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>colorswatches/system_config_source_catalog_product_configattribute
+                            </source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                        </swatch_attributes>
+                        <heading_products_list translate="label">
+                            <label>Products List Config</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_products_list>
+                        <product_list_attribute translate="label">
+                            <label>Product Attribute to Use for Swatches in Product Listing</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>colorswatches/system_config_source_catalog_product_configattribute_select
+                            </source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_list_attribute>
+
+                        <product_list_img_width translate="label">
+                            <label>Product list image width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_list_img_width>
+
+                        <product_list_img_height translate="label">
+                            <label>Product list image height</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_list_img_height>
+
+                    </fields>
+                </general>
+                <product_detail_dimensions translate="label comment" module="colorswatches">
+                    <label>Swatch Dimensions on Product Detail Page</label>
+                    <comment><![CDATA[Innermost dimensions, not including border, in pixels]]></comment>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <width translate="label">
+                            <label>Width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </width>
+                        <height translate="label">
+                            <label>Height</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </height>
+
+                        <heading_productdetail translate="label">
+                            <label>Products Detail</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_productdetail>
+
+                        <product_detail_img_width translate="label">
+                            <label>Image Media width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_detail_img_width>
+
+                        <product_detail_img_height translate="label">
+                            <label>Image Media height</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_detail_img_height>
+                    </fields>
+                </product_detail_dimensions>
+                <product_listing_dimensions translate="label comment" module="colorswatches">
+                    <label>Swatch Dimensions in Product Listing</label>
+                    <comment><![CDATA[Innermost dimensions, not including border, in pixels]]></comment>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <width translate="label">
+                            <label>Width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </width>
+                        <height translate="label">
+                            <label>Height</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </height>
+                    </fields>
+                </product_listing_dimensions>
+                <layered_nav_dimensions translate="label comment" module="colorswatches">
+                    <label>Swatch Dimensions in Layered Navigation</label>
+                    <comment><![CDATA[Innermost dimensions, not including border, in pixels]]></comment>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <width translate="label">
+                            <label>Width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </width>
+                        <height translate="label">
+                            <label>Height</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </height>
+                    </fields>
+                </layered_nav_dimensions>
+            </groups>
+        </colorswatches>
+    </sections>
+</config>

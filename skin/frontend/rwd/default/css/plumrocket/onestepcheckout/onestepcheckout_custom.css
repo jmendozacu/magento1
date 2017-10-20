@@ -1,0 +1,509 @@
+/* 
+ * Created on : May 9, 2016, 10:49:10 AM
+ * Author: Tran Trong Thang
+ * Email: trantrongthang1207@gmail.com
+ * Skype: trantrongthang1207
+ */
+
+/* 
+Coder: phuongan
+*/
+
+
+/* plumrocket one page checkout*/
+.col-left.masonry{
+    height: 100% !important;
+}
+.checkout-onepage-index .one-step-checkout{
+    margin: 0 auto !important;
+}
+.checkout-onepage-index .col-left ,
+.checkout-onepage-index  .col-right{
+    padding-top: 0;
+}
+.one-step-checkout .page-top-row {
+    margin-bottom: 20px;
+}
+.checkout-onepage-index  .col-right{
+    margin-bottom: 50px;
+}
+.checkout-onepage-index .btn-checkout span{
+    background-color: #64a826 !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+}
+.checkout-onepage-index .site-links ul li.separator{
+    margin: 0 3px;
+}
+.checkout-onepage-index .main{
+    margin: -10px 0 0 0;
+}
+.checkout-onepage-index .main-container{
+    /*padding-bottom: 0px;*/
+}
+.checkout-onepage-index .header-wrapper{
+    overflow: visible;
+    padding-bottom: 10px;
+}
+h3.product-name{
+    min-height: 10px !important;
+    display: inline-block;
+    /* margin: 5px 0 !important; */
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: none;
+    letter-spacing: 0;
+    padding: 5px;
+}
+.one-step-checkout .payment .payment-button.disabled{
+    margin-bottom: 15px;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form button > span {
+    background: #fbc015 !important;
+    border: 1px solid #ca930d !important;
+    border-radius: 0 !important;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form button > span:hover {
+    background: #eeeeee !important;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form button > span .btn-label {
+    background: transparent;
+    border: none;
+}
+button.button span span{
+    color: #fff ;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+}
+.buttons-set {
+    float: left;
+}
+/*button.button span span , 
+button.button span ,
+button.button span:hover span ,
+.button span span:hover{
+    background: transparent;
+    height: auto;
+}*/
+button.button span span{
+    padding: 0;
+}
+.one-step-checkout .order-review-column table.data-table tr th {
+    padding: 0 5px;
+    height: 35px;
+    font-weight: 700;
+    color: #0a263c;
+    background-color: #E3E3E3;
+    font-size: 13px;
+    text-transform: none;
+}
+#review-buttons-container{
+    padding-left: 50% !important;
+    margin-left: -105px;
+}
+#co-billing-form{
+    border-radius: 0;
+    border: none !important;
+}
+#checkout-review-table td, #checkout-review-table tfoot tr td{
+    font-size: 12px;
+}
+/*Trong Thang*/
+
+/*cart*/
+ul,ol         { list-style:none; }
+.link-cart { font-weight:bold; color:#f00; }
+.link-wishlist { font-weight:bold; }
+.link-reorder { font-weight:bold; }
+.link-compare { font-weight:bold; }
+.btn-remove, .btn-edit {
+    background-color: #97d2c9;
+    border-radius: 100%;
+    display: block;
+    height: 15px;
+    width: 15px;
+}
+.link-print { background:url(../images/i_print.gif) 0 2px no-repeat; padding:2px 0 2px 25px; }
+.link-rss { background:url(../images/i_rss.gif) 0 1px no-repeat; padding-left:18px; white-space:nowrap; }
+.btn-remove { display:block; font-size:0; line-height:0; text-indent:-999em; overflow:hidden; }
+.btn-remove2 { display:block; width:16px; height:16px; font-size:0; line-height:0; text-indent:-999em; overflow:hidden; }
+.btn-edit    { display:block; font-size:0; line-height:0; text-indent:-999em; overflow:hidden; }
+/* Mini Products List */
+.mini-products-list li { padding:5px 0; }
+.mini-products-list .product-image { float:left; width:50px; padding:5px;  }
+.mini-products-list .product-details { margin-left:75px; }
+.mini-products-list .product-details h4 { font-size:1em; font-weight:bold; margin:0; }
+.cart-top-container .details .button {
+    float: right;
+}
+.cart-top-container .details .btn-continue {
+    float: left;
+}
+.cart-top-container button.button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    cursor: pointer;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    width: auto;
+}
+.cart-top-container button.button span {
+    background-color: #ffffff !important;
+    border-radius: 5px;
+    height: 42px;
+    padding: 0;
+}
+.cart-top-container button.button span span {
+    border: 1px solid #004b96;
+    color: #004b96;
+    display: block;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 42px;
+    padding: 0 16px;
+    text-align: center;
+    text-transform: lowercase;
+    white-space: nowrap;
+}
+.cart-top-container .details .button span span {
+    font-size: 14px;
+    padding: 0 15px;
+}
+/*checkout page*/
+.checkout-onepage-index .col-main {
+    padding-top: 0;
+}
+.one-step-checkout .step-number{
+    margin-top: 5px;
+}
+.one-step-checkout{
+    border: medium none;
+}
+.mobile{
+    display: none;
+}
+.one-step-checkout > div > div {
+    margin: 0 0 20px;
+}
+.one-step-checkout > div{
+    width: 49% !important;
+}
+.one-step-checkout > div.col-left{
+    margin-right: 0;
+}
+.one-step-checkout > div.col-right{
+    float: right;
+}
+#checkout-review-table-wrapper .product-image{
+    float: left;
+    padding: 5px;
+}
+#checkout-review-table-wrapper .product-image img{
+    width: 100px;
+}
+.checkout-onepage-index #checkout-review-table h3{
+    display: block;
+    padding-left: 115px;
+}
+.checkout-onepage-index .one-step-checkout h3.section-name, .checkout-onepage-index ol.opc-firststep-widget > li .step-title{
+    background: #308f44 !important;
+    color: #fff !important;
+}
+.checkout-onepage-index .one-step-checkout .section-name .step-number, .checkout-onepage-index ol.opc-firststep-widget > li .step-title .number{
+    background: none !important; 
+    border-color: #ffffff !important;
+}
+#review-buttons-container-top button.button span span,
+#checkout-review-submit button.button span span,
+.checkout-onepage-index .discount-form button.button span span,
+.checkout-onepage-index button.button span.btn-label{
+    background-color: rgba(0, 0, 0, 0) !important;
+    border-color:  rgba(0, 0, 0, 0) !important;
+}
+.checkout-onepage-index ol.opc-firststep-widget .buttons-set button:hover > span,
+.checkout-onepage-index .one-step-checkout .page-top-row .buttons-set button > span,
+.checkout-onepage-index .one-step-checkout .order-review-column button > span,
+.checkout-onepage-index ol.opc-firststep-widget .buttons-set button > span,
+.checkout-onepage-index #checkout-review-submit button.button span{
+    background-color: #004b96 !important;
+    border-color:  rgba(0, 0, 0, 0) !important;
+}
+.one-step-checkout button.button:hover span span,
+.one-step-checkout button span span,
+.one-step-checkout .order-review-column button.btn-checkout span span{
+    background-color:  rgba(0, 0, 0, 0) !important;
+}
+.checkout-onepage-index .one-step-checkout .page-top-row .buttons-set button:hover > span,
+.checkout-onepage-index .one-step-checkout .page-top-row #onestepcheckout-login-form button:hover > span,
+.checkout-onepage-index #checkout-review-submit button.button:hover span,
+.checkout-onepage-index .one-step-checkout .order-review-column button:hover > span{
+    background-color: #008000 !important;
+}
+.one-step-checkout .order-review-column table.data-table td.colproduct_name_image{
+    /*    height: 100%;
+        overflow: hidden;*/
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form {
+    z-index: 9;
+}
+.one-step-checkout .ps-login-form  .pslogin-form {
+    float: right;
+    margin-top: 10px;
+}
+.checkout-onepage-index .billing-address,
+.checkout-onepage-index .shipping-address,
+.checkout-onepage-index .col-left > div{
+    position: static !important;    
+}
+.checkout-onepage-index .one-step-checkout .payment .payment-button.button-byphone {
+    width: 300px;
+}
+.checkout-onepage-index .one-step-checkout .payment .payment-button.button-byphone .payment-name{
+    max-width: 70%;
+}
+.checkout-onepage-index .one-step-checkout label{
+    color: #004b96;
+    font-weight: 400 !important;
+}
+.one-step-checkout #checkout-review-table td,
+.one-step-checkout #checkout-review-table tfoot tr td,
+.one-step-checkout .order-summary-wrap > .discount h2,
+.one-step-checkout #reward-credit-coupon-form .discount > label[for="rewards_point_count"],
+.one-step-checkout .order-review-column #discount-coupon-form label,
+.checkout-onepage-index input,
+.checkout-onepage-index select,
+.checkout-onepage-index #checkout-review-table h3.product-name,
+.checkout-onepage-index .one-step-checkout .shipping-method-title,
+.checkout-onepage-index .one-step-checkout{
+    color: #004b96;
+}
+.checkout-onepage-index .one-step-checkout .order-review-column table.data-table tfoot td.last *{
+    color: #004b96 !important;
+}
+.shippingpoup{
+    width: auto;
+    margin: 0 auto 15px auto;
+    margin-bottom: 0;
+    margin-top: 7px;
+    float: none;
+    border: 0px;
+    background: none;
+    outline: none;
+    padding: 0;
+    height: auto;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+button.button.shippingpoup > span{
+    border-radius: 3px;
+    display: block;
+    height: 30px;
+    line-height: 25px;
+    margin-top: 1px;
+    background-color: #004b96 !important;
+    border-color: rgba(0, 0, 0, 0) !important;
+    padding: 0 25px;
+}
+button.button.shippingpoup > span > span{
+    line-height: 30px;
+}
+button.button.shippingpoup:hover > span{
+    background-color: #008000 !important;
+}
+
+.alert.tvalert {
+    background: #ffffff none repeat scroll 0 0;
+    border: 2px solid #004b96;
+    color: #004b96;
+    font-size: 16px;
+
+}
+body.checkout-onepage-index  > div.alert{
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 0;
+    line-height: 30px;
+    z-index: 999999;
+    width: 320px;
+    text-align: left
+}
+.checkout-onepage-index .popup-button-checkout{
+    display: block;
+    cursor: pointer
+}
+body.checkout-onepage-index  > div.alert button.close{
+    background: #004C97;
+    border: 1px solid #999;
+    color: #fff;
+    display: block;
+    height: auto;
+    margin: 10px auto;
+    padding: 5px;
+    position: relative;
+    width: auto;border-radius: 5px;
+    min-width: 60px;
+    margin-bottom: 0;
+}
+.checkout-onepage-index button.close.disabled{
+    opacity: 0.3;
+}
+.checkout-onepage-index #payment_form_ewayrapid_ewayone li{
+    clear: none;    
+}
+.checkout-onepage-index .form-list .help-disabled-cc{
+    width: 100%;
+}
+.payment .tool-tip{
+    top: auto !important;
+}
+.card-number-help{
+    display: none;
+}
+.one-step-checkout .payment .payment-button{
+    height: 45px;
+}
+.one-step-checkout .payment .payment-button.button-paypal_express{
+    width: 384px;
+}
+.one-step-checkout .payment .payment-button .payment-note {
+    font-size: 11px;
+    vertical-align: middle;
+    line-height: 11px;
+    max-width: 240px;
+    display: inline-block;
+    font-weight: normal;
+    padding: 5px;
+}
+.checkout-onepage-index .main-container .row{
+    margin: 0 auto;
+}
+/*@media(min-width: 1200px){
+    .checkout-onepage-index .one-step-checkout{
+        width: 1170px;
+    }
+}
+@media(max-width: 1158px){
+    .checkout-onepage-index .one-step-checkout{
+        width: 960px;
+    }
+}*/
+@media(max-width: 1024px){
+    .one-step-checkout .payment .payment-button {
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+    .checkout-onepage-index .page{
+        padding: 0;
+    }
+}
+/***** iPad Smaller than 959px *****/
+@media only screen and (max-width: 959px) {
+    #checkout-review-table-wrapper .product-image{
+        float: none;
+        padding: 5px;
+    }
+    #checkout-review-table-wrapper .product-image img{
+        width: 100px;
+    }
+    .checkout-onepage-index #checkout-review-table h3{
+        display: block;
+        padding-left: 0;
+        text-align: center;
+    }
+    .one-step-checkout .order-review-column table.data-table td{
+        height: auto;
+    }
+}
+/***** iPad Smaller than 959px *****/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    .one-step-checkout > div{
+        width: 100%;
+    }
+    .checkout-onepage-index .col-main{
+        width: 600px;
+        margin:0 auto;
+    }
+    .one-step-checkout > div > div.shipping-address{
+        margin: 0;
+    }
+    #review-buttons-container-top{
+        display: none;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .one-step-checkout > div{
+        width: 100%;
+    }
+    .checkout-onepage-index .col-main{
+        width: 300px;
+        margin:0 auto;
+    }
+    .checkout-onepage-index .page{
+        padding: 0;
+    }
+    .one-step-checkout > div > div.shipping-address{
+
+    }
+    #review-buttons-container-top{
+        display: none;
+    }
+    .one-step-checkout .page-top-row,
+    .one-step-checkout .ps-login-form .pslogin-form {
+        margin: 0;
+    }
+    .one-step-checkout .page-top-row #review-buttons-container-top,
+    .one-step-checkout .page-top-row #onestepcheckout-login-form-link{
+        float: right;    
+    }
+    .checkout-onepage-index .col-right {
+        margin-bottom: 0;
+    }
+    .footer-info{
+        padding-top: 10px;
+    }
+    .checkout-onepage-index #checkout-payment-method-load .form-list input.input-text{
+        width: 100% !important;
+    }
+    .checkout-onepage-index #checkout-payment-method-load .form-list input.input-text.cvv {
+        width: 55px !important;
+    }
+    .one-step-checkout .payment .payment-button.button-paypal_express {
+        height: auto;
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .checkout-onepage-index .col-main {
+        margin:0 auto;
+        width: 456px;
+        padding-right: 15px;
+    }
+}
+@media only screen and (max-width: 480px){
+    .one-step-checkout .payment .payment-button.button-byphone {
+        width: 100%;
+    }
+    .pslogin-block .pslogin-buttons ul li .pslogin-button-text{
+        min-width: 130px;
+    }
+    .one-step-checkout .page-top-row #review-buttons-container-top.buttons-set button > span{
+        padding: 0 10px;
+    }
+    .checkout-onepage-index .one-step-checkout .payment .payment-button.button-byphone {
+        width: 100%;
+    }
+    .one-step-checkout .payment .payment-button .payment-note {
+        max-width: 100%;
+        padding: 5px;
+    }
+}
+@media only screen and (max-width: 380px){
+    body.checkout-onepage-index  > div.alert{
+        width: 300px;
+    }
+}

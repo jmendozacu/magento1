@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <TV_Articles>
+            <version>0.1.0</version>    <!-- Version of module -->
+        </TV_Articles>
+    </modules>
+    <frontend>
+        <routers>
+            <articles>
+                <use>standard</use>
+                <args>
+                    <module>TV_Articles</module>
+                    <frontName>articles</frontName>
+                </args>
+            </articles>
+        </routers>
+        <layout>
+            <updates>
+                <articles>
+                    <file>articles.xml</file> <!-- our layout file name -->
+                </articles>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <articles>
+                <class>TV_Articles_Block</class>
+            </articles>
+<!--            <recentproducts>
+                <class>TV_Articles_Block</class>
+            </recentproducts>-->
+        </blocks>
+        <models>
+            <articles>
+                <class>TV_Articles_Model</class> <!-- Model class files -->
+                <resourceModel>articles_mysql4</resourceModel> <!--Resource model -->
+            </articles>
+<!--            <recentproducts>
+                <class>TV_Articles_Model</class>  Model class files 
+            </recentproducts>-->
+            <articles_mysql4>
+                <class>TV_Articles_Model_Mysql4</class>
+                <entities>
+                    <articles>
+                        <table>articles</table>  <!-- Db table name  -->
+                    </articles>
+                </entities>
+            </articles_mysql4>
+        </models>
+        <resources>  
+            <articles_setup>
+                <setup>
+                    <module>TV_Articles</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </articles_setup>
+            <articles_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </articles_write>
+            <articles_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </articles_read>
+        </resources>
+        
+        
+        <template>
+            <email>
+                <tv_articles_email_template>
+                    <label>Articles email module</label>
+                    <file>tv_articles.html</file>
+                    <type>html</type>
+                </tv_articles_email_template>
+            </email>
+        </template>
+    </global>
+</config>
+
+

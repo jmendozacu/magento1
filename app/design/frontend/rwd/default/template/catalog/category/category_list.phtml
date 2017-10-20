@@ -1,0 +1,32 @@
+<?php $_helper = Mage::helper('catalog/category'); 
+ $_categories = $_helper->getStoreCategories();?>
+<div class="block">
+    <div class="block-title">
+        <strong><span>Popular</span></strong>
+    </div>
+    <div class="block-content">
+<?php if (count($_categories) > 0): ?>
+    <ul class="links">
+        <?php foreach($_categories as $_category): 
+            ?>
+            <li><i class="icon-right-dir theme-color"></i>
+                <a href="<?php echo $_helper->getCategoryUrl($_category) ?>">
+                    <?php 
+                    if ($_category->entity_id != '421')
+                        {
+                        echo 'Promotional '.' '.$_category->getName();
+                        }
+                        else{
+                            echo $_category->getName();
+                        }
+                    
+                    ?>
+                    <?php //echo $_category->getName(); ?>
+                     <?php //echo $_category->entity_id; ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php  endif; ?>
+    </div>
+</div>

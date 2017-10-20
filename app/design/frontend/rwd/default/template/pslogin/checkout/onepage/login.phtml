@@ -1,0 +1,146 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_SocialLogin
+ * @copyright   Copyright (c) 2014 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+<div class="ps-login-form">
+    <?php echo $this->getChildHtml('login_before') ?>
+
+    <div id="onestepcheckout-login-form" class="" <?php echo (!$this->getMessagesBlock()->toHtml()) ? 'style="display:block;"' : ''; ?>>
+        <div class="">
+            <form id="login-form" action="<?php echo $this->getUrl('onestepcheckout/account/loginPost') ?>" method="post">
+                <fieldset>
+                    <?php echo $this->getBlockHtml('formkey'); ?>
+                    <div class="input-box">
+                        <input type="text" class="input-text required-entry validate-email validate-login" id="login-email" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" placeholder="<?php echo $this->__('Email Address') ?>" />
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-text required-entry" id="login-password" name="login[password]" placeholder="<?php echo $this->__('Password') ?>" />
+                    </div>
+                    <div class="mobile"></div>
+                    <button type="submit" class="button" onclick="onepageLogin()" id="btnLogin"><span><span class="btn-loader"></span><span class="btn-label"><?php echo $this->__('Login') ?></span></span></button>
+                    <a href="<?php echo $this->getUrl('customer/account/forgotpassword') ?>" target="_blank" class="f-left tvdesktop"><?php echo $this->__('Forgot your password?') ?></a>
+                    <div class="col2-set<?php if (!$this->helper('customer')->isRegistrationAllowed() && !$this->getQuote()->isAllowedGuestCheckout()) echo ' login-only' ?> pslogin-form tvmobile">
+
+                        <?php if (Mage::helper('pslogin')->modulePositionEnabled('login') && Mage::helper('pslogin')->hasButtons()) : ?>
+
+                            <?php echo $this->getChildHtml('pslogin_buttons'); ?>
+                        <?php endif; ?>
+                    </div>
+                    <a href="javascript:void(0);" id="login-form-hide" class="f-left">&#10005;</a>
+                    <div class="clear"></div>
+                    <a href="<?php echo $this->getUrl('customer/account/forgotpassword') ?>" target="_blank" class="f-left tvmobile forgotpassmobile"><?php echo $this->__('Forgot your password?') ?></a>
+                </fieldset>
+            </form>
+            <?php echo $this->getMessagesBlock()->toHtml(); ?>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var ajaxLogin = new AjaxLogin('login-form');
+        /*$('login-email').observe('keypress', bindLoginPost);
+         $('login-password').observe('keypress', bindLoginPost);*/
+
+        function bindLoginPost(evt)
+        {
+            if (evt.keyCode == Event.KEY_RETURN) {
+                onepageLogin();
+            }
+            evt.stopPropagation();
+        }
+
+        function onepageLogin()
+        {
+            var loginForm = new VarienForm('login-form', true);
+            $('btnLogin').addClassName('disabled');
+            $('btnLogin').disable();
+
+            if ($('advice-validate-login-login-email')) {
+                $('advice-validate-login-login-email').remove();
+            }
+            $('login-email').removeClassName('validation-failed');
+            delete Validation.methods['validate-login'];
+            if (loginForm.validator && loginForm.validator.validate()) {
+                ajaxLogin.save();
+            } else {
+                $('btnLogin').removeClassName('disabled');
+                $('btnLogin').enable();
+            }
+        }
+        //]]>
+    </script>
+
+    <div class="col2-set<?php if (!$this->helper('customer')->isRegistrationAllowed() && !$this->getQuote()->isAllowedGuestCheckout()) echo ' login-only' ?> pslogin-form tvdesktop">
+
+        <?php if (Mage::helper('pslogin')->modulePositionEnabled('login') && Mage::helper('pslogin')->hasButtons()) : ?>
+
+            <?php echo $this->getChildHtml('pslogin_buttons'); ?>
+        <?php endif; ?>
+    </div>
+    <div class="clear"></div>
+    <script type="text/javascript">
+        //<![CDATA[
+        //    var loginForm = new VarienForm('login-form', true);
+        //    $('login-email').observe('keypress', bindLoginPost);
+        //    $('login-password').observe('keypress', bindLoginPost);
+        //    function bindLoginPost(evt) {
+        //        if (evt.keyCode == Event.KEY_RETURN) {
+        //            loginForm.submit();
+        //        }
+        //    }
+        //    function onepageLogin(button)
+        //    {
+        //        if (loginForm.validator && loginForm.validator.validate()) {
+        //            button.disabled = true;
+        //            loginForm.submit();
+        //        }
+        //    }
+        //]]>
+    </script>
+    <?php
+    $registerParam = $this->getRequest()->getParam('register');
+    if ($registerParam || $registerParam === ''):
+        ?>
+        <script type="text/javascript">
+            //<![CDATA[
+            document.observe("dom:loaded", function () {
+                if ($('login:register')) {
+                    $('login:register').checked = true;
+                    checkout.setMethod();
+                }
+            })
+            //]]>
+        </script>
+    <?php endif; ?>
+
+    <script type="text/javascript">
+        /*
+         jQuery(document).ready(function ($) {
+         if ($('#onestepcheckout-login-form').length > 0 && $('.pslogin-form').length > 0 && $('#onestepcheckout-login-form-link').length > 0 && $('#review-buttons-container-top').length > 0) {
+         $('.page-top-row').append('<div class="ps-login-form"></div><div class="clear"></div>');
+         $('#review-buttons-container-top').appendTo('.page-top-row');
+         $('#onestepcheckout-login-form , #onestepcheckout-login-form-link , .pslogin-form').appendTo('.ps-login-form');
+         }
+         });*/
+        jQuery(document).ready(function ($) {
+            if ($('#onestepcheckout-login-form-link').length > 0) {
+                if ($('#onestepcheckout-login-form-link').css('display') === 'block') {
+                    $('#onestepcheckout-login-form-link #popuplogin-link').click();
+                }
+            }
+        });
+    </script>
+</div>

@@ -1,0 +1,184 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+<?php
+if ( !$this->helper('onestepcheckout')->getConfigEnableRewards() ) return;
+
+$oneActiveClass = (!$this->helper('onestepcheckout')->getConfigShowDiscountForm())? ' oneActive': '';
+
+$_config = Mage::getModel('rewards/config');
+$helper = Mage::helper('rewards');
+if ($_config->modulEnabled()) {
+	if ($helper->getCurrentCustomerId()){
+		$modelPoints = Mage::getModel('rewards/points');
+		//$minCountAvailble = $modelPoints->getMinCountAvailble();
+		$maxCountAvailble = $modelPoints->getMaxCountAvailble();
+?>
+<?php
+	$fUrl = $this->getUrl('onestepcheckout/rewards/activatePoints');
+	$dUrl = $this->getUrl('onestepcheckout/rewards/deactivatePoints');
+	if (Mage::app()->getStore()->isCurrentlySecure()) {
+		$fUrl = str_replace('http://', 'https://', $fUrl);
+		$dUrl = str_replace('http://', 'https://', $dUrl);
+	}
+?>
+<form id="reward-credit-coupon-form" class="<?php echo $oneActiveClass; ?>" action="<?php echo $fUrl ?>" method="post">
+	<div class="discount">
+		<label for="rewards_point_count"><?php echo $this->__('Reward Points') ?> <span class="show-form">+</span></label>
+		<label> <?php echo $helper->__( 'You can use <strong>%1$s</strong> points.' , $maxCountAvailble); ?> </label>
+		<div class="discount-form">
+			<?php if ($maxCountAvailble) { ?>
+
+				<?php echo $helper->__('Use %1$s point(s) to get %2$s discount.', $_config->getRedeemPointsRate(), Mage::helper('core')->currency(1, true, false)); ?><br/><br/>
+				<div id="rewards_slider"></div>
+				<div style="position:relative; padding-top:5px;" class="clearer clearfix" id="points_description">
+					<span style="float:left" >
+						<?php echo $helper->__('Use'); ?>: <strong><input style="width: 50px;" class="input-text validate-rewards" type="text" id="rewards_point_count" name="rewards_point_count" value="" /></strong> <?php echo $helper->__('points'); ?> = <strong><span class="money-count"></span></strong>
+					</span>
+				</div>
+				<input type="hidden" name="remove" id="remove_rewards" value="0" />
+			<br/>
+			<?php if ($v = $_config->getMinRedeemableCredit()) { ?>
+				<?php echo $helper->__('Minimum points used per order: %1$s', $v); ?><br/>
+			 <?php } ?>
+			 <?php if ($v = $_config->getMaxRedeemableCredit()) { ?>
+				<?php echo $helper->__('Maximum points used per order: %1$s', $v); ?><br/>
+			<?php } ?>
+			<div class="buttons-set">
+				<button type="button" onclick="rewardsForm.submit(false)" title="<?php echo $helper->__('Apply Points') ?>" class="button submit" value="<?php echo $helper->__('Apply Points') ?>"><span><span><?php echo $helper->__('Apply') ?></span></span></button>
+				<button type="button" onclick="rewardsForm.submit(true)" title="<?php echo $helper->__('Cancel') ?>" class="button cancel" value="<?php echo $helper->__('Cancel') ?>"><span><span><?php echo $helper->__('Cancel') ?></span></span></button>
+			</div>
+
+			<?php } else { ?>
+				<?php if (!$modelPoints->getAvailable()) { ?>
+					<label> <?php echo $helper->__( 'You have no points.'); ?> </label><br/>
+				<?php } else { ?>
+					 <label> <?php echo $helper->__( 'You can not use points.'); ?> </label><br/>
+					 <?php if ($v = $_config->getMinRedeemableCredit()) { ?>
+						<?php echo $helper->__('Minimum points used per order: %1$s', $v); ?><br/>
+					 <?php } ?>
+					 <?php if ($v = $_config->getMaxRedeemableCredit()) { ?>
+						<?php echo $helper->__('Maximum points used per order: %1$s', $v); ?><br/>
+					 <?php } ?>
+					 <?php } ?>
+			<?php } ?>
+
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+var pointsConfig = <?php echo $modelPoints->getJsData() ?>;
+var input = pjQuery_1_10_2('#rewards_point_count');
+
+function applyPoints(value, update){
+	var pDescription = pjQuery_1_10_2('#points_description');
+	var price = value / pointsConfig.redeemPointsRate * <?php echo Mage::helper('core')->currency(1, false, false) ?>;
+	var format = pointsConfig.priceFormat;
+
+	if (((parseFloat(price) - parseInt(price)) > 0)
+		&& (format.requiredPrecision == 0)
+	) {
+		format.requiredPrecision = 2;
+		price = formatCurrency(price, format);
+		format.requiredPrecision = 0;
+	} else {
+		price = formatCurrency(price, format);
+	}
+
+	pDescription.find('.money-count').html(price);
+	if (typeof update != "undefined"){
+		input.val(value);
+	}
+};
+
+applyPoints(pointsConfig.activated, true);
+
+var slider = pjQuery_1_10_2( "#rewards_slider" ).slider({
+	'value'	: pointsConfig.activated,
+	'step'	: 1,
+	'min'	: pointsConfig.minCountAvailble, 
+	'max'	: pointsConfig.maxCountAvailble,
+	'animate': true,
+	'slide'	: function( event, ui ) {
+		applyPoints(ui.value, true);
+	},
+	'change' : function( event, ui ){
+		applyPoints(ui.value, true);
+	}
+	
+});
+
+input.keyup(function(){
+	var val = parseInt(input.val());
+	if (!val) val =0;
+
+	applyPoints(val);
+	slider.slider({'value' : val});
+}).blur(function(){
+	var val = parseInt(input.val());
+	if (!val) val =0;
+	
+	if (val < pointsConfig.minCountAvailble){
+		val = pointsConfig.minCountAvailble;
+	} else if (val > pointsConfig.maxCountAvailble) {
+		val = pointsConfig.maxCountAvailble;
+	}
+	applyPoints(val, true);
+	slider.slider({'value' : val});
+});
+
+
+var rewardPoints = new RewardPoints('reward-credit-coupon-form', "<?php echo $fUrl ?>", "<?php echo $dUrl ?>");
+var rewardsForm = new VarienForm('reward-credit-coupon-form');
+rewardsForm.submit = function (isRemove) {
+	if ( $('advice-validate-rewards-rewards_point_count') ) {
+		$('advice-validate-rewards-rewards_point_count').remove();
+	}
+	$('rewards_point_count').removeClassName('validation-failed');
+	if (isRemove) {
+		$('rewards_point_count').removeClassName('required-entry');
+		$('remove_rewards').value = "1";
+		applyPoints(0, true);
+		slider.slider({'value' : 0});
+	} else {
+		$('rewards_point_count').addClassName('required-entry');
+		$('remove_rewards').value = "0";
+	}
+	rewardPoints.save();
+}
+//]]>
+</script>
+
+<?php } else { ?>
+	<div class="discount<?php echo $oneActiveClass; ?>">
+		<h2 class="discount-form-control"><?php echo $helper->__('Reward Points') ?> <span class="show-form">+</span> </h2>
+		<div class="discount-form">
+			<?php echo $helper->__('Please login to use points.') ?>
+			<br />
+			<button id="rewardsBtnLogin" type="button" title="<?php echo $this->__('Login') ?>" class="button" value="<?php echo $this->__('Login') ?>"><span><span><?php echo $this->__('Login') ?></span></span></button>
+		</div>
+	</div>
+	<script type="text/javascript">
+	//<![CDATA[
+		Event.observe($('rewardsBtnLogin'), 'click', function(){
+			pjQuery_1_10_2('#popuplogin-link').click();
+		});
+	//]]>
+	</script>
+<?php } } ?>

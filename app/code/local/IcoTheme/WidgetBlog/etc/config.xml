@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+ */
+-->
+<config>
+    <modules>
+        <IcoTheme_WidgetBlog>
+            <version>1.0.0</version>
+        </IcoTheme_WidgetBlog>
+    </modules>
+
+    <frontend>
+        <routers>
+            <widgetblog>
+                <use>standard</use>
+                <args>
+                    <module>IcoTheme_WidgetBlog</module>
+                    <frontName>widgetblog</frontName>
+                </args>
+            </widgetblog>
+        </routers>
+        <layout>
+            <updates>
+                <widgetblog>
+                    <file>ico_widgetblog.xml</file>
+                </widgetblog>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <models>
+            <widgetblog>
+                <class>IcoTheme_WidgetBlog_Model</class>
+            </widgetblog>
+        </models>
+        <blocks>
+            <widgetblog>
+                <class>IcoTheme_WidgetBlog_Block</class>
+            </widgetblog>
+        </blocks>
+        <helpers>
+            <widgetblog>
+                <class>IcoTheme_WidgetBlog_Helper</class>
+            </widgetblog>
+        </helpers>
+    </global>
+
+    <admin>
+        <routers>
+            <widgetblog>
+                <use>admin</use>
+                <args>
+                    <module>IcoTheme_WidgetBlog</module>
+                    <frontName>widgetblog</frontName>
+                </args>
+            </widgetblog>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <widgetblog>
+                    <file>ico_widgetblog.xml</file>
+                </widgetblog>
+            </updates>
+        </layout>
+        <cms>
+            <browser>
+                <extensions>
+                    <media_allowed>
+                        <mp4>1</mp4>
+                        <webm>1</webm>
+                    </media_allowed>
+                </extensions>
+            </browser>
+        </cms>
+    </adminhtml>
+</config>

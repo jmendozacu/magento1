@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+ */
+-->
+<config>
+    <modules>
+        <IcoTheme_WidgetBlocks>
+            <version>1.0.0</version>
+        </IcoTheme_WidgetBlocks>
+    </modules>
+
+    <frontend>
+        <routers>
+            <widgetblocks>
+                <use>standard</use>
+                <args>
+                    <module>IcoTheme_WidgetBlocks</module>
+                    <frontName>widgetblocks</frontName>
+                </args>
+            </widgetblocks>
+        </routers>
+        <layout>
+            <updates>
+                <widgetblocks>
+                    <file>ico_widgetblocks.xml</file>
+                </widgetblocks>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <models>
+            <widgetblocks>
+                <class>IcoTheme_WidgetBlocks_Model</class>
+            </widgetblocks>
+        </models>
+        <blocks>
+            <widgetblocks>
+                <class>IcoTheme_WidgetBlocks_Block</class>
+            </widgetblocks>
+        </blocks>
+        <helpers>
+            <widgetblocks>
+                <class>IcoTheme_WidgetBlocks_Helper</class>
+            </widgetblocks>
+        </helpers>
+    </global>
+
+    <admin>
+        <routers>
+            <widgetblocks>
+                <use>admin</use>
+                <args>
+                    <module>IcoTheme_WidgetBlocks</module>
+                    <frontName>widgetblocks</frontName>
+                </args>
+            </widgetblocks>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <widgetblocks>
+                    <file>ico_widgetblocks.xml</file>
+                </widgetblocks>
+            </updates>
+        </layout>
+        <cms>
+            <browser>
+                <extensions>
+                    <media_allowed>
+                        <mp4>1</mp4>
+                        <webm>1</webm>
+                    </media_allowed>
+                </extensions>
+            </browser>
+        </cms>
+    </adminhtml>
+</config>

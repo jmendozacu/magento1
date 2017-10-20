@@ -1,0 +1,44 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+<?php
+/*
+  $isPayPalExpress = (Mage::getSingleton('checkout/type_onepage')->getQuote()->getPayment()->getMethod() == Mage_Paypal_Model_Config::METHOD_WPP_EXPRESS);
+  if ($isPayPalExpress){
+  $onclick = 'paypalExpressCheckoutReviewSave();';
+  } else {
+  $onclick = 'checkoutReviewSave();';
+  }
+ */
+?> 
+
+<button id="submit-chackout" type="submit" title="<?php echo $this->__('Place Your Order') ?>" class="button btn-checkout" onclick="checkout.preSaveAll(0)" disabled="">
+    <span>
+        <span>
+            <?php echo $this->__('Place Your Order') ?>
+        </span>
+    </span>
+</button>
+<div class="tvshowsubmitcheckout" style="display: none;">
+    <b>Your order is being processed, <br />please do not refresh this page or click back</b>
+</div>
+<script>
+    jQuery(window).load(function () {
+        jQuery('#submit-chackout').removeAttr('disabled');
+    })
+</script>

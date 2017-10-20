@@ -1,0 +1,90 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please 
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_Search
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+
+ 
+$helper = $this->helper('psearch');
+$config = $this->helper('psearch/config');
+$string = $this->helper('core/string');
+
+$catalogSearchHelper = $this->helper('catalogsearch');
+$resultUrl = $catalogSearchHelper->getResultUrl();
+$notFound = true;
+?>
+
+<?php if($config->enabledProductSuggestion() && ($products = $this->getProducts()) && count($products)) : $notFound = false; ?>
+<div id="pas-psearch-products">
+	
+	<?php foreach ($products as $_product) : ?>
+	<div class="pas-tooltip-pr-item<?php echo $this->getProductCssClass(); ?>">
+		<a href="<?php echo $_product->getProductUrl(); ?>" class="pas-clear">
+			<div class="pac-tooltip-price-block">
+				<?php if($config->showPSPrice()) : ?>
+					<div class="pac-price-val"><?php echo $this->getPriceHtml($_product, false, 'pas-'); ?></div>
+				<?php endif; ?>
+				<?php if($config->showPSRating() && $ratingSummary = $_product->getRatingSummary()) : ?>
+					<div class="pac-rating-box">
+						<div class="pac-rating" style="width:<?php echo $ratingSummary->getRatingSummary(); ?>%"></div>
+					</div>
+					(<?php echo $ratingSummary->getReviewsCount(); ?>)
+				<?php endif; ?>
+			</div>
+			<?php if($config->showPSThumbs()) : ?>
+				<div class="pac-tooltip-image">
+					<img src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize(100); ?>" />
+				</div>
+			<?php endif; ?>
+			<div class="pac-tooltip-descr">
+				<div class="pac-tooltip-name"><?php echo $this->tipsWords($_product->getName()); ?></div>
+				<?php if($config->showPSShortDescription()) :
+					$truncateDescription = $string->truncate(strip_tags($_product->getShortDescription()), $config->getPSShortDescriptionLenght(), '...', $remainder, false); ?>
+					<div class="pac-tooltip-short-des"><?php echo $this->tipsWords($truncateDescription); ?></div>
+				<?php endif; ?>
+			</div>
+		</a>
+	</div>
+	<?php endforeach; ?>
+
+</div>
+<?php endif; ?>
+
+<?php if($config->enabledCategorySuggestion() && ($categories = $this->getCategories()) && count($categories)) : $notFound = false; ?>
+<div id="pac-psearch-categories">
+	<?php foreach ($categories as $_category) : ?>
+	<div class="pac-ps-category">
+		<a href="<?php echo $helper->getResultUrl(null, $_category->getId()); ?>">Found in <span><?php echo (($parent = $this->getParentCategory($_category))? $this->tipsWords($parent->getName()) .' > ' : '') . $this->tipsWords($_category->getName()); ?></span> (<?php echo $_category->getProductCount(); ?>)</a>
+	</div>
+	<?php endforeach; ?>
+</div>
+<?php endif; ?>
+
+<?php if($config->enabledTermsSuggestion() && ($terms = $this->getTerms()) && count($terms)) : $notFound = false; ?>
+<div id="pac-psearch-terms">
+	<?php foreach ($terms as $_term) : ?>
+	<div class="pac-ps-term">
+		<a href="<?php echo $helper->getResultUrl($_term->getName()); ?>"><span><?php echo $this->tipsWords($_term->getName()); ?></span> (<?php echo $_term->getNumResults(); ?>)</a>
+	</div>
+	<?php endforeach; ?>
+</div>
+<?php endif; ?>
+
+<div id="pac-psearch-all-results">
+	<?php if($notFound) : ?>
+		<p class="pac-no-results"><?php echo $this->__('No results found'); ?></p>
+	<?php else : ?>
+		<a href="<?php echo $helper->getResultUrl(); ?>" class="pac-show-result"><span><?php echo $this->__('Show All Results'); ?></span></a>
+	<?php endif; ?>
+</div>

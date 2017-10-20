@@ -1,0 +1,15 @@
+.form-list td.value table.data input.input-text, .form-list td.value table.data textarea {
+    width: 95%;
+}
+
+#row_onestepcheckout_address_form_settings_address_fields td.value div.grid {
+    width: 280px;
+}
+
+.form-list .not-active {
+	color: #A6A6A6!important;
+}
+
+.form-list td.value table.data tr.not-active input.input-text {
+	color: #A6A6A6!important;
+}

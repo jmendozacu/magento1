@@ -1,0 +1,31 @@
+<?php
+$theme = $this->helper('wood');
+$equalHeight = $theme->getCfg('category_grid/equal_height')?'true':'false';
+$displayAddtocart = $theme->getCfg('category_grid/display_addtocart');
+$displayAddtolink = $theme->getCfg('category_grid/display_addtolinks');
+$sticky_enable = $theme->getCfg('header/enable_sticky');
+$compareHeader = $theme->getCfg('header/compare');
+$logo = Mage::getStoreConfig('wood_design/header/logo_upload');
+$logo_home = Mage::getStoreConfig('wood_design/header/logo_homepage_upload');
+$logo_retina = Mage::getStoreConfig('wood_design/header/logo_retina_upload');
+$logo_home_retina = Mage::getStoreConfig('wood_design/header/logo_homepage_retina_upload');
+$enable_ajax = Mage::getStoreConfig('ajaxproducts/config/enable');
+?>
+<script type="text/javascript">
+    var frontendData = {};
+    frontendData.confGridEqualHeight = <?php echo $equalHeight;?>;
+    frontendData.displayAddtocart = '<?php echo $displayAddtocart;?>';
+    frontendData.displayAddtolink = '<?php echo $displayAddtolink;?>';
+    frontendData.compareHeader = '<?php echo $compareHeader;?>';
+    frontendData.logo = '<?php echo $logo;?>';
+    frontendData.logoHome = '<?php echo $logo_home;?>';
+    frontendData.logoRetina = '<?php echo $logo_retina;?>';
+    frontendData.logoHomeRetina = '<?php echo $logo_home_retina;?>';
+    frontendData.colFull = '<?php echo $theme->getCfg('category_grid/column_count');?>';
+    frontendData.col768_640 = '<?php echo $theme->getCfg('category_grid/column_count_768');?>';
+    frontendData.col480_640 = '<?php echo $theme->getCfg('category_grid/column_count_640');?>';
+    frontendData.col480 = '<?php echo $theme->getCfg('category_grid/column_count_480');?>';
+    frontendData.enableSticky = <?php echo $sticky_enable? 'true': 'false';?>;
+    frontendData.enableAjax = <?php echo $enable_ajax? 'true': 'false';?>;
+</script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/frontend.js');?>"></script>

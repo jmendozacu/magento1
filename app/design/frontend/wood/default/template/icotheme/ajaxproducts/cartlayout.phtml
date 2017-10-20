@@ -1,0 +1,23 @@
+<?php
+$_cartitems = $this->getProductQuotes();
+?>
+<?php $quote = $this->getQuote();?>
+<div data-id="<?php echo $this->getProductId(); ?>" class="cartlayout">
+    <?php if ($quote->hasProductId($this->getProductId())) {?>
+    <?php foreach($_cartitems as $item){?>
+        <?php if($item->getProductId() == $this->getProductId()){?>
+            <div id="Complex" class="Complex">
+                <button type="button" class="remove button" title="Remove" onclick="updatecart('<?php echo $this->getUrl('ajaxcart/index/update',array('mode'=>'unless','product'=>$this->getProductId()));?>')" linktype="ProductButton"><i class="fa fa-minus"></i></button>
+                <span class="Count">
+                    <span class="qty"><?php echo $item->getQty();?></span>
+                    <span class="totalprice">(<?php echo $this->helper('checkout')->formatPrice($item->getRowTotal())?>)</span>
+                </span>
+                <button type="button" class="add button" onclick="updatecart('<?php echo $this->getUrl('ajaxcart/index/update',array('mode'=>'plus','product'=>$this->getProductId()));?>')" title="<?php echo $this->__('Add to Cart') ?>" linktype="ProductButton"><i class="fa fa-plus"></i></button>
+            </div>
+        <?php
+        break; }?>
+    <?php }?>
+<?php }else{?>
+    <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart <?php echo $btnClassCart;?>" onclick="setLocation('<?php echo $this->getAddToCartUrl($this->getProduct()) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+<?php }?>
+</div>

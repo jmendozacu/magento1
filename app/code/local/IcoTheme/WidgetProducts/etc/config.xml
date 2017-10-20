@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+ */
+-->
+<config>
+    <modules>
+        <IcoTheme_WidgetProducts>
+            <version>2.0</version>
+        </IcoTheme_WidgetProducts>
+    </modules>
+
+    <frontend>
+        <routers>
+            <widgetproducts>
+                <use>standard</use>
+                <args>
+                    <module>IcoTheme_WidgetProducts</module>
+                    <frontName>widgetproducts</frontName>
+                </args>
+            </widgetproducts>
+        </routers>
+        <layout>
+            <updates>
+                <widgetproducts>
+                    <file>ico_widgetproducts.xml</file>
+                </widgetproducts>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <models>
+            <widgetproducts>
+                <class>IcoTheme_WidgetProducts_Model</class>
+            </widgetproducts>
+        </models>
+        <blocks>
+            <widgetproducts>
+                <class>IcoTheme_WidgetProducts_Block</class>
+            </widgetproducts>
+        </blocks>
+        <helpers>
+            <widgetproducts>
+                <class>IcoTheme_WidgetProducts_Helper</class>
+            </widgetproducts>
+        </helpers>
+    </global>
+
+    <admin>
+        <routers>
+            <widgetproducts>
+                <use>admin</use>
+                <args>
+                    <module>IcoTheme_WidgetProducts</module>
+                    <frontName>widgetproducts</frontName>
+                </args>
+            </widgetproducts>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <widgetproducts>
+                    <file>ico_widgetproducts.xml</file>
+                </widgetproducts>
+            </updates>
+        </layout>
+        <cms>
+            <browser>
+                <extensions>
+                    <media_allowed>
+                        <mp4>1</mp4>
+                        <webm>1</webm>
+                    </media_allowed>
+                </extensions>
+            </browser>
+        </cms>
+    </adminhtml>
+</config>

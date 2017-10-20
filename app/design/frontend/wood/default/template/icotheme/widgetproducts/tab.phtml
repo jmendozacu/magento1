@@ -1,0 +1,50 @@
+<?php
+$id         = $this->getConfig('id');
+$title      = $this->getConfig('widget_title');
+$tabs       = $this->getTabs();
+$template   = 'icotheme/widgetproducts/collection.phtml';
+$t          = microtime();
+?>
+<div class="<?php echo $this->getConfig('classes') ?> tab-product-collection" id="<?php echo $id ?>">
+    <?php if ($title): ?>
+        <h2><?php echo $title ?></h2>
+    <?php endif ?>
+    <div class="tab-selector">
+        <ul class="widget-tabs nav nav-tabs">
+            <?php foreach ($tabs as $index => $tab): ?>
+                <li class="<?php echo $index==0 ? 'active' : '' ?>">
+                    <a href="#<?php echo $id . '-' . $tab['id'] ?>"
+                        data-value="<?php echo $tab['value'] ?>"
+                        data-type="<?php echo $tab['type'] ?>"
+                        data-limit="<?php echo $this->getLimit() ?>"
+                        data-column="<?php echo $this->getConfig('column') ?>"
+                        data-row="<?php echo $this->getConfig('row') ?>"
+                        data-cid="<?php echo $this->getData('category_ids') ?>"
+                        data-template="<?php echo $template ?>"
+                        data-carousel="<?php echo $this->getConfig('scroll') ?>">
+                        <?php echo $tab['label'] ?>
+                    </a>
+                </li>
+            <?php endforeach ?>
+        </ul>
+    </div>
+    <div class="widget-tab-content tab-content">
+        <?php foreach ($tabs as $index => $tab): ?>
+            <div id="<?php echo $id . '-' . $tab['id'] ?>" class="tab-pane<?php echo $index==0 ? ' active' : '' ?>">
+                <?php if ($index > 0): ?>
+                    </div>
+                    <?php continue ?>
+                <?php endif ?>
+                <?php echo $this->renderCollection($tab['type'], $tab['value'], $template) ?>
+            </div>
+        <?php endforeach ?>
+    </div>
+    <script type="text/javascript">
+        new Ico.widgetConfig('<?php echo $id ?>', {
+            requestUrl: '<?php echo $this->getUrl('widgetproducts/index/products') ?>',
+            carousel: <?php echo $this->getConfig('carousel') ?>,
+            countdown: <?php echo $this->getConfig('countdown') ?>,
+            countdownTemplate: '<div class="day"><span class="no">%d</span><span class="text">days</span></div><div class="hours"><span class="no">%h</span><span class="text">hours</span></div><div class="min"><span class="no">%i</span><span class="text">min</span></div><div class="second"><span class="no">%s</span><span class="text">secs</span></div>'
+        });
+    </script>
+</div>

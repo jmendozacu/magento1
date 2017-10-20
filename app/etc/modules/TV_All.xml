@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category	TV
+ * @package		TV_TV
+ * @author		EternalFriend
+ * @copyright	Copyright 2014 TV
+ */
+ -->
+<config>
+    <modules>
+        <TV_All>
+            <active>true</active>
+            <codePool>local</codePool>
+        </TV_All>
+    </modules>
+</config> 

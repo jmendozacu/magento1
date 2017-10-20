@@ -1,0 +1,18 @@
+<script type="text/javascript">
+    var Ico = Ico || {};
+    Ico.FORM_KEY = '<?php echo Mage::getSingleton('core/session')->getFormKey() ?>';
+
+    function setLocationWidget(url) {
+        if (url.indexOf('form_key/') !== -1) {
+            var part = url.split('form_key/')[1],
+                formKey = part.split('/')[0];
+
+            if (!formKey) return;
+
+            var newUrl = url.replace(formKey, Ico.FORM_KEY || '');
+
+            if (setLocation) setLocation(newUrl);
+            else window.location.href = newUrl;
+        }
+    }
+</script>

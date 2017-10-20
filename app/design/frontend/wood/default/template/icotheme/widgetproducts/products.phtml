@@ -1,0 +1,19 @@
+<?php
+$_id = $this->getConfig('id');
+$_title = $this->getConfig('widget_title');
+$_countdown = $this->getConfig('enableCoundown');
+$t = microtime();
+?>
+<div class="widget-products-new <?php echo $this->getConfig('classes') ?>" id="<?php echo $_id ?>">
+    <?php if ($_title): ?>
+        <h3 class="title-widget"><span><?php echo $_title ?></span></h3>
+    <?php endif ?>
+    <?php echo $this->renderCollection('collection', $this->getData('mode'), 'icotheme/widgetproducts/collection.phtml') ?>
+</div>
+<script type="text/javascript">
+    new Ico.widgetConfig('<?php echo $_id ?>', {
+        carousel: <?php echo $this->getConfig('carousel') ?>,
+        countdown: <?php echo $this->getConfig('countdown') ?>,
+        countdownTemplate: '<div class="day"><span class="no">%d</span><span class="text">days</span></div><div class="hours"><span class="no">%h</span><span class="text">hours</span></div><div class="min"><span class="no">%i</span><span class="text">min</span></div><div class="second"><span class="no">%s</span><span class="text">secs</span></div>'
+    });
+</script>

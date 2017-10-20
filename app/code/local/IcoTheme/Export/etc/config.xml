@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright    Copyright (C) 2015 IcoTheme.com. All Rights Reserved.
+ */
+ -->
+<config>
+    <modules>
+        <IcoTheme_Export>
+            <version>1.0.0</version>
+        </IcoTheme_Export>
+    </modules>
+    <global>
+        <models>
+            <export>
+                <class>IcoTheme_Export_Model</class>
+            </export>
+        </models>
+        <blocks>
+            <export>
+                <class>IcoTheme_Export_Block</class>
+            </export>
+        </blocks>
+        <helpers>
+            <export>
+                <class>IcoTheme_Export_Helper</class>
+            </export>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <export>
+                <use>standard</use>
+                <args>
+                    <module>IcoTheme_Export</module>
+                    <frontName>export</frontName>
+                </args>
+            </export>
+        </routers>
+    </frontend>
+    <admin>
+        <routers>
+            <export>
+                <use>admin</use>
+                <args>
+                    <module>IcoTheme_Export</module>
+                    <frontName>export</frontName>
+                </args>
+            </export>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <export>
+                    <file>icotheme_export.xml</file>
+                </export>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

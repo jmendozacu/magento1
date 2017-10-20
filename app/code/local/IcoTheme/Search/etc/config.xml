@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (C) 2015 IcoTheme.com. All Rights Reserved.
+ */
+-->
+<config>
+    <modules>
+        <IcoTheme_Search>
+            <version>1.0.0</version>
+        </IcoTheme_Search>
+    </modules>
+
+    <global>
+        <blocks>
+            <icosearch>
+                <class>IcoTheme_Search_Block</class>
+            </icosearch>
+        </blocks>
+        <helpers>
+            <icosearch>
+                <class>IcoTheme_Search_Helper</class>
+            </icosearch>
+        </helpers>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <icosearch>
+                    <file>icotheme_search.xml</file>
+                </icosearch>
+            </updates>
+        </layout>
+    </frontend>
+    <default>
+        <icosearch>
+            <general>
+                <enable>1</enable>
+            </general>
+        </icosearch>
+    </default>
+</config>

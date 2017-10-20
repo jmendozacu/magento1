@@ -1,0 +1,127 @@
+@import url(https://fonts.googleapis.com/css?family=Rokkitt);
+h1, h2, h3, h4, h5, h6, .nav-container ul.navpro li a{
+    font-family: 'Rokkitt', serif;
+    font-weight: 400;
+}
+.nav-container ul.navpro li a {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+.home-main .products-grid{
+    border-bottom: none;
+}
+.home-main .products-grid li.item {
+    border: 1px solid #ddd;
+}
+.header-contact{
+    float: left;
+}
+.header-contact p {
+    line-height: 18px;
+    font-size: 14px;
+    padding-top: 1px;
+    white-space: nowrap;
+    font-family: 'Calibri', sans-serif;
+}
+.products-grid .product-name a {
+    font-size: 18px;
+}
+.header-contact p.contrac-phone {
+    color: #d6a443;
+}
+.one-step-checkout button.button span{
+    background-color: transparent;
+}
+.page .one-step-checkout .page-top-row .buttons-set button>span,.page  .one-step-checkout .order-review-column button>span,.page  .checkout-onepage-index ol.opc-firststep-widget .buttons-set button>span{
+    background: #ff963b;
+    padding: 0px;
+    border: 1px solid rgb(255, 122, 3);
+}
+.page .one-step-checkout .page-top-row .buttons-set button:hover > span, .page .one-step-checkout .order-review-column button:hover > span, .page .checkout-onepage-index ol.opc-firststep-widget .buttons-set button:hover > span{
+    background: rgb(255, 122, 3) none repeat scroll 0% 0%;
+    padding: 0px;
+}
+.page .one-step-checkout .order-review-column button.btn-checkout span{
+    border-color: rgb(255, 122, 3);
+}
+.page .one-step-checkout .page-top-row #onestepcheckout-login-form button > span{
+    background: #ff963b;
+    border-color: rgb(255, 122, 3);
+}
+.page .one-step-checkout h3.section-name{
+    background-color: #ff963b;
+    color: #fff;
+}
+.page .one-step-checkout h3 .step-number{
+    background-color: #000;
+}
+.checkout-onepage-index ul li {
+    list-style-type: none;
+}
+.page .one-step-checkout .payment .payment-button .payment-name{
+    max-width: 100%;
+}
+.page .one-step-checkout .payment .payment-button{
+    width: 100%;
+}
+/*.cms-revivogen-home .main{
+        width: 1200px;
+}
+.home-main {
+    width: 900px;
+    float: left;
+    margin: 30px 0 0;
+}
+.home-right {
+    width: 300px;
+    float: right;
+    margin: 30px 0 0;
+}
+@media only screen and (min-width: 960px) and (max-width: 1200px) {
+.home-main {
+    width: 600px;
+}
+.cms-revivogen-home .main{
+        width: 960px;
+}
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+.home-main {
+    width: 600px;
+}
+.cms-revivogen-home .main{
+        width: 768px;
+}
+}
+@media only screen and (max-width: 767px) {
+.home-main {
+    width: 600px;
+}
+.cms-revivogen-home .main{
+        width: 300px;
+}
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.cms-revivogen-home .main{
+        width: 456px;
+}
+}
+@media only screen and (max-width: 479px) {
+
+}
+.checkout-onepage-index .header{
+    overflow: auto;
+}*/
+.checkout-onepage-index .page{
+    padding: 0 !important;
+    max-width: 100% !important;
+}
+.checkout-onepage-index .main-container{
+    margin-top: -10px;
+}
+.checkout-onepage-index .nav-container .navpro {
+    padding-left: 0;
+}
+.checkout-onepage-index .header-container .form-search input{
+    padding: 17px 0;
+}

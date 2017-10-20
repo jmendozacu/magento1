@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config> 
+    <modules>
+        <Tv_Newsletter>
+            <version>1.0.0</version>
+        </Tv_Newsletter>
+    </modules>
+    <frontend>
+        <routers>
+            <newsletter>
+                <args>
+                    <modules>
+                        <Tv_Newsletter before="Mage_Newsletter">Tv_Newsletter</Tv_Newsletter><!-- Tell Magento to call our custom module before the Mage/Checkout module -->
+                    </modules>
+                </args>
+            </newsletter>
+        </routers>
+    </frontend>
+</config>

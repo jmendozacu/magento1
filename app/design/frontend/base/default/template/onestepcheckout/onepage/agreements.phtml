@@ -1,0 +1,69 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+<?php
+/**
+ * @see Mage_Checkout_Block_Agreements
+ */
+?>
+
+<?php 
+if ( !$this->helper('onestepcheckout')->getConfigShowAgreements() ) return;
+//if (!$this->getAgreements() ) return; 
+?>
+<form action="" id="checkout-agreements" onsubmit="return false;">
+<ol class="checkout-agreements form-list">
+    <li>
+		<div id="terms-and-conditions-content" style="display:none;">
+			<div class="cart_agree_popup" style="height:640px; overflow-y:auto; padding-right:10px;">
+				<?php 
+					echo $termPageContent = Mage::helper('cms')->getPageTemplateProcessor()->filter(
+						Mage::getModel('cms/page')
+							->setStoreId(Mage::app()->getStore()->getId())
+							->load($this->helper("onestepcheckout")->getConfigGetAgreementsPage())
+							->getContent()
+					);
+				?>
+			</div>
+		</div>
+        <div class="agree" style="width:300px; position:relative;">
+            <input class="required-entry" type="checkbox" id="agreement-1" name="agreement[1]" value="1" class="checkbox" />
+            <label for="agreement-1" style="float:none;">
+				 <?php echo $this->__('I have read and agree to the'); ?> <a id="show-agreement" title="<?php echo $this->__('Terms of Service'); ?>" target="_blank" href="#terms-and-conditions-content" ><?php echo $this->__('Terms of Service'); ?></a>
+			</label>
+            <div class="validation-advice" style="display:none;" >This is a required field.</div>
+        </div>
+    </li>
+</ol>
+</form>
+<script type="text/javascript">
+	pjQuery_1_10_2(document).ready(function(){
+		pjQuery_1_10_2('#checkout-agreements input.required-entry').click(function(){
+			if (pjQuery_1_10_2(this).is(':checked')){
+				pjQuery_1_10_2(this).parent().find('.validation-advice').hide();
+			}
+		});
+
+		pjQuery_1_10_2("#show-agreement").fancybox({
+			maxWidth: 600,
+			helpers:  {
+        		title:  null
+    		}
+		});
+	});
+</script>
+

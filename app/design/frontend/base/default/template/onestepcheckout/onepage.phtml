@@ -1,0 +1,177 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+<?php 
+	$address = $this->getChild('shipping')->getAddress();
+	if ($address->getId()) {
+		Mage::getSingleton('checkout/type_onepage')
+			->saveShipping($address->getData(), $address->getId());
+	}
+
+	$stepNumber = 1;
+	$ajaxLoaderPath = $this->getSkinUrl('images/plumrocket/onestepcheckout/ajax-loader.gif');
+?>
+
+<script type="text/javascript">
+//<![CDATA[
+	var checkout = new Checkout({
+		preSave: '<?php echo $this->getUrl('onestepcheckout/checkout/preSave');?>',
+		failure: '<?php echo $this->getUrl('checkout/cart'); ?>'
+	});
+//]]>
+</script>
+
+<div class="one-step-checkout">
+
+	<div class="page-title">
+		<h1><?php echo $this->__('Checkout') ?></h1>
+	</div>
+	
+	<div class="page-top-row clearfix">
+		<?php if (!$this->helper('customer')->isLoggedIn()) { ?>
+			<?php echo $this->getChildHtml('login'); ?>
+			<span id="onestepcheckout-login-form-link" <?php echo ($this->getMessagesBlock()->toHtml()) ? 'style="display:none;"' : '';?>>
+				<span class="you-registered"><?php echo $this->__('Already registered?'); ?></span>
+				<span id="popuplogin-link" class="to-login-page popuplogin-link"><?php echo $this->__('Click here to login'); ?></span>
+				<?php if (trim($this->getChildHtml('extendedLoginButtons'))) { ?>
+				<div class="extendedLoginButtons">
+					<?php echo $this->getChildHtml('extendedLoginButtons'); ?>
+				</div>
+				<?php } ?>
+			</span>
+		<?php } ?>
+
+		<div class="buttons-set" id="review-buttons-container-top">
+			<?php echo $this->getChildHtml('button_top') ?>
+		</div>
+	</div>
+	
+	<div class="col-left">
+		<?php if ($this->helper('onestepcheckout')->getConfigDisplayAddresses() == 'two') { ?>
+			<?php if ($this->getChild('billing') && $this->getChild('billing')->isShow()){ ?>
+				<div class="billing-address">
+					<h3 class="section-name">
+						<span class="step-number"><?php echo $stepNumber; ?></span><?php echo $this->__('Billing Information'); ?>
+						<img id="billing-ajax-loader" class="ajax-loader" src="<?php echo $ajaxLoaderPath; ?>">
+					</h3>
+					<div class="billing-address-forms">
+						<?php echo $this->getChildHtml('billing'); ?>
+					</div>
+				</div>
+				<?php $stepNumber++; ?>
+			<?php } ?>
+
+			<?php if ( ($this->getChild('shipping') && $this->getChild('shipping')->isShow()) || ($this->getChild('shipping_method') && $this->getChild('shipping_method')->isShow()) ) { ?>
+				<div class="shipping-address">
+					<h3 class="section-name">
+						<span class="step-number"><?php echo $stepNumber; ?></span><?php echo $this->__('Shipping Information'); ?>
+						<img id="shipping-ajax-loader" class="ajax-loader" src="<?php echo $ajaxLoaderPath; ?>">
+					</h3>
+					<div class="shipping-address-forms">
+						<?php if ($this->getChild('shipping') && $this->getChild('shipping')->isShow()) {
+							echo $this->getChildHtml('shipping');
+						}
+
+						if ($this->getChild('shipping_method') && $this->getChild('shipping_method')->isShow()){ ?>
+							<h3 class="shipping-method-title"><?php echo $this->__('Shipping Methods'); ?></h3>
+							<?php echo $this->getChildHtml('shipping_method');
+						} ?>
+					</div>
+				</div>
+				<?php $stepNumber++; ?>
+			<?php } ?>
+		<?php } else { ?>
+			<?php if ( ($this->getChild('billing') && $this->getChild('billing')->isShow()) || ($this->getChild('shipping_method') && $this->getChild('shipping_method')->isShow()) ) { ?>
+			<div class="billing-address">
+				<h3 class="section-name">
+					<span class="step-number"><?php echo $stepNumber; ?></span><?php echo $this->__('Address Information'); ?>
+					<img id="billing-ajax-loader" class="ajax-loader" src="<?php echo $ajaxLoaderPath; ?>">
+				</h3>
+				<div class="billing-address-forms">
+					<?php if ($this->getChild('billing') && $this->getChild('billing')->isShow()) {
+						echo $this->getChildHtml('billing');
+					}
+
+					if ($this->getChild('shipping_method') && $this->getChild('shipping_method')->isShow()){ ?>
+						<h3 class="shipping-method-title"><?php echo $this->__('Shipping Methods'); ?></h3>
+						<?php echo $this->getChildHtml('shipping_method');
+					} ?>
+				</div>
+			</div>
+			<?php $stepNumber++; ?>
+			<?php } ?>
+		<?php } ?>
+	</div>
+
+	<div class="col-right">
+		<?php if ($this->getChild('payment') && $this->getChild('payment')->isShow()){ ?>
+			<div class="payment">
+				<h3 class="section-name">
+					<span class="step-number"><?php echo $stepNumber; ?></span><?php echo $this->__('Payment Information'); ?>
+					<img id="payment-ajax-loader" class="ajax-loader" src="<?php echo $ajaxLoaderPath; ?>">
+				</h3>
+				<?php echo $this->getChildHtml('payment') ?>
+			</div>
+			<?php $stepNumber++; ?>
+		<?php } ?>
+
+		<?php if ($this->getChild('payment') && $this->getChild('payment')->isShow()){ ?>
+			<div class="order-review-column">
+				<h3 class="section-name">
+					<span class="step-number"><?php echo $stepNumber; ?></span><?php echo $this->__('Order Summary'); ?>
+					<img id="review-ajax-loader" class="ajax-loader" src="<?php echo $ajaxLoaderPath; ?>">
+				</h3>
+				<?php echo $this->getChildHtml('review'); ?>
+			</div>
+			<?php $stepNumber++; ?>
+		<?php } ?>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+	function fireEvent(element,event){
+		if (document.createEventObject){
+			// dispatch for IE
+			var evt = document.createEventObject();
+			return element.fireEvent('on'+event,evt)
+		} else{
+			// dispatch for firefox + others
+			var evt = document.createEvent("HTMLEvents");
+			evt.initEvent(event, true, true ); // event type,bubbling,cancelable
+			if (element) {
+				return !element.dispatchEvent(evt);
+			}
+		}
+	}
+	
+	<?php if (!$this->helper('customer')->isLoggedIn()) { ?>
+		Event.observe($('popuplogin-link'), 'click', function(){
+			Element.hide('onestepcheckout-login-form-link');
+			Element.show('onestepcheckout-login-form');
+			pjQuery_1_10_2('#btnLogin .btn-loader').width(pjQuery_1_10_2('#btnLogin .btn-label').width());
+			pjQuery_1_10_2('html, body').animate({scrollTop: pjQuery_1_10_2(".one-step-checkout").offset().top}, 300);
+		});
+
+		Event.observe($('login-form-hide'), 'click', function(){
+			Element.hide('onestepcheckout-login-form');
+			Element.show('onestepcheckout-login-form-link');
+		});
+	<?php } ?>
+//]]>
+</script>

@@ -1,0 +1,64 @@
+<?php
+/**
+ * @copyright    Copyright (C) 2015 IcoTheme.com. All Rights Reserved.
+ */
+?>
+<!-- navigation BOF -->
+<?php
+$megaeffect = Mage::getStoreConfig('ultramegamenu/display_options/effect');
+$routeName = Mage::app()->getRequest()->getRouteName();
+$identifier = Mage::getSingleton('cms/page')->getIdentifier();
+
+?>
+<div class="navbar-wrapper visible-tablet">
+    <div class="navbar">
+        <div class="navbar-header skip-link" onclick="mobileSkipLink(this);" data-target-element="#navbar-toggle">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse">
+                <span class="sr-only"><?php echo $this->__('Toggle navigation'); ?></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="" class="navbar-brand"><?php echo $this->__('Navigation'); ?></a>
+        </div>
+        <nav id="navbar-toggle" class="bs-navbar-collapse skip-content">
+            <ul class="nav-accordion nav-mobile-accordion">
+                <li><a href="<?php echo $this->getBaseUrl(); ?>"><?php echo $this->__('Home'); ?></a></li>
+                <?php echo $this->renderCategoriesMenuHtml(TRUE, FALSE, 0, 'level-top'); ?>
+                <?php
+                $urlkey = Mage::getStoreConfig('ultramegamenu/display_options/url_key');
+                $arrayUrlKey = explode(";", $urlkey);
+                foreach ($arrayUrlKey as $url) {
+                    $condition = explode(':', $url);
+                    $page = Mage::getModel('cms/page')->load($condition[0], 'identifier');
+                    if (isset($condition[1])) $class = 'menu-item-' . $condition[1];
+                    if ($page->getIsActive()) {
+                        ?>
+                        <li class="level0 level-top parent custom-block <?php if ($routeName == 'cms' && $identifier == $page->getIdentifier()) {
+                            echo " active";
+                        } ?> <?php echo $class; ?>">
+                            <a href="<?php echo Mage::helper('cms/page')->getPageUrl($condition[0]); ?>"
+                               class="level-top">
+                                <span><?php echo $page->getTitle(); ?></span>
+                            </a>
+                        </li>
+                    <?php
+                    }
+                }
+                $linkex = Mage::getStoreConfig('ultramegamenu/display_options/url_external');
+                $arraylinkex = explode(";", $linkex);
+                foreach ($arraylinkex as $url) {
+                    $condition = explode('/', $url);
+                    ?>
+                    <li class="level0 level-top link-external">
+                        <a href="<?php echo Mage::getBaseUrl().$condition[1]; ?>"
+                           class="level-top">
+                            <span><?php echo $condition[0]; ?></span>
+                        </a>
+                    </li>
+                <?php }?>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- navigation EOF -->

@@ -1,0 +1,2297 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @category     IcoTheme
+ * @package      IcoTheme_Themes
+ *
+ * @copyright    Copyright (C) 2015 IcoTheme.com. All Rights Reserved.
+ * @license      GNU General Public License version 2 or later;
+ * @author       IcoTheme.com
+ * @email        support@icotheme.com
+ *
+ */
+-->
+<config>
+    <tabs>
+        <icotheme_wood translate="label" module="wood">
+            <label>Wood (1.0.0)</label>
+            <sort_order>101</sort_order>
+        </icotheme_wood>
+    </tabs>
+    <sections>
+        <wood translate="label" module="wood">
+            <label>Theme Options</label>
+            <tab>icotheme_wood</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <layout translate="label">
+                    <label>Layout</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <responsive translate="label">
+                            <label>Responsive Layout</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </responsive>
+                        <rtl_language translate="label">
+                            <label>RTL Language</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rtl_language>
+                        <fluid_width translate="label">
+                            <label>Fluid Width</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fluid_width>
+                    </fields>
+                </layout>
+                <header translate="label">
+                    <label>Header</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable_sticky translate="label">
+                            <label>Enable Sticky</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_sticky>
+                    </fields>
+                </header>
+                <category translate="label">
+                    <label>Category View</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <heading_slidebar_position translate="label">
+                            <label>Slidebar Position</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_slidebar_position>
+
+                        <slidebar_position translate="label">
+                            <label>Sidebar position</label>
+                            <comment></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>wood/adminhtml_category_slidebar_position</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </slidebar_position>
+
+                        <heading_images translate="label">
+                            <label>Images</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_images>
+                        <aspect_ratio translate="label">
+                            <label>Keep Image Aspect Ratio</label>
+                            <comment>Set "Yes", to keep aspect ratio of the product images (height of the images will be calculated Image aspect ratio size).</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </aspect_ratio>
+                        <aspect_ratio_size translate="label">
+                            <label>Image aspect ratio size</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_category_grid_ratioimage</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <aspect_ratio>0</aspect_ratio>
+                            </depends>
+                        </aspect_ratio_size>
+                        <custom_aspect_ratio_size translate="label">
+                            <label>Or custom aspect ratio size</label>
+                            <comment>
+                                <![CDATA[To calculate this value you need to div the height of your image to the width.]]>
+                            </comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <aspect_ratio>0</aspect_ratio>
+                            </depends>
+                        </custom_aspect_ratio_size>
+                        <alt_image translate="label">
+                            <label>Alternative Image</label>
+                            <comment>Show alternative image on mouse hover over the main image.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </alt_image>
+                        <alt_image_column translate="label">
+                            <label>Select Alt. Image By Column</label>
+                            <comment>
+                                <![CDATA[Which column of the product image gallery will mark alternative images of your products.]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_category_altimagecolumn</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <alt_image>1</alt_image>
+                            </depends>
+                        </alt_image_column>
+                        <alt_image_column_value translate="label">
+                            <label>Alt. Image Column Value</label>
+                            <comment>
+                                <![CDATA[Specify the value which will mark alternative images of your products. E.g.: if <strong>Select Alt. Image By Column</strong> is set to "Sort Order", specify the number which will mark (in "Sort Order" column of the product image gallery) alternative images, for example: "2".]]>
+                            </comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <alt_image>1</alt_image>
+                            </depends>
+                        </alt_image_column_value>
+                        <image_width translate="label">
+                            <label>Image Width</label>
+                            <comment>Set width image in page products list.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </image_width>
+                        <image_height translate="label">
+                            <label>Image Height</label>
+                            <comment>Set height image in page products list.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </image_height>
+                    </fields>
+                </category>
+                <category_grid translate="label">
+                    <label>Category View (Grid Mode)</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>110</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <column_count translate="label">
+                            <label>Number of Columns</label>
+                            <comment><![CDATA[Number of products displayed in a single row.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_category_grid_columncount</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </column_count>
+                        <column_count_768 translate="label">
+                            <label>Number of Columns Below 768px</label>
+                            <comment>Number of columns displayed if browser viewport width is between 640 px and 768 px.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_category_grid_columnbelow</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </column_count_768>
+                        <column_count_640 translate="label">
+                            <label>Number of Columns Below 640px</label>
+                            <comment>Number of columns displayed if browser viewport width is between 480px and 640 px.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_category_grid_columnbelow</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </column_count_640>
+                        <column_count_480 translate="label">
+                            <label>Number of Columns Below 480px</label>
+                            <comment>Number of columns displayed if browser viewport width is between 320 px and 480 px. Below that width products are displayed in a single column.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_category_grid_columnbelow</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </column_count_480>
+                        <equal_height translate="label">
+                            <label>Equal Height of Grid Items (Products)</label>
+                            <comment>If enabled, all grid items have the same height and "Add to cart" button is displayed at the bottom edge of the item.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </equal_height>
+                        <hover_effect translate="label">
+                            <label>Product Hover Effect</label>
+                            <comment>
+                                <![CDATA[Effect is visible on mouse hover over the product. <strong style="color:red;">Important:</strong> enable in order to use "Display On Hover" in <strong>Display Selected Elements</strong>.]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hover_effect>
+
+                        <heading_display translate="label">
+                            <label>Display Selected Elements</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_display>
+
+                        <display_rating translate="label">
+                            <label>Ratings</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_layout_element_displayonhover</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_rating>
+                        <display_addtocart translate="label">
+                            <label>Add To Cart</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_layout_element_displayonhover</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_addtocart>
+                        <display_addtolinks translate="label">
+                            <label>"Add to" Links</label>
+                            <comment>"Add to wishlist" and "Add to compare" links.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_layout_element_displayonhover</source_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_addtolinks>
+                        <addtolinks_simple translate="label">
+                            <label>Show "Add to" Links as Icons Above the Image</label>
+                            <comment>If set to "No", "Add to wishlist" and "Add to compare" links will be displayed as text links.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </addtolinks_simple>
+                    </fields>
+                </category_grid>
+                <category_list translate="label">
+                    <label>Category View (List Mode)</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>120</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <hover_effect translate="label">
+                            <label>Product Hover Effect</label>
+                            <comment>Effect is visible on mouse hover over the product.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hover_effect>
+                        <addtolinks_simple translate="label">
+                            <label>Show "Add to" Links as Simple Icons</label>
+                            <comment>If set to "No", "Add to wishlist" and "Add to compare" links will be displayed as text links with icons.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </addtolinks_simple>
+                    </fields>
+                </category_list>
+                <product_page translate="label">
+                    <label>Product Page</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <heading_layout translate="label">
+                            <label>Page Layout</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_layout>
+
+                        <layout translate="label">
+                            <label>Select Layout</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <source_model>icotheme/system_config_source_product_layout</source_model>
+                            <frontend_model>wood/adminhtml_product_layout_layout</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </layout>
+
+                        <media_layout translate="label">
+                            <label>CloudZoom</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </media_layout>
+
+                        <zoom_enable translate="label comment">
+                            <label>Enable Cloud Zoom</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>101</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Enable Cloud Zoom in Product Detail Page</comment>
+                        </zoom_enable>
+
+                        <zoom_width translate="label comment">
+                            <label>Zoom Width</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>The width of the zoom window in pixels. If it is missing, the width will be the same as the small image</comment>
+                            <sort_order>102</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <zoom_enable>1</zoom_enable>
+                            </depends>
+                        </zoom_width>
+
+                        <zoom_height translate="label comment">
+                            <label>Zoom Height</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>The height of the zoom window in pixels. If it is missing, the height will be the same as the small image</comment>
+                            <sort_order>103</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <zoom_enable>1</zoom_enable>
+                            </depends>
+                        </zoom_height>
+
+                        <zoom_position translate="label comment">
+                            <label>Zoom Position</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_product_zoom_position</source_model>
+                            <comment>Specifies the position of the zoom window relative to the small image</comment>
+                            <sort_order>104</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <zoom_enable>1</zoom_enable>
+                            </depends>
+                        </zoom_position>
+
+                        <zoom_count translate="label comment">
+                            <label>More Views Count</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>107</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Number of images show on More Views (replace by FlexSlider)</comment>
+                            <depends>
+                                <zoom_enable>1</zoom_enable>
+                            </depends>
+                        </zoom_count>
+
+                        <zoom_margin translate="label comment">
+                            <label>More Views Item Margin</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>108</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Left and Right margin (by FlexSlider)</comment>
+                            <depends>
+                                <zoom_enable>1</zoom_enable>
+                            </depends>
+                        </zoom_margin>
+
+                        <heading_upsell translate="label">
+                            <label>Up-sell Products</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_upsell>
+
+                        <replace_upsell translate="label">
+                            <label>Up-sell Products</label>
+                            <comment>
+                                <![CDATA[To replace Up-sell Products first enable static block with ID <strong>block_product_replace_upsell</strong>]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_layout_element_replacewithblock</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </replace_upsell>
+
+                        <upsell_slide translate="label">
+                            <label>Slideshow</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>121</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </upsell_slide>
+
+                        <upsell_nav_slide translate="label">
+                            <label>Show Navigation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>122</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </upsell_nav_slide>
+
+                        <upsell_nav_prev translate="label">
+                            <label>Prev Navigation</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>123</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <upsell_nav_slide>1</upsell_nav_slide>
+                            </depends>
+                        </upsell_nav_prev>
+
+                        <upsell_nav_next translate="label">
+                            <label>Next Navigation</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>124</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <upsell_nav_slide>1</upsell_nav_slide>
+                            </depends>
+                        </upsell_nav_next>
+
+                        <upsell_columns translate="label">
+                            <label>Columns</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-number-range number-range-1-10</validate>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </upsell_columns>
+
+                        <upsell_row translate="label">
+                            <label>Row</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-number-range number-range-1-10</validate>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </upsell_row>
+
+                        <heading_related translate="label">
+                            <label>Related Products</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_related>
+
+                        <replace_related translate="label">
+                            <label>Related Products</label>
+                            <comment>
+                                <![CDATA[To replace Related Products first enable static block with ID <strong>block_product_replace_related</strong>]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_layout_element_replacewithblock</source_model>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </replace_related>
+                        
+                        <related_slide translate="label">
+                            <label>Slideshow</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </related_slide>
+
+                        <related_nav_slide translate="label">
+                            <label>Show Navigation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>221</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </related_nav_slide>
+
+                        <related_nav_prev translate="label">
+                            <label>Prev Navigation</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>222</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <related_nav_slide>1</related_nav_slide>
+                            </depends>
+                        </related_nav_prev>
+
+                        <related_nav_next translate="label">
+                            <label>Next Navigation</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>223</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <related_nav_slide>1</related_nav_slide>
+                            </depends>
+                        </related_nav_next>
+
+                        <related_columns translate="label">
+                            <label>Columns</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-number-range number-range-1-10</validate>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </related_columns>
+
+                        <related_row translate="label">
+                            <label>Row</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-number-range number-range-1-10</validate>
+                            <sort_order>240</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </related_row>
+
+                        <heading_crossell translate="label">
+                            <label>Crossell Products</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>250</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_crossell>
+
+                        <crossell_slide translate="label">
+                            <label>Slideshow</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>260</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </crossell_slide>
+
+                        <crossell_nav_slide translate="label">
+                            <label>Show Navigation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>270</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </crossell_nav_slide>
+
+                        <crossell_nav_prev translate="label">
+                            <label>Prev Navigation</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>280</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <related_nav_slide>1</related_nav_slide>
+                            </depends>
+                        </crossell_nav_prev>
+
+                        <crossell_nav_next translate="label">
+                            <label>Next Navigation</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>290</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <related_nav_slide>1</related_nav_slide>
+                            </depends>
+                        </crossell_nav_next>
+
+                        <crossell_columns translate="label">
+                            <label>Columns</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-number-range number-range-1-10</validate>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </crossell_columns>
+
+                        <crossell_row translate="label">
+                            <label>Row</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-number-range number-range-1-10</validate>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </crossell_row>
+
+                        <heading_social translate="label">
+                            <label>Social Products</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>320</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_social>
+
+                        <product_social translate="label">
+                            <label>Enable social product</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_social>
+                    </fields>
+                </product_page>
+                <product_labels translate="label">
+                    <label>Product Labels</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>220</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <new translate="label">
+                            <label>Show "New" Label</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </new>
+                        <sale translate="label">
+                            <label>Show "Sale" Label</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sale>
+                    </fields>
+                </product_labels>
+                <magento_blocks translate="label">
+                    <label>Default Magento Blocks</label>
+                    <comment>In this section you can disable default Magento blocks.</comment>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>410</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <top_links translate="label">
+                            <label>Top Links</label>
+                            <comment>Links in the header: Accoun, Wishlist, Log In etc.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </top_links>
+                        <footer_links translate="label">
+                            <label>Footer Links</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer_links>
+                        <footer_newsletter translate="label">
+                            <label>Newsletter Subscribe Form</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer_newsletter>
+                        <related_products_checkbox translate="label">
+                            <label>Product Page: Related Products Checkbox</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </related_products_checkbox>
+                    </fields>
+                </magento_blocks>
+                <sidebar_blocks translate="label">
+                    <label>Disable Sidebar Blocks</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>420</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <heading_left translate="label">
+                            <label>Sidebar Blocks</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_left>
+                        <categories translate="label">
+                            <label>Enable: Categories</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </categories>
+                        <shopby translate="label">
+                            <label>Enable: Shop By</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shopby>
+                        <compare translate="label">
+                            <label>Enable: Compare Products</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </compare>
+                        <compared translate="label">
+                            <label>Enable: Compared Products</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </compared>
+                        <viewed translate="label">
+                            <label>Enable: Viewed Products</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </viewed>
+                        <wishlist translate="label">
+                            <label>Enable: Wishlist</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </wishlist>
+                        <tags translate="label">
+                            <label>Enable: Tags</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tags>
+                        <poll translate="label">
+                            <label>Enable: Poll</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </poll>
+                    </fields>
+                </sidebar_blocks>
+                <customization translate="label">
+                    <label>Customization Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <custom_css translate="label">
+                            <label>Load Custom CSS</label>
+                            <comment>Enable this option to load "custom.css" file in which you can override the default styling of the theme. To create "custom.css" you can use the file "SAMPLE.custom.css" which is located in skin/frontend/wood/default/css directory.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </custom_css>
+                    </fields>
+                </customization>
+            </groups>
+        </wood>
+        <wood_design translate="label" module="wood">
+            <label>Color Customizer</label>
+            <tab>icotheme_wood</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>20</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <colors translate="label">
+                    <label>Colors</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <heading_basic_colors translate="label">
+                            <label>Basic Colors</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_basic_colors>
+                        <js translate="label">
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_js</frontend_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </js>
+                        <text_color translate="label">
+                            <label>Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </text_color>
+                        <link_color translate="label">
+                            <label>Link Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </link_color>
+                        <link_hover_color translate="label">
+                            <label>Link Hover Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </link_hover_color>
+
+                        <heading_buttons translate="label">
+                            <label>Buttons</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_buttons>
+
+                        <button_bg_color translate="label">
+                            <label>Button Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_bg_color>
+                        <button_color translate="label">
+                            <label>Button Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_color>
+
+                        <button_hover_bg_color translate="label">
+                            <label>Button Hover Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_hover_bg_color>
+                        <button_hover_color translate="label">
+                            <label>Button Hover Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_hover_color>
+
+                        <button_active_bg_color translate="label">
+                            <label>Button Active Background Color</label>
+                            <comment>Selected emphasized buttons, e.g. "Add to cart" on product page, "Proceed to checkout" etc.</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_active_bg_color>
+                        <button_active_color translate="label">
+                            <label>Button Active Text Color</label>
+                            <comment>Selected emphasized buttons, e.g. "Add to cart" on product page, "Proceed to checkout" etc.</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_active_color>
+
+                        <heading_tool_icons translate="label">
+                            <label>Interface Icons</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_tool_icons>
+
+                        <tool_icon_bg_color translate="label">
+                            <label>Icon Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tool_icon_bg_color>
+                        <tool_icon_hover_bg_color translate="label">
+                            <label>Icon Hover Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tool_icon_hover_bg_color>
+                        <tool_icon_active_bg_color translate="label">
+                            <label>Icon Active Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tool_icon_active_bg_color>
+
+                        <heading_custom_icons translate="label">
+                            <label>Custom Icons</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_custom_icons>
+
+                        <social_icon_color translate="label">
+                            <label>Social Icon Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </social_icon_color>
+                        <social_icon_hover_color translate="label">
+                            <label>Social icon hover color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>320</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </social_icon_hover_color>
+                        <social_icon_bg_color translate="label">
+                            <label>Social Icon Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </social_icon_bg_color>
+                        <social_icon_hover_bg_color translate="label">
+                            <label>Social Icon Hover Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>340</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </social_icon_hover_bg_color>
+
+                        <heading_special_links translate="label">
+                            <label>Horizontal Links</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_special_links>
+
+                        <important_link_hover_color translate="label">
+                            <label>Link Hover Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>410</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </important_link_hover_color>
+                        <important_link_hover_bg_color translate="label">
+                            <label>Link Hover Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>420</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </important_link_hover_bg_color>
+
+                        <heading_labels translate="label">
+                            <label>Product Labels</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>500</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_labels>
+
+                        <label_new_bg_color translate="label">
+                            <label>Label "New" Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>510</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label_new_bg_color>
+                        <label_new_color translate="label">
+                            <label>Label "New" Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>520</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label_new_color>
+                        <label_sale_bg_color translate="label">
+                            <label>Label "Sale" Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>530</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label_sale_bg_color>
+                        <label_sale_color translate="label">
+                            <label>Label "Sale" Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>540</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label_sale_color>
+
+                        <heading_misc translate="label">
+                            <label>Other</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>800</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_misc>
+
+                        <price_color translate="label">
+                            <label>Price Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>810</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price_color>
+                    </fields>
+                </colors>
+                <font translate="label">
+                    <label>Font</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <font_size translate="label">
+                            <label>Basic Font Size</label>
+                            <comment>Size of the regular text. Font size of most of the other elements will be calculated relative to this value.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_design_font_size_basic</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </font_size>
+
+                        <primary_font_family_group translate="label">
+                            <label>Headings Font Family</label>
+                            <comment>Select predefined font stack, Google Fonts or type in your custom font stack.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_design_font_family_groupcustomgoogle</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </primary_font_family_group>
+
+                        <primary_font_family_custom translate="label">
+                            <label>Custom</label>
+                            <comment>
+                                <![CDATA[Type in your custom font stack, e.g.:<br/>
+								<em>Arial, "Helvetica Neue", Helvetica, sans-serif</em>
+								<strong>Important</strong>: Do not add trailing semicolon.]]>
+                            </comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <primary_font_family_group>custom</primary_font_family_group>
+                            </depends>
+                        </primary_font_family_custom>
+
+                        <primary_font_family translate="label">
+                            <label>Headings Font Family - Google Fonts</label>
+                            <comment>
+                                <![CDATA[Font preview is available on <a href="http://www.google.com/webfonts">Google Web Fonts</a>]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_Previewfont</frontend_model>
+                            <source_model>icotheme/system_config_source_design_font_family_google</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <primary_font_family_group>google</primary_font_family_group>
+                            </depends>
+                        </primary_font_family>
+
+                        <primary_char_latin_ext translate="label">
+                            <label>Character Set: Latin Extended</label>
+                            <comment>
+                                <![CDATA[Only selected fonts support extended character sets. For a complete list of available fonts and font subsets please refer to <a href="http://www.google.com/webfonts">Google Web Fonts</a>.]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <primary_font_family_group>google</primary_font_family_group>
+                            </depends>
+                        </primary_char_latin_ext>
+
+                    </fields>
+                </font>
+                <page translate="label">
+                    <label>Page</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <bg_color translate="label">
+                            <label>Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bg_color>
+
+                        <bg_image translate="label">
+                            <label>Background Image</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">wysiwyg/icotheme/wood/_backgrounds</upload_dir>
+                            <base_url type="media" scope_info="1">wysiwyg/icotheme/wood/_backgrounds</base_url>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bg_image>
+
+                        <bg_repeat translate="label">
+                            <label>Background Repeat</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_css_background_repeat</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bg_repeat>
+
+                        <bg_attachment translate="label">
+                            <label>Background Attachment</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_css_background_attachment</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bg_attachment>
+
+                        <bg_positionx translate="label">
+                            <label>Background Position (x-axis)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_css_background_positionx</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bg_positionx>
+
+                        <bg_positiony translate="label">
+                            <label>Background Position (y-axis)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>icotheme/system_config_source_css_background_positiony</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bg_positiony>
+
+                        <patterns translate="label">
+                            <label>Pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>wood/adminhtml_patterns_upload_patterns</frontend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </patterns>
+
+                        <pattern_upload>
+                            <label>Upload patterns</label>
+                            <comment>JPG,PNG,GIF</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir>media/wysiwyg/icotheme/wood/patterns</upload_dir>
+                            <base_url type="media" scope_info="1">wysiwyg/icotheme/wood/patterns</base_url>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pattern_upload>
+                    </fields>
+                </page>
+                <header translate="label">
+                    <label>Header</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <heading_general translate="label">
+                            <label>General</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_general>
+
+                        <bg_color translate="label">
+                            <label>Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bg_color>
+                        <patterns translate="label">
+                            <label>Pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>wood/adminhtml_patterns_upload_patterns</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </patterns>
+
+                        <pattern_upload>
+                            <label>Upload patterns</label>
+                            <comment>JPG,PNG,GIF</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir>media/wysiwyg/icotheme/wood/patterns</upload_dir>
+                            <base_url type="media" scope_info="1">wysiwyg/icotheme/wood/patterns</base_url>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pattern_upload>
+
+                        <inner_bg_color translate="label">
+                            <label>Inner Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </inner_bg_color>
+
+                        <color translate="label">
+                            <label>Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color>
+
+                        <link_color translate="label">
+                            <label>Link Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </link_color>
+
+                        <link_hover_color translate="label">
+                            <label>Link Hover Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </link_hover_color>
+
+                        <heading_topheader translate="label">
+                            <label>Top header</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_topheader>
+
+
+                        <top_border_color translate="label">
+                            <label>Top Border Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>81</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </top_border_color>
+
+                        <top_bg_color translate="label">
+                            <label>Top Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>82</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </top_bg_color>
+
+                        <top_icon_color translate="label">
+                            <label>Top Icon Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>84</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </top_icon_color>
+
+                        <top_bgcart_color translate="label">
+                            <label>Top Background Icon Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </top_bgcart_color>
+
+                        <top_iconcart_color translate="label">
+                            <label>Top Icon Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>86</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </top_iconcart_color>
+
+                        <top_bgcart_hover_color translate="label">
+                            <label>Top Background Icon Hover Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>87</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </top_bgcart_hover_color>
+
+                        <top_iconcart_hover_color translate="label">
+                            <label>Top Icon Hover Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>88</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </top_iconcart_hover_color>
+
+                        <heading_logo translate="label">
+                            <label>Logo</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_logo>
+
+                        <logo_homepage_upload>
+                            <label>Upload Default Logo Homepage</label>
+                            <comment>JPG,PNG,GIF</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir>media/wysiwyg/icotheme/wood/logo/homepage</upload_dir>
+                            <base_url type="media" scope_info="1">wysiwyg/icotheme/wood/logo/homepage</base_url>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logo_homepage_upload>
+
+                        <logo_homepage_retina_upload>
+                            <label>Upload Retina Logo Homepage</label>
+                            <comment>JPG,PNG,GIF</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir>media/wysiwyg/icotheme/wood/logo/homepage</upload_dir>
+                            <base_url type="media" scope_info="1">wysiwyg/icotheme/wood/logo/homepage</base_url>
+                            <sort_order>111</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logo_homepage_retina_upload>
+
+                        <logo_upload>
+                            <label>Upload Default Logo</label>
+                            <comment>JPG,PNG,GIF</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir>media/wysiwyg/icotheme/wood/logo</upload_dir>
+                            <base_url type="media" scope_info="1">wysiwyg/icotheme/wood/logo</base_url>
+                            <sort_order>115</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logo_upload>
+
+                        <logo_retina_upload>
+                            <label>Upload Retina Logo</label>
+                            <comment>JPG,PNG,GIF</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir>media/wysiwyg/icotheme/wood/logo</upload_dir>
+                            <base_url type="media" scope_info="1">wysiwyg/icotheme/wood/logo</base_url>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logo_retina_upload>
+
+                        <sticky_logo_upload>
+                            <label>Sticky Logo Upload</label>
+                            <comment>JPG,PNG,GIF</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir>media/wysiwyg/icotheme/wood/logo</upload_dir>
+                            <base_url type="media" scope_info="1">wysiwyg/icotheme/wood/logo</base_url>
+                            <sort_order>125</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sticky_logo_upload>
+
+                        <heading_search translate="label">
+                            <label>Search box</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_search>
+
+                        <search_color translate="label">
+                            <label>Search Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </search_color>
+                        <search_hover_color translate="label">
+                            <label>Search Hover Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </search_hover_color>
+                        <search_border_color translate="label">
+                            <label>Search Border Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </search_border_color>
+                        <search_border_hover_color translate="label">
+                            <label>Search Border Hover Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </search_border_hover_color>
+
+                        <heading_dropdown translate="label">
+                            <label>Drop-down boxes</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_dropdown>
+
+                        <dropdown_bg_color translate="label">
+                            <label>Drop-down Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dropdown_bg_color>
+                        <dropdown_color translate="label">
+                            <label>Drop-down Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dropdown_color>
+                        <dropdown_link_color translate="label">
+                            <label>Drop-down Link Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dropdown_link_color>
+                        <dropdown_link_hover_color translate="label">
+                            <label>Drop-down Link Hover Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dropdown_link_hover_color>
+                    </fields>
+                </header>
+                <nav translate="label">
+                    <label>Main Menu</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <inner_bg_color translate="label">
+                            <label>Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </inner_bg_color>
+                        <stretched translate="label">
+                            <label>Stretched</label>
+                            <comment>If set to "Yes", main menu will have the same width as the main content area.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </stretched>
+                        <border translate="label">
+                            <label>Show Top/Bottom Border</label>
+                            <comment>
+                                <![CDATA[Border has the same color as <strong>Active Background Color</strong>.]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </border>
+                        <border_bg_color translate="label">
+                            <label>Border Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </border_bg_color>
+                        <border_bg_color translate="label">
+                            <label>Home Border Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </border_bg_color>
+                        <font_size translate="label">
+                            <label>Font Size</label>
+                            <comment>Top-level items</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-number-range number-range-8-25</validate>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </font_size>
+                        <font_uppercase translate="label">
+                            <label>Uppercase</label>
+                            <comment>Top-level items</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </font_uppercase>
+
+                        <heading_menubar translate="label">
+                            <label>Colors</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_menubar>
+
+                        <bg_color translate="label">
+                            <label>Item Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bg_color>
+                        <color translate="label">
+                            <label>Item Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color>
+                        <hover_bg_color translate="label">
+                            <label>Hover Item Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hover_bg_color>
+                        <hover_color translate="label">
+                            <label>Hover Item Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>240</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hover_color>
+                        <active_bg_color translate="label">
+                            <label>Active Item Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>250</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active_bg_color>
+                        <active_color translate="label">
+                            <label>Active Item Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>260</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active_color>
+
+                        <heading_dropdown translate="label">
+                            <label>Drop-down boxes</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>500</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_dropdown>
+
+                        <dropdown_bg_color translate="label">
+                            <label>Drop-down Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>510</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dropdown_bg_color>
+                        <dropdown_color translate="label">
+                            <label>Drop-down Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>520</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dropdown_color>
+                        <dropdown_link_color translate="label">
+                            <label>Drop-down Link Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>530</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dropdown_link_color>
+                        <dropdown_link_hover_color translate="label">
+                            <label>Drop-down Link Hover Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>540</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dropdown_link_hover_color>
+
+                        <heading_labels translate="label">
+                            <label>Category Labels</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>600</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_labels>
+
+                        <label_bg_color translate="label">
+                            <label>Label-1 Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>610</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label_bg_color>
+                        <label_color translate="label">
+                            <label>Label-1 Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>620</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label_color>
+                        <label_bg_color2 translate="label">
+                            <label>Label-2 Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>630</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label_bg_color2>
+                        <label_color2 translate="label">
+                            <label>Label-2 Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>640</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label_color2>
+                        <label_hover_bg_color translate="label">
+                            <label>Label Hover Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>650</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label_hover_bg_color>
+                        <label_hover_color translate="label">
+                            <label>Label Hover Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>660</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label_hover_color>
+                    </fields>
+                </nav>
+                <main translate="label">
+                    <label>Main</label>
+                    <comment>In this tab, you can configure the main section of the page (the section located
+                        between the header and the footer).</comment>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <bg_color translate="label">
+                            <label>Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bg_color>
+
+                        <patterns translate="label">
+                            <label>Pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>wood/adminhtml_patterns_upload_patterns</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </patterns>
+
+                        <pattern_upload>
+                            <label>Upload patterns</label>
+                            <comment>JPG,PNG,GIF</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir>media/wysiwyg/icotheme/wood/patterns</upload_dir>
+                            <base_url type="media" scope_info="1">wysiwyg/icotheme/wood/patterns</base_url>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pattern_upload>
+
+                        <inner_bg_color translate="label">
+                            <label>Inner Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </inner_bg_color>
+                    </fields>
+                </main>
+                <product_page translate="label">
+                    <label>Product Page</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>60</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <heading_icons translate="label">
+                            <label>Add-to... Icons</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_icons>
+
+                        <addto_icon_bg_color translate="label">
+                            <label>Add-to Icon Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </addto_icon_bg_color>
+                        <addto_icon_hover_bg_color translate="label">
+                            <label>Add-to Icon Hover Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </addto_icon_hover_bg_color>
+
+                        <heading_tabs translate="label">
+                            <label>Tabs</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_tabs>
+
+                        <tab_inner_bg_color translate="label">
+                            <label>Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>205</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tab_inner_bg_color>
+                        <tab_bg_color translate="label">
+                            <label>Item Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tab_bg_color>
+                        <tab_color translate="label">
+                            <label>Item Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tab_color>
+                        <tab_hover_bg_color translate="label">
+                            <label>Hover Item Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tab_hover_bg_color>
+                        <tab_hover_color translate="label">
+                            <label>Hover Item Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>240</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tab_hover_color>
+                        <tab_active_bg_color translate="label">
+                            <label>Active Item Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>250</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tab_active_bg_color>
+                        <tab_active_color translate="label">
+                            <label>Active Item Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>260</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tab_active_color>
+                        <tab_panel_bg_color translate="label">
+                            <label>Panel Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>270</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tab_panel_bg_color>
+                    </fields>
+                </product_page>
+                <footer translate="label">
+                    <label>Footer</label>
+                    <comment>In this tab, you can configure the entire footer of the page. Settings from this tab are inherited by all the other sub-sections of the footer. Some of the settings can be overridden in sub-sections.</comment>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>500</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <bg_color translate="label">
+                            <label>Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bg_color>
+                        <patterns translate="label">
+                            <label>Pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>wood/adminhtml_patterns_upload_patterns</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </patterns>
+                        <pattern_upload>
+                            <label>Upload patterns</label>
+                            <comment>JPG,PNG,GIF</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir>media/wysiwyg/icotheme/wood/patterns</upload_dir>
+                            <base_url type="media" scope_info="1">wysiwyg/icotheme/wood/patterns</base_url>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pattern_upload>
+                        <inner_bg_color translate="label">
+                            <label>Inner Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </inner_bg_color>
+
+                        <color translate="label">
+                            <label>Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color>
+                        <link_color translate="label">
+                            <label>Link Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </link_color>
+                        <link_hover_color translate="label">
+                            <label>Link Hover Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </link_hover_color>
+
+                        <button_bg_color translate="label">
+                            <label>Button Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_bg_color>
+                        <button_color translate="label">
+                            <label>Button Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_color>
+                        <button_hover_bg_color translate="label">
+                            <label>Button Hover Background Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_hover_bg_color>
+                        <button_hover_color translate="label">
+                            <label>Button Hover Text Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>icotheme/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>240</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_hover_color>
+                    </fields>
+                </footer>
+            </groups>
+        </wood_design>
+    </sections>
+</config>

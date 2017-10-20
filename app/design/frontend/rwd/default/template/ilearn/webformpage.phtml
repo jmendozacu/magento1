@@ -1,0 +1,10 @@
+<?php
+
+echo $this->getLayout()->createBlock('webforms/webforms', 'product_enquiry', array
+    (
+    'webform_id' => 1,
+    'template' => 'webforms/default.phtml',
+))->toHtml();
+echo $this->getRequest()->getParam('id');
+?>
+chay di nao

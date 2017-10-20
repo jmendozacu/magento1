@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Sydecomm
+ * @package    Sydecomm_NabDirectPost
+ * @copyright  Copyright (c) 2015 Vnphpexpert.com
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Sydecomm_NabDirectPost>
+            <version>1.0.0</version>
+        </Sydecomm_NabDirectPost>
+    </modules>
+	<frontend>
+        <routers>
+            <nabdirectpost>
+                <use>standard</use>
+                <args>
+                    <module>Sydecomm_NabDirectPost</module>
+                    <frontName>nabdirectpost</frontName>
+                </args>
+            </nabdirectpost>
+        </routers>
+    </frontend>
+    <global>
+        <models>
+            <nabdirectpost>
+                <class>Sydecomm_NabDirectPost_Model</class>
+            </nabdirectpost>
+        </models>
+		<events>
+		  <controller_action_layout_load_before> <!-- identifier of the event we want to catch -->
+			<observers>
+			  <controller_action_layout_load_before_handler> <!-- identifier of the event handler -->
+				<type>model</type> <!-- class method call type; valid are model, object and singleton -->
+				<class>nabdirectpost/observer</class> <!-- observers class alias -->
+				<method>errorAction</method>  <!-- observer's method to be called -->
+				<args></args> <!-- additional arguments passed to observer -->
+			  </controller_action_layout_load_before_handler>
+			</observers>
+		  </controller_action_layout_load_before>
+		</events>
+        <resources>
+            <nabdirectpost_setup>
+                <setup>
+                    <module>Sydecomm_NabDirectPost</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </nabdirectpost_setup>
+            <nabdirectpost_write>
+                <use>core_write</use>
+            </nabdirectpost_write>
+            <nabdirectpost_read>
+                <use>core_read</use>
+            </nabdirectpost_read>
+        </resources>
+        <helpers>
+            <nabdirectpost>
+                <class>Sydecomm_NabDirectPost_Helper</class>
+            </nabdirectpost>
+        </helpers>
+        <blocks>
+            <nabdirectpost><class>Sydecomm_NabDirectPost_Block</class></nabdirectpost>
+        </blocks>
+    </global>
+
+    <default>
+        <payment>
+            <nabdirectpost>
+                <active>0</active>
+                <model>nabdirectpost/NabDirectPost</model>
+                <order_status>1</order_status>
+                <title>NAB Direct Post</title>
+                <order_status>processing</order_status>
+                <payment_action>authorize</payment_action>
+            </nabdirectpost>
+        </payment>
+    </default>
+</config>

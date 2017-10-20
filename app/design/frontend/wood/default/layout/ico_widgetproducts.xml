@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+*/
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>js_css</type>
+                <name>icotheme/jquery/plugins/owl-carousel/owl.carousel.css</name>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>icotheme/jquery/plugins/owl-carousel/owl.theme.css</name>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>icotheme/jquery/plugins/owl-carousel/effects.css</name>
+            </action>
+        </reference>
+    </default>
+</layout>

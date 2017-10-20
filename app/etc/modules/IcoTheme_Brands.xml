@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @category    Ico
+* @package     Ico_Brands
+* @copyright   Copyright (C) 2015 IcoTheme.com. All Rights Reserved.
+* @license     GNU General Public License version 2 or later
+* @author      IcoTheme.com
+* @email       support@icotheme.com
+*/
+-->
+<config>
+    <modules>
+        <IcoTheme_Brands>
+            <active>true</active>
+            <codePool>local</codePool>
+        </IcoTheme_Brands>
+    </modules>
+</config>

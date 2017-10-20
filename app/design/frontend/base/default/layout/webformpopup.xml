@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+ 
+<layout version="0.1.0">
+     
+    <webformpopup_index_webform>
+        <remove name="header" />
+        <remove name="footer" />
+        <remove name="search.block" />
+        <remove name="top.search" />
+        <!-- Mage_Catalog -->
+        <reference name="root">
+            <action method="setTemplate">
+                <template>webformpopup/webformpage.phtml</template>
+            </action>
+        </reference>  
+    </webformpopup_index_webform>
+ 
+</layout>

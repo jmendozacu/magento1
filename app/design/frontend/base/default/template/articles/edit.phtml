@@ -1,0 +1,72 @@
+<?php
+/*
+  Created on : Jul 24, 2015, 3:03:33 PM
+  Author     : Tran Trong Thang
+  Email      : trantrongthang1207@gmail.com
+ */
+$id = $this->getRequest()->getParam('id');
+$item = Mage::getModel('articles/articles')->load($id);
+?>
+<form class="" method="POST" action="<?php echo $this->getUrl('articles/index/update/id/' . $id); ?>">
+    <h1>Cap nhat thong tin bai viet</h1>
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" name="title" value="<?php echo $item->getData('title') ?>"/>
+    </div>
+    <div class="form-group">
+        <label>Short description</label>
+        <textarea type="text" class="form-control" name="short_desc"><?php echo $item->getData('short_desc') ?></textarea>
+    </div>
+    <div class="form-group">
+        <label>Long description</label>
+        <textarea type="text" class="form-control" name="long_desc"><?php echo $item->getData('long_desc') ?></textarea>
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+        <select name="status" size="1">
+            <option <?php echo $item->getData('status') == 1 ? 'selected=""' : '' ?> value="1">Enable</option>
+            <option <?php echo $item->getData('status') == 0 ? 'selected=""' : '' ?> value="0">Disable</option>
+        </select>
+    </div>
+    <div class="form-group input-group col-sm-3 col-md-3 col-lg-2">
+        <input type="text" class="form-control" value="<?php echo $item->getCreatedTime()?>" id="created_time" name="created_time"> 
+        <span class="input-group-addon">
+            <img style="" title="Select Date" id="created_time_trig" class="v-middle" alt="" src="<?php echo $this->getSkinUrl("images/calendar.gif"); ?>">
+        </span>
+        <script type="text/javascript">
+            //&lt;![CDATA[
+            Calendar.setup({
+                inputField: "created_time",
+                ifFormat: "%m/%e/%Y",
+                showsTime: false,
+                button: "created_time_trig",
+                align: "Bl",
+                singleClick: true
+            });
+            //]]&gt;
+        </script> 
+    </div>
+    <div class="form-group input-group col-sm-3 col-md-3 col-lg-2">
+        <input type="text" class="form-control" value="<?php echo $item->getUpdateTime()?>" id="update_time" name="update_time"> 
+        <span class="input-group-addon">
+            <img style="" title="Select Date" id="update_time_trig" class="v-middle" alt="" src="<?php echo $this->getSkinUrl("images/calendar.gif"); ?>">
+        </span>
+        <script type="text/javascript">
+            //&lt;![CDATA[
+            Calendar.setup({
+                inputField: "update_time",
+                ifFormat: "%m/%e/%Y",
+                showsTime: false,
+                button: "update_time_trig",
+                align: "Bl",
+                singleClick: true
+            });
+            //]]&gt;
+        </script> 
+    </div>
+    <input type="hidden" name="id" value="<?php echo $id; ?>"/>
+    <div class="form-group">
+        <button class="btn btn-default">Save</button>
+        <a href="<?php echo $this->getUrl('articles/index/list'); ?>" class="btn btn-default">Cancel</a>
+    </div>
+</form>

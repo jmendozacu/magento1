@@ -1,0 +1,17 @@
+<?php
+$_id = $this->getConfig('id');
+$_title = $this->getConfig('widget_title');
+$_countdown = $this->getConfig('enableCoundown');
+$t = microtime();
+?>
+<div class="product_verticle block <?php echo $this->getConfig('classes') ?>" id="<?php echo $_id ?>">
+    <?php if ($_title): ?>
+        <div class="block-title"><span><?php echo $_title ?></span></div>
+    <?php endif ?>
+    <?php echo $this->renderCollection('collection', $this->getData('mode'), 'icotheme/widgetproducts/collection_toprate.phtml') ?>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('#<?php echo $_id;?> .owl-carousel').owlCarousel(<?php echo $this->getConfig('carousel') ?>);
+    });
+</script>

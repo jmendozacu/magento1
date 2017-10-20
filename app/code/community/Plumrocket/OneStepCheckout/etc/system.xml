@@ -1,0 +1,382 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */ 
+-->
+<config>
+	<tabs>
+		<plumrocket translate="label" module="onestepcheckout">
+			<label><![CDATA[
+				<div style="padding-left:22px; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NEIxMEIyRkRCOTg1MTFFMkI4Qjg5OEZGNjcwRUQ4MDciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NEIxMEIyRkVCOTg1MTFFMkI4Qjg5OEZGNjcwRUQ4MDciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0QjEwQjJGQkI5ODUxMUUyQjhCODk4RkY2NzBFRDgwNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0QjEwQjJGQ0I5ODUxMUUyQjhCODk4RkY2NzBFRDgwNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PoBY2kYAAAJCSURBVHjaJFJNaxVBEOzu2cfDZPflkSgkfsSP5CKBoBeDigeRgIgk4MWDePemqJHgBwgiCEFB9C94CkYMEuK/iF4CXgJ6UCOikBCyb6a7rVmX3WVmt6e6qrr49VppHknYXYMFFcfFzUXmRCROxmzsbPguhVpPqYcjLGSm7oRCIzo1fP/XztrG1grhlJMzBSUTKkyBnYFQDCCs8HRbB6aG539s7nz9ewhgaEa5hZuKqFtMFBvw5JyUcHBqdGFnW4Pb8b031HJHM6+N8Fc0Zky8NbFGVyv2FScmBq9CSNnfnmg/6vOhVKOUHVhqYi7RoAfA7oZ1ujD+kkk6AwPGUva3Th95nARlnBENHmhuB4IEk9QmB6+NVuegcmt7izVA2367MrJn0jOzrASQDoopgr0Gqc6PPYNNuNFPgmViZd/02Cs1VvWknm2HdkhXpWPdS2bRLcE2WILGkk3mQTk5NnS5hwYGl2CRwqPwZNo//3z74cu937sb5Fp1ugz7g3vA2d7s0TeSigTFWYOKJX2w2vKYrk8urq7P/6m/gVfV6ZRl2alKzznws4fnUnKpQcms0zf+9GKtKvdWik/flz6uP9ze3QQdwTBJBqouBnpmZL5qH+S7y232XiIOTguzemc5PJ+p5963VCjAGP6fJWlCZXkLeDR6MYPR2c13jO3tpZZmniE2M04IRcKAPCKYiQrKFtGtRc4YjIApkkmBJGqCR9lG48B1s0JR0dMaAc3posaBPIM8daMsVBpmMLiwHPhI/k+AAQDYqY0eXeLHAgAAAABJRU5ErkJggg==) left 50% no-repeat;">Plumrocket Inc.</div> ]]></label>
+			<class>plumrocket_section</class>
+			<sort_order>101</sort_order>
+		</plumrocket>
+	</tabs>
+	<sections>
+		<onestepcheckout translate="label" module="onestepcheckout">
+			<label>One Step Checkout</label>
+			<tab>plumrocket</tab>
+			<sort_order>1610</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general translate="label"> 
+					<label>General</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<expanded>1</expanded>
+					<fields>
+						<version translate="label">
+							<frontend_type>text</frontend_type>
+							<frontend_model>onestepcheckout/system_config_version</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</version>
+						<enabled translate="label">
+							<label>Enable Extension</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enabled>
+						<serial translate="label">
+							<label>Serial Key</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>plumbase/system_config_form_field</frontend_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment><![CDATA[
+								Your can find <strong>Serial Key</strong> in your account at <a target="_blank" href="https://store.plumrocket.com/downloadable/customer/products/">store.plumrocket.com</a>. For manual <a target="_blank" href="http://wiki.plumrocket.com/wiki/License_Installation">click here</a>.
+							]]></comment>
+						</serial>
+					</fields>
+				</general>
+
+				<address_form_settings translate="label"> 
+					<label>Address Form Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<display_addresses translate="label">
+							<label>Display Address</label>
+							<frontend_type>select</frontend_type>
+							<source_model>onestepcheckout/values_addressSortOrder</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>"Single Address Form" allows to merge both billing and shipping address fields into one form</comment>
+						</display_addresses>
+						<default_country translate="label">
+							<label>Default Country</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_country</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</default_country>
+						<address_fields translate="label">
+							<label>Enable Address Fields</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>onestepcheckout/system_config_formFields</frontend_model>
+							<backend_model>onestepcheckout/backend_formFields</backend_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Please note: if user choses to register an account and password field is not enabled above, then passwords will be generated automatically and sent by email.</comment>
+						</address_fields>
+						<enable_autocomplete translate="label">
+							<label>Enable Address Autocomplete</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Uses Google Address Autocomplete API to auto-correct and find address when user starts typing.</comment>
+						</enable_autocomplete>
+						<google_api_key translate="label">
+							<label>Google API Key</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<enable_autocomplete>1</enable_autocomplete>
+							</depends>
+							<validate>required-entry</validate>
+							<comment><![CDATA[Google API Key is required for Google Address Autocomplete functionality. <a target="_blank" href="https://developers.google.com/maps/web/">Click here</a> to find out more on how to obtain Google API Key.]]></comment>
+						</google_api_key>
+						<newsletter_subscription translate="label">
+							<label>Display Newsletter Subscription Checkbox</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</newsletter_subscription>
+					</fields>
+				</address_form_settings>
+				
+				<additional_display_settings translate="label"> 
+					<label>Additional Display Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<shipping_method translate="label">
+							<label>Default Shipping Method</label>
+							<frontend_type>select</frontend_type>
+							<source_model>onestepcheckout/values_shippingMethods</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</shipping_method>
+						<payment_method translate="label">
+							<label>Default Payment Method</label>
+							<frontend_type>select</frontend_type>
+							<source_model>onestepcheckout/values_paymentMethods</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</payment_method>
+
+                        <rewards_enable translate="label">
+                            <label>Enable Reward Point</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>onestepcheckout/system_config_rewards</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rewards_enable>
+						<rewards_form translate="label">
+							<label>Display Reward Points Form</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+                            <depends>
+                                <rewards_enable>1</rewards_enable>
+                            </depends>
+						</rewards_form>
+
+						<discount_form translate="label">
+							<label>Display Discount Code Form</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</discount_form>
+						<terms_conditions translate="label">
+							<label>Display Terms &amp; Conditions</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</terms_conditions>
+						<terms_conditions_content translate="label">
+							<label>Terms &amp; Conditions Content</label>
+							<frontend_type>select</frontend_type>
+							<source_model>onestepcheckout/values_termsConditionsPage</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<terms_conditions>1</terms_conditions>
+							</depends>
+						</terms_conditions_content>
+						<footer_content translate="label">
+							<label>Footer Content</label>
+							<frontend_type>editor</frontend_type>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[
+								<script type="text/javascript">
+									var head = document.getElementsByTagName('head')[0];
+									var newScript = document.createElement('script');
+									newScript.src = wysiwygConfig;
+									newScript.type = 'text/javascript';
+									head.appendChild(newScript);
+								</script>
+								<button style="" onclick="catalogWysiwygEditor.open(wysiwygEditorPath, 'onestepcheckout_additional_display_settings_footer_content')" class="scalable " type="button"><span>WYSIWYG Editor</span></button>
+								]]></comment>
+						</footer_content>
+					</fields>
+				</additional_display_settings>
+
+				<design_settings translate="label"> 
+					<label>Design Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>40</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<block_background_color translate="label">
+							<label>Block: Background Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_background_color>
+						<block_head_background_color translate="label">
+							<label>Block Head: Background Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_head_background_color>
+						<block_head_text_color translate="label">
+							<label>Block Head: Text Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</block_head_text_color>
+						<numbers_background_color translate="label">
+							<label>Block Numbers: Background Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</numbers_background_color>
+						<numbers_border_color translate="label">
+							<label>Block Numbers: Border Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</numbers_border_color>
+						<numbers_text_color translate="label">
+							<label>Block Numbers: Text Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</numbers_text_color>
+						<link_color translate="label">
+							<label>Link: Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_color>
+						<link_hover_color translate="label">
+							<label>Link Hover: Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link_hover_color>
+						<button_background_color translate="label">
+							<label>Button: Background Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>90</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_background_color>
+						<button_border_color translate="label">
+							<label>Button: Border Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_border_color>
+						<button_text_color translate="label">
+							<label>Button: Text Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_text_color>
+						<button_hover_background_color translate="label">
+							<label>Button Hover: Background Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>120</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_hover_background_color>
+						<button_hover_text_color translate="label">
+							<label>Button Hover: Text Color</label>
+							<frontend_type>text</frontend_type>
+							<validate>color{hash:true, required:true}</validate>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</button_hover_text_color>
+					</fields>
+				</design_settings>
+
+			</groups>
+		</onestepcheckout>
+	  </sections>
+</config>

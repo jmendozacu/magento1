@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <valution_adminhtml_valution_index>
+	<reference name="content">
+	  <block type="valution/adminhtml_valution" name="valution" />
+	</reference>
+  </valution_adminhtml_valution_index>
+</layout>

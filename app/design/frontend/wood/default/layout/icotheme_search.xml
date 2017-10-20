@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @copyright   Copyright (C) 2015 IcoTheme.com. All Rights Reserved.
+*/
+-->
+<layout>
+    <default>
+        <reference name="header">
+            <action method="unsetChild"><block>topSearch</block></action>
+            <block type="icosearch/widget" name="top.search" as="topSearch"/>
+        </reference>
+    </default>
+</layout>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <SydneyEcommerce_VarnishSessionFix>
+      <version>0.1.0</version>
+    </SydneyEcommerce_VarnishSessionFix>
+  </modules>
+  <global>
+	<models>
+		<core>
+			<rewrite>
+				<session>SydneyEcommerce_VarnishSessionFix_Model_Session</session>
+			</rewrite>
+		</core>
+	</models>
+  </global>
+</config> 

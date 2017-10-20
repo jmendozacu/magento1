@@ -1,0 +1,126 @@
+<?php
+$helper = Mage::helper('nublue_newsletter_recaptcha');
+if ($helper->getConfig('enabled', 'bool')):
+    ?>
+    <?php if ($helper->getConfig('jquery_include', 'bool')): ?>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+        <script>jQuery.noConflict();</script>
+    <?php endif; ?>
+    <script>
+        var $sitekey = '<?php echo $helper->getConfig('sitekey'); ?>';
+    </script>
+    <?php
+    $request = $this->getRequest();
+    $modulename = $request->getModuleName();
+    $controller = $request->getControllerName();
+    echo $action = $request->getActionName();
+    ?>
+    <script type="text/javascript" id="newsletter-validate-detail">
+        var $parentFormNewsletter = jQuery('#newsletter-validate-detail').closest('form');
+        var showNewsletter = 0;
+        var showRegister = 0;
+        jQuery(document).ready(function ($) {
+            $parentFormNewsletter.append("<div id='recaptchanewsletter'></div>");
+            $parentFormNewsletter.find('button,input[type="button"],input[type="submit"]').on('click', function (e) {
+                e.preventDefault();
+                if (showNewsletter == 0) {
+                    widgetIdNewsletter = grecaptcha.render('recaptchanewsletter', {
+                        'sitekey': $sitekey,
+                        'callback': onNewsletterSubmit,
+                        'size': "invisible"
+                    });
+                }
+                showNewsletter++;
+
+                grecaptcha.reset(widgetIdNewsletter);
+                grecaptcha.execute(widgetIdNewsletter);
+                return true;
+            });
+        });
+        function onNewsletterSubmit(token) {
+            $parentFormNewsletter.append("<input name='g-recaptcha-response' value='" + token + "' type='hidden'>");
+            var FormNewsletter = new VarienForm('newsletter-validate-detail');
+            if (FormNewsletter.validator.validate()) {
+                $parentFormNewsletter.trigger('submit');
+            }
+            return true;
+        }
+    </script>
+    <?php
+    if ($modulename == 'customer' && $controller == 'account' && $action == 'create') {
+        ?>
+        <script type="text/javascript" id="form-validate">
+            var $parentFormRegister = jQuery('#form-validate').closest('form');
+            jQuery(document).ready(function ($) {
+                $parentFormRegister.append("<div id='recaptcharegister'></div>");
+                $parentFormRegister.find('button,input[type="button"],input[type="submit"]').on('click', function (e) {
+                    e.preventDefault();
+                    if (showRegister == 0) {
+                        widgetIdRegister = grecaptcha.render('recaptcharegister', {
+                            'sitekey': $sitekey,
+                            'callback': onRegisterSubmit,
+                            'size': "invisible"
+                        });
+                    }
+                    showRegister++;
+
+                    grecaptcha.reset(widgetIdRegister);
+                    grecaptcha.execute(widgetIdRegister);
+                    return true;
+                });
+            });
+            function onRegisterSubmit(token) {
+                var FormRegister = new VarienForm('form-validate');
+                if (FormRegister.validator.validate()) {
+                    $parentFormRegister.trigger('submit');
+                }
+                return true;
+            }
+        </script>
+        <?php
+    }
+    ?>
+
+    <?php
+    if ($modulename == 'customer' && $controller == 'account' && $action == 'login') {
+        ?>
+        <script type="text/javascript" id="form-validate">
+            var $parentFormLogin = jQuery('#login-form').closest('form');
+            var showLogin = 0;
+            jQuery(document).ready(function ($) {
+                $parentFormLogin.append("<div id='recaptchalogin'></div>");
+                $parentFormLogin.find('button,input[type="button"],input[type="submit"]').on('click', function (e) {
+                    e.preventDefault();
+                    if (showLogin == 0) {
+                        var widgetIdLogin = grecaptcha.render('recaptchalogin', {
+                            'sitekey': $sitekey,
+                            'callback': onLoginSubmit,
+                            'size': "invisible"
+                        });
+                    }
+                    showLogin++;
+                    grecaptcha.reset(widgetIdLogin);
+                    grecaptcha.execute(widgetIdLogin);
+                    return true;
+                });
+            });
+            function onLoginSubmit(token) {
+                var FormLogin = new VarienForm('login-form');
+                if (FormLogin.validator.validate()) {
+                    $parentFormLogin.trigger('submit');
+                }
+                return true;
+            }
+        </script>
+        <?php
+    }
+    ?>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <?php if ($helper->getConfig('hide_overlay', 'bool')): ?>
+        <style>.g-recaptcha { display: none; }</style>
+    <?php endif; ?>
+
+    <?php
+endif; // end IF reCAPTCHA_settings/enabled
+?>

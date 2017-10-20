@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+ 
+<layout version="0.1.0">
+    <reference name="head">
+        <action method="addCss">
+            <stylesheet>webforms/form.css</stylesheet>
+        </action>
+        <action method="addCss">
+            <stylesheet>webforms/results.css</stylesheet>
+        </action>
+            
+        <action method="addCss">
+            <stylesheet>webforms/npform.css</stylesheet>
+        </action>
+        <action method="addJs">
+            <js>webforms/npform.js</js>
+        </action>
+ 
+        <!--form--> 
+        <action method="addJs">
+            <js>varien/form.js</js>
+        </action>
+            
+        <!--Logic--> 
+        <action method="addJs">
+            <js>webforms/logic.js</js>
+        </action>
+
+        <!--Multistep template--> 
+        <action method="addJs">
+            <js>webforms/multistep.js</js>
+        </action>
+
+        <!--Star Rating--> 
+        <action method="addCss">
+            <stylesheet>webforms/stars.css</stylesheet>
+        </action>
+        <action method="addJs">
+            <js>webforms/stars.js</js>
+        </action>
+
+        <!--Date Picker--> 
+        <action method="addItem">
+            <type>js_css</type>
+            <name>calendar/calendar-blue.css</name>
+        </action>
+        <action method="addJs">
+            <js>calendar/calendar.js</js>
+        </action>
+        <action method="addJs">
+            <js>calendar/calendar-setup.js</js>
+        </action>
+    </reference>
+    <webformpopup_index_webform>
+        <remove name="header" />
+        <remove name="footer" />
+        <remove name="search.block" />
+        <remove name="top.search" />
+        <!-- Mage_Catalog -->
+        <reference name="root">
+            <action method="setTemplate">
+                <template>webformpopup/webformpage.phtml</template>
+            </action>
+        </reference>  
+    </webformpopup_index_webform>
+    
+    
+    <webformpopup_index_webformpdp>
+        <!-- Mage_Catalog -->
+        <reference name="root">
+            <action method="setTemplate">
+                <template>webformpopup/webformpagepdp.phtml</template>
+            </action>
+        </reference>  
+    </webformpopup_index_webformpdp>
+ 
+</layout>

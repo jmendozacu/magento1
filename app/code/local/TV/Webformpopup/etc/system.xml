@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <TVWebformpopup translate="label" module="webformpopup">
+            <label>Recaptcha google</label>
+            <sort_order>89</sort_order>
+        </TVWebformpopup>
+    </tabs>
+    <sections>
+        <TVWebformpopup  translate="label" module="webformpopup">                    
+            <label>Captcha google</label>
+            <tab>TVWebformpopup</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>89</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>            
+            <groups>
+                <TVWebformpopup_group translate="label"> 
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>89</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <TVWebformpopup_select translate="label">
+                            <label>Enable: </label>
+                            <comment>'Yes' to enable the Recaptcha Extension, 'No' to disable the Recaptcha Extension.</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </TVWebformpopup_select>
+                        <site_key translate="label">
+                            <label>Site key</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <depends>
+                                <TVWebformpopup_select>1</TVWebformpopup_select>
+                            </depends>
+                            <sort_order>89</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </site_key>
+                        <site_publish translate="label">
+                            <label>Site publish</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <depends>
+                                <TVWebformpopup_select>1</TVWebformpopup_select>
+                            </depends>
+                            <sort_order>89</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </site_publish>
+                    </fields>
+                </TVWebformpopup_group>
+            </groups>
+        </TVWebformpopup>
+    </sections>
+</config>

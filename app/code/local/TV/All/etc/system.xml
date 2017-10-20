@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <tvextensions translate="label">
+            <label>TV Extensions</label>
+            <sort_order>102</sort_order>
+        </tvextensions>
+    </tabs>
+</config>

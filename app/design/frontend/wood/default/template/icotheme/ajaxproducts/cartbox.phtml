@@ -1,0 +1,11 @@
+<?php
+$_product = $this->getProduct();
+?>
+<div class="product-detail">
+    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+    <span class="product-name"><?php echo $this->__('Product "<span>%s</span>" was added to shopping cart', $this->stripTags($_product->getName(), null, true));?></span>
+    <div class="action">
+        <button onclick="setBoxLocation('<?php echo $this->getUrl('checkout/cart') ?>')" class="button btn-cart" title="View Cart" type="button"><span><span><?php echo $this->__('View Cart');?></span></span></button>
+        <button class="button btn-continue" onclick="boxContinue();" title="Continue" type="button"><span><span><?php echo $this->__('Continue');?></span></span></button>
+    </div>
+</div>

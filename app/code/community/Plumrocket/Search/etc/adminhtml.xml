@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+	<config>
+		<menu>
+			<plumrocket>
+				<title>Plumrocket</title>
+				<sort_order>80</sort_order>
+	            <children>
+					<psearch>
+						<title>Search Autocomplete and Suggest</title>
+						<sort_order>400</sort_order>
+						<action>adminhtml/system_config/edit/section/psearch</action>
+					</psearch>
+				</children>
+			</plumrocket>
+		</menu>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<plumrocket>
+							<title>Plumrocket</title>
+							<sort_order>80</sort_order>
+							<children>
+								<psearch>
+									<title>Search Autocomplete and Suggest</title>
+									<sort_order>400</sort_order>
+								</psearch>
+							</children>
+						</plumrocket>
+						<system>
+							<children>
+								<config>
+									<children>
+										<psearch translate="title" module="psearch">
+											<title>Search Autocomplete and Suggest Section</title>
+											<sort_order>1650</sort_order>
+										</psearch>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</config>

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+	<tv_categories translate="label" module="tv_categories">
+	    <label>Custom Configuration Tab</label>
+	    <sort_order>1</sort_order>
+	</tv_categories>
+    </tabs>
+     
+    <sections>
+	<tv_categories_options translate="label" module="tv_categories">
+	    <label>Custom Configuration Settings</label>
+	    <tab>tv_categories</tab>
+	    <frontend_type>text</frontend_type>
+	    <sort_order>1</sort_order>
+	    <show_in_default>1</show_in_default>
+	    <show_in_website>1</show_in_website>
+	    <show_in_store>1</show_in_store>
+	    <groups>
+		<section_one translate="label">
+		    <label>Section One</label>
+		    <frontend_type>text</frontend_type>
+		    <sort_order>1</sort_order>
+		    <show_in_default>1</show_in_default>
+		    <show_in_website>1</show_in_website>
+		    <show_in_store>1</show_in_store>                
+		    <fields>
+			<custom_field_one>
+			    <label>Custom Text Field</label>
+			    <frontend_type>text</frontend_type>
+			    <sort_order>1</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <comment>Example of text field.</comment>                   
+			</custom_field_one>
+		    </fields>
+		</section_one>
+		<section_two translate="label">
+		    <label>Section Two</label>
+		    <frontend_type>text</frontend_type>
+		    <sort_order>2</sort_order>
+		    <show_in_default>1</show_in_default>
+		    <show_in_website>1</show_in_website>
+		    <show_in_store>1</show_in_store>                
+		    <fields>
+			<custom_field_two>
+			    <label>Custom Select Field</label>
+			    <frontend_type>select</frontend_type>
+			    <source_model>tv_categories/options</source_model>
+			    <sort_order>1</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <comment>Example of select field.</comment>
+			</custom_field_two>
+			<custom_field_three>
+			    <label>Custom Radio Field</label>
+			    <frontend_type>radios</frontend_type>
+			    <source_model>tv_categories/options</source_model>
+			    <sort_order>2</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <comment>Example of radios field.</comment>
+			</custom_field_three>
+			<custom_field_four>
+			    <label>Custom Multiselect Field</label>
+			    <frontend_type>multiselect</frontend_type>
+			    <source_model>tv_categories/options</source_model>
+			    <sort_order>3</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <comment>Example of multiselect field.</comment>
+			</custom_field_four>
+		    </fields>
+		</section_two>
+	    </groups>                
+	</tv_categories_options>
+    </sections>
+</config>

@@ -1,0 +1,61 @@
+<!--@subject Welcome, {{var customer.name}}! @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"htmlescape var=$customer.name":"Customer Name",
+"store url=\"customer/account/\"":"Customer Account Url",
+"var customer.email":"Customer Email",
+"htmlescape var=$customer.password":"Customer Password"}
+@-->
+
+<!--@styles
+@-->
+
+{{template config_path="design/email/header"}}
+{{inlinecss file="email-inline.css"}}
+<table width="705">
+    <tr>
+	<td>
+	    <img src="{{media url="wysiwyg/images/logo_snorestopclinic.png"}}"/>
+	</td>
+    </tr>
+    <tr>
+	<td>
+	    <div>
+		<h1>Dear {{var customer.name}} </h1>
+	    </div>	    
+	    <div style="margin-bottom: 20px;">
+		WELCOME! To the Snore Stop Clinic		
+	    </div>
+	    <div style="margin-bottom: 20px;">
+		Despite being one of the most common sleep disorders, Sleep Apnoea often goes
+		undiagnosed and unnoticed due to the lack of awareness.
+	    </div>
+	    <div style="margin-bottom: 20px;">
+		But now, you are conscious of Sleep Apnoea, and you are now taking all the necessary
+		measures to protect yourself.
+		We want to acknowledge you, you are now a step closer to better health.
+	    </div>
+	    <div style="margin-bottom: 20px;">
+		The Snore Stop Clinic aims to educate, diagnose and effectively treat your snoring and Sleep
+		Apnoea symptoms.
+	    </div>
+	    <div style="margin-bottom: 20px;">
+		The best way to experience our services is to first give us a call on 1300 600 602 or visit our
+		website on <a href="www.snorestopclinic.com.au">www.snorestopclinic.com.au</a>
+		We are also here to answer any of your questions just send us an email on
+		<a href="mailto:info@snorestopclinic.com.au">info@snorestopclinic.com.au</a>
+	    </div>
+	    <div style="margin-bottom: 20px;">
+		<strong>Have a great sleep!</strong>
+		<div>
+		    Snore Stop Clinic team
+		</div>
+	    </div>
+	    <div>
+		<img src="{{media url="wysiwyg/images/logo.gif"}}"/>
+	    </div>
+	</td>
+    </tr>
+</table>
+{{template config_path="design/email/footer"}}

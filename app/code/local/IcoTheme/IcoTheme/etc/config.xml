@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <IcoTheme_IcoTheme>
+            <version>1.0.0</version>
+        </IcoTheme_IcoTheme>
+    </modules>
+    <global>
+        <models>
+            <icotheme>
+                <class>IcoTheme_IcoTheme_Model</class>
+            </icotheme>
+        </models>
+        <blocks>
+            <icotheme>
+                <class>IcoTheme_IcoTheme_Block</class>
+            </icotheme>
+        </blocks>
+        <helpers>
+            <icotheme>
+                <class>IcoTheme_IcoTheme_Helper</class>
+            </icotheme>
+        </helpers>
+        <events>
+            <controller_action_layout_generate_xml_before>
+                <observers>
+                    <icotheme_icotheme_system_layout_observer>
+                        <type>singleton</type>
+                        <class>IcoTheme_IcoTheme_Model_System_Layout_Observer</class>
+                        <method>unremoveUpdate</method>
+                    </icotheme_icotheme_system_layout_observer>
+                </observers>
+            </controller_action_layout_generate_xml_before>
+        </events>
+    </global>
+</config>

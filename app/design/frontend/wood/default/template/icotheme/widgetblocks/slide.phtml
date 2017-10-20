@@ -1,0 +1,26 @@
+<?php
+/**
+ * @copyright   Copyright (C)2015 IcoTheme.com. All Rights Reserved.
+ */
+?>
+<?php
+$blocks = $this->getBlocks();
+$id = $this->getConfig('id');
+$scroll = $this->getConfig('scroll');
+$title = $this->getConfig('widget_title');
+?>
+<div class="<?php echo $this->getConfig('classes') ?>" id="block-slide-home">
+    <?php if ($title): ?>
+        <h2><?php echo $title ?></h2>
+    <?php endif ?>
+    <div class="slide-home <?php echo $scroll == 1 ? 'owl-carousel ' : '' ?>">
+        <?php foreach ($blocks as $block): ?>
+            <?php echo $block['content'] ?>
+        <?php endforeach ?>
+    </div>
+    <script type="text/javascript">
+        new Ico.widgetConfig('block-slide-home', {
+            carousel: <?php echo $this->getConfig('carousel') ?>
+        });
+    </script>
+</div>

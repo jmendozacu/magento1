@@ -1,0 +1,78 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+<div class="order-summary-wrap">
+	<?php echo $this->getChildHtml('rewards') ?>
+	<?php echo $this->getChildHtml('coupon') ?>
+
+	<div class="clearfix"></div>
+	<div class="order-review" id="checkout-review-load">
+	    <?php echo $this->getChildHtml('info') ?>
+	</div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+	pjQuery_1_10_2(document).ready(function(){
+
+		var formShowed = false;
+		var maxHeight = 0;
+		var thisHeight = 0;
+
+		var $elements = pjQuery_1_10_2('.order-summary-wrap .show-form').parent();
+		var $label = pjQuery_1_10_2('.order-summary-wrap .show-form');
+		var $discountForms = pjQuery_1_10_2('.order-summary-wrap #reward-credit-coupon-form .discount-form, .order-summary-wrap #discount-coupon-form .discount-form-input, .order-summary-wrap > .discount .discount-form')
+
+		function setElementsSize(setAuto){
+			var $discountBlocks = pjQuery_1_10_2('.order-summary-wrap .discount');
+			if (setAuto){
+				//$discountBlocks.height('auto');
+				$discountBlocks.css("min-height", 'auto');
+			} else {
+				$discountBlocks.each(function(){
+					thisHeight = pjQuery_1_10_2(this).height();
+					maxHeight = ( maxHeight > thisHeight ) ? maxHeight : thisHeight;
+				});
+				//$discountBlocks.height(maxHeight);
+				$discountBlocks.css('min-height', maxHeight+'px');
+			}
+		}
+
+		$elements.each(function() {
+			pjQuery_1_10_2(this).on('click', function(){
+				if (!formShowed) {
+					$discountForms.show();
+					setElementsSize(false);
+					$label.text("-");
+					formShowed = true;
+				} else {
+					$discountForms.hide();
+					setElementsSize(true);
+					$label.text("+");
+					formShowed = false;
+				}
+			});
+		});
+
+		pjQuery_1_10_2(window).on('resize', function(){
+			var setAuto = ($discountForms.is('visible'))? false: true;
+			setElementsSize(setAuto);
+		});
+
+	});
+//]]>
+</script>

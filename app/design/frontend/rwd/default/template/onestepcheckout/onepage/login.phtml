@@ -1,0 +1,73 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+<div id="onestepcheckout-login-form" class="" <?php echo (!$this->getMessagesBlock()->toHtml()) ? 'style="display:none;"' : ''; ?>>
+    <div class="">
+        <form id="login-form" action="<?php echo $this->getUrl('onestepcheckout/account/loginPost') ?>" method="post">
+            <fieldset>
+                <?php echo $this->getBlockHtml('formkey'); ?>
+                <div class="input-box">
+                    <input type="text" class="input-text required-entry validate-email validate-login" id="login-email" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" placeholder="<?php echo $this->__('Email Address') ?>" />
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-text required-entry" id="login-password" name="login[password]" placeholder="<?php echo $this->__('Password') ?>" />
+                </div>
+                <div class="mobile"></div>
+                <button type="submit" class="button" onclick="onepageLogin()" id="btnLogin"><span><span class="btn-loader"></span><span class="btn-label"><?php echo $this->__('Login') ?></span></span></button>
+                <a href="<?php echo $this->getUrl('customer/account/forgotpassword') ?>" target="_blank" class="f-left"><?php echo $this->__('Forgot your password?') ?></a>
+                <a href="javascript:void(0);" id="login-form-hide" class="f-left">&#10005;</a>
+            </fieldset>
+        </form>
+        <?php echo $this->getMessagesBlock()->toHtml(); ?>
+    </div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+    var ajaxLogin = new AjaxLogin('login-form');
+    var loginForm = new VarienForm('login-form', true);
+    $('login-email').observe('keypress', bindLoginPost);
+    $('login-password').observe('keypress', bindLoginPost);
+
+    function bindLoginPost(evt)
+    {
+        if (evt.keyCode == Event.KEY_RETURN) {
+            onepageLogin();
+        }
+        evt.stopPropagation();
+    }
+
+    function onepageLogin()
+    {
+        $('btnLogin').addClassName('disabled');
+        $('btnLogin').disable();
+
+        if ($('advice-validate-login-login-email')) {
+            $('advice-validate-login-login-email').remove();
+        }
+        $('login-email').removeClassName('validation-failed');
+        delete Validation.methods['validate-login'];
+        if (loginForm.validator && loginForm.validator.validate()) {
+            ajaxLogin.save();
+        } else {
+            $('btnLogin').removeClassName('disabled');
+            $('btnLogin').enable();
+        }
+    }
+    //]]>
+</script>

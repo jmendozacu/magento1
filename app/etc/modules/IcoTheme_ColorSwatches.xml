@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (c) 2015 icotheme.com
+ */
+-->
+<config>
+    <modules>
+        <IcoTheme_ColorSwatches>
+            <active>true</active>
+            <codePool>local</codePool>
+        </IcoTheme_ColorSwatches>
+    </modules>
+</config>

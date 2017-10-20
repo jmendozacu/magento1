@@ -1,0 +1,49 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_SocialLogin
+ * @copyright   Copyright (c) 2014 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+
+<?php
+$helper = Mage::helper('pslogin');
+if (!$helper->moduleEnabled()) {
+    return;
+}
+
+$session = Mage::getSingleton('customer/session');
+
+// Set current email for persona provider.
+$persona = Mage::getSingleton('pslogin/persona');
+if ($persona->enabled()) {
+    if ($session->isLoggedIn() && $session->getLoginProvider() == 'persona') {
+        $email = $session->getCustomer()->getEmail();
+    }
+}
+?>
+
+<script type="text/javascript">
+    var psloginLoginPath = "<?php echo addslashes(Mage::getUrl('pslogin/account/login')); ?>";
+    var customerLogoutPath = "<?php echo addslashes(Mage::getUrl('customer/account/logout')); ?>";
+    var $locationhrefCheck = location.href;
+    if ($locationhrefCheck.indexOf('http://') != -1) {
+        psloginLoginPath = psloginLoginPath.replace('https://', 'http://');
+        customerLogoutPath = customerLogoutPath.replace('https://', 'http://');
+    } else if ($locationhrefCheck.indexOf('https://') != -1) {
+        psloginLoginPath = psloginLoginPath.replace('http://', 'https://');
+        customerLogoutPath = customerLogoutPath.replace('http://', 'https://');
+    }
+    personaCurrentEmail = <?php echo (!empty($email) ? "'$email'" : 'null'); ?>;
+</script>

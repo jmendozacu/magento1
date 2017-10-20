@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <TV_Recentproducts>
+            <version>0.1.0</version>    <!-- Version of module -->
+        </TV_Recentproducts>
+    </modules>
+    <frontend>
+        <routers>
+            <recentproducts>
+                <use>standard</use>
+                <args>
+                    <module>TV_Recentproducts</module>
+                    <frontName>recentproducts</frontName>
+                </args>
+            </recentproducts>
+        </routers>
+        <layout>
+            <updates>
+                <recentproducts>
+                    <file>recentproducts.xml</file> <!-- our layout file name -->
+                </recentproducts>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <recentproducts>
+                <class>TV_Recentproducts_Block</class>
+            </recentproducts>
+        </blocks>
+        <models>
+            <recentproducts>
+                <class>TV_Recentproducts_Model</class> <!-- Model class files -->
+            </recentproducts>
+        </models>
+    </global>
+</config>
+
+

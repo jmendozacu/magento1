@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright    Copyright (C) 2015 IcoTheme.com. All Rights Reserved.
+ */
+-->
+<config>
+    <menu>
+        <icotheme translate="title" module="wood">
+            <title>IcoTheme</title>
+            <sort_order>71</sort_order>
+            <children>
+                <wood_activate translate="title" module="wood">
+                    <title>Activate Theme</title>
+                    <sort_order>10</sort_order>
+                    <action>wood/adminhtml_activate</action>
+                </wood_activate>
+                <wood_restore translate="title" module="wood">
+                    <title>Restore Defaults</title>
+                    <sort_order>20</sort_order>
+                    <action>wood/adminhtml_restore</action>
+                </wood_restore>
+                <wood translate="title" module="wood">
+                    <title>Wood Options (v1.0.0)</title>
+                    <sort_order>30</sort_order>
+                    <children>
+                        <wood translate="title" module="wood">
+                            <title>Theme Options</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/system_config/edit/section/wood</action>
+                        </wood>
+                        <wood_design translate="title" module="wood">
+                            <title>Color Customizer</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/system_config/edit/section/wood_design</action>
+                        </wood_design>
+                        <less translate="title" module="tless">
+                            <title>Less Manager</title>
+                            <sort_order>40</sort_order>
+                            <action>tless/adminhtml_file/index</action>
+                        </less>
+                    </children>
+                </wood>
+            </children>
+        </icotheme>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <wood translate="title" module="wood">
+                                        <title>Theme Options</title>
+                                        <sort_order>1</sort_order>
+                                    </wood>
+                                    <wood_design translate="title" module="wood">
+                                        <title>Color Customizer</title>
+                                        <sort_order>1</sort_order>
+                                    </wood_design>
+                                    <wood_install translate="title" module="wood">
+                                        <title>Theme Installation</title>
+                                        <sort_order>1</sort_order>
+                                    </wood_install>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

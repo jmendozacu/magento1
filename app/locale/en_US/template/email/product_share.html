@@ -1,0 +1,107 @@
+<!--@subject Welcome, {{var name}} @-->
+<!--@vars
+{"htmlescape var=$name":"Recipient Name",
+"var email":"Recipient Email address",
+"var product_url":"Url for Product",
+"var product_name":"Product Name",
+"var product_image":"Url for product small image (75 px)",
+"var sender_name":"Sender name",
+"var sender_email":"Sender email",
+"var message":"Sender Message"}
+@-->
+<body style="background-color: #eee;"><center><table width="640px" border="0" style="width:640px; background-color: #ffffff; color: #373736; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size:14px;">
+
+
+        <tr>
+            <td>
+                <table style="background-color:#606060;"  cellspacing="10">
+                    <tr> <td height="80" >
+                            <table cellpadding="0" cellspacing="0" width="320">
+                                <!--            <img style="vertical-align:middle;" src="customgearlogobw.png" />-->
+                                <a href="{{store url=""}}"><img src="{{media url="email/customgearlogobw.png" _area='frontend'}}" alt="Magento" style="margin-bottom:10px;" border="0"/></a>
+                            </table>
+                        </td> 
+                        <td height="80" style="text-align:right;" >
+                            <table align="right" cellpadding="0" cellspacing="0" width="320" ><img style="vertical-align:middle;" src="{{media  url="email/phonenumber.png" _area='frontend'}}" /></table>
+                        </td> 
+                    </tr>
+
+
+
+                </table>
+            </td>
+        </tr>
+        <tr><td width="640px" height="15" style="background-color:#BF1B2C"> </td></tr>
+        <tr>
+            <td>
+                <table style="width:640px; background-color: #ffffff; color: #373736; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size:14px;" cellspacing="10">
+                    <tr>
+                        <td>
+
+                            <br/>
+                            <h1>{{htmlescape var=$name}},</h1>
+                            <p>Your friend {{var sender_name}} wants to share this product with you: <a href="{{var product_url}}">{{var product_name}}</a></p>
+                            <table cellspacing="0" cellpadding="0" class="message-container">
+                                <tr>
+                                    <td><strong>Message:</strong> {{var message}}</td>
+                                </tr>
+                            </table>
+                            <p>
+                                If you have any questions, please feel free to contact us at
+                                <a href="mailto:{{var store_email}}"  style="text-decoration:none; color:#be1522;   font-weight: bold; " target="_blank">enquiries@customgear.com.au</a>
+                                or by phone at <a href="tel:{{var phone}}" style="text-decoration:none; color:#be1522;   font-weight: bold; " target="_blank">{{var store_phone}}.</a>.
+                            </p>
+
+                            <p>Thanks &amp; Speak Soon,<br/>
+                                <strong>The Custom Gear Team </strong></p><br/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <p>
+                                <img src="{{media url="email/customgearlogo.png"}}" alt="" class="CToWUd">
+                                <br>
+                                <br>
+                            <p style="line-height:20px;"><strong style="text-transform:uppercase;" color: #373736">Contact Us Via:</strong><br/>
+                                <strong style="color: #be1522">T:</strong>&nbsp;&nbsp;1300 247 766 or 1300 CG PROMO <span style="font-size:11px;">(nationwide local call)</span><br/>
+                                <strong style="color: #be1522">W:</strong>&nbsp;&nbsp;<a target="_blank" title="visit CustomGear.com.au" style="text-decoration:none;color:#be1522; font-weight:bold;" href="http://www.customgear.com.au">customgear.com.au</a></td></tr>
+                    <tr valign="middle" height="35" style="display:table;">
+                        <td width="26">
+                            <a target="_blank" href="https://www.customgear.com.au"><img width="26px" height="26px" style="vertical-align:middle;" src="{{media url="email/googleplus.png"}}" /></a>
+                        <td/>
+
+                        <td width="26">
+                            <a target="_blank" href="https://www.facebook.com/customgear.com.au"><img  width="26px" height="26px"  style="vertical-align:middle;" src="{{media url="email/facebook.png"}}" /></a>
+                        </td>
+                        <td width="2"></td>
+                        <td width="26">
+                            <a target="_blank" href="http://www.twitter.com/custom_gear"><img   width="26px" height="26px" style="vertical-align:middle;" src="{{media url="email/twitter.png"}}" /></a>
+                        </td><td  width="2"></td>
+                        <td width="26">
+                            <a target="_blank" href="https://www.customgear.com.au/blog"><img  width="26px" height="26px" style="vertical-align:middle;" src="{{media url="email/website.png"}}" /></a></td></p>
+                    </tr>
+                    <tr><td>
+                            <p><span style="color:#b2b2b2"><strong><a target="_blank" style="color:#cc0000;text-decoration:none" href="http://us6.campaign-archive1.com/?u=e463a3a67816c69f353006b19&amp;id=b583866ce9&amp;e=[UNIQID]">// OUR LATEST NEWSLETTER + SPECIALS</a></strong></span></p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+        <tr><td width="640px" height="15" style="background-color:#BF1B2C"> </td></tr>
+        <tr>
+            <td>
+                <table cellspacing="10" style="background-color:#606060;">
+                    <tr>
+                        <td style="font-size:11px; font-family: 'Century Gothic', Arial, Helvetica, sans-serif;  color: #fff;">
+                            <p>
+                                The contents of this e-mail message and any attachments are confidential and are intended solely for addressee. If you have received this transmission in error, any use, reproduction or dissemination of this email &amp; its contents is strictly prohibited. If you are not the intended recipient, please immediately notify the sender by reply e-mail or phone and delete this message and its attachments, if any. Custom Gear &amp; Impress Your Brand are registered trademarks of Return On PTY LTD. All rights reserved.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</center>
+</body>

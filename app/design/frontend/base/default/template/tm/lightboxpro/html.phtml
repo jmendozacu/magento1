@@ -1,0 +1,53 @@
+<?php
+    $slideshowGroupId = uniqid('slideshowGroup_html_');
+    $width = Mage::getStoreConfig('lightboxpro/html/size_width');
+    //$this->getData('width');
+    if (empty($width)) {
+        $width =  400;
+    }
+    $titlebar = Mage::getStoreConfig('lightboxpro/html/titlebar_source');
+    $title =  $this->getData('title');
+?>
+
+<script type="text/javascript">
+    // gallery config object
+    hscustomConfigs<?php echo $slideshowGroupId?> = {
+<?php   switch ($titlebar) {
+        case 1:
+        ?>
+        creditsPosition: 'bottom left',
+        headingText: '<?php echo $title;?>',
+        wrapperClassName: 'titlebar',
+        <?php
+            break;
+        case 2:
+        ?>
+        creditsPosition: 'bottom left',
+        headingEval: 'this.a.title',
+        wrapperClassName: 'titlebar',
+        <?php
+            break;
+        case 3:
+        ?>
+        creditsPosition: 'bottom left',
+        headingEval: 'this.a.innerHTML',
+        wrapperClassName: 'titlebar',
+        <?php
+            break;
+        default:
+            break;
+        }?>
+        slideshowGroup: '<?php echo $slideshowGroupId?>',
+        width : <?php echo $width;?>
+
+    };
+</script>
+
+<div>
+    <a href="#" title="<?php echo $title;?>" onclick="return hs.htmlExpand(this, hscustomConfigs<?php echo $slideshowGroupId?>)"><?php
+        echo $this->getData('tooltip');
+    ?></a>
+    <div class="highslide-maincontent">
+        <?php echo $this->getData('content');?>
+    </div>
+</div>

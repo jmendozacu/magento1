@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright    Copyright (C) 2015 IcoTheme.com. All Rights Reserved.
+ */
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss" ifconfig="nletter/display_options/enable">
+                <stylesheet>css/icotheme/newsletter/css/newsletter.css</stylesheet>
+            </action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="newsletter/subscribe" name="newsletter" template="icotheme/newsletter/subscribe.phtml"/>
+        </reference>
+    </default>
+</layout> 

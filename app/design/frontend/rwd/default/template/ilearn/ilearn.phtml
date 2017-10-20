@@ -1,0 +1,91 @@
+
+<div>
+    <a href="" id="tv_home_free">tv_home_free</a>
+    <a href="" id="tv_home">tv_home</a>
+</div>
+<script>
+    jQuery(document).ready(function ($) {
+        var urlAjax = "<?php echo $this->getUrl('webformpopup/index/webform/id/1'); ?>";
+        $('#tv_home').fancybox({
+            'wrapCSS': 'tvwrapcss',
+            'href': "<?php echo $this->getUrl('webformpopup/index/webform/id/3'); ?>",
+            'type': 'ajax',
+            'autoSize': true,
+            'titleShow': false,
+            'autoScale': false,
+            'transitionIn': 'none',
+            'transitionOut': 'none',
+            'scrolling': 'auto',
+            'padding': 0,
+            'margin': 0,
+            'centerOnScroll': true,
+            'height': '100%',
+            'afterShow': function () {
+                if (navigator.userAgent.match(/Android/i)
+                        || navigator.userAgent.match(/webOS/i)
+                        || navigator.userAgent.match(/iPhone/i)
+                        || navigator.userAgent.match(/iPad/i)
+                        || navigator.userAgent.match(/iPod/i)
+                        || navigator.userAgent.match(/BlackBerry/i)
+                        || navigator.userAgent.match(/Windows Phone/i)
+                        ) {
+                    console.log('hh')
+                }
+            },
+            'helpers': {
+                overlay: {
+                    locked: false // try changing to true and scrolling around the page
+                }
+            }
+        });
+        $('#tv_home_free').fancybox({
+            'wrapCSS': 'tvwrapcss',
+            'href': urlAjax,
+            'type': 'ajax',
+            'autoSize': true,
+            'titleShow': false,
+            'autoScale': false,
+            'transitionIn': 'none',
+            'transitionOut': 'none',
+            'scrolling': 'auto',
+            'padding': 0,
+            'margin': 0,
+            'centerOnScroll': true,
+            'height': '100%',
+            'afterShow': function () {
+                if (navigator.userAgent.match(/Android/i)
+                        || navigator.userAgent.match(/webOS/i)
+                        || navigator.userAgent.match(/iPhone/i)
+                        || navigator.userAgent.match(/iPad/i)
+                        || navigator.userAgent.match(/iPod/i)
+                        || navigator.userAgent.match(/BlackBerry/i)
+                        || navigator.userAgent.match(/Windows Phone/i)
+                        ) {
+                    console.log('hh')
+                }
+            },
+            'helpers': {
+                overlay: {
+                    locked: false // try changing to true and scrolling around the page
+                }
+            }
+        });
+    })
+</script>
+<style>
+    .fancybox-mobile{
+        position: absolute !important;
+        top: 0 !important;
+    }
+    .fancybox-mobile .fancybox-inner{
+        height: 100% !important;
+        overflow: hidden !important;
+    }
+</style>
+<?php
+/*
+ * Goi noi dung cua mot trang phtml
+ */
+echo $this->getLayout()->createBlock('ilearn/ilearn')->setTemplate('ilearn/ilearn_footer.phtml')->tohtml();
+echo $this->getLayout()->createBlock('customer/form_register')->setTemplate('persistent/customer/form/register.phtml')->tohtml();
+?>

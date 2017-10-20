@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/** 
+* @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved. 
+*/
+-->
+<config>
+    <modules>
+        <IcoTheme_WidgetProducts>
+            <active>true</active>
+            <codePool>local</codePool>
+        </IcoTheme_WidgetProducts>
+    </modules>
+</config>

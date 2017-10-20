@@ -1,0 +1,98 @@
+<_>
+   <form_key>BNhvRPYQ7Ok9lvT7</form_key>
+   <name>Auctionmaid_Matrxrate</name>
+   <channel>community</channel>
+   <version_ids>
+      <version_ids>2</version_ids>
+      <version_ids>1</version_ids>
+   </version_ids>
+   <summary>Multiple Table Rates via CSV. Filter by country, region,city, zipcode. Numeric Postcode ranges, and enhanced pattern matching supported. Ability to exclude items from free shipping, and specify collection only.</summary>
+   <description>Supports following:
+
+- multiple table rates
+- country, region, city, postcode filtering
+- partial postcode filtering, including pattern matching
+- numerical postcode ranges
+- option to exclude items from free shipping
+- collection only option</description>
+   <license>OSL v3.0</license>
+   <license_uri>http://www.opensource.org/licenses/osl-3.0.php)</license_uri>
+   <version>5.0.1</version>
+   <stability>stable</stability>
+   <notes>Minor changes to postcode filtering.
+Added extra options around free shipping.</notes>
+   <authors>
+      <name>
+         <name>Karen Baker</name>
+      </name>
+      <user>
+         <user>birches</user>
+      </user>
+      <email>
+         <email>sales@webshopapps.com</email>
+      </email>
+   </authors>
+   <depends_php_min>5.2.0</depends_php_min>
+   <depends_php_max>6.0.0</depends_php_max>
+   <depends>
+      <package>
+         <name>
+            <name/>
+         </name>
+         <channel>
+            <channel/>
+         </channel>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+         <files>
+            <files> </files>
+         </files>
+      </package>
+      <extension>
+         <name>
+            <name>PDO</name>
+         </name>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+      </extension>
+   </depends>
+   <contents>
+      <target>
+         <target>magelocal</target>
+         <target>magecommunity</target>
+         <target>mageetc</target>
+      </target>
+      <path>
+         <path/>
+         <path>Webshopapps</path>
+         <path>modules\Webshopapps_Matrixrate.xml</path>
+      </path>
+      <type>
+         <type>file</type>
+         <type>dir</type>
+         <type>file</type>
+      </type>
+      <include>
+         <include/>
+         <include/>
+         <include/>
+      </include>
+      <ignore>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+      </ignore>
+   </contents>
+   <page>1</page>
+   <limit>200</limit>
+   <folder/>
+   <package/>
+</_>

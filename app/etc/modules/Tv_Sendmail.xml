@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Tv_Sendmail>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Tv_Sendmail>
+    </modules>
+</config>

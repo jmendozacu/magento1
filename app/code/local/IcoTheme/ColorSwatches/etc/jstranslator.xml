@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+ */
+-->
+<jstranslator>
+    <!-- swatches-product.js -->
+    <add-to-cart translate="message" module="colorswatches">
+        <message>Add to Cart</message>
+    </add-to-cart>
+    <in-stock translate="message" module="colorswatches">
+        <message>In Stock</message>
+    </in-stock>
+    <out-of-stock translate="message" module="colorswatches">
+        <message>Out of Stock</message>
+    </out-of-stock>
+    <!-- end swatches-product.js -->
+</jstranslator>

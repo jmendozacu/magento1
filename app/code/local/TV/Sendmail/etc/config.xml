@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+	<Tv_Sendmail>
+	    <version>0.1.0</version>
+	</Tv_Sendmail>
+    </modules>
+    <global>
+	<helpers>
+	    <sendmail>
+		<class>Tv_Sendmail_Helper</class>
+	    </sendmail>
+	</helpers>
+	<models>
+	    <sendmail>
+		<class>Tv_Sendmail_Model</class>
+		<resourceModel>sendmail_mysql4</resourceModel>
+	    </sendmail>
+	    <customer>
+		<rewrite>
+		    <customer>Tv_Sendmail_Model_Customer_Customer</customer>
+		</rewrite>
+	    </customer>
+	</models>
+	<template>
+	    <email>
+		<tv_sendmail_create_account_wellcome_email_template>
+		    <label>New account wellcome</label>
+		    <file>account_new_wellcome.html</file>
+		    <type>html</type>
+		</tv_sendmail_create_account_wellcome_email_template>
+	    </email>
+	</template>
+    </global>
+    <frontend>
+	<routers>
+	    <sendmailcustomer>
+		<args>
+		    <modules>
+			<Tv_Sendmail after="Mage_Customer">Tv_Sendmail</Tv_Sendmail><!-- Tell Magento to call our custom module before the Mage/Checkout module -->
+		    </modules>
+		</args>
+	    </sendmailcustomer>
+	</routers>
+    </frontend>
+</config> 

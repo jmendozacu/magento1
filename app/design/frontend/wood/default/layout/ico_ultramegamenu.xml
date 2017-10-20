@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+*/
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="header">
+            <block type="ultramegamenu/menu" name="menu.mobile" template="icotheme/ultramegamenu/top-mobile.phtml"/>
+        </reference>
+        <!-- Mainmenu ====================================================================== -->
+        <reference name="top.menu">
+            <action method="unsetChild">
+                <name>catalog.topnav</name>
+            </action>
+            <block type="ultramegamenu/menu" name="catalog.topnav" template="icotheme/ultramegamenu/top.phtml"/>
+        </reference>
+    </default>
+    <catalog_category_default>
+        <reference name="left">
+            <block type="ultramegamenu/menu" name="ultramegamenu.catnav" before="-">
+                <action method="setTemplate" ifconfig="wood/sidebar_blocks/categories">
+                    <template>icotheme/ultramegamenu/categories.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </catalog_category_default>
+    <catalog_category_layered>
+        <reference name="left">
+            <block type="ultramegamenu/menu" name="ultramegamenu.catnav" before="-">
+                <action method="setTemplate" ifconfig="wood/sidebar_blocks/categories">
+                    <template>icotheme/ultramegamenu/categories.phtml</template>
+                </action>
+            </block>
+        </reference>
+        <reference name="left">
+            <action method="unsetChild">
+                <name>catalog.leftnav</name>
+            </action>
+        </reference>
+    </catalog_category_layered>
+</layout>

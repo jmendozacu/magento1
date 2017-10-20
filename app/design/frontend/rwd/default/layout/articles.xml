@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+ 
+<layout version="0.1.0">
+    <default>
+        <!--Them mot item menu vao menu customer-->
+        <reference name="top.links">
+            <action method="addLink" translate="label title" module="customer">
+                <label>List articles</label>
+                <url>articles/index/list</url>
+                <title>List articles</title>
+                <prepare>true</prepare>
+                <urlParams/>
+                <position>5</position>
+            </action>
+        </reference>
+        <!--Thuc hien chen css va js tu folder js root-->
+        <reference name="head">
+            <action method="addJs">
+                <script>articles/smart-2.10.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>articles/npsmart.js</script>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>articles/css/bootstrap.css</name>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>articles/css/jquery.loadmask.spin.css</name>
+            </action>
+            <action method="addJs">
+                <script>articles/spin.js</script>
+            </action>
+            <action method="addJs">
+                <script>articles/jquery.loadmask.spin.js</script>
+            </action>
+        </reference>
+    </default>
+    
+    <!--khai bao link chay o ngoai site-->
+    <articles_index_index>
+        <remove name="header" />
+        <remove name="footer" />
+        <remove name="search.block" />
+        <remove name="top.search" />
+        <!-- Mage_Catalog -->
+        <reference name="root">
+            <action method="setTemplate">
+                <template>articles/indexpage.phtml</template>
+            </action>
+        </reference>  
+    </articles_index_index>
+    
+    <!--Hien thi danh sach-->
+    <articles_index_list>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="articles/articles" name="articles" template="articles/list.phtml"/>
+            <!--<block type="recentproducts/recentproducts" name="recentproducts_recentproducts" template="recentproducts/recentproducts.phtml"></block>-->
+        </reference>
+    </articles_index_list>
+    
+    <articles_index_new>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <!--Thuc hien load setting calendar-->
+            <block type="core/html_calendar" name="html_calendar" as="html_calendar" template="page/js/calendar.phtml"/>
+            <block type="articles/articles" name="articles" template="articles/new.phtml"/>
+        </reference>
+    </articles_index_new>
+    
+    <!--sua mot bai viet-->
+    <articles_index_edit>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <!--Thuc hien load setting calendar-->
+            <block type="core/html_calendar" name="html_calendar" as="html_calendar" template="page/js/calendar.phtml"/>
+            <block type="articles/articles" name="articles" template="articles/edit.phtml"/>
+        </reference>
+    </articles_index_edit>
+       
+  
+    <!--hien thi thong tin detail-->
+    <articles_index_view>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="articles/articles" name="articles" template="articles/view.phtml"/>
+        </reference>
+    </articles_index_view>
+</layout>

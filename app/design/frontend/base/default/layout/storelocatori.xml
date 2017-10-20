@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout  version="0.1.0">
+
+	<default>
+        <reference name="top.links">
+            <action ifconfig="storelocatori/global/show_toplink" method="addLink" translate="label title" module="customer"><label>Store Locator</label><url helper="storelocatori/getLocatorUrl"/><title></title><prepare/><urlParams/><position>10</position></action>
+        </reference>
+    </default>
+
+
+	<dealers_index_index translate="label">
+		<update handle="storelocatori_index_index"/>      
+		<label>Store Locator</label>
+        <remove name="right"/>
+        <remove name="left"/>
+       
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+       
+       <reference name="head">
+       		<!--<action method="removeItem"><type>js</type><name>prototype/prototype.js</name></action>-->
+			<action method="addJs"><script>prototype/prototype.js</script><params/><sort_order>0</sort_order></action>
+			
+			<action method="addCss"><stylesheet>css/iwd/storelocatori/storelocatori.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/iwd/storelocatori/chosen.css</stylesheet></action>
+			<action method="addItem"><type>skin_js</type><name>iwd/storelocatori/chosen.jquery.min.js</name></action>	
+			<action method="addItem"><type>skin_js</type><name>iwd/storelocatori/storelocatori.js</name></action>			
+       </reference>
+        
+        <reference name="content">
+        	<block type="storelocatori/search" name="storelocatori.search" as="storelocatori" template="storelocatori/search.phtml">
+        	
+        	</block>
+        </reference>
+	
+	</dealers_index_index>
+	
+</layout>

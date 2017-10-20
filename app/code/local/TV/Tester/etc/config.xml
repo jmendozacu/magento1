@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <TV_Tester>
+            <version>0.0.1</version>
+        </TV_Tester>
+    </modules>
+    <global>
+        <helpers>
+            <tester>
+                <class>TV_Tester_Helper</class>
+            </tester>
+        </helpers>
+        <models>
+            <tester>
+                <class>TV_Tester_Model</class>
+                <resourceModel>tester_mysql4</resourceModel>
+            </tester>
+        </models>
+        <resources>
+            <customerattribute1436928826_setup>
+                <setup>
+                    <module>TV_Tester</module>
+                    <class>Mage_Customer_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </customerattribute1436928826_setup>
+            <customerattribute1436928826_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </customerattribute1436928826_write>
+            <customerattribute1436928826_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </customerattribute1436928826_read>
+        </resources>
+        <blocks>
+            <tester>
+                <class>TV_Tester_Block</class>
+            </tester>
+        </blocks>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <tester>
+                    <file>tester/tester.xml</file>
+                </tester>
+            </updates>
+        </layout>
+    </adminhtml>
+    <frontend>
+        <routers>
+            <tester>
+                <use>standard</use>
+                <args>
+                    <module>TV_Tester</module>
+                    <frontName>tester</frontName>
+                </args>
+            </tester>
+ 
+            <customer>
+                <args>
+                    <modules>
+                        <!--name / before: change existing -->
+                        <sleepapnoea before="Mage_Customer">TV_Tester</sleepapnoea>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+ 
+        <layout>
+            <updates>
+                <tester>
+                    <file>tester.xml</file>
+                </tester>
+            </updates>
+        </layout>
+ 
+    </frontend>
+</config> 

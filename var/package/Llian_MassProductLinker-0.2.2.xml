@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package>
+    <name>Llian_MassProductLinker</name>
+    <version>0.2.2</version>
+    <stability>stable</stability>
+    <license uri="http://www.gnu.org/licenses/gpl.html">GNU General Public License (GPL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Adds mass actions for cross-selling, up-selling, and relating products in Magento's manage product grid</summary>
+    <description>Adds mass actions for cross-selling, up-selling, and relating products in Magento's manage product grid.&#xD;
+&#xD;
+Features:&#xD;
+&#xD;
+* Cross-sell products to each other (two-way)&#xD;
+* Mass cross-sell products to other products (one-way)&#xD;
+* Remove all cross-sells from several products at once&#xD;
+* Stop cross-selling products to each other, but leave other cross-sells from these products untouched&#xD;
+* Do all of the above for up-sells and related products, too&#xD;
+* All mass actions can be independently activated or deactivated in Magento's system configuration&#xD;
+* Compatible with Enhanced Admin Product Grid</description>
+    <notes>Release Notes&#xD;
+&#xD;
+Llian Mass Product Linker 0.2.2 (2013-06-02)&#xD;
+* solved bug when adding cross selling to only one product&#xD;
++ now considered stable&#xD;
+&#xD;
+Llian Mass Product Linker 0.2.1 (2013-03-17)&#xD;
+* solved bug when Magento Compiler is activated&#xD;
+&#xD;
+Llian Mass Product Linker 0.2.0 (2013-03-14)&#xD;
++ compatibility with Enhanced Admin Product Grid&#xD;
+* minor bug fixes&#xD;
+&#xD;
+Llian Mass Product Linker 0.1.0 beta (2012-012-23)&#xD;
+* initial public release&#xD;
+</notes>
+    <authors><author><name>Llian</name><user>Llian</user><email>info@llian.de</email></author></authors>
+    <date>2013-06-02</date>
+    <time>18:20:27</time>
+    <contents><target name="magecommunity"><dir name="Llian"><dir name="MassProductLinker"><dir name="Helper"><file name="Data.php" hash="b0f0e685177916b1a14a17edc4c48110"/></dir><dir name="Model"><file name="Observer.php" hash="9f48d6afbe173a39ce1bca306a5a472f"/></dir><dir name="controllers"><dir name="Catalog"><file name="ProductController.php" hash="11ad767a8222938544603f714566536e"/></dir></dir><dir name="etc"><file name="config.xml" hash="26b36c518d7e444d078d14d491f16142"/><file name="system.xml" hash="bf71c33a5d90aafe529626e5826508c3"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Llian_MassProductLinker.xml" hash="194727afc63e647bf235754bfd55247e"/></dir></target><target name="magelocale"><dir><dir name="de_DE"><file name="Llian_MassProductLinker.csv" hash="07c606e582af0b71b1979d6fe7e674ed"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.13</min><max>6.0.0</max></php></required></dependencies>
+</package>

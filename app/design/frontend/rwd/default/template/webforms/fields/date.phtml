@@ -1,0 +1,57 @@
+<div class='webforms-calendar'>
+    <input type='text' name='<?php echo $this->getFieldName() ?>' id='<?php echo $this->getFieldId() ?>' class='<?php echo $this->getFieldClass() ?>' style='<?php echo $this->getFieldStyle() ?>' value='<?php echo $this->getCustomerValue() ?>' readonly='readonly'/>
+</div>
+<?php
+/*
+ * @Author: Tran Trong Thang
+ * email: trantrongthang1207@gmail.com
+ * disable date < date current
+ */
+
+
+    ?>
+    <script type='text/javascript'>
+
+        Calendar.setup({
+            inputField: '<?php echo $this->getFieldId() ?>',
+            ifFormat: '<?php echo str_replace("'", "\'", $this->getField()->getDateStrFormat()) ?>',
+            showsTime: <?php echo $this->getShowTime() ?>,
+            button: '<?php echo $this->getFieldId() ?>',
+            align: 'Bl',
+            singleClick: true,
+            disableFunc: function (date) { 
+
+                    var now = new Date();
+                    if (date.getFullYear() < now.getFullYear()) {
+                        tvdisable = true;
+                        return true;
+                    } else {
+                        tvdisable = false;
+                    }
+                    if (date.getFullYear() == now.getFullYear()) {
+                        if (date.getMonth() < now.getMonth()) {
+                            tvdisable = true;
+                            return true;
+                        }
+                    } else {
+                        tvdisable = false;
+                    }
+                    if (date.getMonth() == now.getMonth()) {
+                        if (date.getDate() < now.getDate()) {
+                            tvdisable = true;
+                            return true;
+                        }
+                    } else {
+                        tvdisable = false;
+                    }
+                },
+                onSelect: function (dateText, selectedDate) {
+                    if (!tvdisable) {
+                        document.getElementById('<?php echo $this->getFieldId() ?>').value = selectedDate;
+                    } else {
+                        document.getElementById('<?php echo $this->getFieldId() ?>').value = "";
+                    }
+                }
+        });
+    </script>
+

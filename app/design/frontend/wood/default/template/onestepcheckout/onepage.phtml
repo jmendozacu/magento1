@@ -1,0 +1,596 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+<style>
+    .one-step-checkout h3.section-name,
+    .checkout-onepage-index ol.opc-firststep-widget > li .step-title {
+        background-color: <?php echo $this->helper("onestepcheckout")->getConfigBlockHeadBackgroundColor(); ?>!important;
+        color: <?php echo $this->helper("onestepcheckout")->getConfigBlockHeadTextColor(); ?>!important;
+    }
+
+    .checkout-onepage-index ol.opc-firststep-widget > li .step-title a {
+        color: <?php echo $this->helper("onestepcheckout")->getConfigBlockHeadTextColor(); ?>!important;
+    }
+    .checkout-onepage-index ol.opc-firststep-widget > li .step-title a:hover {
+        color: <?php echo $this->helper("onestepcheckout")->getConfigBlockHeadTextColor(); ?>!important;
+    }
+
+    .one-step-checkout .billing-address .billing-address-forms,
+    .one-step-checkout .shipping-address .shipping-address-forms,
+    .one-step-checkout .payment #co-payment-form,
+    .order-summary-wrap,
+    .one-step-checkout .order-review-column #checkout-review-load,
+    .checkout-onepage-index ol.opc-firststep-widget > li .step,
+    #onestepcheckout-login-form {
+        background-color: <?php echo $this->helper("onestepcheckout")->getConfigBlockBackgroundColor(); ?>!important;
+    }
+
+    /*a,*/
+    .one-step-checkout .page-top-row .to-login-page {
+        color: <?php echo $this->helper("onestepcheckout")->getConfigLinkColor(); ?>!important;
+    }
+
+    /*a:hover,*/
+    .one-step-checkout .page-top-row .to-login-page:hover {
+        color: <?php echo $this->helper("onestepcheckout")->getConfigLinkHoverColor(); ?>!important;
+    }
+
+    .one-step-checkout .page-top-row .buttons-set button > span,
+    .one-step-checkout .order-review-column button > span,
+    .one-step-checkout .page-top-row #onestepcheckout-login-form button > span,
+    .checkout-onepage-index ol.opc-firststep-widget .buttons-set button > span {
+        background: <?php echo $this->helper("onestepcheckout")->getConfigButtonBackgroundColor(); ?>!important;
+        color: <?php echo $this->helper("onestepcheckout")->getConfigButtonTextColor(); ?>!important;
+        border-color: <?php echo $this->helper("onestepcheckout")->getConfigButtonBorderColor(); ?>!important;
+    }
+
+    .one-step-checkout .page-top-row .buttons-set button:hover > span,
+    .one-step-checkout .order-review-column button:hover > span,
+    .one-step-checkout .page-top-row #onestepcheckout-login-form button:hover > span,
+    .checkout-onepage-index ol.opc-firststep-widget .buttons-set button:hover > span {
+        background: <?php echo $this->helper("onestepcheckout")->getConfigButtonHoverBackgroundColor(); ?>!important;
+        color: <?php echo $this->helper("onestepcheckout")->getConfigButtonHoverTextColor(); ?>!important;
+    }
+
+    .one-step-checkout .section-name .step-number,
+    .checkout-onepage-index ol.opc-firststep-widget > li .step-title .number {
+        background: <?php echo $this->helper("onestepcheckout")->getConfigNumbersBackgroundColor(); ?>!important;
+        color: <?php echo $this->helper("onestepcheckout")->getConfigNumbersTextColor(); ?>!important;
+        border-color: <?php echo $this->helper("onestepcheckout")->getConfigNumbersBorderColor(); ?>!important;
+    }
+</style>
+<script type="text/javascript">
+    var $locationhref = location.href;
+    var BASE_URL = '<?php echo $this->getUrl(); ?>';
+    if ($locationhref.indexOf('http://') != -1) {
+        BASE_URL = BASE_URL.replace('https://', 'http://');
+    } else if ($locationhref.indexOf('https://') != -1) {
+        BASE_URL = BASE_URL.replace('http://', 'https://');
+    }
+</script>
+<script type="text/javascript">
+    var _CUSTOMER_IS_LOGGED_IN = <?php echo ((Mage::getSingleton('customer/session')->isLoggedIn()) ? '1' : '0') ?>;
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+    var $preSave = '<?php echo $this->getUrl('onestepcheckout/checkout/preSave'); ?>';
+    var $preSaveAll = '<?php echo $this->getUrl('onestepcheckout/checkout/saveAllRYC'); ?>';
+    var $locationhref = location.href;
+    if ($locationhref.indexOf('http://') != -1) {
+        $preSave = $preSave.replace('https://', 'http://');
+        $preSaveAll = $preSaveAll.replace('https://', 'http://');
+    } else if ($locationhref.indexOf('https://') != -1) {
+        $preSave = $preSave.replace('http://', 'https://');
+        $preSaveAll = $preSaveAll.replace('http://', 'https://');
+    }
+
+    var checkout = new Checkout({
+        preSave: $preSave,
+        preSaveAll: $preSaveAll,
+        failure: '<?php echo $this->getUrl('checkout/cart'); ?>'
+    });
+    function showMessage2(message) {
+        jQuery('.alert').remove();
+        jQuery('body').append('<div class="alert tvalert"></div>');
+        var $alert = jQuery('.alert');
+        $alert.slideDown(400);
+        $alert.html(message).append('<button class="close">Ok</button>');
+        //center popup
+        var w_content = jQuery('.alert').outerWidth();
+        var h_content = jQuery('.alert').outerHeight();
+        var w_win = jQuery(window).outerWidth();
+        var h_win = jQuery(window).outerHeight();
+        var w_left = (w_win - w_content) / 2;
+        var w_top = (h_win - h_content) / 2;
+
+        jQuery('.alert').css({'left': w_left + 'px'})
+        jQuery('.alert').css({'top': w_top + 'px'});
+        jQuery('body').append('<div class="fgc-overlay1"></div>');
+
+        jQuery('button.close').click(function () {
+            $alert.slideUp(400);
+            jQuery('.fgc-overlay1').remove();
+
+        });
+    }
+//]]>
+</script>
+<div id="alert-shippingpoup" style="display: none">
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('shippingpoup_popup')->toHtml(); ?>
+</div>
+<?php
+$address = $this->getChild('shipping')->getAddress();
+if ($address->getId()) {
+    Mage::getSingleton('checkout/type_onepage')
+            ->saveShipping($address->getData(), $address->getId());
+}
+
+$stepNumber = 1;
+$ajaxLoaderPath = $this->getSkinUrl('images/plumrocket/onestepcheckout/ajax-loader.gif');
+?>
+<!--
+<script type="text/javascript">
+//<![CDATA[
+    var checkout = new Checkout({
+        preSave: '<?php //echo $this->getSecuretUrl('onestepcheckout/checkout/preSave');                ?>',
+        failure: '<?php //echo $this->getUrl('checkout/cart');                ?>'
+    });
+//]]>
+</script>-->
+
+<?php
+$isPrescription = false;
+$isMedicine = false;
+$isPharmacistOnlyS3 = false;
+$medicalFormRedirect = false;
+$quote = Mage::getSingleton('checkout/session')->getQuote();
+$cartItems = $quote->getAllVisibleItems();
+
+foreach ($cartItems as $item) {
+    $cats = $item->getProduct()->getCategoryIds();
+
+    $_product = Mage::getModel('catalog/product')->load($item->getProduct()->getId());
+    $prescription = $_product->getPrescription();
+    $medicine = $_product->getMedicine();
+    $pharmacistOnlyS3 = $_product->getPharmacistOnlyS3();
+
+    //$prescription = 1;
+    //$medicine = 0;
+    if ($prescription == 1) {
+        $isPrescription = true;
+    }
+    if ($medicine == 1) {
+        $isMedicine = true;
+    }
+
+    if ($pharmacistOnlyS3 == 1) {
+        $isPharmacistOnlyS3 = true;
+    }
+    //redirect page
+    if ($isPrescription || $isMedicine || $isPharmacistOnlyS3) {
+        $customer_id = Mage::getSingleton('customer/session')->getCustomer()->getId();
+        $customerconditions = Mage::getModel('prescription/customerconditions')->getCollection()->addFieldToFilter('customer_id', $customer_id);
+        $customerallergies = Mage::getModel('prescription/customerallergies')->getCollection()->addFieldToFilter('customer_id', $customer_id);
+
+        if ($customerconditions->count() == 0 || $customerallergies->count() == 0) {
+            $medicalFormRedirect = true;
+        }
+    }
+}
+?>
+
+<script language="javascript">
+
+    function checkMedical() {
+<?php if ($medicalFormRedirect) { ?>
+            console.log('chua login');
+            //showMessage("Your basket contains Pharmacy products that require extra information. Please register and fill out the medical information form");
+    <?php
+    if ($isPrescription && (!$isMedicine || !$isPharmacistOnlyS3)) {
+        ?>
+                showMessage("Your order contains a prescription item. Please post your prescription to: PO BOX 776 MAROUBRA NSW 2035. We will also require extra information. If you haven't filled out the medical information page you will be redirected now. Once you complete the form you will be able to complete the checkout");
+
+    <?php } elseif (!$isPrescription && ($isMedicine || $isPharmacistOnlyS3)) {
+        ?>
+                showMessage("Your basket contains Yourchemist products that require extra information. Please register and fill out the medical information form");
+    <?php } elseif ($isPrescription && ($isMedicine || $isPharmacistOnlyS3)) {
+        ?>
+                showMessage("Your order contains a prescription item. Please post your prescription to: PO BOX 776 MAROUBRA NSW 2035. We will also require extra information. If you haven't filled out the medical information page you will be redirected now. Once you complete the form you will be able to complete the checkout");
+        <?php
+    } else {
+        
+    }
+    ?>
+            jQuery('div.alert button.close').on('click', function () {
+                window.location.replace("<?php echo Mage::getBaseUrl(); ?>customer/account/medical/");
+            })
+            jQuery('div.alert button.close').prop('disabled', true).addClass('disabled');
+    <?php
+} else {
+    ?>
+            console.log('da hoan thanh khong lam gi chi hien thi message waiting redirect success page');
+
+    <?php
+}
+?>
+    }
+
+</script>
+<?php
+if ($medicalFormRedirect) {
+    ?>
+    <input type="hidden" name="is-category-special-account">
+    <script type="text/javascript">
+        //jQuery(window).load(function () {
+        //jQuery('#checkout_method').click();
+        //})
+    </script>
+    <?php
+}
+if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+    ?>
+    <input type="hidden" value="true" name="is_login">
+    <?php
+}
+if (($isPrescription || $isMedicine || $isPharmacistOnlyS3)) {
+    ?>
+    <input type="hidden" name="is-category-special">
+    <div id="alert-create-account" style="display: none">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('prescription_popup')->toHtml(); ?>
+    </div>
+    <script language="javascript">
+
+        function showMessage(message) {
+            jQuery('.alert').remove();
+            jQuery('body').append('<div class="alert"></div>');
+            var $alert = jQuery('.alert');
+            $alert.slideDown(400);
+            //$alert.html(message).append('<button class="close"></button>'+'<br><a class="popup-button-checkout" href="<?php //echo $this->getCheckoutUrl()                  ?>">Proceed to Checkout</a>');
+            $alert.html(message).append('<button class="close">Close</button>');
+            //center popup
+            var w_content = jQuery('.alert').outerWidth();
+            var h_content = jQuery('.alert').outerHeight();
+            var w_win = jQuery(window).outerWidth();
+            var h_win = jQuery(window).outerHeight();
+            var w_left = (w_win - w_content) / 2;
+            var w_top = (h_win - h_content) / 2;
+
+            jQuery('.alert').css({'left': w_left + 'px'})
+            jQuery('.alert').css({'top': w_top + 'px'});
+            jQuery('body').append('<div class="fgc-overlay1"></div>');
+
+            jQuery('button.close').click(function () {
+                $alert.slideUp(400);
+                jQuery('.fgc-overlay1').remove();
+
+            });
+        }
+    </script>
+<?php } ?>
+
+<div class="one-step-checkout">
+
+    <div class="page-title">
+        <h1><?php echo $this->__('Checkout') ?></h1>
+    </div>
+
+    <div class="page-top-row clearfix">
+        <?php if (!$this->helper('customer')->isLoggedIn()) { ?>
+            <?php echo $this->getChildHtml('login'); ?>
+            <span id="onestepcheckout-login-form-link" <?php echo ($this->getMessagesBlock()->toHtml()) ? 'style="display:none;"' : ''; ?>>
+                <span class="you-registered"><?php echo $this->__('Already registered?'); ?></span>
+                <span id="popuplogin-link" class="to-login-page popuplogin-link"><?php echo $this->__('Click here to login'); ?></span>
+                <?php if (trim($this->getChildHtml('extendedLoginButtons'))) { ?>
+                    <div class="extendedLoginButtons">
+                        <?php echo $this->getChildHtml('extendedLoginButtons'); ?>
+                    </div>
+                <?php } ?>
+            </span>
+        <?php } ?>
+
+        <div class="buttons-set" id="review-buttons-container-top">
+            <?php echo $this->getChildHtml('button_top') ?>
+        </div>
+    </div>
+
+    <div class="col-left">
+        <?php if ($this->getChild('payment') && $this->getChild('payment')->isShow()) { ?>
+            <div class="payment">
+                <h3 class="section-name">
+                    <span class="step-number"><?php echo $stepNumber; ?></span><?php echo $this->__('Payment Information'); ?>
+                    <img id="payment-ajax-loader" class="ajax-loader" src="<?php echo $ajaxLoaderPath; ?>">
+                </h3>
+                <?php echo $this->getChildHtml('payment') ?>
+            </div>
+            <?php $stepNumber++; ?>
+        <?php } ?>
+
+        <?php if ($this->helper('onestepcheckout')->getConfigDisplayAddresses() == 'two') { ?>
+            <?php if ($this->getChild('billing') && $this->getChild('billing')->isShow()) { ?>
+                <div class="billing-address">
+                    <h3 class="section-name">
+                        <span class="step-number"><?php echo $stepNumber; ?></span><?php echo $this->__('Billing Information'); ?>
+                        <img id="billing-ajax-loader" class="ajax-loader" src="<?php echo $ajaxLoaderPath; ?>">
+                    </h3>
+                    <div class="billing-address-forms">
+                        <?php echo $this->getChildHtml('billing'); ?>
+                    </div>
+                </div>
+                <?php $stepNumber++; ?>
+            <?php } ?>
+
+
+        <?php } else { ?>
+            <?php if (($this->getChild('billing') && $this->getChild('billing')->isShow()) || ($this->getChild('shipping_method') && $this->getChild('shipping_method')->isShow())) { ?>
+                <div class="billing-address">
+                    <h3 class="section-name">
+                        <span class="step-number"><?php echo $stepNumber; ?></span><?php echo $this->__('Address Information'); ?>
+                        <img id="billing-ajax-loader" class="ajax-loader" src="<?php echo $ajaxLoaderPath; ?>">
+                    </h3>
+                    <div class="billing-address-forms">
+                        <?php
+                        if ($this->getChild('billing') && $this->getChild('billing')->isShow()) {
+                            echo $this->getChildHtml('billing');
+                        }
+                        ?>
+                        <button class="button tvmobile shippingpoup" title="More shipping" type="button"><span><span>Shipping info</span></span></button>
+                        <?php
+                        if ($this->getChild('shipping_method') && $this->getChild('shipping_method')->isShow()) {
+                            ?>
+                            <h3 class="shipping-method-title"><?php echo $this->__('Shipping Methods'); ?></h3>
+                            <?php
+                            echo $this->getChildHtml('shipping_method');
+                        }
+                        ?>
+                    </div>
+                </div>
+                <?php $stepNumber++; ?>
+            <?php } ?>
+        <?php } ?>
+
+
+
+    </div>
+
+    <div class="col-right">
+        <?php if (($this->getChild('shipping') && $this->getChild('shipping')->isShow()) || ($this->getChild('shipping_method') && $this->getChild('shipping_method')->isShow())) { ?>
+            <div class="shipping-address">
+                <h3 class="section-name">
+                    <span class="step-number"><?php echo $stepNumber; ?></span><?php echo $this->__('Shipping Information'); ?>
+                    <img id="shipping-ajax-loader" class="ajax-loader" src="<?php echo $ajaxLoaderPath; ?>">
+                </h3>
+                <div class="shipping-address-forms">
+                    <?php
+                    if ($this->getChild('shipping') && $this->getChild('shipping')->isShow()) {
+                        echo $this->getChildHtml('shipping');
+                    }
+                    ?>
+                    <button class="button tvmobile shippingpoup" title="More shipping" type="button"><span><span>Shipping info</span></span></button>
+                    <?php
+                    if ($this->getChild('shipping_method') && $this->getChild('shipping_method')->isShow()) {
+                        ?>
+                        <h3 class="shipping-method-title"><?php echo $this->__('Shipping Methods'); ?></h3>
+                        <?php
+                        echo $this->getChildHtml('shipping_method');
+                    }
+                    ?>
+                </div>
+            </div>
+            <?php $stepNumber++; ?>
+        <?php } ?>
+
+
+        <?php if ($this->getChild('payment') && $this->getChild('payment')->isShow()) { ?>
+            <div class="order-review-column">
+                <h3 class="section-name">
+                    <span class="step-number"><?php echo $stepNumber; ?></span><?php echo $this->__('Order Summary'); ?>
+                    <img id="review-ajax-loader" class="ajax-loader" src="<?php echo $ajaxLoaderPath; ?>">
+                </h3>
+                <?php echo $this->getChildHtml('review'); ?>
+            </div>
+            <?php $stepNumber++; ?>
+        <?php } ?>
+    </div>
+    <!--show lightbox-->
+    <div id="lighbox-fgc-onecheckout" style="display:none">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('place_order_warning')->toHtml() ?>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<script language="javascript">
+    jQuery(document).ready(function ($) {
+//alert product speciaal
+        var item_special = jQuery('input[name="is-category-special"]').length;
+        jQuery('input[name="checkout_method"]').click(function () {
+            if (jQuery(this).is(':checked')) {
+
+            } else {
+                if (item_special) {
+                    var content_popup = jQuery('#alert-create-account').html();
+                    jQuery('.alert').remove();
+                    showMessage(content_popup);
+                }
+            }
+        })
+
+        jQuery(".login-trigger").click(function () {
+            /*jQuery( "header" ).css( "zIndex", 1 );*/
+            jQuery("header").attr('style', 'z-index:1 !important');
+        });
+
+        $(document).on('click', '.shippingpoup', function (e) {
+            e.preventDefault();
+            var shippingpoup = jQuery('#alert-shippingpoup').html();
+            jQuery('.alert').remove();
+            showMessage2(shippingpoup);
+        })
+
+    });
+
+
+</script>
+<script type="text/javascript">
+//<![CDATA[
+    function fireEvent(element, event) {
+        if (document.createEventObject) {
+            // dispatch for IE
+            var evt = document.createEventObject();
+            return element.fireEvent('on' + event, evt)
+        } else {
+            // dispatch for firefox + others
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent(event, true, true); // event type,bubbling,cancelable
+            if (element) {
+                return !element.dispatchEvent(evt);
+            }
+        }
+    }
+
+<?php if (!$this->helper('customer')->isLoggedIn()) { ?>
+        Event.observe($('popuplogin-link'), 'click', function () {
+            Element.hide('onestepcheckout-login-form-link');
+            Element.show('onestepcheckout-login-form');
+            pjQuery_1_10_2('#btnLogin .btn-loader').width(pjQuery_1_10_2('#btnLogin .btn-label').width());
+            pjQuery_1_10_2('html, body').animate({scrollTop: pjQuery_1_10_2(".one-step-checkout").offset().top}, 300);
+        });
+
+        Event.observe($('login-form-hide'), 'click', function () {
+            Element.hide('onestepcheckout-login-form');
+            Element.show('onestepcheckout-login-form-link');
+        });
+<?php } ?>
+//]]>
+</script>
+
+<script type="text/javascript">
+    pjQuery_1_10_2(function () {
+        pjQuery_1_10_2('.one-step-checkout').on('mouseenter', '.validation-advice', function () {
+            var me = pjQuery_1_10_2(this);
+            if (window.tvhide)
+                clearTimeout(window.tvhide)
+            window.tvhide = setTimeout(function () {
+                me.hide();
+            }, 5000)
+        });
+    });
+</script>
+
+<?php if ($this->helper('onestepcheckout')->getConfigIsEnabledAutocomplete() && $this->helper('onestepcheckout')->getConfigGoogleKey()) { ?>
+    <script type="text/javascript">
+        var autocomplete = {};
+        var componentForm = {
+            street_number: {type: 'short_name', elementId: ':street1', value: ''},
+            route: {type: 'long_name', elementId: ':street1', value: ''},
+            locality: {type: 'long_name', elementId: ':city', value: ''},
+            postal_code: {type: 'short_name', elementId: ':postcode', value: ''},
+            country: {type: 'short_name', elementId: ':country_id', value: ''},
+            administrative_area_level_1: {type: 'long_name', elementId: ':region', element2Id: ':region_id', value: ''}
+        };
+
+        function initAutocomplete() {
+            if (document.getElementById('billing:street1')) {
+                autocomplete.billing = new google.maps.places.Autocomplete((document.getElementById('billing:street1')), {types: ['geocode']});
+                autocomplete.billing.addListener('place_changed', function () {
+                    fillInAddress('billing')
+                });
+            }
+
+            if (document.getElementById('shipping:street1')) {
+                autocomplete.shipping = new google.maps.places.Autocomplete((document.getElementById('shipping:street1')), {types: ['geocode']});
+                autocomplete.shipping.addListener('place_changed', function () {
+                    fillInAddress('shipping')
+                });
+            }
+        }
+
+        function fillInAddress(stepType) {
+            var addressgoogle = jQuery('input[name="billing[street][]"]').val();
+            var arrAddressgoogle = addressgoogle.split(',');
+
+            var place = autocomplete[stepType].getPlace();
+
+            for (var component in componentForm) {
+                document.getElementById(stepType + componentForm[component].elementId).value = '';
+                componentForm[component].value = '';
+            }
+
+            for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                if (componentForm[addressType]) {
+                    componentForm[addressType].value = place.address_components[i][componentForm[addressType].type];
+                }
+            }
+
+            for (var component in componentForm) {
+                var $element = document.getElementById(stepType + componentForm[component].elementId);
+                if (component == 'route') {
+                    componentForm[component].value = $element.value += " " + componentForm[component].value;
+                } else if (component == 'administrative_area_level_1') {
+                    var $element2 = document.getElementById(stepType + componentForm[component].element2Id);
+                    if (pjQuery_1_10_2($element2).is(':visible')) {
+                        $element = $element2;
+                        componentForm[component].value = pjQuery_1_10_2($element2).find('option:contains("' + componentForm[component].value + '")').val();
+                        //componentForm[component].value = pjQuery_1_10_2($element2).find('option[title="'+componentForm[component].value+'"]').val();
+                    }
+                }
+                $element.value = pjQuery_1_10_2.trim(componentForm[component].value);
+                if (component == 'country') {
+                    if (stepType == 'billing' && billingRegionUpdater) {
+                        billingRegionUpdater.update();
+                    }
+                    if (stepType == 'shipping' && shippingRegionUpdater) {
+                        shippingRegionUpdater.update();
+                    }
+                }
+            }
+            if (arrAddressgoogle.length > 0 && jQuery('input[name="billing[street][]"]').val() != '') {
+                jQuery('input[name="billing[street][]"]').val(arrAddressgoogle[0]);
+            }
+            jQuery('#billing:region_id').trigger('chosen:updated');
+            preSaveBilling2();
+        }
+        function preSaveBilling2() {
+            sabEl = document.getElementById('shipping:same_as_billing');
+            if (pjQuery_1_10_2(sabEl).is(':checked')) {
+                shipping.setSameAsBilling(true);
+            }
+            if (checkout.isFilledForm('#co-billing-form')) {
+                checkout.preSave(0);
+            }
+        }
+
+        function geolocate() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $this->helper('onestepcheckout')->getConfigGoogleKey(); ?>&signed_in=true&libraries=places&language=<?php echo Mage::app()->getLocale()->getLocaleCode(); ?>&callback=initAutocomplete" async defer></script>
+<?php } ?>
+<div class="clearfix"></div>

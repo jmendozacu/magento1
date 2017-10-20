@@ -1,0 +1,50 @@
+<?php
+/**
+ * @copyright   Copyright (C)2015 IcoTheme.com. All Rights Reserved.
+ */
+?>
+<?php
+$blog = $this->getBlog();
+$id = $this->getConfig('id');
+$scroll = $this->getConfig('scroll');
+$title = $this->getConfig('widget_title');
+$helper = Mage::helper('widgetblog');
+$date = Mage::getModel('core/date');
+?>
+<div class="blog-homepage <?php echo $this->getConfig('classes') ?>" id="<?php echo $id ?>">
+    <?php if ($title): ?>
+        <h3 class="title-widget"><span><?php echo $title ?></span></h3>
+    <?php endif ?>
+    <div class="<?php echo $scroll == 1 ? 'owl-carousel ' : '' ?>">
+        <?php foreach ($blog as $_item): ?>
+            <div class="blog item>">
+                <div class="blog-item-wrapper">
+                    <?php $img = $helper->getImgBlog($_item->getShortContent()); ?>
+                    <?php if ($img): ?>
+                        <?php if ($scroll): ?>
+                            <img class="img-responsive lazyOwl" data-srcX2="<?php echo $img; ?>" data-src="<?php echo $img; ?>" src="<?php echo $this->getSkinUrl('images/loader.gif') ?>" alt="<?php echo $_item->getTitle(); ?>"/>
+                        <?php else: ?>
+                            <img class="img-responsive lazy" data-srcX2="<?php echo $img; ?>" data-src="<?php echo $img; ?>" src="<?php echo $this->getSkinUrl('images/loader.gif') ?>" alt="<?php echo $_item->getTitle(); ?>"/>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <div class="main_content">
+                        <h3><a href="<?php echo $_item->getAddress(); ?>"><?php echo $_item->getTitle(); ?></a></h3>
+                    <span class="content">
+                        <?php echo $_item->getPostContent(); ?>
+                    </span>
+                        <div class="content-bottom">
+                        <span class="midle_content">
+                            <span class="date"><span class="day"><?php echo $date->date('d', $_item->getCreatedTime()); ?></span><span class="month"><?php echo $date->date('M', $_item->getCreatedTime()); ?></span></span>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach ?>
+    </div>
+    <script type="text/javascript">
+        new Ico.widgetConfig('<?php echo $id ?>', {
+            carousel: <?php echo $this->getConfig('carousel') ?>
+        });
+    </script>
+</div>

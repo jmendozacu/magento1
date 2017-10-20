@@ -1,0 +1,205 @@
+<?php
+    $galleryId = uniqid('highslide-gallery');
+    $slideshowGroupId = uniqid('slideshowGroup_media_');
+    $inPage = (bool) Mage::getStoreConfig('lightboxpro/gallery/inpage');
+?>
+<script type="text/javascript">
+    // var slideshowGroupId = "slideshowGroup" + (0 | Math.random() * 100) + "_" + (+new Date());
+    // var slideshowGroupId = "<?php echo uniqid('slideshowGroup_media_');?>";
+    // Add the slideshow controller
+    hs.addSlideshow({
+        slideshowGroup: '<?php echo $slideshowGroupId?>',
+        interval: <?php echo Mage::getStoreConfig('lightboxpro/gallery/behaviour_interval'); ?>,
+        repeat: <?php echo (Mage::getStoreConfig('lightboxpro/gallery/behaviour_repeat') ? 'true' : 'false'); ?>,
+        <?php $style = Mage::getStoreConfig('lightboxpro/gallery/controls_presetstyle');
+        if ($style) :?>
+        useControls: <?php echo $inPage ? 'false' : 'true'?>,
+        fixedControls: <?php echo (Mage::getStoreConfig('lightboxpro/gallery/behaviour_fixedControls') ? "'fit'" : 'false'); ?>,
+        overlayOptions: {
+            <?php echo "className: '{$style}',\n";?>
+            opacity: <?php echo Mage::getStoreConfig('lightboxpro/gallery/controls_opacity')?>,
+            position: '<?php echo Mage::getStoreConfig('lightboxpro/gallery/controls_position');?>',
+            offsetX: <?php echo Mage::getStoreConfig('lightboxpro/gallery/controls_xOffset')?>,
+            offsetY: <?php echo Mage::getStoreConfig('lightboxpro/gallery/controls_yOffset')?>,
+            hideOnMouseOut: <?php echo (Mage::getStoreConfig('lightboxpro/gallery/controls_hideOnMouseOut') ? 'true' : 'false')?>
+        },
+        <?php endif;
+        if (Mage::getStoreConfig('lightboxpro/gallery/thumbstrip_enable')) :?>
+        thumbstrip: {
+            mode: '<?php echo Mage::getStoreConfig('lightboxpro/gallery/thumbstrip_mode')?>',
+            position: '<?php echo Mage::getStoreConfig('lightboxpro/gallery/thumbstrip_position')?>',
+            relativeTo: '<?php echo Mage::getStoreConfig('lightboxpro/gallery/thumbstrip_relative')?>'
+            <?php if ($inPage) :?>,width: '80px'<?php endif;?>
+        }
+        <?php endif; ?>
+    });
+
+    // gallery config object
+    // if ('undefined' == typeof hscustomConfigs) {
+    //     hscustomConfigs = [];
+    // }
+    hscustomConfigs<?php echo $slideshowGroupId?> = {
+
+        <?php $position = Mage::getStoreConfig('lightboxpro/gallery/numbers_position');
+            echo ($position ? "numberPosition: '{$position}',\n" : '')?>
+        slideshowGroup: '<?php echo $slideshowGroupId?>',
+        <?php if (Mage::getStoreConfig('lightboxpro/gallery/behaviour_autoplay')) :?>
+        autoplay: true,
+        <?php endif;?>
+        transitions: ['expand', 'crossfade']
+        <?php if ($inPage) :?>,
+        outlineType: null,
+        allowSizeReduction: false,
+        wrapperClassName: 'in-page controls-in-heading',
+        thumbnailId: '<?php echo $galleryId ?>',
+        useBox: true,
+        width: 250,
+        height: 250,
+        targetX: '<?php echo $galleryId ?> 0px',
+        targetY: '<?php echo $galleryId ?> 0px',
+        captionEval: 'this.a.title',
+        numberPosition: 'caption'
+        <?php endif;?>,
+    };
+    <?php if ($inPage) :?>
+    // Open the first thumb on page load
+    hs.addEventListener(window, 'load', function() {
+        $$('#<?php echo $galleryId ?> a').first().onclick();
+    });
+
+    // Cancel the default action for image click and do next instead
+    hs.Expander.prototype.onImageClick = function() {
+        if (/in-page/.test(this.wrapper.className)) return hs.next();
+    }
+
+    // Under no circumstances should the static popup be closed
+    hs.Expander.prototype.onBeforeClose = function() {
+        if (/in-page/.test(this.wrapper.className)) return false;
+    }
+    // ... nor dragged
+    hs.Expander.prototype.onDrag = function() {
+        if (/in-page/.test(this.wrapper.className)) return false;
+    }
+
+    // Keep the position after window resize
+    hs.addEventListener(window, 'resize', function() {
+        var i, exp;
+        hs.getPageSize();
+
+        for (i = 0; i < hs.expanders.length; i++) {
+            exp = hs.expanders[i];
+            if (exp) {
+                var x = exp.x,
+                    y = exp.y;
+
+                // get new thumb positions
+                exp.tpos = hs.getPosition(exp.el);
+                x.calcThumb();
+                y.calcThumb();
+
+                // calculate new popup position
+                x.pos = x.tpos - x.cb + x.tb;
+                x.scroll = hs.page.scrollLeft;
+                x.clientSize = hs.page.width;
+                y.pos = y.tpos - y.cb + y.tb;
+                y.scroll = hs.page.scrollTop;
+                y.clientSize = hs.page.height;
+                exp.justify(x, true);
+                exp.justify(y, true);
+
+                // set new left and top to wrapper and outline
+                exp.moveTo(x.pos, y.pos);
+            }
+        }
+    });
+    <?php endif ?>
+//]]>
+</script>
+
+<?php if ($inPage) :?>
+<style type="text/css">
+    .inpage {
+        margin: 0 auto;
+        border: 1px solid silver;
+        overflow: hidden;
+        visibility: hidden;
+    }
+    .inpage .more-views {
+        visibility: hidden;
+    }
+    .inpage .highslide-active-anchor img {
+        visibility: hidden;
+    }
+</style>
+<?php endif; ?>
+
+<?php
+    $_product = $this->getProduct();
+    $label = $this->htmlEscape($this->getImageLabel());
+    list($_popupWidth, $_popupHeight)         = explode('x', Mage::getStoreConfig('lightboxpro/size/popup'));
+    list($_mainWidth, $_mainHeight)           = explode('x', Mage::getStoreConfig('lightboxpro/size/main'));
+    list($_thumbnailWidth, $_thumbnailHeight) = explode('x', Mage::getStoreConfig('lightboxpro/size/thumbnail'));
+    $_popupKeepFrame     = Mage::getStoreConfigFlag('lightboxpro/size/popup_keep_frame');
+    $_mainKeepFrame      = Mage::getStoreConfigFlag('lightboxpro/size/main_keep_frame');
+    $_thumbnailKeepFrame = Mage::getStoreConfigFlag('lightboxpro/size/thumbnail_keep_frame');
+?>
+<div id="<?php echo $galleryId ?>" class="highslide-gallery<?php echo $inPage ? ' inpage' : '' ?>">
+    <?php $_prolabels = Mage::helper('core')->isModuleOutputEnabled('TM_ProLabels'); ?>
+    <?php if ($_prolabels) : ?>
+        <div class="prolabel-wrapper">
+            <?php echo Mage::helper('prolabels')->getLabel($_product, 'product'); ?>
+    <?php endif ?>
+
+    <?php
+    $_popupImage = $this->helper('lightboxpro/image')->init($_product, 'image');
+    if ($_popupWidth) :
+        $_popupImage->keepFrame($_popupKeepFrame)->resize($_popupWidth, $_popupHeight);
+    endif;
+    ?>
+
+    <a href="<?php echo $_popupImage ?>"
+            class="highslide main-image"
+            title="<?php echo $label?>"
+            onclick="return hs.expand(this, hscustomConfigs<?php echo $slideshowGroupId?>)">
+        <img src="<?php echo $this->helper('lightboxpro/image')->init($_product, 'image')->keepFrame($_mainKeepFrame)->resize($_mainWidth, $_mainHeight);?>"
+            srcset="<?php echo $this->helper('lightboxpro/image')->init($_product, 'image')->keepFrame($_mainKeepFrame)->resize($_mainWidth, $_mainHeight);?> 1x, <?php echo $this->helper('lightboxpro/image')->init($_product, 'image')->keepFrame($_mainKeepFrame)->resize($_mainWidth * 2, $_mainHeight * 2);?> 2x"
+            alt="<?php echo $label?>"
+        />
+    </a>
+
+    <?php if ($_prolabels) : ?>
+        </div>
+    <?php endif ?>
+
+    <?php $_images = $this->getGalleryImages();
+    if (count($_images)) : ?>
+    <div class="more-views">
+        <h2><?php echo Mage::helper('catalog')->__('More Views') ?></h2>
+        <?php foreach ($_images as $_image) :
+            $_label = $this->htmlEscape($_image->getLabel());
+            if (empty($_label)) {
+                $_label = $label;
+            }?>
+
+            <?php
+            $_popupImage = $this->helper('lightboxpro/image')->init($_product, 'image', $_image->getFile());
+            if ($_popupWidth) :
+                $_popupImage->keepFrame($_popupKeepFrame)->resize($_popupWidth, $_popupHeight);
+            endif;
+            ?>
+
+            <a href="<?php echo $_popupImage ?>"
+                    class="highslide"
+                    title="<?php echo $_label?>"
+                    onclick="return hs.expand(this, hscustomConfigs<?php echo $slideshowGroupId?>)">
+                <img src="<?php echo $this->helper('lightboxpro/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->keepFrame($_thumbnailKeepFrame)->resize($_thumbnailWidth, $_thumbnailHeight);?>"
+                    srcset="<?php echo $this->helper('lightboxpro/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->keepFrame($_thumbnailKeepFrame)->resize($_thumbnailWidth, $_thumbnailHeight);?> 1x, <?php echo $this->helper('lightboxpro/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->keepFrame($_thumbnailKeepFrame)->resize($_thumbnailWidth * 2, $_thumbnailHeight * 2);?> 2x"
+                    alt="<?php echo $_label?>"
+                />
+            </a>
+        <?php endforeach;?>
+    </div>
+    <?php endif;?>
+</div>
+
+<?php echo $this->getChildHtml('after'); ?>

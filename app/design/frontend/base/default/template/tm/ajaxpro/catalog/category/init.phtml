@@ -1,0 +1,48 @@
+<?php if (!Mage::getStoreConfig('ajax_pro/catalogCategoryView/enabled')) {
+    return;
+}?>
+<?php
+    $layout = $this->getLayout();
+    $block = $layout->getBlock('product_list_toolbar');
+
+    if (!$block || !$block->getCollection()) {
+        return;
+    }
+
+    $_url = $block->getUrl(
+        '*/*/*', array(
+        '_current' => true,
+        '_escape'  => false,
+//        '_use_rewrite' => true,
+        '_query'   => array($block->getPageVarName() => '.page.')
+    ));
+
+    $page = (int) $block->getCurrentPage();
+    $total = (int) $block->getTotalNum();
+    $limit = $block->getRequest()->getParam(
+        $block->getLimitVarName(), $block->getLimit()
+    );
+    if ('all' == strtolower($limit)) {
+        $limit = $total;
+    } else {
+        $limit = (int) $limit;
+    }
+
+    $event = $this->getEvent();
+?>
+<script type="text/javascript">
+/*<![CDATA[*/
+    <?php if ($event) :?>
+    AjaxPro.observe('<?php echo $event ?>', function() {
+    <?php endif; ?>
+        AjaxPro.toolbar
+            .setPage(<?php echo $page ?>)
+            .setLimit(<?php echo $limit ?>)
+            .setTotal(<?php echo $total ?>)
+            .setUrl('<?php echo $_url ?>')
+        ;
+    <?php if ($event) :?>
+    });
+    <?php endif;?>
+/*]]>*/
+</script>

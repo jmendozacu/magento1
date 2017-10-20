@@ -1,0 +1,18 @@
+SELECT `main_table`.*, ACOS( SIN( RADIANS( `latitude` ) ) * SIN( RADIANS( -25.274398 ) ) + COS( RADIANS
+( `latitude` ) ) * COS( RADIANS( -25.274398 )) * COS( RADIANS( `longitude` ) - RADIANS( 133.775136 )
+) ) * 6371 AS `distance` FROM `iwd_storelocator` AS `main_table`
+ INNER JOIN `iwd_storelocator_store` AS `store_table` ON main_table.entity_id = store_table.locatorstore
+ WHERE (`is_active` = '1') AND (`latitude` != '0') AND (`longitude` != '0') AND (`country_id` = 'AU'
+) AND (ACOS( SIN( RADIANS( `latitude` ) ) * SIN( RADIANS( -25.274398 ) ) + COS( RADIANS( `latitude` 
+) ) * COS( RADIANS( -25.274398 )) * COS( RADIANS( `longitude` ) - RADIANS( 133.775136 )) ) * 6371 < 7000
+) AND (store_table.store_id IN('1', 0)) GROUP BY `main_table`.`entity_id` ORDER BY `position` ASC LIMIT
+ 20
+ 
+ SELECT `main_table`.*, ACOS( SIN( RADIANS( `latitude` ) ) * SIN( RADIANS( 1 ) ) + COS( RADIANS( `latitude
+` ) ) * COS( RADIANS( 1 )) * COS( RADIANS( `longitude` ) - RADIANS( null )) ) * 6371 AS `distance` FROM
+ `iwd_storelocator` AS `main_table`
+ INNER JOIN `iwd_storelocator_store` AS `store_table` ON main_table.entity_id = store_table.locatorstore
+ WHERE (`is_active` = '1') AND (`latitude` != '0') AND (`longitude` != '0') AND (`country_id` = 'AU'
+) AND (ACOS( SIN( RADIANS( `latitude` ) ) * SIN( RADIANS( 1 ) ) + COS( RADIANS( `latitude` ) ) * COS
+( RADIANS( 1 )) * COS( RADIANS( `longitude` ) - RADIANS( null )) ) * 6371 < 7000) AND (store_table.store_id
+ IN('1', 0)) GROUP BY `main_table`.`entity_id` ORDER BY `position` ASC LIMIT 20

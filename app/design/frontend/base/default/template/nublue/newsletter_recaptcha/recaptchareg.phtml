@@ -1,0 +1,40 @@
+<?php
+$helper = Mage::helper('nublue_newsletter_recaptcha');
+if ($helper->getConfig('enabled', 'bool')):
+    ?>
+    <div id='recaptcha' class="g-recaptcha"
+         data-sitekey="<?php echo $helper->getConfig('sitekey'); ?>"
+         data-callback="onNewsletterSubmit"
+         data-size="invisible"></div>
+
+    <?php if ($helper->getConfig('jquery_include', 'bool')): ?>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+        <script>jQuery.noConflict();</script>
+    <?php endif; ?>
+
+    <script type="text/javascript" id="form-validate">
+        var $parentForm = jQuery('#form-validate').closest('form');
+        jQuery(document).ready(function ($) {
+            $parentForm.find('button,input[type="button"],input[type="submit"]').on('click', function (e) {
+                e.preventDefault();
+                grecaptcha.execute();
+                return true;
+            });
+        });
+        function onNewsletterSubmit(token) {
+            var dataForm = new VarienForm('form-validate');
+            if (dataForm.validator.validate()) {
+                $parentForm.trigger('submit');
+            }
+            return true;
+        }
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <?php if ($helper->getConfig('hide_overlay', 'bool')): ?>
+        <style>.g-recaptcha { display: none; }</style>
+    <?php endif; ?>
+
+    <?php
+endif; // end IF reCAPTCHA_settings/enabled
+?>

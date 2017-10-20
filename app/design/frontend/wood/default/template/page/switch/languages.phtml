@@ -1,0 +1,49 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Language switcher template
+ *
+ * @see Mage_Page_Block_Switch
+ */
+?>
+<?php if(count($this->getStores())>1): ?>
+<div class="language-currency ">
+    <div class="language-switcher switcher-wrap">
+        <div class="title-selector"><span>Your Languages</span></div>
+        <ul class="select-language clearfix">
+            <?php foreach ($this->getStores() as $_lang): ?>
+                <?php if($_lang->getId() == $this->getCurrentStoreId()){?>
+                  <li class="current-language"><span><img alt="" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'wysiwyg/icotheme/wood/flags/flag-'.strtolower($_lang->getName().'.jpg');?>" /><?php //echo $this->htmlEscape($_lang->getName()) ?></span></li>
+                <?php }else {?>
+                <?php $_selected = ($_lang->getId() == $this->getCurrentStoreId()) ? ' selected="selected"' : '' ?>
+                <li><a href="<?php echo $_lang->getCurrentUrl() ?>"> <?php //echo $this->htmlEscape($_lang->getName()) ?><img alt="" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'wysiwyg/icotheme/wood/flags/flag-'.strtolower($_lang->getName().'.jpg');?>" /> </a></li>
+            <?php } endforeach; ?>
+        </ul>
+    </div>
+</div>
+<?php endif; ?>

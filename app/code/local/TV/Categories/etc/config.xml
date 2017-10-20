@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <TV_Categories>
+            <version>0.1.0</version>    <!-- Version of module -->
+        </TV_Categories>
+    </modules>
+    <frontend>
+        <routers>
+            <categories>
+                <use>standard</use>
+                <args>
+                    <module>TV_Categories</module>
+                    <frontName>categories</frontName>
+                </args>
+            </categories>
+        </routers>
+        <layout>
+            <updates>
+                <categories>
+                    <file>categories.xml</file> <!-- our layout file name -->
+                </categories>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <categories>
+                <class>TV_Categories_Block</class>
+            </categories>
+        </blocks>
+        <models>
+            <categories>
+                <class>TV_Categories_Model</class> <!-- Model class files -->
+            </categories>
+        </models>
+    </global>
+</config>
+
+

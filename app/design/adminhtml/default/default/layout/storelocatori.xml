@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+	<storelocatori_adminhtml_list_index>
+		<reference name="content">
+			<block type="storelocatori/adminhtml_list" name="list.stores" />
+		</reference>
+	</storelocatori_adminhtml_list_index>
+	
+
+	<storelocatori_adminhtml_list_new>
+        <update handle="storelocatori_adminhtml_list_edit" />
+    </storelocatori_adminhtml_list_new>
+    
+    
+	 <storelocatori_adminhtml_list_edit>
+        <update handle="editor"/>
+        
+        <reference name="head">              
+                <action method="addItem"><type>skin_js</type><name>iwd/storelocatori/adminhtml.js</name></action>
+        </reference>
+        
+        <reference name="content">
+           <block type="storelocatori/adminhtml_list_edit" name="store.edit" />
+        </reference>
+        <reference name="left">
+            <block type="storelocatori/adminhtml_list_edit_tabs" name="storelocatori_store_edit_tabs">
+            
+                <block type="storelocatori/adminhtml_list_edit_tab_main" name="storelocatori_store_edit_tab_main" />
+                <block type="storelocatori/adminhtml_list_edit_tab_maps" name="storelocatori_store_edit_tab_maps" />
+                
+                <action method="addTab"><name>main_section</name><block>storelocatori_store_edit_tab_main</block></action>                
+                <action method="addTab"><name>google_section</name><block>storelocatori_store_edit_tab_maps</block></action>
+                
+            </block>
+        </reference>
+    </storelocatori_adminhtml_list_edit>
+    
+    
+    
+      <storelocatori_adminhtml_import_index>
+        <reference name="content">
+            <block type="adminhtml/template" template="storelocatori/import/form/before.phtml" name="import.form.before" alias="form_before"/>
+            <block type="storelocatori/adminhtml_import_edit" name="import.form.container.storelocatori"/>
+            <block type="adminhtml/template" template="storelocatori/import/form/after.phtml" name="import.form.after" alias="form_after"/>
+        </reference>
+    </storelocatori_adminhtml_import_index>
+    
+    <storelocatori_adminhtml_import_validate>
+        <block type="storelocatori/adminhtml_import_frame_result" template="storelocatori/import/frame/result.phtml" name="import.frame.result.storelocatori" alias="import_frame_result_storelocatori" output="toHtml"/>
+    </storelocatori_adminhtml_import_validate>
+
+</layout>

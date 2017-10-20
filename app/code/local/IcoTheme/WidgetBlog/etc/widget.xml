@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+ */
+-->
+<widgets>
+    <widgetblog type="widgetblog/widget" translate="name description">
+        <name>Ico Widget Blog</name>
+        <description>Show photos, blocks in widget</description>
+        <parameters>
+            <widget_title translate="label">
+                <label>Widget Title</label>
+                <visible>1</visible>
+                <type>text</type>
+            </widget_title>
+            <cache translate="label description">
+                <label>Cache Lifetime</label>
+                <visible>1</visible>
+                <value>86400</value>
+                <type>text</type>
+                <description>If set, caching this widget (in seconds)</description>
+            </cache>
+            <classes translate="label description">
+                <label>Widget Classes</label>
+                <visible>1</visible>
+                <type>text</type>
+                <description>Custom classes</description>
+            </classes>
+            <cat_ids translate="label description">
+                <label>Category</label>
+                <visible>1</visible>
+                <type>multiselect</type>
+                <required>1</required>
+                <source_model>widgetblog/widget_source_category</source_model>
+                <description>Choose category to show blog</description>
+            </cat_ids>
+            <scroll translate="label">
+                <label>Enable Carousel</label>
+                <visible>1</visible>
+                <value>0</value>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+                <description>Enable Carousel</description>
+            </scroll>
+            <autoplay translate="label">
+                <label>Slideshow</label>
+                <visible>1</visible>
+                <type>text</type>
+                <depends>
+                    <scroll>
+                        <value>1</value>
+                    </scroll>
+                </depends>
+                <description>Change to any integrer for example 5000 to play every 5 seconds. Leave empty to disable
+                    autoplay.
+                </description>
+            </autoplay>
+            <paging translate="label">
+                <label>Show Paging</label>
+                <visible>1</visible>
+                <value>0</value>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+                <depends>
+                    <scroll>
+                        <value>1</value>
+                    </scroll>
+                </depends>
+                <description>Show pagination</description>
+            </paging>
+            <navigation translate="label">
+                <label>Show Navigation</label>
+                <visible>1</visible>
+                <value>0</value>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+                <depends>
+                    <scroll>
+                        <value>1</value>
+                    </scroll>
+                </depends>
+                <description>Show navigation</description>
+            </navigation>
+            <navigation_prev translate="label">
+                <label>Prev Navigation</label>
+                <visible>1</visible>
+                <type>text</type>
+                <depends>
+                    <scroll>
+                        <value>1</value>
+                    </scroll>
+                    <navigation>
+                        <value>1</value>
+                    </navigation>
+                </depends>
+                <description>Prev navigation text</description>
+            </navigation_prev>
+            <navigation_next translate="label">
+                <label>Next Navigation</label>
+                <visible>1</visible>
+                <type>text</type>
+                <depends>
+                    <scroll>
+                        <value>1</value>
+                    </scroll>
+                    <navigation>
+                        <value>1</value>
+                    </navigation>
+                </depends>
+                <description>Next navigation text</description>
+            </navigation_next>
+            <column translate="label description">
+                <label>Columns</label>
+                <class>validate-number</class>
+                <visible>1</visible>
+                <value>4</value>
+                <type>text</type>
+                <description>Limit number of items on row</description>
+            </column>
+            <limit translate="label description">
+                <label>Limit</label>
+                <class>validate-number</class>
+                <visible>1</visible>
+                <value>4</value>
+                <type>text</type>
+                <description>Limit number of items</description>
+            </limit>
+        </parameters>
+    </widgetblog>
+</widgets>

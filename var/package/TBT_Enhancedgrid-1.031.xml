@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>TBT_Enhancedgrid</name>
+    <version>1.031</version>
+    <stability>beta</stability>
+    <license>OSL 3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Enhances the product grid to add a bunch of convenient features.</summary>
+    <description>Enhances the product grid to add a bunch of convenient features.</description>
+    <notes>- Fixed bug that printed out the page size at the top of the screen.</notes>
+    <authors><author><name>Jay</name><user>auto-converted</user><email>najibkaake@gmail.com</email></author></authors>
+    <date>2009-01-07</date>
+    <time>01:58:35</time>
+    <contents><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="tbt_enhancedgrid.xml" hash="ef12b7e54560a59ee8a92f7cae2688c4"/></dir><dir name="template"><dir name="tbt"><dir name="enhancedgrid"><dir name="catalog"><dir name="product"><file name="grid.phtml" hash="8e39bb3abd59ef4ba12fdf4d725dda90"/></dir><file name="product.phtml" hash="5fceede9ce2aaee2f33f97f106db4eaa"/></dir></dir></dir></dir></dir></dir></dir></target><target name="mage"><dir name="js"><dir name="tbt"><dir name="enhancedgrid"><dir name="customfunctions"><file name="catalog_products.js" hash="729afeb31499be3f3d8793d8a534040b"/></dir><dir name="resources"><dir name="css"><file name="enhancedgrid.css" hash="a219b0e656329f2407835dbe346f81d3"/></dir></dir><file name="egsupplemental.js" hash="93289d37aad390e8faead0e7c1dcaab8"/><file name="enhancedgrid.js" hash="9ea80af8fbd1a592c550bc93e6f37e57"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="TBT_Enhancedgrid.xml" hash="85a6ca652ec3777aa244a78c1c4fdac4"/></dir></target><target name="magecommunity"><dir name="TBT"><dir name="Enhancedgrid"><dir name="Block"><dir name="Catalog"><dir name="Product"><file name="Grid.php" hash="55307ecfa65ca05302e87340415b9449"/></dir><file name="Product.php" hash="ec3358b2254c1b6448cf6f89ae632a46"/></dir><dir name="Widget"><dir name="Grid"><dir name="Column"><dir name="Filter"><file name="Image.php" hash="b1e25d3e8d03a0869e1c2edf5fcdd761"/></dir><dir name="Renderer"><file name="Action.php" hash="32c3917ad4c07942e9f0d003c6854b2b"/><file name="Image.php" hash="9639860b3ad18b08b835e145c2ec95ea"/></dir></dir><file name="Column.php" hash="51e74c94d0d6599cadd948a054d475af"/></dir></dir></dir><dir name="controllers"><dir name="Catalog"><file name="ProductController.php" hash="70de17f8f9231776508f3b1b7b9fb8e5"/></dir></dir><dir name="etc"><file name="config.xml" hash="f53a8e798213aca49beb10aa8296e962"/><file name="system.xml" hash="c586c2f771c2cde39eddc6767524297e"/></dir><dir name="Helper"><file name="Data.php" hash="5ef9a7ad806e6b25bd34453851a7977e"/></dir><dir name="Model"><dir name="System"><dir name="Config"><dir name="Source"><dir name="Columns"><file name="Show.php" hash="18a3eafdda1d53c942788ccbdfb77746"/></dir><dir name="Sort"><file name="Direction.php" hash="23cb37d1af2dd75c3c9537adf90c1bc8"/></dir></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

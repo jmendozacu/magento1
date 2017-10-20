@@ -1,0 +1,48 @@
+<?php
+/**
+ * @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+ */
+$attributes = $this->getAttibuteOptions();
+$id = $this->getConfig('id');
+$scroll = $this->getConfig('scroll');
+$title = $this->getConfig('widget_title');
+?>
+<div class="brands-container <?php echo $this->getConfig('classes') ?>" id="<?php echo $id ?>">
+    <div class="container">
+        <div class="block-title">
+            <?php if ($title): ?>
+                <h3 class="title"><?php echo $title ?></h3>
+            <?php endif ?>
+        </div>
+        <ul class="<?php echo $scroll == 1 ? 'owl-carousel ' : '' ?>">
+            <?php foreach ($attributes as $attribute): ?>
+                <li>
+                    <?php if (isset($attribute['link'])): ?>
+                    <a href="javascript:void(0);" onclick="location.href='<?php echo $attribute['link']; ?>'"
+                       title="<?php echo $attribute['label'] ?>">
+                        <?php endif ?>
+                        <?php if ($attribute['image']): ?>
+                            <?php if ($scroll == 1): ?>
+                                <img class="img-responsive" alt="<?php echo $attribute['label'] ?>"
+                                     src="<?php echo $attribute['image'] ?>"/>
+                            <?php else: ?>
+                                <img src="<?php echo $attribute['image'] ?>" alt="<?php echo $attribute['label'] ?>"/>
+                            <?php endif ?>
+                        <?php else: ?>
+                            <span><?php echo $attribute['label'] ?></span>
+                        <?php endif ?>
+                        <?php if (isset($attribute['link'])): ?>
+                    </a>
+                <?php endif ?>
+                </li>
+            <?php endforeach ?>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            widgetConfig.init('<?php echo $id ?>', {
+                carousel: <?php echo $this->getConfig('carousel') ?>
+            });
+        });
+    </script>
+</div>

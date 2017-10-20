@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+ */
+-->
+<widgets>
+    <brands type="brands/widget" translate="name description">
+        <name>Ico Widget Brands</name>
+        <parameters>
+            <widget_title translate="label">
+                <label>Widget Title</label>
+                <visible>1</visible>
+                <type>text</type>
+            </widget_title>
+            <cache translate="label description">
+                <label>Cache Lifetime</label>
+                <visible>1</visible>
+                <value>86400</value>
+                <type>text</type>
+                <description>If set, caching this widget (in seconds)</description>
+            </cache>
+            <classes translate="label description">
+                <label>Widget Classes</label>
+                <visible>1</visible>
+                <type>text</type>
+                <description>Custom classes</description>
+            </classes>
+            <attribute translate="label description">
+                <label>Attribute</label>
+                <visible>1</visible>
+                <type>select</type>
+                <source_model>brands/widget_source_attribute</source_model>
+                <description>Select attribute to show</description>
+            </attribute>
+            <attribute_options translate="label description">
+                <label>Attribute Options</label>
+                <visible>1</visible>
+                <type>multiselect</type>
+                <description>Select attribute options to show</description>
+                <helper_block>
+                    <type>brands/adminhtml_widget_renderer_attribute_option</type>
+                    <data>
+                        <target>attribute</target>
+                    </data>
+                </helper_block>
+            </attribute_options>
+            <attribute_link translate="label description">
+                <label>Enable Search Link</label>
+                <visible>1</visible>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+                <description>Enable link to search result page for attribute option value</description>
+            </attribute_link>
+            <scroll translate="label">
+                <label>Enable Carousel</label>
+                <visible>1</visible>
+                <value>0</value>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+                <description>Enable Carousel</description>
+            </scroll>
+            <autoplay translate="label">
+                <label>Slideshow</label>
+                <visible>1</visible>
+                <type>text</type>
+                <depends>
+                    <scroll>
+                        <value>1</value>
+                    </scroll>
+                </depends>
+                <description>Change to any integrer for example 5000 to play every 5 seconds. Leave empty to disable
+                    autoplay.
+                </description>
+            </autoplay>
+            <paging translate="label">
+                <label>Show Paging</label>
+                <visible>1</visible>
+                <value>0</value>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+                <depends>
+                    <scroll>
+                        <value>1</value>
+                    </scroll>
+                </depends>
+                <description>Show pagination</description>
+            </paging>
+            <navigation translate="label">
+                <label>Show Navigation</label>
+                <visible>1</visible>
+                <value>0</value>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+                <depends>
+                    <scroll>
+                        <value>1</value>
+                    </scroll>
+                </depends>
+                <description>Show navigation</description>
+            </navigation>
+            <navigation_prev translate="label">
+                <label>Prev Navigation</label>
+                <visible>1</visible>
+                <type>text</type>
+                <depends>
+                    <scroll>
+                        <value>1</value>
+                    </scroll>
+                    <navigation>
+                        <value>1</value>
+                    </navigation>
+                </depends>
+                <description>Prev navigation text</description>
+            </navigation_prev>
+            <navigation_next translate="label">
+                <label>Next Navigation</label>
+                <visible>1</visible>
+                <type>text</type>
+                <depends>
+                    <scroll>
+                        <value>1</value>
+                    </scroll>
+                    <navigation>
+                        <value>1</value>
+                    </navigation>
+                </depends>
+                <description>Next navigation text</description>
+            </navigation_next>
+            <column translate="label description">
+                <label>Columns</label>
+                <class>validate-number</class>
+                <visible>1</visible>
+                <value>4</value>
+                <type>text</type>
+                <description>Limit number of items on row</description>
+            </column>
+        </parameters>
+    </brands>
+</widgets>

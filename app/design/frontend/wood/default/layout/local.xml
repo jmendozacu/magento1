@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default>
+
+        <reference name="head">
+            <!-- JS -->
+            <!-- jQuery -->
+            <action method="addJs"><script>icotheme/jquery/jquery-1.11.1.min.js</script></action>
+            <!-- Check if ie -->
+            <action method="addItem">
+                <type>js</type>
+                <name>icotheme/jquery/plugins/bootstrap/html5shiv.js</name>
+                <params/>
+                <if>lt IE 9</if>
+            </action>
+            <action method="addItem">
+                <type>js</type>
+                <name>icotheme/jquery/plugins/bootstrap/respond.min.js</name>
+                <params/>
+                <if>lt IE 9</if>
+            </action>
+            <action method="addItem">
+                <type>js</type>
+                <name>icotheme/jquery/plugins/elegantfont/lte-ie7.js</name>
+                <params/>
+                <if>lt IE 7</if>
+            </action>
+
+            <!-- jQuery plugins -->
+            <action method="addJs">
+                <script>icotheme/jquery/plugins/bootstrap/bootstrap.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>icotheme/jquery/plugins/bootstrap/collapse.js</script>
+            </action>
+            <action method="addJs">
+                <script>icotheme/jquery/plugins/bootstrap/dropdown.js</script>
+            </action>
+            <action method="addJs">
+                <script>icotheme/jquery/plugins/scripts.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>icotheme/jquery/plugins/jquery.slide.js</script>
+            </action>
+            <action method="addJs">
+                <script>icotheme/jquery/plugins/jquery.ajaxproducts.js</script>
+            </action>
+            <action method="addJs">
+                <script>icotheme/jquery/plugins/owl-carousel/owl.carousel.js</script>
+            </action>
+            <action method="addJs" ifconfig="nletter/display_options/enable">
+                <script>icotheme/jquery/plugins/jquery.cookie.js</script>
+            </action>
+
+            <!-- CSS: -->
+
+            <!-- Components -->
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/bootstrap/bootstrap.min.css</name>
+                <params/>
+            </action>
+            <!-- Bootstrap RTL -->
+            <action method="addItem" ifconfig="wood/layout/rtl_language">
+                <type>skin_css</type>
+                <name>css/bootstrap/bootstrap-rtl.min.css</name>
+                <params/>
+            </action>
+
+            <action method="addItem" ifconfig="">
+                <type>skin_css</type>
+                <name>css/fontawesome/css/font-awesome.min.css</name>
+                <params/>
+            </action>
+            <action method="addItem" ifconfig="">
+                <type>skin_css</type>
+                <name>css/font_linea_ecommerce.css</name>
+                <params/>
+            </action>
+            <action method="addItem" ifconfig="">
+                <type>skin_css</type>
+                <name>css/font_linea_basic.css</name>
+                <params/>
+            </action>
+            <action method="addItem" ifconfig="">
+                <type>skin_css</type>
+                <name>css/font_linea_arrows.css</name>
+                <params/>
+            </action>
+            <action method="addItem" ifconfig="">
+                <type>skin_css</type>
+                <name>css/elegantfont/css/elegantfont.css</name>
+                <params/>
+            </action>
+            <!-- Non Responsive -->
+            <action method="addCss" ifconfig="wood/layout/responsive" condition="0">
+                <stylesheet>css/bootstrap/non-responsive.css</stylesheet>
+            </action> 
+
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/effect.css</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/ultramegamenu.css</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/accordion.css</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/chosen.css</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/responsive.css</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/customscrollbar.css</name>
+                <params/>
+            </action>
+            <!-- CSS base and Magento overrides -->
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/styles.less</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/icotheme/cloudzoom/css/colorbox.css</name>
+            </action>
+            <action method="addCss">
+                <stylesheet helper="wood/cssgen/getColorFile"/>
+            </action>
+            <action method="addCss">
+                <stylesheet helper="wood/cssgen/getLayoutFile"/>
+            </action>
+            <!-- Custom css -->
+            <action method="addCss" ifconfig="wood/customization/custom_css">
+                <stylesheet>css/custom.css</stylesheet>
+            </action>
+
+        </reference>
+
+        <!-- Footer scripts ====================================================================== -->
+        <reference name="before_body_end">
+            <block type="core/template" name="footer.theme.scripts" template="page/html/footer_theme_scripts.phtml"
+                   before="-"/>
+        </reference>
+
+        <!-- Root containers ====================================================================== -->
+        <reference name="root">
+            <action method="addBodyClass">
+                <className helper="wood/data/getSidebarPos"/>
+            </action>
+            <block type="core/text_list" name="preface" as="preface" translate="label">
+                <label>Page Preface</label>
+            </block>
+            <block type="core/text_list" name="postscript" as="postscript" translate="label">
+                <label>Page Postscript</label>
+            </block>
+            <block type="core/text_list" name="main_top" as="main_top" translate="label">
+                <label>Main Top</label>
+            </block>
+            <block type="core/text_list" name="product_deal" as="product_deal" translate="label">
+                <label>Product Deal Home Page</label>
+            </block>
+            <block type="core/text_list" name="main_bottom" as="main_bottom" translate="label">
+                <label>Main Bottom</label>
+            </block>
+            <block type="core/text_list" name="left_top" as="left_top" translate="label">
+                <label>Left Column Top</label>
+            </block>
+            <block type="core/text_list" name="left_bottom" as="left_bottom" translate="label">
+                <label>Left Column Bottom</label>
+            </block>
+            <block type="core/text_list" name="right_top" as="right_top" translate="label">
+                <label>Right Column Top</label>
+            </block>
+            <block type="core/text_list" name="right_bottom" as="right_bottom" translate="label">
+                <label>Right Column Bottom</label>
+            </block>
+        </reference>
+
+        <!-- Right ====================================================================== -->
+        <reference name="right">
+            <action method="unsetChild">
+                <name>right.permanent.callout</name>
+            </action>
+            <action method="unsetChild">
+                <name>cart_sidebar</name>
+            </action>
+            <action method="unsetChild">
+                <name>catalog.compare.sidebar</name>
+            </action>
+            <action method="unsetChild">
+                <name>right.reports.product.compared</name>
+            </action>
+            <action method="unsetChild">
+                <name>right.reports.product.viewed</name>
+            </action>
+            <action method="unsetChild">
+                <name>wishlist</name>
+            </action>
+            <action method="unsetChild">
+                <name>sale.reorder.sidebar</name>
+            </action>
+            <action method="unsetChild">
+                <name>right.poll</name>
+            </action>
+            <action method="unsetChild">
+                <name>paypal.partner.right.logo</name>
+            </action>
+            <action method="unsetChild">
+                <name>customer_form_mini_login</name>
+            </action>
+        </reference>
+
+        <!-- Left ====================================================================== -->
+        <reference name="left">
+            <action method="unsetChild">
+                <name>left.permanent.callout</name>
+            </action>
+            <action method="unsetChild">
+                <name>tags_popular</name>
+            </action>
+            <action method="unsetChild">
+                <name>left.newsletter</name>
+            </action>
+        </reference>
+        <reference name="left_bottom">
+            <block type="catalog/product_compare_sidebar" name="catalog.compare.sidebar">
+                <action method="setTemplate" ifconfig="wood/sidebar_blocks/compare">
+                    <template>catalog/product/compare/sidebar.phtml</template>
+                </action>
+            </block>
+            <block type="poll/activePoll" name="right.poll">
+                <action method="setPollTemplate" ifconfig="wood/sidebar_blocks/poll">
+                    <template>poll/active.phtml</template>
+                    <type>poll</type>
+                </action>
+                <action method="setPollTemplate" ifconfig="wood/sidebar_blocks/poll">
+                    <template>poll/result.phtml</template>
+                    <type>results</type>
+                </action>
+            </block>
+            <block type="tag/popular" name="tags_popular">
+                <action method="setTemplate" ifconfig="wood/sidebar_blocks/tags">
+                    <template>tag/popular.phtml</template>
+                </action>
+            </block>
+            <block type="wishlist/customer_sidebar" name="wishlist_sidebar" as="wishlist">
+                <action method="setTemplate" ifconfig="wood/sidebar_blocks/wishlist">
+                    <template>wishlist/sidebar.phtml</template>
+                </action>
+            </block>
+            <block type="reports/product_viewed" name="right.reports.product.viewed">
+                <action method="setTemplate" ifconfig="wood/sidebar_blocks/viewed">
+                    <template>reports/product_viewed.phtml</template>
+                </action>
+            </block>
+            <block type="reports/product_compared" name="right.reports.product.compared" as="compared">
+                <action method="setTemplate" ifconfig="wood/sidebar_blocks/compared">
+                    <template>reports/product_compared.phtml</template>
+                </action>
+            </block>
+        </reference>
+
+        <!-- Header ====================================================================== -->
+        <reference name="header">
+            <block type="checkout/cart_sidebar" name="cart_header" template="icotheme/checkout/cart/header/cart.phtml">
+                <action method="addItemRender">
+                    <type>simple</type>
+                    <block>checkout/cart_item_renderer</block>
+                    <template>icotheme/checkout/cart/header/items.phtml</template>
+                </action>
+                <action method="addItemRender">
+                    <type>grouped</type>
+                    <block>checkout/cart_item_renderer_grouped</block>
+                    <template>icotheme/checkout/cart/header/items.phtml</template>
+                </action>
+                <action method="addItemRender">
+                    <type>configurable</type>
+                    <block>checkout/cart_item_renderer_configurable</block>
+                    <template>icotheme/checkout/cart/header/items.phtml</template>
+                </action>
+            </block>
+            <block type="checkout/cart_sidebar" name="cart_mobile" template="icotheme/checkout/cart/header/cart-mobile.phtml">
+                <action method="addItemRender">
+                    <type>simple</type>
+                    <block>checkout/cart_item_renderer</block>
+                    <template>icotheme/checkout/cart/header/items.phtml</template>
+                </action>
+                <action method="addItemRender">
+                    <type>grouped</type>
+                    <block>checkout/cart_item_renderer_grouped</block>
+                    <template>icotheme/checkout/cart/header/items.phtml</template>
+                </action>
+                <action method="addItemRender">
+                    <type>configurable</type>
+                    <block>checkout/cart_item_renderer_configurable</block>
+                    <template>icotheme/checkout/cart/header/items.phtml</template>
+                </action>
+            </block>
+            <block type="directory/currency" name="currency" as="currency" template="directory/currency.phtml"/>
+            <block type="icosearch/widget" name="top.search" as="topSearchMobile" template="icotheme/search/mb_widget.phtml"/>
+        </reference>
+
+        <!-- Add blocks to the footer ====================================================================== -->
+        <reference name="footer">
+            <block type="core/text_list" name="footer_top" as="footer_top" translate="label">
+                <label>Footer Top</label>
+            </block>
+            <block type="core/text_list" name="footer_bottom" as="footer_bottom" translate="label">
+                <label>Footer Bottom</label>
+            </block>
+            <block type="cms/block" name="footer_social_link">
+                <action method="setBlockId">
+                    <block_id>footer_social_link</block_id>
+                </action>
+            </block>
+        </reference>
+    </default>
+
+    <!-- 3 COLUMN PAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <page_three_columns>
+
+        <reference name="right">
+            <action method="unsetChild">
+                <name>paypal.partner.right.logo</name>
+            </action>
+        </reference>
+
+        <reference name="left">
+            <action method="unsetChild">
+                <name>wishlist</name>
+            </action>
+        </reference>
+
+    </page_three_columns>
+
+    <!-- USER LOGGED IN/OUT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <customer_logged_out>
+
+        <reference name="top.links">
+            <action method="addLink" translate="label title">
+                <label>Sign Up</label>
+                <url>customer/account/create</url>
+                <title>Sign Up</title>
+                <prepare>true</prepare>
+                <urlParams/>
+                <position>101</position>
+            </action>
+        </reference>
+
+    </customer_logged_out>
+
+    <!-- PRODUCT VIEW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <ajaxproducts_index_quickview>
+        <reference name="head">
+            <action method="addItem" ifconfig="wood/product_page/zoom_enable">
+                <type>js</type>
+                <file>icotheme/jquery/plugins/elevatezoom/jquery.elevateZoom-3.0.8.min.js</file>
+            </action>
+            <action method="addItem" ifconfig="wood/product_page/zoom_enable">
+                <type>js</type>
+                <file>icotheme/jquery/plugins/owl-carousel/owl.carousel.min.js</file>
+            </action>
+            <action method="addItem" ifconfig="wood/product_page/zoom_enable">
+                <type>js_css</type>
+                <file>icotheme/jquery/plugins/owl-carousel/owl.carousel.css</file>
+            </action>
+        </reference>
+    </ajaxproducts_index_quickview>
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addItem" ifconfig="wood/product_page/zoom_enable">
+                <type>js</type>
+                <file>icotheme/jquery/plugins/elevatezoom/jquery.elevateZoom-3.0.8.min.js</file>
+            </action>
+            <action method="addItem" ifconfig="wood/product_page/zoom_enable">
+                <type>js</type>
+                <file>icotheme/jquery/plugins/owl-carousel/owl.carousel.min.js</file>
+            </action>
+            <action method="addItem" ifconfig="wood/product_page/zoom_enable">
+                <type>js_css</type>
+                <file>icotheme/jquery/plugins/owl-carousel/owl.carousel.css</file>
+            </action>
+        </reference>
+        <!-- Change default template for product view. IMPORTANT: the same as in 'review_product_list'. -->
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+
+        <reference name="right">
+            <action method="unsetChild">
+                <name>catalog.product.related</name>
+            </action>
+        </reference>
+
+        <reference name="product.info.additional">
+            <action method="unsetChild">
+                <name>product_tag_list</name>
+            </action>
+        </reference>
+
+        <reference name="product.info">
+            <!--Add Tabs-->
+            <block type="catalog/product_view_tabs" name="product.info.tabs" as="info_tabs"
+                   template="catalog/product/view/tabs.phtml">
+                <action method="addTab" translate="title" module="catalog">
+                    <alias>description</alias>
+                    <title>More Information</title>
+                    <block>catalog/product_view_description</block>
+                    <template>catalog/product/view/description.phtml</template>
+                </action>
+                <action method="addTab" translate="title" module="catalog">
+                    <alias>upsell_products</alias>
+                    <title>We Also Recommend</title>
+                    <block>catalog/product_list_upsell</block>
+                    <template>catalog/product/list/upsell.phtml</template>
+                </action>
+                <action method="addTab" translate="title" module="catalog">
+                    <alias>tabreviews</alias>
+                    <title>Reviews</title>
+                    <block>review/product_view_list</block>
+                    <template>review/product/view/list.phtml</template>
+                </action>
+                <action method="addTab" translate="title" module="tag">
+                    <alias>tags</alias>
+                    <title>Tags</title>
+                    <block>tag/product_list</block>
+                    <template>tag/list.phtml</template>
+                </action>
+                <action method="addTab" translate="title" module="catalog">
+                    <alias>additional</alias>
+                    <title>Additional Information</title>
+                    <block>catalog/product_view_attributes</block>
+                    <template>catalog/product/view/attributes.phtml</template>
+                </action>
+                <!-- Add custom tabs -->
+                <block type="cms/block" name="block_product_tab1">
+                    <action method="setBlockId">
+                        <block_id>block_product_tab1</block_id>
+                    </action>
+                </block>
+                <block type="cms/block" name="block_product_tab2">
+                    <action method="setBlockId">
+                        <block_id>block_product_tab2</block_id>
+                    </action>
+                </block>
+            </block>
+            <!-- end: Add tabs -->
+            <!-- Review Form -->
+            <reference name="tabreviews">
+                <block type="review/form" name="product.review.form" as="review_form">
+                    <block type="page/html_wrapper" name="product.review.form.fields.before" as="form_fields_before"
+                           translate="label">
+                        <label>Review Form Fields Before</label>
+                        <action method="setMayBeInvisible">
+                            <value>1</value>
+                        </action>
+                    </block>
+                </block>
+            </reference>
+            <!-- end: Review Form -->
+            <block type="cms/block" name="block_product_slidebar_right">
+                <action method="setBlockId">
+                    <block_id>block_product_slidebar_right</block_id>
+                </action>
+            </block>
+            <block type="catalog/product_list_related" name="block_product_related" as="related_products" template="catalog/product/list/related.phtml"/>
+            <block type="cms/block" name="block_replace_related">
+                <action method="setBlockId">
+                    <block_id>block_replace_related</block_id>
+                </action>
+            </block>
+            <block type="cms/block" name="block_replace_upsell">
+                <action method="setBlockId">
+                    <block_id>block_replace_upsell</block_id>
+                </action>
+            </block>
+        </reference>
+    </catalog_product_view>
+
+    <!-- CATEGORY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <!-- Default category (without layered navigation) -->
+    <catalog_category_default>
+
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+
+        <reference name="right">
+            <action method="unsetChild">
+                <name>currency</name>
+            </action>
+        </reference>
+        <reference name="left">
+            <action method="unsetChild">
+                <name>catalog.leftnav</name>
+            </action>
+            <action method="unsetChild">
+                <name>currency</name>
+            </action>
+        </reference>
+
+        <reference name="product_list">
+            <!-- Custom static blocks -->
+            <block type="cms/block" name="block_category_above_collection">
+                <action method="setBlockId">
+                    <block_id>block_category_above_collection</block_id>
+                </action>
+            </block>
+            <!-- end: Add static blocks -->
+        </reference>
+    </catalog_category_default>
+
+    <!-- Category with layered navigation -->
+
+    <catalog_category_layered>
+
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+
+        <reference name="right">
+            <!-- Remove currency switcher from sidebar -->
+            <action method="unsetChild">
+                <name>currency</name>
+            </action>
+        </reference>
+        <reference name="left">
+            <action method="unsetChild">
+                <name>currency</name>
+            </action>
+            <action method="insert">
+                <block>catalog.leftnav</block>
+                <siblingName>ultramegamenu.catnav</siblingName>
+                <after>1</after>
+            </action>
+        </reference>
+
+        <reference name="product_list">
+            <!-- Custom static blocks -->
+            <block type="cms/block" name="block_category_above_collection">
+                <action method="setBlockId">
+                    <block_id>block_category_above_collection</block_id>
+                </action>
+            </block>
+            <!-- end: Add static blocks -->
+        </reference>
+
+    </catalog_category_layered>
+
+    <!-- CART %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <checkout_cart_index>
+
+        <!-- Custom static blocks -->
+        <reference name="checkout.cart">
+            <block type="wood/cart_crosssell" name="checkout.cart.crosssell" as="crosssell" template="checkout/cart/crosssell.phtml">
+                <action method="setLimit"><value>10</value></action>
+            </block>
+        </reference>
+
+    </checkout_cart_index>
+
+    <!-- CHECKOUT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <checkout_onepage_index>
+
+        <!-- Block below progress block, inserted directly -->
+        <reference name="right">
+
+        </reference>
+
+        <!-- Block below progress block, inserted directly -->
+        <reference name="left">
+
+        </reference>
+
+    </checkout_onepage_index>
+    <checkout_onepage_success>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+    </checkout_onepage_success>
+    <!-- SEARCH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+    <!-- Quick search -->
+    <catalogsearch_result_index>
+
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+
+        <reference name="left">
+
+            <!-- Remove currency switcher from sidebar -->
+            <action method="unsetChild">
+                <name>currency</name>
+            </action>
+        </reference>
+
+    </catalogsearch_result_index>
+
+    <!-- Advanced search -->
+    <catalogsearch_advanced_index>
+
+        <!-- Remove (right) currency switcher from sidebar -->
+        <reference name="left">
+            <action method="unsetChild">
+                <name>right_currency</name>
+            </action>
+        </reference>
+
+    </catalogsearch_advanced_index>
+
+    <!-- Advanced search results -->
+    <catalogsearch_advanced_result>
+
+        <!-- Remove (right) currency switcher from RIGHT sidebar -->
+        <reference name="right">
+            <action method="unsetChild">
+                <name>right_currency</name>
+            </action>
+        </reference>
+
+    </catalogsearch_advanced_result>
+
+    <!-- REVIEWS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <review_product_list>
+
+        <!-- IMPORTANT: same as 'catalog_product_view'. -->
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+
+    </review_product_list>
+
+    <!-- CUSTOMER ACCOUNT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <customer_account>
+
+        <reference name="left">
+            <!-- Remove cart from the left column -->
+            <action method="unsetChild">
+                <name>cart_sidebar</name>
+            </action>
+
+            <!-- Remove Compare block, it is already inserted in DEFAULT section -->
+            <action method="unsetChild">
+                <name>catalog.compare.sidebar</name>
+            </action>
+
+            <!-- Remove Order block, it is already inserted in DEFAULT section -->
+            <action method="unsetChild">
+                <name>reorder</name>
+            </action>
+        </reference>
+
+        <reference name="left_bottom">
+            <!-- Remove wishlist from the left column -->
+            <action method="unsetChild">
+                <name>wishlist</name>
+            </action>
+            <!-- Remove compared from the left column -->
+            <action method="unsetChild">
+                <name>catalog.compare.sidebar</name>
+            </action>
+        </reference>
+
+    </customer_account>
+
+    <!-- Sale Order Print %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <sales_order_print>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>css/print.css</name></action>
+            <action method="addItem"><type>skin_css</type><name>css/bootstrap/bootstrap.min.css</name><params/>
+            </action>
+        </reference>
+    </sales_order_print>
+
+    <!-- ALL CMS PAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <cms_page>
+
+        <!-- Custom static blocks -->
+        <reference name="content">
+
+        </reference>
+
+    </cms_page>
+
+    <!-- Remove static blocks displayed on CMS pages from these pages: home page, 404 no route
+        IMPORTANT: make sure that you use correct ID -->
+    <cms_index_noroute>
+
+    </cms_index_noroute>
+    <cms_index_defaultnoroute>
+
+    </cms_index_defaultnoroute>
+    <cms_index_index>
+
+        <!-- Uncomment to allow MAP functionality on home page -->
+        <!--<update handle="MAP_popup" />-->
+    </cms_index_index>
+
+
+    <!-- HOME PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <cms_index_index>
+
+        <!-- Preface ====================================================================== -->
+        <reference name="preface">
+        </reference>
+        <!-- Postscript ====================================================================== -->
+        <reference name="postscript">
+        </reference>
+    </cms_index_index>
+</layout>

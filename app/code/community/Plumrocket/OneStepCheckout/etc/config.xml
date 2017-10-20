@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */ 
+-->
+<config>
+
+	<modules>
+		<Plumrocket_OneStepCheckout>
+			<wiki>http://wiki.plumrocket.com/wiki/One_Step_Checkout_Extension_v1.x</wiki>
+			<version>1.1.0</version>
+		</Plumrocket_OneStepCheckout>
+	</modules>
+
+	<frontend>
+		<layout>
+			<updates>
+				<onestepcheckout>
+					<file>onestepcheckout.xml</file>
+				</onestepcheckout>
+			</updates>
+		</layout>
+
+        <secure_url>
+            <onestepcheckout>/onestepcheckout</onestepcheckout>
+        </secure_url>
+
+		<routers>
+			<onestepcheckout>
+				<use>standard</use>
+				<args>
+					<module>Plumrocket_OneStepCheckout</module>
+					<frontName>onestepcheckout</frontName>
+				</args>
+			</onestepcheckout>
+		</routers>
+
+		<translate>
+			<modules>
+				<Plumrocket_OneStepCheckout>
+					<files>
+						<default>Plumrocket_Onestepcheckout.csv</default>
+					</files>
+				</Plumrocket_OneStepCheckout>
+			</modules>
+		</translate> 
+
+	</frontend>
+
+	<global>
+
+		<helpers>
+			<onestepcheckout>
+				<class>Plumrocket_OneStepCheckout_Helper</class>
+			</onestepcheckout>
+		</helpers>
+		
+		<blocks>
+			<onestepcheckout>
+				<class>Plumrocket_OneStepCheckout_Block</class>
+			</onestepcheckout>
+		</blocks>
+
+		<models>
+			<onestepcheckout>
+				<class>Plumrocket_OneStepCheckout_Model</class>
+			</onestepcheckout>
+			<sales>
+				<rewrite>
+					<quote_address>Plumrocket_OneStepCheckout_Model_Sales_Quote_Address</quote_address>
+				</rewrite>
+			</sales>
+		</models>
+
+		<events>
+			<checkout_type_onepage_save_order_after>
+				<observers>
+					<onestepcheckout>
+						<type>model</type>
+						<class>onestepcheckout/observer</class>
+						<method>checkoutSubscribeEventOnepageSaveOrderAfter</method>
+					</onestepcheckout>
+				</observers>
+			</checkout_type_onepage_save_order_after>
+			<cartreservation_check_on_checkout>
+				<observers>
+					<onestepcheckout>
+						<type>model</type>
+						<class>onestepcheckout/observer</class>
+						<method>chechkRequestPathParams</method>
+					</onestepcheckout>
+				</observers>
+			</cartreservation_check_on_checkout>
+		</events>
+
+	</global>
+
+	<adminhtml>
+		<layout>
+			<updates>
+				<onestepcheckout>
+					<file>onestepcheckout.xml</file>
+				</onestepcheckout>
+			</updates>
+		</layout>
+		<menu>
+			<plumrocket>
+				<title>Plumrocket</title>
+				<sort_order>80</sort_order>
+				<children>
+					<onestepcheckout>
+						<title>One Step Checkout</title>
+						<action>adminhtml/system_config/edit/section/onestepcheckout</action>
+						<sort_order>3010</sort_order>
+					</onestepcheckout>
+				</children>
+			</plumrocket>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<plumrocket>
+							<title>Plumrocket</title>
+							<sort_order>80</sort_order>
+							<children>
+								<onestepcheckout translate="title">
+									<title>One Step Checkout</title>
+									<sort_order>3010</sort_order>
+							   </onestepcheckout>
+							</children>
+						</plumrocket>
+						<system>
+							<children>
+								<config>
+									<children>
+										<onestepcheckout translate="title">
+                                            <title>One Step Checkout Settings</title>
+                                        </onestepcheckout>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+
+	<default>
+		<onestepcheckout>
+			<address_form_settings>
+				<default_country>US</default_country>
+				<display_addresses>two</display_addresses>
+				<address_fields>{"telephone":[1,1],"password":[1,1],"confirm_password":[1,1]}</address_fields>
+				<enable_autocomplete>0</enable_autocomplete>
+			</address_form_settings>
+			<additional_display_settings>
+				<footer_content><![CDATA[<p>2008 - 2015 &copy; Plumrocket Inc. <a title="Privacy Policy" href="{{store url="privacy-policy-cookie-restriction-mode"}}" target="_blank">Privacy Policy</a> | <a title="Terms Of Service" href="{{store url="privacy-policy-cookie-restriction-mode"}}" target="_blank">Terms Of Service</a></p>]]></footer_content>
+			</additional_display_settings>
+			<design_settings>
+				<block_background_color>#ECECEC</block_background_color>
+				<block_head_background_color>#D0E6F9</block_head_background_color>
+				<block_head_text_color>#000000</block_head_text_color>
+				<link_color>#2F4C81</link_color>
+				<link_hover_color>#2F4C81</link_hover_color>
+				<button_background_color>#64A826</button_background_color>
+				<button_border_color>#3C730A</button_border_color>
+				<button_text_color>#FFFFFF</button_text_color>
+				<button_hover_background_color>#589322</button_hover_background_color>
+				<button_hover_text_color>#FFFFFF</button_hover_text_color>
+				<numbers_background_color>#194F7E</numbers_background_color>
+				<numbers_border_color>#073257</numbers_border_color>
+				<numbers_text_color>#FFFFFF</numbers_text_color>
+			</design_settings>
+		</onestepcheckout>
+	</default>
+
+</config>

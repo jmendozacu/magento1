@@ -1,0 +1,84 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+<script type="text/javascript">
+//<![CDATA[
+    var quoteBaseGrandTotal = <?php echo (float)$this->getQuoteBaseGrandTotal(); ?>;
+    var checkQuoteBaseGrandTotal = quoteBaseGrandTotal;
+    Payment.prototype.switchMethod = function(method){
+        if (this.currentMethod && $('payment_form_'+this.currentMethod)) {
+            this.changeVisible(this.currentMethod, true);
+            $('payment_form_'+this.currentMethod).fire('payment-method:switched-off', {method_code : this.currentMethod});
+        }
+        if ($('payment_form_'+method)){
+            this.changeVisible(method, false);
+            $('payment_form_'+method).fire('payment-method:switched', {method_code : method});
+        } else {
+            //Event fix for payment methods without form like "Check / Money order"
+            document.body.fire('payment-method:switched', {method_code : method});
+        }
+        if (method) {
+            this.lastUsedMethod = method;
+        }
+        this.currentMethod = method;
+        pjQuery_1_10_2('.payment-button').removeClass('active');
+        pjQuery_1_10_2('.button-'+method).addClass('active');
+    };
+    var payment = new Payment('co-payment-form', '<?php echo $this->getUrl('onestepcheckout/checkout/savePayment') ?>');
+    var lastPrice;
+//]]>
+</script>
+
+<form action="" id="co-payment-form">
+    <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" id="tvformkey" />
+    <input type="hidden" name="rycsite" value="ryc" id="tvrycsite" />
+    <?php echo $this->getChildHtml('methods') ?>
+</form>
+
+<div class="tool-tip" id="payment-tool-tip" style="display:none;">
+    <div class="btn-close"><a href="#" id="payment-tool-tip-close" title="<?php echo $this->__('Close') ?>"><?php echo $this->__('Close') ?></a></div>
+    <div class="tool-tip-content"><img src="<?php echo $this->getSkinUrl('images/cvv.gif') ?>" alt="<?php echo $this->__('Card Verification Number Visual Reference') ?>" title="<?php echo $this->__('Card Verification Number Visual Reference') ?>" /></div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+    function toggleToolTip(event){
+        if($('payment-tool-tip')){
+            $('payment-tool-tip').setStyle({
+                top: (Event.pointerY(event)+7)+'px'//,
+                //left: (Event.pointerX(event)+100)+'px'
+            })
+            $('payment-tool-tip').toggle();
+        }
+        Event.stop(event);
+    }
+    if($('payment-tool-tip-close')){
+        Event.observe($('payment-tool-tip-close'), 'click', toggleToolTip);
+    }
+    $$('.cvv-what-is-this').each(function(element){
+            Event.observe(element, 'click', toggleToolTip);
+    });
+//]]>
+</script>
+<?php if ($cM = $this->getChild('methods')->getSelectedMethodCode()) { ?>
+<script type="text/javascript">
+//<![CDATA[
+    payment.currentMethod = "<?php echo $cM ?>";
+//]]>
+</script>
+<?php } ?>

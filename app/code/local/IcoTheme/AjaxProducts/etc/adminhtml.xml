@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+ * @copyright    Copyright (C) 2015 IcoTheme.com. All Rights Reserved.
+ */
+-->
+<config>
+    <acl>
+	<resources>
+	    <all>
+			<title>Allow Everything</title>
+		</all>
+	    <admin>
+            <children>
+                <system>
+                <children>
+                    <config>
+                        <children>
+                            <ajaxproducts>
+                            <title>Ajax Products</title>
+                            </ajaxproducts>
+                        </children>
+                    </config>
+                </children>
+                </system>
+                <icotheme translate="title" module="ajaxproducts">
+                    <title>IcoTheme</title>
+                    <sort_order>71</sort_order>
+                    <children>
+                        <ajaxproducts translate="title" module="ajaxproducts">
+                            <title>Ajax Cart</title>
+                            <children>
+                                <configuration translate="title" module="ajaxproducts">
+                                    <title>AjaxProducts Settings</title>
+                                    <sort_order>1</sort_order>
+                                    <action>adminhtml/system_config/edit/section/ajaxproducts</action>
+                                </configuration>
+                            </children>
+                        </ajaxproducts>
+                    </children>
+                </icotheme>
+            </children>
+	    </admin>
+	</resources>
+    </acl>
+</config>

@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright    Copyright (C) 2015 IcoTheme.com. All Rights Reserved.
+ */
+-->
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/app.js</name>
+            </action>
+        </reference>
+    </catalog_product_view>
+    <ajaxproducts_index_quickview>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/app.js</name>
+            </action>
+        </reference>
+    </ajaxproducts_index_quickview>
+    <catalog_category_default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/app.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/product-media.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/swatches-list.js</name>
+            </action>
+        </reference>
+        <reference name="product_list">
+            <block type="core/text_list" name="product_list.name.after" as="name.after"/>
+            <block type="core/text_list" name="product_list.after" as="after"/>
+        </reference>
+        <reference name="product_list.name.after">
+            <block type="core/template" name="product_list.swatches"
+                   template="icotheme/colorswatches/catalog/product/list/swatches.phtml"/>
+        </reference>
+        <reference name="product_list.after">
+            <block type="colorswatches/catalog_media_js_list" name="colorswatches.media.js.list"/>
+        </reference>
+    </catalog_category_default>
+
+    <catalog_category_layered>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/app.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/product-media.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/swatches-list.js</name>
+            </action>
+        </reference>
+        <reference name="catalog.leftnav">
+            <block type="core/text_list" name="catalog.leftnav.state.renderers" as="state_renderers"/>
+        </reference>
+        <reference name="product_list">
+            <block type="core/text_list" name="product_list.name.after" as="name.after"/>
+            <block type="core/text_list" name="product_list.after" as="after"/>
+        </reference>
+        <reference name="product_list.name.after">
+            <block type="core/template" name="product_list.swatches"
+                   template="icotheme/colorswatches/catalog/product/list/swatches.phtml"/>
+        </reference>
+        <reference name="product_list.after">
+            <block type="colorswatches/catalog_media_js_list" name="colorswatches.media.js.list"/>
+        </reference>
+    </catalog_category_layered>
+
+    <catalogsearch_result_index>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/app.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/product-media.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/swatches-list.js</name>
+            </action>
+        </reference>
+        <reference name="catalogsearch.leftnav">
+            <block type="core/text_list" name="catalog.leftnav.state.renderers" as="state_renderers"/>
+        </reference>
+        <reference name="product_list">
+            <block type="core/text_list" name="product_list.name.after" as="name.after"/>
+            <block type="core/text_list" name="product_list.after" as="after"/>
+        </reference>
+        <reference name="product_list.name.after">
+            <block type="core/template" name="product_list.swatches"
+                   template="icotheme/colorswatches/catalog/product/list/swatches.phtml"/>
+        </reference>
+        <reference name="product_list.after">
+            <block type="colorswatches/catalog_media_js_list" name="colorswatches.media.js.list"/>
+        </reference>
+    </catalogsearch_result_index>
+
+    <catalogsearch_advanced_result>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/app.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/product-media.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/swatches-list.js</name>
+            </action>
+        </reference>
+        <reference name="catalogsearch.leftnav">
+            <block type="core/text_list" name="catalog.leftnav.state.renderers" as="state_renderers"/>
+        </reference>
+        <reference name="product_list">
+            <block type="core/text_list" name="product_list.name.after" as="name.after"/>
+            <block type="core/text_list" name="product_list.after" as="after"/>
+        </reference>
+        <reference name="product_list.name.after">
+            <block type="core/template" name="product_list.swatches"
+                   template="icotheme/colorswatches/catalog/product/list/swatches.phtml"/>
+        </reference>
+        <reference name="product_list.after">
+            <block type="colorswatches/catalog_media_js_list" name="colorswatches.media.js.list"/>
+        </reference>
+    </catalogsearch_advanced_result>
+
+    <PRODUCT_TYPE_configurable translate="label" module="catalog">
+        <label>Catalog Product View (Configurable)</label>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/app.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/product-media.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/colorswatches/swatches-product.js</name>
+            </action>
+        </reference>
+        <reference name="product.info.media">
+            <action method="setGalleryFilterHelper">
+                <helper>colorswatches/productimg</helper>
+            </action>
+            <action method="setGalleryFilterMethod">
+                <method>filterImageInGallery</method>
+            </action>
+            <block type="core/text_list" name="product.info.media.after" as="after"/>
+        </reference>
+        <reference name="product.info.media.after">
+            <block type="colorswatches/catalog_media_js_product" name="colorswatches.media.js.product"/>
+        </reference>
+        <reference name="product.info">
+            <block type="catalog/product_view_type_configurable" name="product.info.configurable" as="product_type_data"
+                   template="catalog/product/view/type/default.phtml">
+                <block type="core/text_list" name="product.info.configurable.extra" as="product_type_data_extra"
+                       translate="label">
+                    <label>Product Extra Info</label>
+                </block>
+            </block>
+            <block type="catalog/product_view_type_configurable" name="product.info.availability"
+                   as="product_type_availability" template="catalog/product/view/type/availability/default.phtml"/>
+        </reference>
+        <reference name="product.info.options.wrapper">
+            <block type="catalog/product_view_type_configurable" name="product.info.options.configurable"
+                   as="options_configurable" before="-" template="catalog/product/view/type/options/configurable.phtml">
+                <block type="core/text_list" name="product.info.options.configurable.renderers" as="attr_renderers"/>
+                <block type="core/text_list" name="product.info.options.configurable.after" as="after"/>
+            </block>
+        </reference>
+        <reference name="product.info.options.configurable.renderers">
+            <block type="colorswatches/catalog_product_view_type_configurable_swatches"
+                   template="icotheme/colorswatches/catalog/product/view/type/options/configurable/swatches.phtml"/>
+        </reference>
+        <reference name="product.info.options.configurable.after">
+            <block type="core/template"
+                   template="icotheme/colorswatches/catalog/product/view/type/configurable/swatch-js.phtml"/>
+        </reference>
+    </PRODUCT_TYPE_configurable>
+
+</layout>

@@ -1,0 +1,80 @@
+#sortable-attributes,
+#sortable-searchable {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+  padding: 0px;
+  width: 187px;
+  box-sizing: border-box;
+  height: 211px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: 1px solid #aaa;
+}
+
+#sortable-attributes {
+  margin: 0 10px 0px 5px;
+}
+
+#sortable-attributes li,
+#sortable-searchable li {
+  line-height: 20px;
+  border-bottom: 1px solid #ccc;
+  font-size: 12px;
+  margin: 0;
+  padding: 0 0 0 5px;
+}
+
+#sortable-searchable li.ui-sortable-placeholder {
+  background-color: #edfcff;
+  border: 1px solid #007e97;
+  visibility: visible!important;
+}
+
+#sortable-attributes li:hover,
+#sortable-searchable li:hover {
+  background: #F6F6F6;
+  cursor: pointer;
+}
+
+.div-attributes,
+.div-searchable {
+  width: 187px;
+  float: left;
+  font-weight: bold;
+}
+
+.psearch-form {clear:left;}
+
+.div-attributes {
+  margin: 0 10px 0 5px;
+}
+
+#row_psearch_search_product_attributes_comment .scope-label {
+  display: none;
+}
+
+#row_psearch_search_product_attributes_comment td {
+  padding-top: 0px !important;
+}
+
+#psearch_general_additional_tab_general_additional table {
+  border-collapse: collapse;
+  width: 650px;
+}
+
+#psearch_general_additional_tab_general_additional table tr td {
+  border: 1px solid #DCDCDC;
+  padding: 3px 8px;
+  vertical-align: middle;
+}
+
+#psearch_general_additional_tab_general_additional table tr td.psearch-info-path {
+  text-align: center;
+}
+
+/* For Magento v.1.6.2 */
+#row_psearch_general_general_additional_tab input[type=text] {
+  display: none;
+}

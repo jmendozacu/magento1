@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+ */
+-->
+<config>
+    <modules>
+        <IcoTheme_Brands>
+            <version>1.0.0</version>
+        </IcoTheme_Brands>
+    </modules>
+
+    <frontend>
+        <routers>
+            <brands>
+                <use>standard</use>
+                <args>
+                    <module>IcoTheme_Brands</module>
+                    <frontName>brands</frontName>
+                </args>
+            </brands>
+        </routers>
+        <layout>
+            <updates>
+                <brands>
+                    <file>ico_brands.xml</file>
+                </brands>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <models>
+            <brands>
+                <class>IcoTheme_Brands_Model</class>
+            </brands>
+            <catalog_resource>
+                <rewrite>
+                    <attribute>IcoTheme_Brands_Model_Resource_Attribute</attribute>
+                </rewrite>
+            </catalog_resource>
+        </models>
+        <blocks>
+            <brands>
+                <class>IcoTheme_Brands_Block</class>
+            </brands>
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_attribute_edit_tab_options>IcoTheme_Brands_Block_Adminhtml_Catalog_Product_Attribute_Edit_Tab_Options</catalog_product_attribute_edit_tab_options>
+                    <cms_wysiwyg_images_content>IcoTheme_Brands_Block_Adminhtml_Cms_Wysiwyg_Images_Content</cms_wysiwyg_images_content>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <helpers>
+            <brands>
+                <class>IcoTheme_Brands_Helper</class>
+            </brands>
+            <cms>
+                <rewrite>
+                    <wysiwyg_images>IcoTheme_Brands_Helper_Cms_Wysiwyg_Images</wysiwyg_images>
+                </rewrite>
+            </cms>
+        </helpers>
+        <resources>
+            <brands_setup>
+                <setup>
+                    <module>IcoTheme_Brands</module>
+                </setup>
+            </brands_setup>
+        </resources>
+    </global>
+
+    <admin>
+        <routers>
+            <brands>
+                <use>admin</use>
+                <args>
+                    <module>IcoTheme_Brands</module>
+                    <frontName>brands</frontName>
+                </args>
+            </brands>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <events>
+            <controller_action_layout_render_before_adminhtml_catalog_product_attribute_edit>
+                <observers>
+                    <brands>
+                        <class>IcoTheme_Brands_Model_Observer</class>
+                        <method>updateLayout</method>
+                    </brands>
+                </observers>
+            </controller_action_layout_render_before_adminhtml_catalog_product_attribute_edit>
+        </events>
+        <layout>
+            <updates>
+                <brands>
+                    <file>ico_brands.xml</file>
+                </brands>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <default>
+        <brands>
+            <general>
+                <show>0</show>
+            </general>
+        </brands>
+    </default>
+</config>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SydneyEcommerce_AntiFraud>
+            <version>0.1.0</version>
+        </SydneyEcommerce_AntiFraud>
+    </modules>
+    <global>
+        <helpers>
+            <antifraud>
+                <class>SydneyEcommerce_AntiFraud_Helper</class>
+            </antifraud>
+        </helpers>
+        <blocks>
+            <antifraud>
+                <class>SydneyEcommerce_AntiFraud_Block</class>
+            </antifraud>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_grid>SydneyEcommerce_AntiFraud_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+    </global>
+</config> 

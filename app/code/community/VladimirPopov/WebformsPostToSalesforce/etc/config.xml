@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <VladimirPopov_WebformsPostToSalesforce>
+            <version>1.0.0</version>
+        </VladimirPopov_WebformsPostToSalesforce>
+    </modules>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+            </resources>
+        </acl>
+    </adminhtml>
+    <global>
+        <models>
+            <webformsposttosalesforce>
+                <class>VladimirPopov_WebformsPostToSalesforce_Model</class>
+            </webformsposttosalesforce>
+        </models>
+        <events>
+            <webforms_result_submit>
+                <observers>
+                    <webformsreviews_result_submit_observer>
+                        <type>singleton</type>
+                        <class>VladimirPopov_WebformsPostToSalesforce_Model_Observer</class>
+                        <method>postWebForm</method>
+                    </webformsreviews_result_submit_observer>
+                </observers>
+            </webforms_result_submit>
+        </events>
+    </global>
+</config>

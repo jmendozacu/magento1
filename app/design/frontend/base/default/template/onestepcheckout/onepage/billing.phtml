@@ -1,0 +1,361 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+
+<form id="co-billing-form" action="">
+<fieldset>
+    <ul class="form-list">
+    <?php if ($this->customerHasAddresses()): ?>
+        <li class="wide">
+            <label for="billing-address-select"><?php echo $this->__('Select a billing address from your address book or enter a new address.') ?></label>
+            <div class="input-box">
+                <?php echo $this->getAddressesHtmlSelect('billing') ?>
+            </div>
+        </li>
+    <?php endif; ?>
+    <li id="billing-new-address-form"<?php if ($this->customerHasAddresses()): ?> style="display:none;"<?php endif; ?>>
+        <fieldset>
+            <input type="hidden" name="billing[address_id]" value="<?php echo $this->getAddress()->getId() ?>" id="billing:address_id" />
+            <ul>
+                <li class="fields"><?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getAddress()->getFirstname() ? $this->getAddress() : $this->getQuote()->getCustomer())->setForceUseCustomerRequiredAttributes(!$this->isCustomerLoggedIn())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?></li>
+                <?php if ( $this->helper('onestepcheckout')->getConfigAddressFieldEnable('company') ) { ?>
+                <li class="fields">
+                    <div class="field">
+                        <label for="billing:company"<?php echo ($this->helper('onestepcheckout')->getConfigAddressFieldRequired('company'))? ' class="required"' : ''; ?>>
+                            <?php echo ($this->helper('onestepcheckout')->getConfigAddressFieldRequired('company'))? '<em>*</em>' : ''; ?>
+                            <?php echo $this->__('Company') ?>
+                        </label>
+                        <div class="input-box">
+                            <input type="text" id="billing:company" name="billing[company]" value="<?php echo $this->escapeHtml($this->getAddress()->getCompany()) ?>" title="<?php echo $this->__('Company') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('company') ?><?php echo ($this->helper('onestepcheckout')->getConfigAddressFieldRequired('company'))? ' required-entry' : ''; ?>" />
+                        </div>
+                    </div>
+                </li>
+                <?php } ?>
+        <?php if(!$this->isCustomerLoggedIn()): ?>
+                <li class="wide">
+                    <label for="billing:email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
+                    <div class="input-box">
+                        <input type="text" name="billing[email]" id="billing:email" value="<?php echo $this->escapeHtml($this->getAddress()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="input-text validate-email validate-email-exist required-entry" />
+                    </div>
+                </li>
+                <?php if (!$this->getQuote()->isAllowedGuestCheckout() 
+                        && ($this->helper('onestepcheckout')->getConfigAddressFieldEnable('password') 
+                        ||  $this->helper('onestepcheckout')->getConfigAddressFieldEnable('confirm_password'))
+                ){ ?>
+                <li class="fields" id="register-customer-password">
+                    <?php if ( $this->helper('onestepcheckout')->getConfigAddressFieldEnable('password') ) { ?>
+                    <div class="field">
+                        <label for="billing:customer_password" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+                        <div class="input-box">
+                            <input type="password" name="billing[customer_password]" id="billing:customer_password" title="<?php echo $this->__('Password') ?>" class="input-text required-entry validate-password" />
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <?php if ( $this->helper('onestepcheckout')->getConfigAddressFieldEnable('confirm_password') ) { ?>
+                    <div class="field">
+                        <label for="billing:confirm_password" class="required"><em>*</em><?php echo $this->__('Confirm Password') ?></label>
+                        <div class="input-box">
+                            <input type="password" name="billing[confirm_password]" title="<?php echo $this->__('Confirm Password') ?>" id="billing:confirm_password" class="input-text required-entry validate-cpassword" />
+                        </div>
+                    </div>
+                    <?php } ?>
+                </li>
+                <?php } ?>
+        <?php endif; ?>
+        <?php $_streetValidationClass = $this->helper('customer/address')->getAttributeValidationClass('street'); ?>
+                <li class="wide">
+                    <label for="billing:street1" class="required"><em>*</em><?php echo $this->__('Address') ?></label>
+                    <div class="input-box">
+                        <input type="text" title="<?php echo $this->__('Street Address') ?>" name="billing[street][]" id="billing:street1" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>" class="input-text <?php echo $_streetValidationClass ?> needUpdate" />
+                    </div>
+                </li>
+        <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
+        <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
+                <li class="wide">
+                    <div class="input-box">
+                        <input type="text" title="<?php echo $this->__('Street Address %s', $_i) ?>" name="billing[street][]" id="billing:street<?php echo $_i ?>" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>" class="input-text <?php echo $_streetValidationClass ?>" />
+                    </div>
+                </li>
+        <?php endfor; ?>
+                <?php if ($this->helper('customer/address')->isVatAttributeVisible()) : ?>
+                <li class="wide">
+                    <label for="billing:vat_id"><?php echo $this->__('VAT Number') ?></label>
+                    <div class="input-box">
+                        <input type="text" id="billing:vat_id" name="billing[vat_id]" value="<?php echo $this->escapeHtml($this->getAddress()->getVatId()) ?>" title="<?php echo $this->__('VAT Number') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('vat_id') ?>" />
+                    </div>
+                </li>
+                <?php endif; ?>
+                <li class="fields">
+                    <div class="field">
+                        <label for="billing:city" class="required"><em>*</em><?php echo $this->__('City') ?></label>
+                        <div class="input-box">
+                            <input type="text" title="<?php echo $this->__('City') ?>" name="billing[city]" value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('city') ?> needUpdate" id="billing:city" />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="billing:region_id" class="required"><em>*</em><?php echo $this->__('State/Province') ?></label>
+                        <div class="input-box">
+                            <select id="billing:region_id" name="billing[region_id]" title="<?php echo $this->__('State/Province') ?>" class="validate-select needUpdate" style="display:none;">
+                                <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
+                            </select>
+                            <script type="text/javascript">
+                            //<![CDATA[
+                                $('billing:region_id').setAttribute('defaultValue',  "<?php echo $this->getAddress()->getRegionId() ?>");
+                            //]]>
+                            </script>
+                            <input type="text" id="billing:region" name="billing[region]" value="<?php echo $this->escapeHtml($this->getAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('region') ?> needUpdate" style="display:none;" />
+                        </div>
+                    </div>
+                </li>
+                <li class="fields">
+                    <div class="field">
+                        <label for="billing:postcode" class="required"><em>*</em><?php echo $this->__('Zip/Postal Code') ?></label>
+                        <div class="input-box">
+                            <input type="text" title="<?php echo $this->__('Zip/Postal Code') ?>" name="billing[postcode]" id="billing:postcode" value="<?php echo $this->escapeHtml($this->getAddress()->getPostcode()) ?>" class="input-text validate-zip-international <?php echo $this->helper('customer/address')->getAttributeValidationClass('postcode') ?> needUpdate" />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="billing:country_id" class="required"><em>*</em><?php echo $this->__('Country') ?></label>
+                        <div class="input-box">
+                            <?php echo $this->getCountryHtmlSelect('billing') ?>
+                        </div>
+                    </div>
+                </li>
+                <?php if ( $this->helper('onestepcheckout')->getConfigAddressFieldEnable('telephone') 
+                            ||  $this->helper('onestepcheckout')->getConfigAddressFieldEnable('fax')
+                ) { ?>
+                <li class="fields">
+                    <?php if ( $this->helper('onestepcheckout')->getConfigAddressFieldEnable('telephone') ) { ?>
+                    <div class="field">
+                        <label for="billing:telephone"<?php echo ($this->helper('onestepcheckout')->getConfigAddressFieldRequired('telephone'))? ' class="required"' : ''; ?>>
+                            <?php echo ($this->helper('onestepcheckout')->getConfigAddressFieldRequired('telephone'))? '<em>*</em>' : ''; ?>
+                            <?php echo $this->__('Telephone') ?>
+                        </label>
+                        <div class="input-box">
+                            <?php $_telephoneValidationClass = $this->helper('customer/address')->getAttributeValidationClass('telephone');
+                            if (!$this->helper('onestepcheckout')->getConfigAddressFieldRequired('telephone')) {
+                                $_telephoneValidationClass = trim(str_replace('required-entry', '', $_telephoneValidationClass));
+                            } ?>
+                            <input type="text" name="billing[telephone]" value="<?php echo $this->escapeHtml($this->getAddress()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="input-text <?php echo $_telephoneValidationClass; ?>" id="billing:telephone" />
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <?php if ( $this->helper('onestepcheckout')->getConfigAddressFieldEnable('fax') ) { ?>
+                    <div class="field">
+                        <label for="billing:fax"<?php echo ($this->helper('onestepcheckout')->getConfigAddressFieldRequired('fax'))? ' class="required"' : ''; ?>>
+                            <?php echo ($this->helper('onestepcheckout')->getConfigAddressFieldRequired('fax'))? '<em>*</em>' : ''; ?>
+                            <?php echo $this->__('Fax') ?>
+                        </label>
+                        <div class="input-box">
+                            <input type="text" name="billing[fax]" value="<?php echo $this->escapeHtml($this->getAddress()->getFax()) ?>" title="<?php echo $this->__('Fax') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('fax') ?><?php echo ($this->helper('onestepcheckout')->getConfigAddressFieldRequired('fax'))? ' required-entry' : ''; ?>" id="billing:fax" />
+                        </div>
+                    </div>
+                    <?php } ?>
+                </li>
+                <?php } ?>
+                <?php if(!$this->isCustomerLoggedIn()): ?>
+
+                <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+                <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
+                    <?php if ($_dob->isEnabled() || $_gender->isEnabled()): ?>
+                        <li class="fields">
+                        <?php if ($_dob->isEnabled()): ?>
+                            <div class="field">
+                                <?php echo $_dob->setDate($this->getQuote()->getCustomerDob())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if ($_gender->isEnabled()): ?>
+                            <div class="field">
+                                <?php echo $_gender->setGender($this->getQuote()->getCustomerGender())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
+                            </div>
+                        <?php endif ?>
+                        </li>
+                    <?php endif ?>
+
+                <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+                <?php if ($_taxvat->isEnabled()): ?>
+                        <li>
+                            <?php echo $_taxvat->setTaxvat($this->getQuote()->getCustomerTaxvat())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
+                        </li>
+                <?php endif ?>
+
+                <?php endif; ?>
+                <?php if ($this->isCustomerLoggedIn() && $this->customerHasAddresses()):?>
+                    <li class="control">
+                        <input type="checkbox" name="billing[save_in_address_book]" value="1" title="<?php echo $this->__('Save in address book') ?>" id="billing:save_in_address_book" <?php if ($this->getAddress()->getSaveInAddressBook()):?> checked="checked"<?php endif;?> class="checkbox" /><label for="billing:save_in_address_book"><?php echo $this->__('Save in address book') ?></label>
+                    </li>
+                <?php else:?>
+                    <li class="no-display"><input type="hidden" name="billing[save_in_address_book]" value="1" /></li>
+                <?php endif; ?>
+
+                <?php if( !$this->isCustomerLoggedIn() && $this->getQuote()->isAllowedGuestCheckout() ){ ?>
+                    <li class="wide">
+                        <input type="checkbox" name="checkout_method" id="checkout_method" value="guest" class="checkbox" />
+                        <label for="checkout_method"><?php echo $this->__('Create an account for later use') ?></label>
+                    </li>
+                    <?php if ( $this->helper('onestepcheckout')->getConfigAddressFieldEnable('password') 
+                                ||  $this->helper('onestepcheckout')->getConfigAddressFieldEnable('confirm_password')
+                    ){ ?>
+                    <li class="fields" id="register-customer-password" style="display:none">
+                        <?php if ( $this->helper('onestepcheckout')->getConfigAddressFieldEnable('password') ) { ?>
+                        <div class="field">
+                            <label for="billing:customer_password" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+                            <div class="input-box">
+                                <input type="password" name="billing[customer_password]" id="billing:customer_password" title="<?php echo $this->__('Password') ?>" class="input-text required-entry validate-password" />
+                            </div>
+                        </div>
+                        <?php } ?>
+                        <?php if ( $this->helper('onestepcheckout')->getConfigAddressFieldEnable('confirm_password') ) { ?>
+                        <div class="field">
+                            <label for="billing:confirm_password" class="required"><em>*</em><?php echo $this->__('Confirm Password') ?></label>
+                            <div class="input-box">
+                                <input type="password" name="billing[confirm_password]" title="<?php echo $this->__('Confirm Password') ?>" id="billing:confirm_password" class="input-text required-entry validate-cpassword" />
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </li>
+                    <?php } ?>
+                <?php } else { ?>
+                    <li class="no-display">
+                        <input type="hidden" name="checkout_method" id="checkout_method" value="register" checked="checked" />
+                    </li>
+                <?php } ?>
+
+                <?php echo $this->getChildHtml('form.additional.info'); ?>
+            </ul>
+        </fieldset>
+    </li>
+    <?php if($this->helper('onestepcheckout')->getConfigShowSubscribe() && (!$this->isCustomerLoggedIn() || !$this->helper('onestepcheckout')->customerSubscribed())) { ?>
+    <li class="wide">
+        <div class="billing-subscribe">
+            <input type="checkbox" name="billing[subscribe]" id="billing:subscribe" value="1" checked="checked" class="checkbox">
+            <label for="billing:subscribe"><?php echo $this->__('Receive product updates and special discounts') ?></label>
+        </div>
+    </li>
+    <?php } ?>
+    <?php /* Extensions placeholder */ ?>
+    <?php echo $this->getChildHtml('checkout.onepage.billing.extra')?>
+
+    </ul>
+
+</fieldset>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var billing = new Billing('co-billing-form', '<?php echo $this->getUrl('onestepcheckout/checkout/getAddress') ?>address/');
+    var billingForm = new VarienForm('co-billing-form');
+
+    //billingForm.setElementsRelation('billing:country_id', 'billing:region', '<?php echo $this->getUrl('directory/json/childRegion') ?>', '<?php echo $this->__('Select State/Province...') ?>');
+    $('billing-address-select') && billing.newAddress(!$('billing-address-select').value);
+
+    var billingRegionUpdater = new RegionUpdater('billing:country_id', 'billing:region', 'billing:region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'billing:postcode');
+
+    $('billing:country_id').value = '<?php echo ( $this->getAddress()->getCountryId() ) ? $this->getAddress()->getCountryId() : $this->helper("onestepcheckout")->getConfigGetDefaultCountry();?>';
+    $('billing:country_id').addClassName('needUpdate');
+    billingRegionUpdater.update();
+
+    pjQuery_1_10_2(function(){
+
+        document.body.fire('login:setMethod', {method : pjQuery_1_10_2('#checkout_method').val()});
+
+        pjQuery_1_10_2("#checkout_method").on('click', function(){
+            var $this = pjQuery_1_10_2(this);
+            if ($this.is(':checked')) {
+                $this.val('register');
+                document.body.fire('login:setMethod', {method : 'register'});
+                pjQuery_1_10_2('#register-customer-password').show();
+            } else {
+                $this.val('guest');
+                document.body.fire('login:setMethod', {method : 'guest'});
+                pjQuery_1_10_2('#register-customer-password').hide();
+            }
+        });
+
+        function preSaveBilling($element) 
+        {
+            sabEl = document.getElementById('shipping:same_as_billing');
+            if ( pjQuery_1_10_2(sabEl).is(':checked') ) {
+                shipping.setSameAsBilling(true);
+            }
+            if ( checkout.isFilledForm('#co-billing-form') ){
+                if ( !filedForms['#co-billing-form'] || $element.hasClass('needUpdate') ) {
+                    checkout.preSave(0);
+                }
+                filedForms['#co-billing-form'] = true;
+            } else {
+                filedForms['#co-billing-form'] = false;
+            }
+        }
+
+        var billingTimeout;
+        var billingLastUpdated;
+        pjQuery_1_10_2("#co-billing-form [name^='billing']").on('keyup', function(){
+            var $this = pjQuery_1_10_2(this);
+            if (!$this.hasClass('checkbox')){
+                clearTimeout(billingTimeout);
+                billingTimeout = setTimeout(function(){preSaveBilling($this); billingLastUpdated = $this.val();}, 2000);
+            }
+        });
+
+        pjQuery_1_10_2("#co-billing-form [name^='billing']").on('change', function(){
+            var $this = pjQuery_1_10_2(this);
+            if (!$this.hasClass('checkbox')){
+                clearTimeout(billingTimeout);
+                if ( billingLastUpdated != $this.val() ){
+                    preSaveBilling($this);
+                }
+                billingLastUpdated = null;
+            }
+        });
+
+        var el = document.getElementById('billing:email');
+        pjQuery_1_10_2(el).blur(function(){
+            var $el = pjQuery_1_10_2(this);
+            if (!$el.val().trim()) return;
+            Validation.validate(el);
+            if (!validate_email_exist_results[el] && $('goto-popuplogin')) {
+                Event.observe($('goto-popuplogin'), 'click', function(){
+                    pjQuery_1_10_2('#popuplogin-link').click();
+                });
+            }
+        });
+
+        validate_email_exist_results = {};
+        Validation.add(
+            'validate-email-exist',
+            '<?php echo $this->__("Customer with this email address already exists. Please enter another email address or <a %s>login</a> to your account.", "href=\"javascript:void(0);\" id=\"goto-popuplogin\""); ?>',
+            function(the_field_value){
+
+            if (typeof validate_email_exist_results[the_field_value] == 'undefined') {
+                var res = true;
+                pjQuery_1_10_2.ajax({
+                    data : {email:the_field_value},
+                    dataType : 'json',
+                    url : '<?php echo $this->getUrl("onestepcheckout/checkout/customerExist"); ?>',
+                    async : false,
+                    success : function(data) {
+                        res = !data.result;
+                    }
+                });
+                validate_email_exist_results[the_field_value] = res;
+            }
+            return validate_email_exist_results[the_field_value];
+        });
+
+    });
+//]]>
+</script>

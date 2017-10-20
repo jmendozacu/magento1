@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @copyright   Copyright (C) 2015 IcoTheme.com. All Rights Reserved.
+*/
+-->
+<layout>
+    <adminhtml_widget_instance_edit>
+        <reference name="head">
+            <action method="addJs">
+                <script>icotheme/jquery/plugins/widget.js</script>
+            </action>
+        </reference>
+    </adminhtml_widget_instance_edit>
+    <adminhtml_cms_page_edit>
+        <reference name="head">
+            <action method="addJs">
+                <script>icotheme/jquery/plugins/widget.js</script>
+            </action>
+        </reference>
+    </adminhtml_cms_page_edit>
+    <adminhtml_cms_block_edit>
+        <reference name="head">
+            <action method="addJs">
+                <script>icotheme/jquery/plugins/widget.js</script>
+            </action>
+        </reference>
+    </adminhtml_cms_block_edit>
+</layout>

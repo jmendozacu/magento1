@@ -1,0 +1,117 @@
+<?php
+/**
+ * Plumrocket Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End-user License Agreement
+ * that is available through the world-wide-web at this URL:
+ * http://wiki.plumrocket.net/wiki/EULA
+ * If you are unable to obtain it through the world-wide-web, please
+ * send an email to support@plumrocket.com so we can send you a copy immediately.
+ *
+ * @package     Plumrocket_One_Step_Checkout
+ * @copyright   Copyright (c) 2015 Plumrocket Inc. (http://www.plumrocket.com)
+ * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
+ */
+?>
+<!--
+<div class="footer-container-checkout-onepage">
+        <div class="footer cf">
+<?php //echo $this->helper('onestepcheckout')->getConfigFooterContent(); ?>
+        </div>
+</div>-->
+
+<script type="text/javascript">
+    pjQuery_1_10_2(function () {
+        pjQuery_1_10_2('.one-step-checkout').on('mouseenter', '.validation-advice', function () {
+            pjQuery_1_10_2(this).fadeOut();
+        });
+    });
+</script>
+
+<?php if ($this->helper('onestepcheckout')->getConfigIsEnabledAutocomplete() && $this->helper('onestepcheckout')->getConfigGoogleKey()) { ?>
+    <script type="text/javascript">
+        var autocomplete = {};
+        var componentForm = {
+            street_number: {type: 'short_name', elementId: ':street1', value: ''},
+            route: {type: 'long_name', elementId: ':street1', value: ''},
+            locality: {type: 'long_name', elementId: ':city', value: ''},
+            postal_code: {type: 'short_name', elementId: ':postcode', value: ''},
+            country: {type: 'short_name', elementId: ':country_id', value: ''},
+            administrative_area_level_1: {type: 'long_name', elementId: ':region', element2Id: ':region_id', value: ''}
+        };
+
+        function initAutocomplete() {
+            if (document.getElementById('billing:street1')) {
+                autocomplete.billing = new google.maps.places.Autocomplete((document.getElementById('billing:street1')), {types: ['geocode']});
+                autocomplete.billing.addListener('place_changed', function () {
+                    fillInAddress('billing')
+                });
+            }
+
+            if (document.getElementById('shipping:street1')) {
+                autocomplete.shipping = new google.maps.places.Autocomplete((document.getElementById('shipping:street1')), {types: ['geocode']});
+                autocomplete.shipping.addListener('place_changed', function () {
+                    fillInAddress('shipping')
+                });
+            }
+        }
+
+        function fillInAddress(stepType) {
+            var place = autocomplete[stepType].getPlace();
+
+            for (var component in componentForm) {
+                document.getElementById(stepType + componentForm[component].elementId).value = '';
+                componentForm[component].value = '';
+            }
+
+            for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                if (componentForm[addressType]) {
+                    componentForm[addressType].value = place.address_components[i][componentForm[addressType].type];
+                }
+            }
+
+            for (var component in componentForm) {
+                var $element = document.getElementById(stepType + componentForm[component].elementId);
+                if (component == 'route') {
+                    componentForm[component].value = $element.value += " " + componentForm[component].value;
+                } else if (component == 'administrative_area_level_1') {
+                    var $element2 = document.getElementById(stepType + componentForm[component].element2Id);
+                    if (pjQuery_1_10_2($element2).is(':visible')) {
+                        $element = $element2;
+                        componentForm[component].value = pjQuery_1_10_2($element2).find('option:contains("' + componentForm[component].value + '")').val();
+                        //componentForm[component].value = pjQuery_1_10_2($element2).find('option[title="'+componentForm[component].value+'"]').val();
+                    }
+                }
+                $element.value = pjQuery_1_10_2.trim(componentForm[component].value);
+                if (component == 'country') {
+                    if (stepType == 'billing' && billingRegionUpdater) {
+                        billingRegionUpdater.update();
+                    }
+                    if (stepType == 'shipping' && shippingRegionUpdater) {
+                        shippingRegionUpdater.update();
+                    }
+                }
+            }
+        }
+
+        function geolocate() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $this->helper('onestepcheckout')->getConfigGoogleKey(); ?>&signed_in=true&libraries=places&language=<?php echo Mage::app()->getLocale()->getLocaleCode(); ?>&callback=initAutocomplete" async defer></script>
+<?php } ?>

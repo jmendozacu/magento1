@@ -1,0 +1,18 @@
+2017-06-26T03:00:39+00:00 ERR (3): Warning: simplexml_load_string(): Entity: line 47: parser error : Start tag expected, '&lt;' not found  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:00:39+00:00 ERR (3): Warning: simplexml_load_string(): &lt;/config&gt; --&gt;  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:00:39+00:00 ERR (3): Warning: simplexml_load_string():              ^  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:11:53+00:00 ERR (3): Warning: simplexml_load_string(): Entity: line 21: parser error : XML declaration allowed only at the start of the document  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:11:53+00:00 ERR (3): Warning: simplexml_load_string(): --&gt;&lt;?xml version=&quot;1.0&quot;?&gt;  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:11:53+00:00 ERR (3): Warning: simplexml_load_string():         ^  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:12:21+00:00 ERR (3): Warning: simplexml_load_string(): Entity: line 21: parser error : XML declaration allowed only at the start of the document  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:12:21+00:00 ERR (3): Warning: simplexml_load_string(): --&gt;&lt;?xml version=&quot;1.0&quot;?&gt;  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:12:21+00:00 ERR (3): Warning: simplexml_load_string():         ^  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:12:40+00:00 ERR (3): Warning: simplexml_load_string(): Entity: line 21: parser error : XML declaration allowed only at the start of the document  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:12:40+00:00 ERR (3): Warning: simplexml_load_string(): --&gt;&lt;?xml version=&quot;1.0&quot;?&gt;  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:12:40+00:00 ERR (3): Warning: simplexml_load_string():         ^  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:13:06+00:00 ERR (3): Warning: simplexml_load_string(): Entity: line 21: parser error : XML declaration allowed only at the start of the document  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:13:06+00:00 ERR (3): Warning: simplexml_load_string(): --&gt;&lt;?xml version=&quot;1.0&quot;?&gt;  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:13:06+00:00 ERR (3): Warning: simplexml_load_string():         ^  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:13:24+00:00 ERR (3): Warning: simplexml_load_string(): Entity: line 21: parser error : XML declaration allowed only at the start of the document  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:13:24+00:00 ERR (3): Warning: simplexml_load_string(): --&gt;&lt;?xml version=&quot;1.0&quot;?&gt;  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510
+2017-06-26T03:13:24+00:00 ERR (3): Warning: simplexml_load_string():         ^  in G:\www\magento\magento1\lib\Varien\Simplexml\Config.php on line 510

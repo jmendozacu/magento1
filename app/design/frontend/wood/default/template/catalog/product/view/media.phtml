@@ -1,0 +1,162 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product media data template
+ *
+ * @see Mage_Catalog_Block_Product_View_Media
+ */
+
+/* @var $this Mage_Catalog_Block_Product_View_Media */
+?>
+<?php
+$_product = $this->getProduct();
+$_helper = $this->helper('catalog/output');
+$margin = (int)Mage::getStoreConfig('wood/product_page/zoom_margin');
+$postion = Mage::getStoreConfig('wood/product_page/zoom_position');
+$layout = Mage::getStoreConfig('wood/product_page/layout');
+?>
+<script type="text/javascript">
+    dataZoom = {};
+    dataZoom.position = '<?php echo $postion;?>'
+</script>
+<?php if (count($this->getGalleryImages()) > 0 && $layout == 'custom2'): ?>
+    <div class="more-views-verticle">
+        <a class="more-views-prev more-views-nav" href="javascript:void(0)" id="carousel-up" style="display: block;">
+            <i class="fa fa-caret-square-o-up"></i>
+        </a>
+
+        <div class="media-list">
+            <div id="more-slides" class="verticl-carousel product-image-thumbs">
+                <?php $i = 0;
+                foreach ($this->getGalleryImages() as $_image): ?>
+                    <a class="thumb-link" href="#" title="<?php echo $this->escapeHtml($_image->getLabel()) ?>"
+                       data-image-index="<?php echo $i; ?>">
+                        <img class="img-responsive"
+                             src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(100, 128) ?>"
+                             alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>"/>
+                    </a>
+                <?php $i++; endforeach; ?>
+            </div>
+        </div>
+        <a class="more-views-next more-views-nav" href="javascript:void(0)" id="carousel-down" style="display: block;">
+            <i class="fa fa-caret-square-o-down"></i>
+        </a>
+        <?php if (Mage::getStoreConfig('wood/product_page/zoom_enable')): ?>
+            <script type="text/javascript">
+                jQuery(function ($) {
+                    var carCount = $('.product-img-box .verticl-carousel').find('a').length;
+                    if (carCount <= 3) {
+                        $('.product-img-box .more-views-nav').hide();
+                    }
+                    $(".product-img-box #carousel-up").on("click", function () {
+                        if (!$(".product-img-box .verticl-carousel").is(':animated')) {
+                            var bottom = $(".product-img-box .verticl-carousel > a:last-child");
+                            var clone = $(".product-img-box .verticl-carousel > a:last-child").clone();
+                            clone.prependTo(".product-img-box .verticl-carousel");
+                            $(".product-img-box .verticl-carousel").animate({
+                                "top": "-=85"
+                            }, 0).stop().animate({
+                                "top": '+=85'
+                            }, 250, function () {
+                                bottom.remove();
+                            });
+                            ProductMediaManager.init();
+                        }
+                    });
+                    $(".product-img-box #carousel-down").on("click", function () {
+                        if (!$(".product-img-box .verticl-carousel").is(':animated')) {
+                            var top = $(".product-img-box .verticl-carousel > a:first-child");
+                            var clone = $(".product-img-box .verticl-carousel > a:first-child").clone();
+                            clone.appendTo(".product-img-box .verticl-carousel");
+                            $(".product-img-box .verticl-carousel").animate({
+                                "top": '-=85'
+                            }, 250, function () {
+                                top.remove();
+                                $(".product-img-box .verticl-carousel").animate({
+                                    "top": "+=85"
+                                }, 0);
+                            });
+                            ProductMediaManager.init();
+                        }
+                    });
+                });
+            </script>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+<div class="product-image product-image-zoom">
+    <div class="product-image-gallery">
+        <img id="image-main"
+             class="gallery-image visible"
+             src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>"
+             alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
+             title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>"/>
+        <?php $i = 0;
+        foreach ($this->getGalleryImages() as $_image): ?>
+            <img id="image-<?php echo $i; ?>"
+                 class="gallery-image"
+                 src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()) ?>"
+                 data-zoom-image="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()) ?>"/>
+        <?php $i++; endforeach; ?>
+    </div>
+</div>
+
+<?php if (count($this->getGalleryImages()) > 0 && $layout != 'custom2'): ?>
+    <div class="more-views">
+        <div id="more-slides" class="product-image-thumbs owl-carousel">
+            <?php $i = 0;
+            foreach ($this->getGalleryImages() as $_image): ?>
+                <div class="item">
+                    <a class="thumb-link" href="#" title="<?php echo $this->escapeHtml($_image->getLabel()) ?>"
+                       data-image-index="<?php echo $i; ?>">
+                        <img class="img-responsive lazyOwl"
+                             data-src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(70, 80) ?>"
+                             width="70" height="80" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>"/>
+                    </a>
+                </div>
+            <?php $i++; endforeach; ?>
+        </div>
+        <?php if (Mage::getStoreConfig('wood/product_page/zoom_enable')): ?>
+            <script type="text/javascript">
+                jQuery(function ($) {
+                    $('#more-slides').owlCarousel({
+                        items: 3,
+                        lazyLoad: true,
+                        slideSpeed: 500,
+                        pagination: false,
+                        navigation: true,
+                        itemsCustom: [
+                            [0, 3],
+                            [450, 3]
+                        ]
+                    });
+                });
+            </script>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+<?php echo $this->getChildHtml('after'); ?>

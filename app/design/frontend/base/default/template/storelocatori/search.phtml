@@ -1,0 +1,190 @@
+<?php
+
+function getIPOfUser() {
+    $ipaddress = '';
+    if (isset($_SERVER['HTTP_CLIENT_IP']))
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if (isset($_SERVER['HTTP_X_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if (isset($_SERVER['HTTP_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if (isset($_SERVER['HTTP_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if (isset($_SERVER['REMOTE_ADDR']))
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+
+    return $ipaddress;
+}
+
+function get_ip_address() {
+    foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key) {
+        if (array_key_exists($key, $_SERVER) === true) {
+            foreach (explode(',', $_SERVER[$key]) as $ip) {
+                $ip = trim($ip); // just to be safe
+
+                if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false) {
+                    return $ip;
+                }
+            }
+        }
+    }
+}
+
+function getLongLatByIP($ip) {
+    if (!$ip)
+        return array();
+    $geopluginURL = 'http://www.geoplugin.net/php.gp?ip=' . $ip;
+    $content = @file_get_contents($geopluginURL);
+    $arrayResult = array();
+    if (!empty($content)) {
+        $arrayContent = unserialize($content);
+        $arrayResult['lat'] = isset($arrayContent['geoplugin_latitude']) ? $arrayContent['geoplugin_latitude'] : 0;
+        $arrayResult['lng'] = isset($arrayContent['geoplugin_longitude']) ? $arrayContent['geoplugin_longitude'] : 0;
+    }
+
+    return $arrayResult;
+}
+
+$ip = get_ip_address();
+if ($ip == '127.0.0.1')
+    $ip = '125.253.32.158';
+$arrayLatLng = getLongLatByIP($ip);
+?>
+<input type="hidden" value="<?php echo $ip; ?>" name="ip"/>
+<div class="storelocatori">
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $this->getApiKey() ?>&sensor=true&v=3"></script>
+    <script type="text/javascript" src="<?php echo $this->getSkinUrl('iwd/storelocatori/infobox.js'); ?>"></script>
+    <script type="text/javascript">
+        jQuery.noConflict();
+// Code that uses other library's $ can follow here.
+    </script>
+    <div class="page-title">
+        <h1><?php echo Mage::getStoreConfig('storelocatori/global/pagetitle'); ?></h1>
+    </div>
+
+    <?php $blockId = Mage::getStoreConfig('storelocatori/global/blockid'); ?>
+    <?php if (!empty($blockId)): ?>
+        <?php $item = Mage::getModel('cms/block')->load($blockId); ?>
+        <div class="cms-block"><?php echo $item->getContent(); ?></div>
+    <?php endif; ?>
+    <div class="clear"></div>
+    <div class="map-wrapper">
+
+        <div class="filter" id="filter">
+            <form id="storelocatori-search">
+                <ul class="form-list">
+                    <li class="fields">
+                        <?php $coutries = $this->getCountries(); ?>
+
+                        <div class="field country-input <?php if (count($coutries) == 1): ?>hidden<?php endif; ?>">				
+                            <div class="input-box">
+                                <select title="<?php echo Mage::helper('storelocatori')->__('Country') ?>" name="country" id="country" class="" data-placeholder="<?php echo Mage::helper('storelocatori')->__('Country') ?>" >
+                                    <option value=""></option>
+                                    <?php foreach ($coutries as $country): ?>
+                                        <option value="<?php echo $country['value'] ?>" <?php if (count($coutries) == 1): ?>selected="selected"<?php endif; ?>><?php echo $country['label'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field addres-input">				
+                            <div class="input-container">
+                                <input name="address" id="address" title="<?php echo Mage::helper('storelocatori')->__('Address') ?>" value="" class="input-text " type="text" placeholder="<?php echo Mage::helper('storelocatori')->__('Enter City & State or Zip') ?>"/>
+                            </div>
+                        </div>
+
+                        <?php if (!Mage::helper('storelocatori')->isHideRadius()): ?>
+                            <div class="field radius-input">
+
+                                <div class="input-box">
+                                    <?php
+                                    $list = Mage::getStoreConfig('storelocatori/gmaps/radiuslist');
+                                    $listRadius = explode(';', $list);
+
+                                    $metric = $this->getMetric();
+                                    $defaultRadius = Mage::getStoreConfig('storelocatori/gmaps/radius');
+                                    ?>
+                                    <select name="radius" id="radius" data-placeholder="<?php echo Mage::helper('storelocatori')->__('Radius') ?>">
+                                        <option value=""></option>
+                                        <?php foreach ($listRadius as $item): ?>
+                                            <?php $value = trim($item); ?>
+                                            <option value="<?php echo $value ?>" <?php if ($defaultRadius == $value): ?>selected="selected"<?php endif; ?>><?php echo $value ?> <?php echo $metric ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <button type="submit" title="<?php echo Mage::helper('storelocatori')->__('Search') ?>" class="button"><span><span><?php echo Mage::helper('storelocatori')->__('Search') ?></span></span></button>
+                        <span class="loader-ajax hidden"></span>
+                        <div style="display:none" class="current-location">
+                            <p>-or use your current location-</p>
+                            <a href="" class="btn-current-location"><span><span><?php echo Mage::helper('storelocatori')->__('CURRENT LOCATION') ?></span></span></a>
+                        </div>
+                    </li>
+                </ul> 
+            </form>
+        </div>
+        <div class="clear"></div>
+        <div id="map-canvas"></div>
+    </div>
+    <div class="search-result" id="search-result"></div>
+
+</div>
+<input type="hidden" value="<?php echo $ip;?>"/>
+<script type="text/javascript">
+//<![CDATA[
+
+<?php
+$schema = Mage::app()->getRequest()->getScheme();
+if ($schema == 'https') {
+    $_secure = true;
+} else {
+    $_secure = false;
+}
+?>
+    var image = '<?php echo $this->_getMarkerFile(); ?>';
+    var zoomData = <?php echo $this->getZoom(); ?>;
+    var urlRegion = '<?php echo Mage::getUrl('storelocatori/json/region', array('_secure' => $_secure)); ?>';
+    var urlSearch = '<?php echo Mage::getUrl('storelocatori/json/search', array('_secure' => $_secure)); ?>';
+    var pluginUrl = '<?php echo Mage::getBaseUrl('link', $_secure) ?>';
+    storelocatori.latitude = '<?php echo $arrayLatLng['lat'];?>';
+    storelocatori.longitude = '<?php echo $arrayLatLng['lng'];?>';
+    
+    storelocatori.scrollWheel = <?php echo Mage::getStoreConfig('storelocatori/gmaps/scrollwhell_zooming'); ?>;
+    storelocatori.scaleControl = <?php echo Mage::getStoreConfig('storelocatori/gmaps/scale_control'); ?>;
+    storelocatori.mapTypeControl = <?php echo Mage::getStoreConfig('storelocatori/gmaps/map_type_control'); ?>;
+    var form = new VarienForm('storelocatori-search', false);
+    var closeButton = '<?php echo $this->getSkinUrl('css/iwd/storelocatori/images/close.png') ?>';
+<?php if (!Mage::helper('storelocatori')->isLoadInitialDisabled()): ?>
+        jQuery(document).ready(function ($j) {
+            $j('#storelocatori-search').submit();
+        });
+        storelocatori.firstload = true;
+<?php else: ?>
+        storelocatori.firstload = false;
+<?php endif; ?>
+
+//]]>
+</script>
+<?php if (!Mage::helper('storelocatori')->isDisabledFullWidth()): ?>
+    <style>
+
+        /* 1280px <= width */
+
+        @media only screen and (min-width: 1280px)  {
+
+            .storelocatori .map-wrapper{left: 0;position: absolute !important;width: 99.9% !important;}
+            .storelocatori .map-container{height:615px;}
+            .search-result{margin-top: 650px !important;}
+            .filter{background: url("<?php echo $this->getSkinUrl('css/iwd/storelocatori/images/bkg_filter.png') ?>") repeat scroll 0 0 transparent;border-bottom: 1px solid #B5B4AF;border-top: 1px solid #B5B4AF;height: 70px;left: 0;position: absolute !important;width: 100%;z-index: 1; top: 20px;}
+            .filter form{display: block;margin: 20px auto 0;width: 900px;}
+
+        }
+
+    </style>
+<?php endif; ?>

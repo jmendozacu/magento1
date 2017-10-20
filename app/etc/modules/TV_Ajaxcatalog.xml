@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category    TV
+ * @package        TV_Ajaxcatalog
+ * @author        SW-THEMES
+ * @copyright    Copyright 2014 TV
+ */
+ -->
+<config>
+    <modules>
+        <TV_Ajaxcatalog>
+            <active>true</active>
+            <codePool>local</codePool>
+        </TV_Ajaxcatalog>
+    </modules>
+</config> 

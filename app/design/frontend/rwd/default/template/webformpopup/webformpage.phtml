@@ -1,0 +1,183 @@
+<div class="fgcfreevisualformhome">
+    <div class="fgctitleform">
+        <span aria-hidden="true" class="glyphicon glyphicon-remove"></span>
+    </div>
+    <?php
+    $id = $this->getRequest()->getParam('id');
+    echo $this->getLayout()->createBlock('webforms/webforms', 'product_enquiry', array
+        (
+        'webform_id' => $id,
+        'template' => 'webforms/default.phtml',
+    ))->toHtml();
+    //echo $this->getRequest()->getParam('id');
+    ?>
+</div>
+<style type="text/css">
+    #tv_home_free:hover,
+    #tv_home_best:hover,
+    #tv_home_speak:hover,
+    #tv_our_prices:hover,
+    #tv_we_love:hover,
+    #tv_home_free:hover{
+        cursor: pointer;
+    }
+    .fgcfreevisualformhome{
+        background: #fff;
+        border: 2px solid #be1e2d;
+        border-radius: 5px;
+        max-width: 350px;
+        min-width: 300px;
+    }
+    .fgcfreevisualformhome .form-list input.input-text{
+        height: 30px;
+        padding: 0 10px;
+    }
+    .fgcfreevisualformhome .fieldset{
+        margin: 0;
+        padding: 0 10px 0 10px;
+    }
+    .fgcfreevisualformhome li.fields {
+        margin: 0;
+    }
+    .fgcfreevisualformhome .fieldset.fieldset-0{
+        padding-top: 10px;
+    }
+    .fgcfreevisualformhome .fields .input-box{
+        margin: 0;
+    }
+    .fgcfreevisualformhome .form-list .input-box{
+        clear: none;
+        float: left;
+        width: 78%;
+        margin: 0;
+    }
+    .fgcfreevisualformhome .form-list hr{
+        margin: 5px 0;
+    }
+    .fgcfreevisualformhome .form-list .field{
+        margin-bottom: 5px;
+        width: 100%;
+    }
+    .fgcfreevisualformhome .fgcfreevisual .form-list .field p{
+        margin: 0;
+    }
+    .fgcfreevisualformhome .form-list label {
+        float: left;
+        line-height: 25px;
+        margin-bottom: 10px;
+        margin-right: 15px;
+        min-width: 50px;
+    }
+    .fgcfreevisualformhome .form-list label#label_field16{
+        line-height: 20px;
+    }
+    .fgcfreevisualformhome .form-list .input-box textarea{
+        height: 40px;
+        margin: 5px 0;
+    }
+
+    #webform_14_form .std,
+    #webform_13_form .std,
+    #webform_12_form .std,
+    #webform_11_form .std,
+    #webform_10_form .std,
+    .fgcfreevisualformhome .std.webforms-success-text{
+        background: #be1e2d;
+        padding-bottom: 5px;
+    }
+    #webform_14_form .std h1,
+    #webform_13_form .std h1,
+    #webform_12_form .std h1,
+    #webform_11_form .std h1,
+    #webform_10_form .std h1,
+    .fgcfreevisualformhome .std.webforms-success-text h1{
+        color: #fff;
+        font-size: 16px;
+        margin: 0;
+        text-transform: uppercase;
+        padding: 5px 0;
+    }
+
+    .fgcfreevisualformhome .form-list #field_90 label,
+    .fgcfreevisualformhome .form-list #field_90 label,
+    .fgcfreevisualformhome .form-list #field_90 label,
+    .fgcfreevisualformhome .form-list #field_72 label,
+    .fgcfreevisualformhome .form-list #field_74 label ,
+    .fgcfreevisualformhome .form-list #field_108 label,
+    .fgcfreevisualformhome .form-list #field_99 label,
+    .fgcfreevisualformhome .form-list #field_83 label,
+    .fgcfreevisualformhome .form-list #field_81 label,
+    .fgcfreevisualformhome .form-list #field_65 label{
+        display: none;
+    }
+    .fgcfreevisualformhome .form-list #field_106 .input-box,
+    .fgcfreevisualformhome .form-list #field_70 .input-box,
+    .fgcfreevisualformhome .form-list #field_79 .input-box,
+    .fgcfreevisualformhome .form-list #field_97 .input-box,
+    .fgcfreevisualformhome .form-list #field_88 .input-box,
+    .fgcfreevisualformhome .form-list #field_90 .input-box,
+    .fgcfreevisualformhome .form-list #field_92 .input-box,
+    .fgcfreevisualformhome .form-list #field_90 .input-box,
+    .fgcfreevisualformhome .form-list #field_72 .input-box,
+    .fgcfreevisualformhome .form-list #field_74 .input-box ,
+    .fgcfreevisualformhome .form-list #field_101 .input-box,
+    .fgcfreevisualformhome .form-list #field_108 .input-box,
+    .fgcfreevisualformhome .form-list #field_99 .input-box,
+    .fgcfreevisualformhome .form-list #field_83 .input-box,
+    .fgcfreevisualformhome .form-list #field_81 .input-box,
+    .fgcfreevisualformhome .form-list #field_65 .input-box,
+    .fgcfreevisualformhome .tvcaptcha_form .input-box .field{
+        width: 100%;
+        text-align: left;
+    }
+    .fgcfreevisualformhome .list-select {
+        padding: 5px 0 0 0 !important;
+    }
+    .fgcfreevisualformhome .form-list #field_109 .input-box .control,
+    .fgcfreevisualformhome .form-list #field_100 .input-box .control,
+    .fgcfreevisualformhome .form-list #field_91 .input-box .control,
+    .fgcfreevisualformhome .form-list #field_82 .input-box .control,
+    .fgcfreevisualformhome .form-list #field_73 .input-box .control {
+        float: left;        
+    }
+    .fgcfreevisualformhome .form-list #field_109 .input-box .control label,
+    .fgcfreevisualformhome .form-list #field_100 .input-box .control label,
+    .fgcfreevisualformhome .form-list #field_91 .input-box .control label,
+    .fgcfreevisualformhome .form-list #field_82 .input-box .control label,
+    .fgcfreevisualformhome .form-list #field_73 .input-box .control label{
+        min-width: 20px;
+    }
+    .fgcfreevisualformhome .form-list #field_109 .input-box, 
+    .fgcfreevisualformhome .form-list #field_109 .input-box .control,
+    .fgcfreevisualformhome .form-list #field_100 .input-box, 
+    .fgcfreevisualformhome .form-list #field_100 .input-box .control,
+    .fgcfreevisualformhome .form-list #field_91 .input-box, 
+    .fgcfreevisualformhome .form-list #field_91 .input-box .control,
+    .fgcfreevisualformhome .form-list #field_82 .input-box, 
+    .fgcfreevisualformhome .form-list #field_82 .input-box .control,
+    .fgcfreevisualformhome .form-list #field_73 .input-box, 
+    .fgcfreevisualformhome .form-list #field_73 .input-box .control {
+        width: 41%;
+    }
+    .tvwrapcss a.fancybox-close {
+        background: none;
+        color: #fff;
+        font-size: 18px;
+        opacity: 1;
+        right: 6px;
+        top: 5px;
+    }
+    .fgcfreevisualformhome .tvcaptcha_form .required{
+        display: block;
+        line-height: 30px;
+        text-align: left;
+        width: 100%;    
+    }
+    .fgcfreevisualformhome .tvcaptcha_form .input-box{
+        clear: both;
+        margin-top: 10px;
+    }
+    .fgcfreevisualformhome button.button span{
+        background: #64a312;
+    }
+</style>

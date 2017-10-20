@@ -1,0 +1,2125 @@
+/*======= global classes =======*/
+.main * {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.cf:before, .cf:after,
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.no-display {
+    display: none;
+}
+
+.main a {
+    color: #2f4c81;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a img {
+    border: 0px;
+}
+
+.a-right {
+    text-align: right!important;
+}
+
+
+.validation-advice {
+    color: red;
+    font-size: 11px;
+    line-height: 15px;
+    margin-top: 1px;
+}
+.validation-advice a {
+    font-size: 11px;
+    line-height: 15px;
+}
+
+.validation-advice:before {
+    background: url(../../../images/plumrocket/onestepcheckout/icon-sptires.png) -2px -47px no-repeat;
+    background-size: 18px 117px;
+    display: inline-block;
+    width: 15px;
+    height: 14px;
+    content: "";
+    float: left;
+}
+
+
+/*=== notice ===*/
+.checkout-onepage-index .demo-notice {
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #FCEFC5;
+}
+
+/*======= One step checkout =======*/
+.checkout-onepage-index .page {
+    /*	padding: 0 30px;
+        max-width: 1200px;
+        margin: 0 auto;*/
+}
+
+.checkout-onepage-index .page * {
+    /*     -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box; */
+}
+
+.checkout-onepage-index .ui-front,
+.checkout-onepage-index .ui-widget-overlay { z-index: 900!important; }
+
+.checkout-onepage-index .header-container:before,
+.checkout-onepage-index .header-container:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.checkout-onepage-index .main-container {
+    /*padding: 0;*/
+}
+
+.checkout-onepage-index .main-container:before,
+.checkout-onepage-index .main-container:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.checkout-onepage-index .main-container .col-main {
+    margin: 0 auto;
+    float: none;
+}
+
+.checkout-onepage-index {
+    height: auto;
+    color: #000000;
+}
+/*.checkout-onepage-index .header {
+    border: 0px;
+    padding: 15px 0;
+    text-align: center;
+}
+.checkout-onepage-index .header .logo {
+    float: left;
+}*/
+.checkout-onepage-index .main {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.checkout-onepage-index li div.input-box {
+    position: relative;
+}
+.checkout-onepage-index li div.input-box .v-fix {
+    position: relative;
+}
+
+.checkout-onepage-index .wrapper { min-height: initial; }
+.checkout-onepage-index .checkout_links {
+    width: 453px;
+    min-height: 55px;
+    background-image: url("../../../images/plumrocket/onestepcheckout/checkout_links.png");
+    background-repeat: no-repeat;
+    float: right;
+    text-align: left;
+    background-position: -9px 0px;
+    margin-top: 4px;
+}
+/*.checkout-onepage-index .footer {
+    height: auto;
+    border-top: 1px solid #cccccc;
+    text-align: center;
+    padding: 15px 0;
+}
+.checkout-onepage-index .footer a {
+    color: #2d4c82;
+    text-decoration: underline;
+}
+.checkout-onepage-index .footer a:hover {
+    color: #2d4c82;
+    text-decoration: none;
+}
+.checkout-onepage-index .footer span.copyright { padding-right: 7px; }*/
+.checkout-onepage-index .icons-secured {
+    width: 260px;
+    margin: 0 auto!important;
+    float: none;
+    margin: 15px auto 0 auto!important;
+}
+.checkout-onepage-index .icon-secured { float: left; }
+.checkout-onepage-index .icon-secured #siteseal {
+    display: inline-block;
+    margin-right: 10px;
+}
+.checkout-onepage-index .checkout_links a,
+.checkout-onepage-index .checkout_links span {
+    display: inline-block;
+    width: 33.3%;
+    height: 100%;
+    float: left;
+    padding-top: 54px;
+    font-weight: 700;
+}
+.checkout-onepage-index .checkout_links a {
+    text-align: center;
+    color: #262626!important;
+    text-decoration: none;
+}
+.checkout-onepage-index .checkout_links a:hover {
+    color: #262626!important;
+}
+.checkout-onepage-index .checkout_links a:first-child { text-align: left; }
+.checkout-onepage-index .checkout_links span {
+    text-align: right;
+    color: #9a9a9a;
+}
+.checkout-onepage-index .checkout_links span.active-page { color: #405f06; text-align: center; }
+.one-step-checkout {
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 1px solid #EBEBEB;
+}
+.one-step-checkout .page-top-row {
+    float: none;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+.one-step-checkout .page-top-row #review-buttons-container-top {
+    float: right;
+    width: auto;
+    margin: 0;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form {
+    background-color: #ECECEC;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #CCCCCC;
+    width: 75%;
+    margin: 0 auto 10px auto;
+    float: left;
+    position: relative;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form fieldset {
+    border: 0px;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form #login-form-hide {
+    position: absolute;
+    top: -12px;
+    right: -14px;
+    color: #fff!important;
+    text-decoration: none;
+    background-color: #454545;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 10px;
+    font-weight: 700;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form #login-form-hide:hover {
+    background-color: #000;
+}
+
+.one-step-checkout .page-top-row #onestepcheckout-login-form .messages li {
+    list-style: none;
+}
+
+.one-step-checkout .page-top-row #onestepcheckout-login-form .messages li.error-msg span {
+    color: red;
+}
+
+.one-step-checkout .page-top-row #onestepcheckout-login-form #login-form .input-box {
+    width: 33%;
+    float: left;
+}
+
+.one-step-checkout .page-top-row #onestepcheckout-login-form #login-form input[type="text"] {
+    width: 98%;
+    margin-right: 2%;
+    height: 32px;
+    line-height: 32px;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form #login-form input[type="password"] {
+    width: 98%;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 2%;
+}
+
+.one-step-checkout .page-top-row #onestepcheckout-login-form button {
+    border: 0px;
+    margin: 1px 7px 0 7px;
+    background: none;
+    float: left
+}
+
+.one-step-checkout .page-top-row #onestepcheckout-login-form button:hover {
+    cursor: pointer;
+}
+
+.one-step-checkout .page-top-row #onestepcheckout-login-form button > span {
+    display: block;
+    height: 30px;
+    line-height: 29px;
+    background: #64a826;
+    padding: 0 25px;
+    font: bold 14px/40px Arial, Helvetica, sans-serif;
+    text-align: center;
+    white-space: nowrap;
+    color: #fff;
+    text-transform: uppercase;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.6);
+    -moz-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.6);
+    box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.6);
+    border: 1px solid #3C730A;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.one-step-checkout .page-top-row #onestepcheckout-login-form button > span span {
+    display: block;
+    line-height: 29px;
+    height: initial;
+}
+
+.one-step-checkout .page-title h1 { display: none; }
+
+.one-step-checkout .fields .field:first-child {
+    clear: left;
+}
+
+.one-step-checkout .field {
+    width: 50%;
+    float: left;
+    margin: 0 0 7px 0;
+    padding: 0 10px;
+}
+
+.one-step-checkout .fields .fields {
+    margin: 0 0 7px 0;
+    padding: 0 10px;
+}
+
+.one-step-checkout .form-list li.wide .input-box { width: 100%; }
+
+.one-step-checkout input.input-text {
+    width: 100%;
+    box-sizing: border-box;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #b8b8b8;
+    padding: 0 5px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: inset 0 1px 0px #ededed, 0 1px 0px #ffffff;
+    -moz-box-shadow: inset 0 1px 0px #ededed, 0 1px 0px #ffffff;
+    -webkit-box-shadow: inset 0 1px 0px #ededed, 0 1px 0px #ffffff;
+}
+
+.one-step-checkout input.input-text.validation-failed,
+.one-step-checkout .validation-failed {
+    border: 1px dashed #9e0000;
+    background-color: #faebe7;
+}
+
+.one-step-checkout select {
+    width: 100%;
+    box-sizing: border-box;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #b8b8b8;
+    box-shadow: 0 1px 0px #ffffff;
+    -moz-box-shadow: 0 1px 0px #ffffff;
+    -webkit-box-shadow: 0 1px 0px #ffffff;
+    background-color: #ffffff;
+}
+
+.one-step-checkout input.input-text[disabled="disabled"],
+.one-step-checkout select[disabled="disabled"] {color:#909090;}
+
+.one-step-checkout select#braintree_cc_token {width: auto!important;}
+
+.one-step-checkout label {
+    font-weight: 700!important;
+    text-transform: none!important;
+    display: inline-block;
+    color: #000000;
+    margin: 0;
+    float: none;
+}
+.one-step-checkout label.required em {
+    color: #CD0000;
+    float: right;
+}
+.one-step-checkout input[type="checkbox"] {
+    vertical-align: middle;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form-link {
+    float: left;
+    line-height: 40px;
+}
+
+/*=== Amazon ===*/
+.one-step-checkout .page-top-row #onestepcheckout-login-form-link .extendedLoginButtons {
+    display: inline-block;
+    position: relative;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form-link .extendedLoginButtons:after {
+    content: 'or';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    display: block;
+    line-height: 20px;
+    text-align: center;
+    width: 22px;
+    height: 22px;
+    background: #EAEAEA;
+    border-radius: 50%;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form-link .extendedLoginButtons #AmazonPayButtonBefore {
+    line-height: normal;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 42px;
+    position: relative;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form-link .extendedLoginButtons #AmazonPayButtonBefore img {
+    cursor: pointer;
+    width: 155px;
+}
+.one-step-checkout .page-top-row #onestepcheckout-login-form-link .extendedLoginButtons #AmazonPayButtonBefore ~ * {
+    display: none;
+}
+
+
+.checkout-onepage-index .page-title {
+    display: none;
+}
+.checkout-onepage-index .reserved-cart {
+    margin-bottom: 10px;
+}
+.checkout-onepage-index ol.opc-firststep-widget > li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+.checkout-onepage-index ol.opc-firststep-widget > li .step-title {
+    background-color: #D0E6F9;
+    color: #000000;
+    font-size: 21px;
+    font-weight: 400;
+    margin-bottom: 0;
+    height: 43px;
+    line-height: 43px;
+    border: 1px solid rgba(0,0,0,0.2);
+    -webkit-box-shadow: inset 0 -1px 0 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: inset 0 -1px 0 0px rgba(0,0,0,0.2);
+    box-shadow: inset 0 -1px 0 0px rgba(0,0,0,0.2);
+}
+.checkout-onepage-index ol.opc-firststep-widget > li .step-title h2 {
+    font-size: inherit;
+    font-weight: 400;
+    display: inline-block;
+}
+.checkout-onepage-index ol.opc-firststep-widget > li.allow .step-title a {
+    float: right;
+    display: inline-block;
+    line-height: normal;
+    margin: 12px 8px 0 0;
+}
+.checkout-onepage-index ol.opc-firststep-widget > li.active .step-title a,
+.checkout-onepage-index ol.opc-firststep-widget > li .step-title a {
+    display: none;
+}
+.checkout-onepage-index ol.opc-firststep-widget > li .step-title .number {
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 700;
+    float: left;
+    border: 1px solid #073257;
+    background-color: #194F7E;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 29px;
+    margin-right: 7px;
+    margin-left: 10px;
+    margin-top: 6px;
+}
+.checkout-onepage-index ol.opc-firststep-widget > li form {
+    display: block;
+}
+.checkout-onepage-index ol.opc-firststep-widget > li .step {
+    display: block;
+    background-color: #ececec;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    padding: 10px;
+}
+.checkout-onepage-index ol.opc-firststep-widget > li form iframe {
+
+}
+.checkout-onepage-index .amazon-widget #amazon-widget-address-wrapper,
+.checkout-onepage-index .amazon-widget #amazon-widget-wallet-wrapper {
+    width: 50%;
+    padding: 10px;
+    margin: 0;
+}
+.checkout-onepage-index .amazon-widget .buttons-set {
+    clear: left;
+}
+.checkout-onepage-index #shipping-method-please-wait,
+.checkout-onepage-index .amazon-widget .buttons-set .please-wait {
+    display: block;
+    margin: auto;
+    float: none;
+    text-align: center;
+    line-height: 24px;
+}
+.checkout-onepage-index #shipping-method-please-wait img,
+.checkout-onepage-index .amazon-widget .buttons-set .please-wait img {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.checkout-onepage-index .amazon-widget #amazon-widget-address-wrapper > div,
+.checkout-onepage-index .amazon-widget #amazon-widget-wallet-wrapper > div {
+    background-color: #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+.checkout-onepage-index .amazon-widget #amazon-widget-address-wrapper h3,
+.checkout-onepage-index .amazon-widget #amazon-widget-wallet-wrapper h3 {
+    margin-bottom: 5px;
+}
+.checkout-onepage-index ol.opc-firststep-widget .col2-set {
+    margin-top: 15px;
+}
+.checkout-onepage-index ol.opc-firststep-widget .col2-set:before,
+.checkout-onepage-index ol.opc-firststep-widget .col2-set:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.checkout-onepage-index ol.opc-firststep-widget .col2-set .col-1,
+.checkout-onepage-index ol.opc-firststep-widget .col2-set .col-2 {
+    float: left;
+    width: 50%;
+}
+.checkout-onepage-index ol.opc-firststep-widget .col2-set .col-1 button {
+    margin-right: 10px;
+}
+.checkout-onepage-index ol.opc-firststep-widget .col2-set .col-2 button {
+    margin-left: 10px;
+}
+.checkout-onepage-index ol.opc-firststep-widget .buttons-set button {
+    width: 210px;
+    display: block;
+    margin: 0 auto 15px auto;
+    float: none;
+    border: 0px;
+    background: none;
+    outline: none;
+    padding: 0;
+    height: auto;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+#checkout-step-shipping_method ul li {
+    list-style: none;
+    margin-bottom: 7px;
+}
+#checkout-step-shipping_method ul li input[type="radio"],
+#checkout-step-shipping_method ul li label {
+    vertical-align: middle;
+}
+#checkout-step-shipping_method .sp-methods dt {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+#shipping-method-buttons-container .back-link {
+    margin-top: 15px;
+    display: inline-block;
+    float: left;
+}
+
+
+.data-table.checkout-review-table {
+    border: 1px solid #C4C4C4;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-collapse: collapse;
+}
+.data-table.checkout-review-table td {
+    border-bottom: 1px solid #C4C4C4;
+    height: 35px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 3px 5px;
+    background-color: #FFF;
+}
+.data-table.checkout-review-table tr td:first-child {
+    text-align: left;
+}
+.data-table.checkout-review-table th {
+    padding: 0px 5px;
+    height: 35px;
+    font-weight: 700;
+    color: #0A263C;
+    background-color: #E3E3E3;
+}
+
+.data-table.checkout-review-table tfoot tr td {
+    background-color: #F8F8F8;
+    height: 20px;
+    color: #0A263C;
+    border-right: 0px none;
+    font-weight: 700;
+    border-bottom: 0px none;
+
+}
+/*=== end Amazon ===*/
+
+
+.one-step-checkout .page-top-row .you-registered {
+    font-weight: 700;
+    font-size: 14px;
+}
+.one-step-checkout .page-top-row .you-registered:before {
+    background: url(../../../images/plumrocket/onestepcheckout/icon-sptires.png) 0px -6px no-repeat;
+    background-size: 18px 117px;
+    display: inline-block;
+    width: 19px;
+    height: 18px;
+    content: "";
+    vertical-align: middle;
+}
+.one-step-checkout .page-top-row .to-login-page {
+    color: #2f4c81;
+    text-decoration: underline;
+    font-size: 14px;
+}
+.one-step-checkout .page-top-row .to-login-page:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+.one-step-checkout .page-top-row .edit-card {
+    float: right;
+    font-size: 14px;
+}
+.one-step-checkout .page-top-row .edit-card span {
+    color: #2f4c81;
+    text-decoration: underline;
+}
+.one-step-checkout .page-top-row .edit-card span:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+.one-step-checkout h3 {
+    font-size: 14px;
+    line-height: 28px;
+    margin-bottom: 35px;
+}
+.one-step-checkout h3.section-name {
+    font-size: 21px;
+    font-weight: 400;
+    margin-bottom: 0;
+    background-color: #D0E6F9;
+    height: 43px;
+    line-height: 43px;
+    border: 1px solid rgba(0,0,0,0.2);
+    -webkit-box-shadow: inset 0 -1px 0 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: inset 0 -1px 0 0px rgba(0,0,0,0.2);
+    box-shadow: inset 0 -1px 0 0px rgba(0,0,0,0.2);
+}
+
+.one-step-checkout h3.section-name .ajax-loader {
+    display: none;
+    width: 35px;
+    float: right;
+    margin: 15px 10px 0 0;
+}
+
+.one-step-checkout .step-number {
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 700;
+    float: left;
+    border: 1px solid #073257;
+    background-color: #194F7E;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 29px;
+    margin-right: 7px;
+    margin-left: 10px;
+    margin-top: 7px;
+}
+
+.one-step-checkout > div {
+    width: 49.5%;
+    float: left;
+}
+
+.one-step-checkout .col-left {
+    margin-right: 1%;
+}
+
+.one-step-checkout > div > div {
+    width: 100%;
+    margin-bottom: 2%;
+    float: none;
+    margin: 0 0 2% 0;
+}
+
+.one-step-checkout > .payment {
+    float: right;
+}
+
+.one-step-checkout > .shipping-address {
+    clear: left;
+}
+
+.one-step-checkout .shipping-address #co-shipping-form {
+    display: block;
+}
+
+.one-step-checkout .billing-address .form-list li#billing-new-address-form input[type="checkbox"] + label,
+.one-step-checkout .shipping-address #co-shipping-form li.control label {
+    float: none;
+}
+
+.one-step-checkout .customer-dob:before,
+.one-step-checkout .customer-dob:after {
+    clear: both;
+    display: block;
+    content: "";
+}
+
+.one-step-checkout .customer-dob .dob-month,
+.one-step-checkout .customer-dob .dob-day {
+    width: 30%;
+    float: left;
+    padding-right: 5px;
+}
+
+.one-step-checkout .customer-dob .dob-year {
+    width: 40%;
+    float: left;
+}
+
+
+
+/*=== billing address ===*/
+.one-step-checkout .billing-address .billing-address-forms,
+.one-step-checkout .shipping-address .shipping-address-forms {
+    display: block;
+    background-color: #ececec;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+.one-step-checkout .billing-address .form-list li .field:nth-child(2n+1) {
+    clear: left;
+}
+
+.one-step-checkout .shipping-address #co-shipping-form #shipping-text {
+    padding: 0 10px;
+}
+
+.one-step-checkout .shipping-address #co-shipping-form {
+    padding: 10px 0 0 0;
+}
+.one-step-checkout .shipping-address #co-shipping-form li {
+    list-style: none;
+}
+.one-step-checkout .shipping-address #co-shipping-form li:before,
+.one-step-checkout .shipping-address #co-shipping-form li:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.one-step-checkout .shipping-address #co-shipping-form li.control {
+    padding: 3px 10px 10px 10px;
+}
+.one-step-checkout .shipping-address #co-shipping-form li.control input {
+    margin-right: 5px;
+}
+.one-step-checkout .shipping-address #co-shipping-form li.control label {
+    font-weight: 400!important;
+    vertical-align: middle;
+    display: inline;
+}
+.one-step-checkout .shipping-address #co-shipping-form #shipping:same_as_billing {
+    margin-left: 5px;
+}
+.one-step-checkout .shipping-address #co-shipping-form li fieldset,
+.one-step-checkout .billing-address #co-billing-form fieldset { border: 0px; }
+.one-step-checkout .payment #co-payment-form #checkout-payment-method-load > ul > li {
+    float: none;
+    list-style: none;
+    margin: 0 0 7px 0;
+}
+.one-step-checkout .payment #co-payment-form #checkout-payment-method-load ul#payment_form_ccsave li p.required {
+    display: none;
+}
+.one-step-checkout .payment #co-payment-form .input-box a.button {
+    background: none;
+    height: auto;
+    padding: 0;
+    border: 0px;
+}
+.one-step-checkout .payment #co-payment-form #checkout-payment-method-load ul#payment_form_ccsave {
+    margin-top: 10px;
+}
+.one-step-checkout .payment #co-payment-form #checkout-payment-method-load > ul > li .v-fix {
+    float: left;
+    margin-right: 10px;
+}
+.one-step-checkout .billing-address .buttons-set { margin: 5px 20px 0 0; }
+.one-step-checkout .billing-address .form-list li#billing-new-address-form {
+    padding: 10px 0 0 0;
+    width: 100%;
+    margin-top: 0;
+}
+.one-step-checkout .billing-address .form-list li#billing-new-address-form + li {
+    padding-top: 0;
+    margin: 0;
+}
+.one-step-checkout .billing-address .form-list li#billing-new-address-form + li label {
+    font-weight: 400!important;
+    vertical-align: middle;
+    padding-left: 3px;
+}
+.one-step-checkout .billing-address .form-list li#billing-new-address-form ul li:nth-child(2) .field {
+    width: 100%;
+}
+.one-step-checkout .billing-address .form-list li#billing-new-address-form input[type="checkbox"] + label {
+    font-weight: 400!important;
+    display: inline;
+    padding-left: 3px;
+    vertical-align: middle;
+}
+.one-step-checkout .billing-address .form-list li#billing-new-address-form li {
+    width: 100%;
+    margin: 0;
+}
+.one-step-checkout .billing-address .form-list li#billing-new-address-form li.control label {
+    padding-left: 6px;
+}
+.one-step-checkout .shipping-address #co-shipping-form li.wide,
+.one-step-checkout .billing-address .form-list li#billing-new-address-form li.wide {
+    width: 100%;
+    float: none;
+    padding: 0 10px;
+    margin-bottom: 7px;
+}
+.one-step-checkout .billing-address .form-list li#billing-new-address-form li.wide:before,
+.one-step-checkout .billing-address .form-list li:first-child { margin: 0; }
+.one-step-checkout .billing-address .form-list li {
+    margin: 15px 0 0 0;
+    list-style: none;
+}
+.one-step-checkout .billing-address .form-list li:before,
+.one-step-checkout .billing-address .form-list li:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.one-step-checkout .billing-address .form-list li fieldset { border: 0px; }
+.one-step-checkout .billing-address .form-list > li.wide { padding: 10px; }
+.one-step-checkout .billing-address .form-list li.wide .field {margin: 0;}
+.one-step-checkout .billing-address .form-list li.already-registered {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding-right: 20px;
+    margin-top: 5px;
+    display: none;
+}
+.one-step-checkout .billing-address .form-list li.already-registered:before,
+.one-step-checkout .billing-address .form-list li.already-registered:after {
+    height: 1px;
+    display: block;
+    content: "";
+    background: url(../../images/dotted-line.gif) repeat-x left bottom;
+}
+.one-step-checkout .billing-address .form-list li.already-registered .page-top-row { line-height: 20px; }
+.one-step-checkout .billing-address .form-list li.already-registered .close {
+    float: right;
+    font-weight: 700;
+    color: #C8C8C8;
+}
+.one-step-checkout .billing-address .form-list li.already-registered .close:hover {
+    cursor: pointer;
+    color: #ABABAB;
+}
+.one-step-checkout .billing-address .form-list li.already-registered .page-top-row {
+    border: 0px;
+    padding: 10px 0;
+}
+
+.one-step-checkout .page-top-row #onestepcheckout-login-form fieldset a {
+    float: none!important;
+    display: inline-block;
+}
+
+.one-step-checkout .page-top-row #onestepcheckout-login-form button {
+    padding: 0;
+    height: auto;
+}
+
+.one-step-checkout .page-top-row #onestepcheckout-login-form button + a {
+    margin-top: 7px;
+}
+
+.one-step-checkout .billing-address .form-list li.control {margin: 0 0 7px 10px!important;}
+.one-step-checkout .billing-address .form-list li select#billing-address-select,
+
+.one-step-checkout .billing-address .checkbox-save-addressbook,
+.one-step-checkout .billing-address .checkbox-signup {
+    float: left;
+    top: 3px;
+    position: relative;
+    margin-right: 6px;
+}
+
+
+/*=== payment ===*/
+.one-step-checkout .payment #co-payment-form {
+    display: block;
+    background-color: #ececec;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    padding: 10px;
+}
+.one-step-checkout .payment #co-payment-form:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.one-step-checkout .payment #co-payment-form > label {
+    margin-bottom: 5px;
+}
+
+.one-step-checkout .payment .form-row { margin-bottom: 10px; }
+.one-step-checkout .payment .form-row.last-row {
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 17px;
+}
+.one-step-checkout .form-row:after {
+    width: 100%;
+    content: "";
+    clear: both;
+    display: block;
+}
+.one-step-checkout .sp-methods:after {
+    content: "";
+    clear: both;
+    width: 100%;
+    display: block;
+}
+.one-step-checkout .payment .fields.form-row .field:first-child {
+    margin-right: 5px;
+}
+.one-step-checkout .payment .payment-button {
+    vertical-align: middle;
+    display: inline-block!important;
+    width: 164px;
+    height: 37px;
+    line-height: 35px;
+    font-size: 14px;
+    font-weight: 700!important;
+    margin-bottom: 2px;
+    text-transform: none!important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0!important;
+    background: none;
+}
+.one-step-checkout .payment .payment-button.disabled {
+    opacity: 0.35;
+    border: 0px!important;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.one-step-checkout .payment .payment-button.disabled:hover {
+    cursor: auto;
+}
+.one-step-checkout .payment .payment-button:first-child { margin-left: 0; }
+.one-step-checkout .payment .payment-button.button-free {
+    line-height: 14px;
+    box-sizing: border-box;
+    padding: 3px 0 0 0;
+    font-size: 12px;
+    text-align: center;
+}
+.one-step-checkout .payment .payment-button.button-free:before {
+    margin: 5px 0 0 5px;
+}
+
+.one-step-checkout .payment .payment-button span.icon,
+.one-step-checkout .payment .payment-button.button-paypal_billing_agreement span.icon,
+.one-step-checkout .payment .button-ccsave span.icon,
+.one-step-checkout .payment .button-braintree span.icon,
+.one-step-checkout .payment .button-checkmo span.icon,
+.one-step-checkout .payment .button-cashondelivery span.icon,
+.one-step-checkout .payment .button-paypal_express span.icon,
+.one-step-checkout .payment .button-paypal_express_bml span.icon,
+.one-step-checkout .payment .button-paypal_direct span.icon {
+    background-image: url("../../../images/plumrocket/onestepcheckout/onepage-sprite.png");
+    background-position: -54px -8px;
+    width: 36px;
+    height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.one-step-checkout .payment .button-cashondelivery span.icon {
+    background-position: -196px -6px;
+}
+
+.one-step-checkout .payment .button-checkmo span.icon {
+    background-position: -239px -2px;
+    height: 30px;
+}
+
+.one-step-checkout .payment .payment-button .payment-name {
+    font-size: 11px;
+    vertical-align: middle;
+    line-height: 11px;
+    max-width: 90px;
+    display: inline-block;
+}
+
+.one-step-checkout .payment .payment-button.button-paypal_billing_agreement {
+    line-height: 20px;
+    box-sizing: border-box;
+    padding-top: 6px;
+    height: 54px;
+}
+
+.one-step-checkout .payment .payment-button.button-paypal_billing_agreement span.icon {
+    background-position: -161px -336px;
+    width: 31px;
+    height: 31px;
+    margin-right: 6px;
+    margin: 0 7px;
+    margin-top: 3px;
+}
+.one-step-checkout .payment .payment-button.button-paypal_billing_agreement span.payment-description { line-height: 20px; }
+.one-step-checkout #checkout-payment-method-load .sp-methods label.active {
+    border: 1px solid #b8b8b8!important;
+    background-color: #fdf5dc!important;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0 1px 0 0 #d9d9d9;
+    -moz-box-shadow: 0 1px 0 0 #d9d9d9;
+    -webkit-box-shadow: 0 1px 0 0 #d9d9d9;
+}
+.one-step-checkout .sp-methods label:before {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    content: "";
+    background-image: url("../../../images/plumrocket/onestepcheckout/onepage-sprite.png");
+    background-position: -27px -12px;
+    margin: 0 5px 0 5px;
+    vertical-align: middle;
+}
+.one-step-checkout .sp-methods label.active:before { background-position: -7px -12px; }
+.one-step-checkout .sp-methods label { border: 1px solid transparent!important; }
+.one-step-checkout .sp-methods label:hover { cursor: pointer; }
+.one-step-checkout .payment #braintree_store_in_vault_div #cart_remember_what { font-weight: 400!important; }
+
+.one-step-checkout .payment .button-paypal_express span.icon {
+    background-position: -91px -6px;
+    width: 100px;
+    height: 27px;
+    display: inline-block;
+}
+.one-step-checkout .payment .button-paypal_express_bml span.icon {
+    background-position: -290px -6px;
+    width: 85px;
+    height: 27px;
+    display: inline-block;
+}
+.one-step-checkout .payment .button-amazon_payments span.icon {
+    background-position: 0px -76px;
+    width: 54px;
+    height: 27px;
+    display: inline-block;
+}
+.one-step-checkout .payment .button-amazon_payments .payment-name {
+    width: 70px;
+}
+
+.one-step-checkout .payment .sp-methods-content ul {
+    display: block;
+    border-top: 1px solid #CCCCCC;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 0 0 0;
+}
+
+.one-step-checkout .payment .sp-methods-content ul li {
+    list-style: none;
+}
+
+/* sage pay */
+.one-step-checkout .payment .button-sagepaydirectpro span.icon,
+.one-step-checkout .payment .button-sagepayserver span.icon {
+    width: 100px;
+    height: 24px;
+    background-image: url("../../../images/plumrocket/onestepcheckout/sage-pay-small.jpg");
+    background-size: 85px 27px;
+    background-repeat: no-repeat;
+    background-position: 0 -2px;
+}
+
+.one-step-checkout .payment .button-sagepaydirectpro .payment-name,
+.one-step-checkout .payment .button-sagepayserver .payment-name {
+    display: none;
+}
+
+
+.one-step-checkout .payment .sp-methods-content ul:before,
+.one-step-checkout .payment .sp-methods-content ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.one-step-checkout .payment .sp-methods-content ul#payment_form_paypal_express_bml li,
+.one-step-checkout .payment .sp-methods-content ul#payment_form_paypal_express li {
+    width: 100%;
+    margin-left: 0!important;
+}
+
+.one-step-checkout .payment .sp-methods-content .form-list li {
+    width: 48%;
+    float: left;
+    margin: 0 0 7px 2%!important;
+    clear: none;
+    list-style: none;
+}
+
+.one-step-checkout .payment .sp-methods-content .form-list li img {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.one-step-checkout .payment .sp-methods-content .form-list li:nth-child(2n+1) {
+    width: 48%;
+    float: left;
+    margin: 0 0 7px 0!important;
+    clear: left;
+}
+
+.one-step-checkout .payment .sp-methods-content .form-list li label:before {
+    display: none;
+}
+.one-step-checkout .payment .sp-methods-content .form-list li p.required {
+    display: none;
+}
+.one-step-checkout .payment .sp-methods-content .form-list li .v-fix {
+    float: left;
+    margin-right: 5px;
+}
+.one-step-checkout .payment .sp-methods-content .form-list li .v-fix + a {
+    margin-top: 6px;
+    display: inline-block;
+}
+
+.tool-tip {
+    border: 1px solid #b38a2b;
+    background: #fff6ab;
+    padding: 15px 20px;
+    position: absolute;
+    z-index: 9999;
+}
+
+.tool-tip .btn-close a {
+    display: block;
+    margin: 0 0 0 auto;
+    width: 15px;
+    height: 15px;
+    background: url("../../../images/plumrocket/onestepcheckout/btn_window_close.gif") 100% 0 no-repeat;
+    text-align: left;
+    text-indent: -999em;
+    overflow: hidden;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+
+.one-step-checkout .payment span.help {
+    color: #1954a6;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 35px;
+    font-size: 12px;
+}
+.one-step-checkout .payment span.help:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.one-step-checkout .payment .button-paypal_express .payment-name,
+.one-step-checkout .payment .button-paypal_express_bml .payment-name {
+    display: none;
+}
+.one-step-checkout .payment .card-number {
+    padding: 0 25px 0 5px;
+    float: left;
+    color: #4f6883;
+}
+.one-step-checkout .payment .icon-ok {
+    background-position: -60px -333px;
+    display: inline-block;
+    width: 19px;
+    height: 18px;
+    position: absolute;
+    left: 158px;
+    top: 4px;
+}
+.one-step-checkout .payment .accept-card {
+    background-position:  -187px -302px;
+    display: inline-block;
+    width: 45px;
+    height: 28px;
+    margin-top: 1px;
+    margin-left: 5px;
+}
+.one-step-checkout .payment .form-list li:first-child { margin-left: 0px; }
+.one-step-checkout .payment .form-list li {
+    float: left;
+    margin-right: 5px!important;
+    margin: 0 0 15px 0;
+    position: relative;
+}
+.one-step-checkout .payment .form-list li .cvv-what-is-this {
+    text-decoration: none;
+    font-size: 12px;
+}
+.one-step-checkout .payment .form-list li .cvv-what-is-this:hover { cursor: pointer; }
+.one-step-checkout .payment .form-list li .payment-type-image {
+    margin: 4px 5px 0 0;
+    float: left;
+}
+.one-step-checkout .payment .form-list li#braintree_token_selector,
+.one-step-checkout .payment .form-list li#cc_type_auto_row,
+.one-step-checkout .payment .form-list li#cc_type_auto_row+li,
+.one-step-checkout .payment .form-list li#cc_type_manual_row+li,
+.one-step-checkout .payment .form-list li#braintree_store_in_vault_div,
+.one-step-checkout .payment .form-list li#braintree_store_in_vault_div { width: 100%; }
+.one-step-checkout .payment .form-list li#cc_type_manual_row+li { margin-bottom: 0; }
+.one-step-checkout .payment .form-list li#cc_type_auto_row+li { position: relative; }
+.one-step-checkout .payment .form-list li#cc_type_manual_row+li .input-text { width: 190px!important; }
+.one-step-checkout .payment .form-list li#cc_type_manual_row+li .input-box {
+    width: auto;
+    float: left;
+}
+.one-step-checkout .payment .form-list li#cc_type_auto_row+li:after {
+    background-position: -187px -302px;
+    display: block;
+    width: 45px;
+    height: 28px;
+    margin-top: 1px;
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 185px;
+}
+
+.one-step-checkout .payment #braintree_cc_number {margin-right: 10px;}
+.one-step-checkout .payment select.month.validate-cc-exp { width: 120px!important; }
+.one-step-checkout .payment select.year {
+    width: 70px!important;
+    margin: 0;
+}
+.one-step-checkout .payment .input-text.cvv {
+    width: 55px!important;
+    float: left;
+    margin-right: 5px;
+}
+.one-step-checkout .payment .cvv-icon {
+    display: inline-block;
+    width: 45px;
+    height: 30px;
+    background-position: -743px -299px;
+}
+/*=== payment ===*/
+.one-step-checkout .order-review-column {
+    float: right;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.order-summary-wrap > .discount h2,
+.one-step-checkout #reward-credit-coupon-form .discount > label[for="rewards_point_count"],
+.one-step-checkout .order-review-column #discount-coupon-form label {
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: uppercase!important;
+    position: relative;
+    text-transform: uppercase;
+    padding-left: 32px;
+    line-height: 29px;
+    color: #12466B;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.one-step-checkout .order-review-column #discount-coupon-form label,
+.order-summary-wrap > .discount h2:hover {
+    cursor: default;
+}
+.one-step-checkout #reward-credit-coupon-form .discount > label[for="rewards_point_count"] {
+    line-height: 15px;
+}
+.one-step-checkout #reward-credit-coupon-form .discount > label[for="rewards_point_count"] + label {
+    margin-left: 32px;
+}
+.one-step-checkout #reward-credit-coupon-form .discount > label[for="rewards_point_count"] + label,
+.one-step-checkout #reward-credit-coupon-form .discount > label[for="rewards_point_count"] + label strong {
+    font-size: 10px;
+    font-weight: 700;
+    color: #1e6faa;
+    text-transform: none;
+    vertical-align: top;
+}
+.order-summary-wrap > .discount h2:before,
+.one-step-checkout #reward-credit-coupon-form .discount > label[for="rewards_point_count"]:before {
+    display: block;
+    content: "";
+    background-image: url("../../../images/plumrocket/onestepcheckout/onepage-sprite.png");
+    background-position: -87px -73px;
+    width: 28px;
+    height: 29px;
+    position: absolute;
+    left: 0;
+}
+
+.one-step-checkout .order-review-column #discount-coupon-form label:before {
+    display: block;
+    content: "";
+    background-image: url("../../../images/plumrocket/onestepcheckout/onepage-sprite.png");
+    background-position: -125px -73px;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 0;
+}
+
+
+.one-step-checkout .order-review-column #discount-coupon-form .input-box {
+    width: 100%;
+    position: relative;
+}
+.one-step-checkout .order-review-column #discount-coupon-form input.input-text {
+    height: 28px;
+    line-height: 28px;
+}
+.one-step-checkout .order-review-column .order-summary-wrap .discount button,
+.one-step-checkout .order-review-column #discount-coupon-form .buttons-set button {
+    width: auto;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-top: 7px;
+}
+.one-step-checkout .order-review-column .order-summary-wrap > .discount button {
+    margin-top: 10px;
+}
+.one-step-checkout .order-review-column .order-summary-wrap .discount button>span,
+.one-step-checkout .order-review-column #discount-coupon-form .buttons-set button>span {
+    height: 26px;
+    line-height: 25px;
+    margin-top: 1px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.one-step-checkout .order-review-column #discount-coupon-form .buttons-set button>span span {
+    display: inline-block;
+    line-height: 25px;
+}
+
+.one-step-checkout .order-review-column #checkout-review-table-wrapper {
+    border-left: 1px solid #c4c4c4;
+    border-right: 1px solid #c4c4c4;
+    border-top: 1px solid #c4c4c4;
+}
+
+.one-step-checkout .order-review-column table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.one-step-checkout #checkout-review-table-wrapper:before {
+    content: "";
+    clear: both;
+    display: block;
+    width: 100%;
+}
+.one-step-checkout .order-review-column table.data-table:hover {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.one-step-checkout .order-review-column table.data-table tr td h3 {
+    font-weight: 700;
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 12px;
+    line-height: 18px;
+}
+.one-step-checkout .order-review-column table.data-table tr td h3:before { display: none; }
+.one-step-checkout .order-review-column table.data-table td {
+    border-bottom: 1px solid #c4c4c4;
+    height: 35px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: center;
+    padding: 3px 5px;
+    background-color: #fff;
+}
+.one-step-checkout .order-review-column table.data-table td.last {
+    text-align: right;
+    padding-left: 12px;
+}
+
+.one-step-checkout .order-review-column table.data-table tfoot td.last * {
+    color: #0a263c!important;
+    font-weight: 700!important;
+}
+
+.one-step-checkout .order-review-column table.data-table tr td h3 {
+    font-size: 12px!important;
+    line-height: 13px;
+    font-weight: 700!important;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+}
+.one-step-checkout .order-review-column table.data-table td .price {
+    white-space: nowrap;
+}
+.one-step-checkout .order-review-column table.data-table td .product-info {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    top: -2px;
+    left: 3px;
+}
+.one-step-checkout .order-review-column table.data-table td .product-info:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../../../images/plumrocket/onestepcheckout/onepage-sprite.png");
+    background-position: -63px -80px;
+    width: 14px;
+    height: 14px;
+    opacity: 0.7;
+    font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+}
+
+.one-step-checkout .order-review-column table.data-table td .product-info:hover .item-options {
+    display: block;
+}
+.one-step-checkout .order-review-column table.data-table tr td .product-info .item-options {
+    display: none;
+    position: absolute;
+    background-color: #FCEFC5;
+    padding: 3px 6px;
+    margin-top: 22px;
+    border: 1px solid #FCD75E;
+    white-space: nowrap;
+    z-index: 100;
+}
+.one-step-checkout .order-review-column table.data-table tr td .product-info .item-options:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent transparent #FCD75E transparent;
+    border-width: 0 6px 7px 6px;
+    position: absolute;
+    top: -7px;
+    left: 2px;
+}
+.one-step-checkout .order-review-column table.data-table tr td .product-info .item-options:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent transparent #FCEFC5 transparent;
+    border-width: 0 6px 7px 6px;
+    position: absolute;
+    top: -5px;
+    left: 2px;
+}
+.one-step-checkout .order-review-column table.data-table td .item-options {
+    position: absolute;
+    display: none;
+}
+.one-step-checkout .order-review-column table.data-table td .item-options * {
+    font-size: 11px;
+}
+.one-step-checkout .order-review-column table.data-table td .item-options .label {
+    font-weight: 700;
+}
+
+
+.one-step-checkout .order-review-column table.data-table td,
+.one-step-checkout .order-review-column table.data-table th { border-right: 0px; }
+.one-step-checkout .order-review-column table.data-table tr td:first-child { text-align: left; }
+.one-step-checkout .order-review-column table.data-table tr th {
+    padding: 0 5px;
+    height: 35px;
+    font-weight: 700;
+    color: #0a263c;
+    background-color: #E3E3E3;
+}
+.one-step-checkout .order-review-column table.data-table tr th:first-child { text-align: left; }
+.one-step-checkout .order-review-column table.data-table tfoot tr td {
+    border-bottom: 0px;
+    background-color: #F8F8F8;
+    height: 20px;
+    color: #0a263c;
+    border-right: 0px;
+    font-weight: 700;
+    border-bottom: 0px;
+}
+.one-step-checkout .order-review-column table.data-table tfoot tr.last td {
+    background-color: #F8F8F8;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0a263c;
+    border-right: 0px;
+    border-bottom: 1px solid #c4c4c4!important;
+}
+.one-step-checkout .order-review-column table.data-table tfoot tr td { border-right: 0px!important; }
+.one-step-checkout .order-review-column table.data-table tfoot .summary-collapse {
+    text-decoration: underline;
+    background: none;
+    padding-left: 0;
+}
+.one-step-checkout .order-review-column table.data-table tfoot .summary-collapse:before {
+    background-position: -144px -345px;
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    content: "";
+    margin-right: 3px;
+}
+.one-step-checkout .order-review-column table.data-table tfoot tr.show-details .summary-collapse:before { background-position: -144px -331px; }
+.one-step-checkout .order-review-column #checkout-review-submit {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin-top: -1px;
+}
+.one-step-checkout .order-review-column #checkout-review-submit li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.one-step-checkout .order-review-column #checkout-review-submit li label {
+    font-weight: 700!important;
+    text-transform: none!important;
+}
+.one-step-checkout .order-review-column #checkout-review-submit li .agree {
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+.one-step-checkout .order-review-column #checkout-review-submit li .agree .validation-advice { bottom: 2px; }
+.one-step-checkout .order-review-column #checkout-review-submit li .agree label {
+    font-weight: 400!important;
+    text-transform: none!important;
+    padding-left: 3px;
+    display: inline;
+    vertical-align: middle;
+}
+.one-step-checkout .order-review-column #checkout-review-submit li .terms,
+.one-step-checkout .order-review-column #checkout-review-submit li textarea {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.one-step-checkout .order-review-column #checkout-review-submit li .terms {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    height: 80px;
+}
+.one-step-checkout .order-review-column #checkout-review-submit p.f-left {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 25px;
+    float: none!important;
+    display: none;
+}
+.one-step-checkout .order-review-column #checkout-review-submit #review-buttons-container {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 0 10px;
+    text-align: center;
+}
+.one-step-checkout .order-review-column #checkout-review-submit #review-buttons-container .please-wait { float: none; }
+
+.one-step-checkout .order-review-column .section-name+#submit-chackout {
+    float: right;
+    width: 140px;
+}
+.one-step-checkout .order-review-column button.btn-checkout span { border-color:#3C730A; }
+
+.one-step-checkout .shipping-method-title {
+    margin: 20px 10px 0px 10px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    border-bottom: 1px solid #C3C3C3;
+}
+
+.one-step-checkout .billing-address-forms .shipping-method-title {
+    margin: 0px 10px 0px 10px;
+}
+
+.one-step-checkout #co-shipping-method-form {
+    margin: 5px 10px 10px 10px;
+    display: block;
+}
+
+.one-step-checkout #co-shipping-method-form .sp-methods li label {
+    font-weight: 400!important;
+}
+
+.one-step-checkout #co-shipping-method-form #checkout-shipping-method-load p {
+    padding: 10px;
+    background-color: #FCEFC5;
+    border: 1px solid #FCD75E;
+}
+
+.one-step-checkout #co-shipping-method-form .sp-methods dt {
+    font-size: 12px;
+    font-weight: 700;
+    padding-top: 5px;
+}
+
+.one-step-checkout #co-shipping-method-form ul li {
+    list-style: none;
+    margin: 5px 0;
+}
+
+.one-step-checkout #co-shipping-method-form ul li input[type="radio"] {
+    display: none;
+}
+
+.one-step-checkout #co-shipping-method-form ul li label {
+    border: 0px!important;
+}
+
+.one-step-checkout #co-shipping-method-form ul li label:before {
+    margin: 0 5px 0 0;
+    position: relative;
+    top: -2px;
+}
+
+.one-step-checkout #co-shipping-method-form .price {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+
+/*=== order summary ===*/
+.order-summary-wrap {
+    display: block;
+    background-color: #ececec;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    padding: 10px;
+}
+
+.order-summary-wrap #reward-credit-coupon-form,
+.order-summary-wrap > .discount {
+    margin-right: 2%;
+}
+
+.order-summary-wrap > .discount,
+.order-summary-wrap #discount-coupon-form,
+.order-summary-wrap #reward-credit-coupon-form {
+    width: 49%;
+    float: left;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #C4C4C4;
+    position: relative;
+    padding: 8px;
+    background-color: #fff;
+    min-height: 48px;
+}
+
+.order-summary-wrap > .discount.oneActive,
+.order-summary-wrap #discount-coupon-form.oneActive,
+.order-summary-wrap #reward-credit-coupon-form.oneActive {
+    width: 100%;
+}
+
+.order-summary-wrap .show-form {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    background-color: #84b9d9;
+    color: #c8e6fc;
+    text-align: center;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    float: right;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top: 4px;
+}
+
+.order-summary-wrap .show-form:hover {
+    background-color: #76A9C8;
+    cursor: pointer;
+}
+
+.order-summary-wrap #reward-credit-coupon-form .discount-form,
+.order-summary-wrap #discount-coupon-form .discount-form-input,
+.order-summary-wrap > .discount .discount-form {
+    display: none;
+    margin-top: 10px;
+    min-height: 65px;
+}
+
+.order-summary-wrap #reward-credit-coupon-form .discount-form #rewards_slider {
+    margin: 0 5px;
+}
+
+.one-step-checkout .order-review-column #checkout-review-load {
+    margin-top: 10px;
+}
+
+.one-step-checkout .page-top-row .buttons-set button,
+.one-step-checkout .order-review-column button {
+    width: 210px;
+    display: block;
+    margin: 0 auto 15px auto;
+    float: none;
+    border: 0px;
+    background: none;
+    outline: none;
+    padding: 0;
+    height: auto;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.one-step-checkout button[disabled],
+.one-step-checkout .order-review-column button[disabled] span,
+.one-step-checkout .page-top-row .buttons-set button[disabled] span,
+.one-step-checkout .order-review-column button[disabled]:hover span,
+.one-step-checkout .page-top-row .buttons-set button[disabled]:hover span {
+    opacity: 0.5;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+    cursor: default;
+}
+.one-step-checkout button[disabled]:hover {
+    cursor: default!important;
+}
+
+.one-step-checkout button .btn-loader {
+    display: none!important;
+    background-image: url("../../../images/plumrocket/onestepcheckout/button_loader.gif");
+    width: 20px;
+    height: 28px!important;
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.one-step-checkout button[disabled] .btn-loader {
+    display: inline-block!important;
+}
+
+.one-step-checkout button[disabled] .btn-loader + span {
+    display: none!important;
+}
+
+.one-step-checkout .page-top-row .buttons-set button {
+    margin: 0;
+}
+
+.one-step-checkout .page-top-row .buttons-set button:hover,
+.one-step-checkout .order-review-column button:hover,
+.checkout-onepage-index ol.opc-firststep-widget .buttons-set button:hover {
+    cursor: pointer;
+}
+
+.one-step-checkout .page-top-row .buttons-set button>span,
+.one-step-checkout .order-review-column button>span,
+.checkout-onepage-index ol.opc-firststep-widget .buttons-set button>span {
+    display: block;
+    height: 40px;
+    line-height: 39px;
+    background: #64a826;
+    padding: 0 25px;
+    font: bold 14px/40px Arial, Helvetica, sans-serif;
+    text-align: center;
+    white-space: nowrap;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.6);
+    -moz-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.6);
+    box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.6);
+    border: 1px solid #3C730A;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.one-step-checkout .page-top-row .buttons-set button:hover>span,
+.one-step-checkout .order-review-column button:hover>span,
+.checkout-onepage-index ol.opc-firststep-widget .buttons-set button:hover>span {
+    background: #589322;
+}
+
+.one-step-checkout #reward-credit-coupon-form button.cancel>span,
+.one-step-checkout .order-review-column button.btn-coupon-cancel>span {
+    background-color: #AAAAAA!important;
+    border-color: #5D5D5D!important;
+    -webkit-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.6);
+    -moz-box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.6);
+    box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,0.6);
+    border: 1px solid #5D5D5D;
+    -webkit-transition: all 0.5s;
+}
+
+.one-step-checkout #reward-credit-coupon-form button.cancel:hover>span,
+.one-step-checkout .order-review-column button.btn-coupon-cancel:hover>span {
+    background-color: #A0A0A0!important;
+}
+
+#terms-and-conditions-content h2 {
+    margin: 15px 0 6px 0;
+}
+.main-container .one-step-checkout .form-list li.wide{
+    clear: both;
+}
+.one-step-checkout .form-list label.required em,
+.main-container .one-step-checkout .form-list li label{
+    position: static;
+    display: block !important;
+}
+.main-container .one-step-checkout .form-list li .field{
+    padding: 0 10px;
+}
+@media only screen and (min-width:1400px) {
+    .checkout-onepage-index .validation-advice {
+        background: #8D0000;
+        bottom: 0px;
+        color: #FFF!important;
+        font-size: 11px;
+        font-weight: bold;
+        line-height: 13px;
+        min-height: 13px;
+        padding: 10px!important;
+        position: absolute;
+        white-space: normal;
+        left: -130px;
+        width: 120px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .checkout-onepage-index .validation-advice:before {
+        display: none;
+    }
+
+    .checkout-onepage-index .validation-advice:after {
+        position: absolute;
+        right: -8px;
+        bottom: 8px;
+        content: " ";
+        width: 0;
+        height: 0;
+        border-top: 8px solid rgba(0, 0, 0, 0);
+        border-bottom: 8px solid rgba(0, 0, 0, 0);
+        border-left: 8px solid #8D0000;
+    }
+}
+
+@media only screen and (max-width:1024px) {
+    .one-step-checkout .page-top-row #onestepcheckout-login-form {
+        width: 100%;
+    }
+    .one-step-checkout .billing-address .form-list li select#billing-address-select,
+    .one-step-checkout select#shipping-address-select {
+        width: 100%!important;
+    }
+    .one-step-checkout .payment .payment-button {
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    .one-step-checkout .sp-methods label {
+        border: 1px solid #BABABA!important;
+    }
+    .tool-tip {
+        position: relative;
+        top: 0!important;
+    }
+    .tool-tip img {
+        width: 100%;
+    }
+    .order-summary-wrap > .discount,
+    .order-summary-wrap #discount-coupon-form,
+    .order-summary-wrap #reward-credit-coupon-form {
+        width: 100%;
+        margin-right: 0;
+    }
+    .order-summary-wrap > .discount,
+    .order-summary-wrap #reward-credit-coupon-form {
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width:769px) {
+    .checkout-onepage-index .header .logo {
+        float: none;
+    }
+
+    .checkout-onepage-index .page {
+        padding: 0 10px;
+    }
+
+    .checkout-onepage-index .checkout_links {
+        float: none;
+        margin: 12px auto 0 auto;
+    }
+
+    .one-step-checkout .page-top-row #onestepcheckout-login-form #login-form .input-box {
+        width: 50%;
+        min-height: 48px;
+    }
+
+    .one-step-checkout .page-top-row #onestepcheckout-login-form button {
+        margin: 0 7px 0 0;
+    }
+
+    .one-step-checkout .order-review-column #discount-coupon-form .input-box {
+        width: 100%;
+        max-width: 200px;
+        float: none;
+        margin-bottom: 8px;
+    }
+
+    .one-step-checkout .page-top-row #onestepcheckout-login-form #login-form .input-box .validation-advice {
+        white-space: nowrap;
+    }
+
+    .one-step-checkout .order-review-column #discount-coupon-form .buttons-set {
+        margin-left: 0;
+    }
+
+    .one-step-checkout .page-top-row #onestepcheckout-login-form #login-form-hide {
+        top: -14px;
+        right: -10px;
+    }
+    .one-step-checkout .page-top-row #onestepcheckout-login-form-link .extendedLoginButtons {
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
+@media only screen and (max-width:680px) {
+    .one-step-checkout > div {
+        width: 100%;
+    }
+    .one-step-checkout label,
+    .one-step-checkout input.input-text {
+        font-size: 13px;
+    }
+    .one-step-checkout .order-review-column #discount-coupon-form .input-box {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width:680px) {
+    .checkout-onepage-index .amazon-widget #amazon-widget-address-wrapper,
+    .checkout-onepage-index .amazon-widget #amazon-widget-wallet-wrapper {
+        width: 100%;
+        padding: 5px 0;
+    }
+}
+
+@media only screen and (max-width:550px) {
+    .one-step-checkout .page-top-row #review-buttons-container-top,
+    .one-step-checkout .page-top-row #onestepcheckout-login-form-link {
+        float: none;
+    }
+    .one-step-checkout .payment .payment-button {
+        margin: 0 auto 6px auto;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    .one-step-checkout .sp-methods label {
+        border: 1px solid #BABABA!important;
+    }
+    .checkout-onepage-index ol.opc-firststep-widget .col2-set .col-1,
+    .checkout-onepage-index ol.opc-firststep-widget .col2-set .col-2 {
+        float: none;
+        width: 100%;
+    }
+    .checkout-onepage-index ol.opc-firststep-widget .buttons-set button {
+        margin: 10px auto!important;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .checkout-onepage-index .checkout_links {
+        width: 100%;
+        background-size: contain;
+    }
+    .one-step-checkout .page-top-row #onestepcheckout-login-form {
+        width: 100%;
+    }
+    .one-step-checkout .payment .payment-button {
+        width: 100%;
+        display: block;
+    }
+    .one-step-checkout .payment .payment-button .payment-name {
+        max-width: 170px;
+    }
+    .one-step-checkout h3.section-name {
+        font-size: 19px;
+    }
+    .one-step-checkout .payment .sp-methods-content .form-list li,
+    .one-step-checkout .payment .sp-methods-content .form-list li:nth-child(2n+1) {
+        width: 100%;
+        float: left;
+        margin: 0 0 7px 0!important;
+        clear: none;
+        list-style: none;
+    }
+    .one-step-checkout .order-review-column #checkout-review-submit li .agree label {
+        font-size: 12px;
+    }
+    .one-step-checkout .page-top-row .buttons-set button {
+        width: 100%;
+    }
+    .one-step-checkout .page-top-row #onestepcheckout-login-form-link .extendedLoginButtons #AmazonPayButtonBefore {
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin: 0;
+    }
+    .one-step-checkout .page-top-row #onestepcheckout-login-form-link .extendedLoginButtons:after {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:380px) {
+    .one-step-checkout label {
+        font-size: 12px;
+    }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+    .one-step-checkout .payment .payment-button.button-paypal_billing_agreement span.icon,
+    .one-step-checkout .payment .button-ccsave span.icon,
+    .one-step-checkout .payment .button-braintree span.icon,
+    .one-step-checkout .payment .button-checkmo span.icon,
+    .one-step-checkout .payment .button-cashondelivery span.icon,
+    .one-step-checkout .payment .button-paypal_express_bml span.icon,
+    .one-step-checkout .payment .button-paypal_express span.icon,
+    .one-step-checkout .payment .payment-button.button-amazon_payments span.icon,
+    .one-step-checkout .sp-methods label:before,
+    .one-step-checkout .order-review-column table.data-table td .product-info:before,
+    .one-step-checkout #reward-credit-coupon-form .discount > label[for="rewards_point_count"]:before,
+    .order-summary-wrap > .discount h2:before, .one-step-checkout .order-review-column #discount-coupon-form label:before {
+        background-image: url("../../../images/plumrocket/onestepcheckout/onepage-sprite-retina.png");
+        background-size: 370px 120px;
+    }
+
+}

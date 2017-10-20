@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+ */
+ -->
+<config>
+    <tabs>
+        <ico translate="label" module="ultramegamenu">
+            <label>ICO EXTENSIONS</label>
+            <sort_order>150</sort_order>
+        </ico>
+    </tabs>
+    <sections>
+        <ultramegamenu translate="label">
+            <label>UltraMegamenu (v.1.0.0)</label>
+            <tab>ico</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>2</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <display_options translate="label">
+                    <label>Display Options</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>10</sort_order>
+                    <fields>
+                        <effect translate="label">
+                            <label>Menu Animation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>ultramegamenu/system_config_source_mainmenu_menuanimation</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </effect>
+                        <home translate="label">
+                            <label>Home Link in Mainmenu</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </home>
+                        <show_if_no_children translate="label">
+                            <label>Show Category Blocks if No Sub-categories</label>
+                            <comment>If set to "Yes", custom Category Blocks will be displayed in the drop-down box even
+                                if the category doesn't have any sub-categories.
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_if_no_children>
+                        <heading_menuleft translate="label">
+                            <label>Menu Left/Right</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_menuleft>
+                        <menuleft_effect translate="label">
+                            <label>Menu Animation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>ultramegamenu/system_config_source_mainmenu_menuleftanimation</source_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </menuleft_effect>
+                        <heading_menucustom translate="label">
+                            <label>Custom Main Menu</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_menucustom>
+                        <enable_custom translate="label">
+                            <label>Enable Custom Menu</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_custom>
+                        <static_identifier translate="label comment">
+                            <label>Static block identifier:</label>
+                            <comment><![CDATA[Which static block you want they show on menu (Seperate by Semicolon And you want to put it right added up :right after Identifier). <br/>Example: custom_menu:right]]></comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </static_identifier>
+                        <url_key translate="label comment">
+                            <label>CMS Page Url Key:</label>
+                            <comment><![CDATA[Which cms page you want they show on menu (Seperate by Semicolon And you want to put it right added up :right after url key). <br/>Example: about-magento-demo-store:right ]]></comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </url_key>
+                        <url_external translate="label comment">
+                            <label>External link:</label>
+                            <comment><![CDATA[Which link you want they show on menu (Seperate by Semicolon). <br/>Example: Title/link ]]></comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </url_external>
+                        <heading_label_category translate="label">
+                            <label>Category Labels</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_label_category>
+                        <label1 translate="label">
+                            <label>Label 1</label>
+                            <comment><![CDATA[Define the text of the category label 1. Labels can be assigned to every category in Catalog > Manage Categories.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label1>
+                        <label2 translate="label">
+                            <label>Label 2</label>
+                            <comment><![CDATA[Define the text of the category label 2. Labels can be assigned to every category in Catalog > Manage Categories.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </label2>
+                    </fields>
+                </display_options>
+            </groups>
+        </ultramegamenu>
+    </sections>
+</config>

@@ -1,0 +1,147 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php
+$theme = $this->helper('wood');
+$compareHeader = $theme->getCfg('header/compare');
+$mobileCart = $theme->getCfg('header/hide_on_mobile');
+$toplink = $theme->getCfg('magento_blocks/top_links');
+$class = $mobileCart ? 'hidden-xs' : '';
+$logo = Mage::getStoreConfig('wood_design/header/logo_upload');
+$logoHome = Mage::getStoreConfig('wood_design/header/logo_homepage_upload');
+$sticky_logo = Mage::getStoreConfig('wood_design/header/sticky_logo_upload');
+$logo_retina = Mage::getStoreConfig('wood_design/header/logo_retina_upload');
+$mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+?>
+<!-- // HEADER // -->
+<header class="header-wrapper">
+    <div class="header-container">
+        <div id="mobile-sticky" class="main-header mobile-header visible-tablet">
+            <div class="header-content">
+                <div class="header-logo pull-left">
+                    <?php if(Mage::getSingleton('cms/page')->getIdentifier() == 'home' && Mage::app()->getFrontController()->getRequest()->getRouteName() == 'cms') : ?>
+                        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+                            <img class="x1" src="<?php echo $mediaUrl.'wysiwyg/icotheme/wood/logo/homepage/'.$logoHome; ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                            <img class="logo-sticky" src="<?php echo $mediaUrl.'wysiwyg/icotheme/wood/logo/'.$sticky_logo; ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                        </a>
+                    <?php else:?>
+                        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+                            <img class="x1" src="<?php echo $mediaUrl.'wysiwyg/icotheme/wood/logo/'.$logo; ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                            <img class="logo-sticky" src="<?php echo $mediaUrl.'wysiwyg/icotheme/wood/logo/'.$sticky_logo; ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                        </a>
+                    <?php endif?>
+                </div>
+                <?php echo $this->getChildHtml('menu.mobile') ?>
+                <div class="right-header-menu">
+                        <div class="item header-search">
+                            <div class="search-container">
+                                <div class="overwrite-setting skip-link" onclick="mobileSkipLink(this);" data-target-element="#navbar-search">
+                                    <span class="icon-basic-magnifier"></span>
+                                </div>
+                                <div id="navbar-search" class="switcher-content skip-content">
+                                    <?php echo $this->getChildHtml('topSearchMobile') ?>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="item header-maincart">
+                        <?php echo $this->getChildHtml('cart_mobile'); ?>
+                    </div>
+                    <div class="item header-setting">
+                        <div class="setting-switcher switcher-wrap">
+                            <div class="overwrite-setting skip-link" onclick="mobileSkipLink(this);" data-target-element="#navbar-setting">
+                                <span class="icon icon-basic-gear"></span>
+                            </div>
+                            <div id="navbar-setting" class="switcher-content skip-content">
+                                <?php if($toplink):?>
+                                    <?php echo $this->getChildHtml('topLinks') ?>
+                                <?php endif;?>
+                                <?php echo $this->getChildHtml('store_language') ?>
+                                <?php echo $this->getChildHtml('currency'); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main-header" class="main-header hidden-tablet">
+            <?php if(Mage::getSingleton('cms/page')->getIdentifier() == 'home' && Mage::app()->getFrontController()->getRequest()->getRouteName() == 'cms') : ?>
+                <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+                    <img class="x1" src="<?php echo $mediaUrl.'wysiwyg/icotheme/wood/logo/homepage/'.$logoHome; ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                    <img class="logo-sticky" src="<?php echo $mediaUrl.'wysiwyg/icotheme/wood/logo/'.$sticky_logo; ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                </a>
+            <?php else:?>
+                <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+                    <img class="x1" src="<?php echo $mediaUrl.'wysiwyg/icotheme/wood/logo/'.$logo; ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                    <img class="logo-sticky" src="<?php echo $mediaUrl.'wysiwyg/icotheme/wood/logo/'.$sticky_logo; ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+                </a>
+            <?php endif?>
+            <div class="wrapper-top-menu container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <?php echo $this->getChildHtml('topMenu') ?>
+                    </div>
+                </div>
+            </div>
+            <div class="right-header-menu">
+                <div class="header-search">
+                    <div class="search-container">
+                        <div class="overwrite-setting">
+                            <span class="icon-basic-magnifier"></span>
+                        </div>
+                        <div class="switcher-content">
+                            <?php echo $this->getChildHtml('topSearch') ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-maincart">
+                    <?php echo $this->getChildHtml('cart_header'); ?>
+                </div>
+                <div class="header-setting">
+                    <div class="setting-switcher switcher-wrap">
+                        <div class="overwrite-setting">
+                            <span class="icon icon-basic-gear"></span>
+                        </div>
+
+                        <div class="switcher-content">
+                            <?php if($toplink):?>
+                                <?php echo $this->getChildHtml('topLinks') ?>
+                            <?php endif;?>
+                            <?php echo $this->getChildHtml('store_language') ?>
+                            <?php echo $this->getChildHtml('currency'); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=""></div>
+        <?php echo $this->getChildHtml('topContainer'); ?>
+
+    </div>
+</header>
+

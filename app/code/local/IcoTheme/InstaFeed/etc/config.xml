@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright   Copyright (C) 2015 icotheme.com. All Rights Reserved.
+ */
+-->
+<config>
+    <modules>
+        <IcoTheme_InstaFeed>
+            <version>1.0.0</version>
+        </IcoTheme_InstaFeed>
+    </modules>
+
+    <frontend>
+        <routers>
+            <instafeed>
+                <use>standard</use>
+                <args>
+                    <module>IcoTheme_InstaFeed</module>
+                    <frontName>instafeed</frontName>
+                </args>
+            </instafeed>
+        </routers>
+        <layout>
+            <updates>
+                <instafeed>
+                    <file>ico_instafeed.xml</file>
+                </instafeed>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <models>
+            <instafeed>
+                <class>IcoTheme_InstaFeed_Model</class>
+            </instafeed>
+        </models>
+        <blocks>
+            <instafeed>
+                <class>IcoTheme_InstaFeed_Block</class>
+            </instafeed>
+        </blocks>
+        <helpers>
+            <instafeed>
+                <class>IcoTheme_InstaFeed_Helper</class>
+            </instafeed>
+        </helpers>
+    </global>
+</config>
